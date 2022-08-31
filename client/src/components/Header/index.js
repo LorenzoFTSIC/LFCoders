@@ -3,16 +3,44 @@ import { Link } from 'react-router-dom';
 
 import Auth from '../../utils/auth';
 
+const styles = {
+  card: {
+    height:'400px',
+    margin: 20,
+    backgroundImage:"linear-gradient(to right, rgb(52, 9, 138) , rgb(236, 185, 236))",
+    textAlign: 'center',
+  },
+  header: {
+    color:'white',
+    paddingTop:'90px'
+  },
+
+  header1: {
+    color:'white',
+    paddingTop:'30px',
+    fontSize: '3rem',
+    fontFamily: 'Segoe UI',
+  },
+  
+  link: {
+    textDecoration: 'none',
+  },
+  content: {
+    paddingTop:'20px',
+    padding: 20,
+  },
+};
+
 const Header = () => {
   const logout = (event) => {
     event.preventDefault();
     Auth.logout();
   };
   return (
-    <header className="bg-info text-dark mb-4 py-3 display-flex align-center">
-      <div className="container flex-column justify-space-between-lg justify-center align-center text-center">
-        <Link className="text-dark" to="/">
-          <h1 className="m-0" style={{ fontSize: '3rem' }}>
+    <header style={styles.card} className="bg-info text-dark mb-4 py-3 display-flex align-center">
+      <div style={styles.header} className="container flex-column justify-space-between-lg justify-center align-center text-center">
+        <Link style={styles.link} className="none" to="/" >
+          <h1  style={styles.header1} className="m-0">
             Tech Friends
           </h1>
         </Link>
