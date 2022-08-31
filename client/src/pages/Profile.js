@@ -7,6 +7,8 @@ import { QUERY_SINGLE_PROFILE, QUERY_ME } from '../utils/queries';
 
 import Auth from '../utils/auth';
 
+import CollabCube from './CollabCube';
+
 const style = {
   roundImg: {
     height: '200px',
@@ -28,7 +30,7 @@ const style = {
   }
 };
 
-const Profile = () => {
+const Profile = ({ profilecollabs }) => {
   const { profileId } = useParams();
 
   // If there is no `profileId` in the URL as a parameter, execute the `QUERY_ME` query instead for the logged in user's information
@@ -88,11 +90,24 @@ const Profile = () => {
 
       <div style={style.push}>
         <h5>My Collabs</h5>
-        INSERT-DYNAMIC-SQUARES-HERE
+        {/* {collab ? (
+          <div style={style.collabSquare}>
+            {profilecollabs.map((collab) => (
+              <CollabCube key={collab.id} collab={collab} />
+            ))}
+          </div>
+        ) : (
+          <p>Nothing yet!</p>
+        )} */}
+        <div style={style.collabSquare}>
+          {profilecollabs.map((collab) => (
+            <CollabCube key={collab.id} collab={collab} />
+          ))}
+        </div>
       </div>
       {/* </section> */}
     </div>
   );
-}
+};
 
 export default Profile;
