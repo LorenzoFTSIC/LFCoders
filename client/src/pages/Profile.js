@@ -7,7 +7,7 @@ import { QUERY_SINGLE_PROFILE, QUERY_ME } from '../utils/queries';
 
 import Auth from '../utils/auth';
 
-import CollabCube from './CollabCube'
+import CollabCube from './CollabCube';
 
 const style = {
   roundImg: {
@@ -90,8 +90,17 @@ const Profile = ({ profilecollabs }) => {
 
       <div style={style.push}>
         <h5>My Collabs</h5>
+        {/* {collab ? (
+          <div style={style.collabSquare}>
+            {profilecollabs.map((collab) => (
+              <CollabCube key={collab.id} collab={collab} />
+            ))}
+          </div>
+        ) : (
+          <p>Nothing yet!</p>
+        )} */}
         <div style={style.collabSquare}>
-          {profilecollabs.map((collab) => ( 
+          {profilecollabs.map((collab) => (
             <CollabCube key={collab.id} collab={collab} />
           ))}
         </div>
@@ -99,6 +108,6 @@ const Profile = ({ profilecollabs }) => {
       {/* </section> */}
     </div>
   );
-}
+};
 
 export default Profile;
