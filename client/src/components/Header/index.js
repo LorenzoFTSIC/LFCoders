@@ -25,10 +25,17 @@ const styles = {
   link: {
     textDecoration: 'none',
   },
-  content: {
-    paddingTop:'20px',
-    padding: 20,
+
+  login: {
+    backgroundColor: '#a4b5f3',
+    color: '#58497b'
   },
+
+  signup: {
+    backgroundColor: '#a4b5f3',
+    color: '#58497b'
+  }
+  
 };
 
 const Header = () => {
@@ -59,10 +66,10 @@ const Header = () => {
             </>
           ) : (
             <>
-              <Link className="btn btn-lg btn-primary m-2" to="/login">
+              <Link style={styles.login} className="btn btn-lg btn-light m-2" to="/login">
                 Login
               </Link>
-              <Link className="btn btn-lg btn-light m-2" to="/signup">
+              <Link style={styles.signup} className="btn btn-lg btn-light m-2" to="/signup">
                 Signup
               </Link>
             </>
