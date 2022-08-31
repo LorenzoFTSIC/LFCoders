@@ -7,7 +7,7 @@ import { QUERY_SINGLE_PROFILE, QUERY_ME } from '../utils/queries';
 
 import Auth from '../utils/auth';
 
-import CollabCube from './CollabCubes'
+import CollabCube from './CollabCube'
 
 const style = {
   roundImg: {
