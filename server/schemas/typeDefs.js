@@ -6,7 +6,23 @@ const typeDefs = gql`
     name: String
     email: String
     password: String
-    skills: [String]!
+    skills: [Skill]
+  }
+
+  type Project {
+    _id: ID
+    name: String!
+    description: String
+    skills: [Skill]
+    profile: [Profile]!
+    createDate: String!
+    completed: Boolean!
+  }
+
+  type Skill {
+    _id: ID
+    name: String!
+    stackType: String!
   }
 
   type Auth {
