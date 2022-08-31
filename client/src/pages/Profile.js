@@ -3,12 +3,30 @@ import React from 'react';
 import { Navigate, useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 
-import SkillsList from '../components/SkillsList';
-import SkillForm from '../components/SkillForm';
-
 import { QUERY_SINGLE_PROFILE, QUERY_ME } from '../utils/queries';
 
 import Auth from '../utils/auth';
+
+const style = {
+  roundImg: {
+    height: '200px',
+    width: '200px',
+    border: '1px solid black',
+    borderRadius: '50%'
+  },
+  profileHeading: {
+    display: 'flex',
+    justifyContent: 'space-between',
+    alignItems: 'flex-end'
+  },
+  profileInfo: {
+    display: 'flex',
+    alignItems: 'flex-end'
+  },
+  push: {
+    marginTop: '3rem'
+  }
+};
 
 const Profile = () => {
   const { profileId } = useParams();
@@ -17,7 +35,7 @@ const Profile = () => {
   const { loading, data } = useQuery(
     profileId ? QUERY_SINGLE_PROFILE : QUERY_ME,
     {
-      variables: { profileId: profileId },
+      variables: { profileId: profileId }
     }
   );
 
@@ -44,21 +62,30 @@ const Profile = () => {
 
   return (
     <div>
-      <h2 className="card-header">
-        {profileId ? `${profile.name}'s` : 'Your'} friends have endorsed these
-        skills...
-      </h2>
+      <section style={style.profileHeading}>
+        <div style={style.profileInfo}>
+          <div style={style.roundImg}>{/* <img></img> */}</div>
 
-      {profile.skills?.length > 0 && (
-        <SkillsList
-          skills={profile.skills}
-          isLoggedInUser={!profileId && true}
-        />
-      )}
+          <h4>Macki</h4>
+          <h5>I am INSERT-DYNAMIC-STATUS-HERE</h5>
+        </div>
 
-      <div className="my-4 p-4" style={{ border: '1px dotted #1a1a1a' }}>
-        <SkillForm profileId={profile._id} />
+        <div>
+          <h5>Settings</h5>
+        </div>
+      </section>
+
+      {/* <section style={style.profileContent}> */}
+      <div style={style.push}>
+        <h5>My Bio</h5>
+        <p>This is about me</p>
       </div>
+
+      <div style={style.push}>
+        <h5>My Collabs</h5>
+        INSERT-DYNAMIC-SQUARES-HERE
+      </div>
+      {/* </section> */}
     </div>
   );
 };
