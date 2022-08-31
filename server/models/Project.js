@@ -23,7 +23,7 @@ const projectSchema = new Schema({
         ref: 'Profile'
     },
   ],
-  createData: {
+  createDate: {
     type: Date,
     default: Date.now
   },
