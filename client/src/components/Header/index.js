@@ -48,7 +48,7 @@ const Header = () => {
       <div style={styles.header} className="container flex-column justify-space-between-lg justify-center align-center text-center">
         <Link style={styles.link} className="none" to="/" >
           <h1  style={styles.header1} className="m-0">
-            Tech Friends
+            L.F.Coders
           </h1>
         </Link>
         <p className="m-0" style={{ fontSize: '1.75rem', fontWeight: '700' }}>
