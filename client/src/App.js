@@ -16,6 +16,8 @@ import Header from './components/Header';
 import SmallHeader from './components/SmallHeader';
 import Footer from './components/Footer';
 
+import profilecollabs from './pages/profilecollabs'
+
 const httpLink = createHttpLink({
   uri: '/graphql',
 });
@@ -61,7 +63,7 @@ function App() {
               />
               <Route 
                 path="/me" 
-                element={<Profile />}
+                element={<Profile profilecollabs={profilecollabs} />}
               />
               <Route 
                 path="/profiles/:profileId"
