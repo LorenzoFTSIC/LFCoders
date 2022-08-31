@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Navigate, useParams } from 'react-router-dom';
+import { Link, Navigate, useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 
 import { QUERY_SINGLE_PROFILE, QUERY_ME } from '../utils/queries';
@@ -64,21 +64,26 @@ const Profile = () => {
     <div>
       <section style={style.profileHeading}>
         <div style={style.profileInfo}>
-          <div style={style.roundImg}>{/* <img></img> */}</div>
+          <div style={style.roundImg}>
+            <img alt="{profile.name}">{profile.img}</img>
+          </div>
 
-          <h4>Macki</h4>
-          <h5>I am INSERT-DYNAMIC-STATUS-HERE</h5>
+          <h4>{profile.name}</h4>
+
+          <h5>I am {profile.status}</h5>
         </div>
 
         <div>
-          <h5>Settings</h5>
+          <Link to="/status">
+            <h5>Settings</h5>
+          </Link>
         </div>
       </section>
 
       {/* <section style={style.profileContent}> */}
       <div style={style.push}>
         <h5>My Bio</h5>
-        <p>This is about me</p>
+        <p>{profile.bio}</p>
       </div>
 
       <div style={style.push}>
