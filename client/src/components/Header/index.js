@@ -4,18 +4,18 @@ import { Link } from 'react-router-dom';
 import Auth from '../../utils/auth';
 
 const styles = {
-  card: {
+  header: {
     height:'400px',
     margin: 20,
     backgroundImage:"linear-gradient(to right, rgb(52, 9, 138) , rgb(236, 185, 236))",
     textAlign: 'center',
   },
-  header: {
+  headerContent: {
     color:'white',
     paddingTop:'90px'
   },
 
-  header1: {
+  title: {
     color:'white',
     paddingTop:'30px',
     fontSize: '3rem',
@@ -26,12 +26,7 @@ const styles = {
     textDecoration: 'none',
   },
 
-  login: {
-    backgroundColor: '#a4b5f3',
-    color: '#58497b'
-  },
-
-  signup: {
+  button: {
     backgroundColor: '#a4b5f3',
     color: '#58497b'
   }
@@ -44,10 +39,10 @@ const Header = () => {
     Auth.logout();
   };
   return (
-    <header style={styles.card} className="bg-info text-dark mb-4 py-3 display-flex align-center">
-      <div style={styles.header} className="container flex-column justify-space-between-lg justify-center align-center text-center">
+    <header style={styles.header} className="bg-info text-dark mb-4 py-3 display-flex align-center">
+      <div style={styles.headerContent} className="container flex-column justify-space-between-lg justify-center align-center text-center">
         <Link style={styles.link} className="none" to="/" >
-          <h1  style={styles.header1} className="m-0">
+          <h1  style={styles.title} className="m-0">
             L.F.Coders
           </h1>
         </Link>
@@ -66,10 +61,10 @@ const Header = () => {
             </>
           ) : (
             <>
-              <Link style={styles.login} className="btn btn-lg btn-light m-2" to="/login">
+              <Link style={styles.button} className="btn btn-lg btn-light m-2" to="/login">
                 Login
               </Link>
-              <Link style={styles.signup} className="btn btn-lg btn-light m-2" to="/signup">
+              <Link style={styles.button} className="btn btn-lg btn-light m-2" to="/signup">
                 Signup
               </Link>
             </>
