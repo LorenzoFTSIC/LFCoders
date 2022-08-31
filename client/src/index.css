@@ -1,3 +1,7 @@
+body{
+background-color: black;
+}
+
 a.text-dark.logo { 
     text-decoration: none;
 }
