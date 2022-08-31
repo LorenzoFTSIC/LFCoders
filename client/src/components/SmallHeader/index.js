@@ -10,14 +10,14 @@ const style = {
   }
 };
 
-const Header = () => {
+const SmallHeader = () => {
   return (
     <header className="bg-info text-dark mb-4 py-3">
       <div className="d-inline-flex justify-space-between mx-3">
         <Link className="text-dark logo" to="/" style={style.a}>
           <div className="d-inline-flex justify-space-between align-items-end">
-            <img className="looker mx-3" src={Looker} alt="Looker"></img>
-            <h1 className="mx-3">LFC</h1>
+            <img className="looker mx-2" src={Looker} alt="Looker"></img>
+            <h1 className="mx-2">LFC</h1>
           </div>
         </Link>
       </div>
@@ -25,4 +25,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default SmallHeader;
