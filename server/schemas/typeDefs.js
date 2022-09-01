@@ -43,7 +43,10 @@ const typeDefs = gql`
 
     addSkill(profileId: ID!, skill: String!): Profile
     removeProfile: Profile
+    // ^ Wouldn't this need the profileID? - MJ 
     removeSkill(skill: String!): Profile
+
+    editBio(profileID: ID!, bio: String!): Profile 
   }
 `;
 
