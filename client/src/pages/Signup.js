@@ -5,6 +5,27 @@ import { useMutation } from '@apollo/client';
 import { ADD_PROFILE } from '../utils/mutations';
 
 import Auth from '../utils/auth';
+import Slider from '@mui/material/Slider';
+import Typography from '@mui/material/Typography';
+const styles = {
+  form: {
+    display:"flex",
+    justifyContent: "center",
+    flexDirection: "column",
+    width:"75%",
+    margin:"auto",
+  },
+  h4: {
+    textAlign:"center",
+    
+  },
+  center: {
+    margin:"0 auto"
+  },
+  input:{
+    marginBottom: "20px"
+  }
+}
 
 const Signup = () => {
   const [formState, setFormState] = useState({
@@ -41,10 +62,11 @@ const Signup = () => {
   };
 
   return (
+    <>
     <main className="flex-row justify-center mb-4">
-      <div className="col-12 col-lg-10">
+      <div className="col-12 col-lg-8" style={styles.center}>
         <div className="card">
-          <h4 className="card-header bg-dark text-light p-2">Sign Up</h4>
+          <h4 className="card-header bg-dark text-light p-2"  style={styles.h4}>Sign Up</h4>
           <div className="card-body">
             {data ? (
               <p>
@@ -52,8 +74,9 @@ const Signup = () => {
                 <Link to="/">back to the homepage.</Link>
               </p>
             ) : (
-              <form onSubmit={handleFormSubmit}>
-                <input
+              <form style={styles.form} onSubmit={handleFormSubmit}>
+                <input 
+                  style={styles.input} 
                   className="form-input"
                   placeholder="Your username"
                   name="name"
@@ -61,7 +84,8 @@ const Signup = () => {
                   value={formState.name}
                   onChange={handleChange}
                 />
-                <input
+                <input 
+                  style={styles.input}
                   className="form-input"
                   placeholder="Your email"
                   name="email"
@@ -69,7 +93,8 @@ const Signup = () => {
                   value={formState.email}
                   onChange={handleChange}
                 />
-                <input
+                <input 
+                  style={styles.input}
                   className="form-input"
                   placeholder="******"
                   name="password"
@@ -77,6 +102,11 @@ const Signup = () => {
                   value={formState.password}
                   onChange={handleChange}
                 />
+                <Typography id="js-slider" gutterBottom>
+                Javascript
+              </Typography>
+                <Slider defaultValue={0} aria-label="Default" aria-labelledby="js-slider" valueLabelDisplay="auto" />
+
                 <button
                   className="btn btn-block btn-info"
                   style={{ cursor: 'pointer' }}
@@ -95,7 +125,8 @@ const Signup = () => {
           </div>
         </div>
       </div>
-    </main>
+    </main> 
+    </>
   );
 };
 
