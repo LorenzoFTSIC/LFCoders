@@ -79,7 +79,7 @@ const Profile = () => {
         </div>
 
         <div>
-          <Link to="/status">
+          <Link to="/settings">
             <h5>Settings</h5>
           </Link>
         </div>
