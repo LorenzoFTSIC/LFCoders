@@ -24,7 +24,7 @@ function Nav({currentPage, handlePageChange}) {
         </li>
 
         <li className='nav-item'>
-        <Link to='/Portfolio-React/contact'
+        <Link to='/search'
         onClick={() => handlePageChange('Search')}
         className={currentPage === 'Search' ? 'nav-active nav-link' : 'nav-link'}>
         Search
@@ -32,7 +32,7 @@ function Nav({currentPage, handlePageChange}) {
         </li>
 
         <li className='nav-item'>
-        <Link to='/Portfolio-React/resume'
+        <Link to=''
         onClick={() => handlePageChange('Messages')}
         className={currentPage === 'Messages' ? 'nav-active nav-link' : 'nav-link'}>
         Messages
@@ -40,7 +40,7 @@ function Nav({currentPage, handlePageChange}) {
         </li>
 
         <li className='nav-item'>
-        <Link to='/Portfolio-React/portfolio'
+        <Link to='/me'
         onClick={() => handlePageChange('Profile')}
         className={currentPage === 'Profile' ? 'nav-active nav-link' : 'nav-link'}>
         Profile
@@ -48,7 +48,7 @@ function Nav({currentPage, handlePageChange}) {
         </li>
 
         <li className='nav-item'>
-        <Link to='/Portfolio-React/portfolio'
+        <Link to='/'
         onClick={() => handlePageChange('Logout')}
         className={currentPage === 'Logout' ? 'nav-active nav-link' : 'nav-link'}>
         Logout
