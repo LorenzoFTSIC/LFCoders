@@ -6,10 +6,15 @@ import { Link } from 'react-router-dom';
 const styles = {
     navtab: {
         backgroundColor: '#a4b5f3',
-        marginLeft: '20px'
+        marginLeft: '10px',
+        boxShadow: '0px 0px 5px',
+        color:'whitesmoke',
+        borderRadius: '3px',
+        
       },
       navtabtext: {
         color: 'white',
+        fontFamily: 'Segoe UI',
         fontWeight: 'bold'
       }
 };
@@ -18,7 +23,7 @@ function Nav({currentPage, handlePageChange}) {
 
     return(
         <nav>
-        <ul className="nav nav-tabs">
+        <ul className="nav">
         <li style={styles.navtab} >
         <Link style={styles.navtabtext} to=''
         onClick={() => handlePageChange('Recent Collaborations')}
@@ -27,7 +32,7 @@ function Nav({currentPage, handlePageChange}) {
         </Link>
         </li>
 
-        <li style={styles.navtab} className='nav-item'>
+        <li style={styles.navtab}>
         <Link style={styles.navtabtext} to='/search'
         onClick={() => handlePageChange('Search')}
         className={currentPage === 'Search' ? 'nav-active nav-link' : 'nav-link'}>
@@ -35,7 +40,7 @@ function Nav({currentPage, handlePageChange}) {
         </Link>
         </li>
 
-        <li style={styles.navtab} className='nav-item'>
+        <li style={styles.navtab}>
         <Link style={styles.navtabtext} to=''
         onClick={() => handlePageChange('Messages')}
         className={currentPage === 'Messages' ? 'nav-active nav-link' : 'nav-link'}>
@@ -43,7 +48,7 @@ function Nav({currentPage, handlePageChange}) {
         </Link>
         </li>
 
-        <li style={styles.navtab} className='nav-item'>
+        <li style={styles.navtab}>
         <Link style={styles.navtabtext} to='/me'
         onClick={() => handlePageChange('Profile')}
         className={currentPage === 'Profile' ? 'nav-active nav-link' : 'nav-link'}>
@@ -51,7 +56,7 @@ function Nav({currentPage, handlePageChange}) {
         </Link>
         </li>
 
-        <li style={styles.navtab} className='nav-item'>
+        <li style={styles.navtab}>
         <Link style={styles.navtabtext} to='/'
         onClick={() => handlePageChange('Logout')}
         className={currentPage === 'Logout' ? 'nav-active nav-link' : 'nav-link'}>
