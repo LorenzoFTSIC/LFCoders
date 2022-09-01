@@ -5,10 +5,14 @@ import { useQuery } from '@apollo/client';
 
 import { QUERY_SINGLE_PROFILE, QUERY_ME } from '../utils/queries';
 
+// import { useQuery, useMutation } from '@apollo/client';
+// import { QUERY_BIO } from '../utils/queries';
+// import { EDIT_BIO } from '../utils/mutations';
+
 import Auth from '../utils/auth';
 
 // import CollabCube from '../component/CollabCube';
-// ^ The component that will give structure to the individual collaborations a user has done 
+// ^ The component that will give structure to the individual collaborations a user has done
 
 const style = {
   roundImg: {
@@ -32,8 +36,28 @@ const style = {
 };
 
 // { profilecollabs }
-// ^ Prop that represents the info which will be arrayed over and displayed in the "My Collabs" section 
+// ^ Prop that represents the info which will be arrayed over and displayed in the "My Collabs" section
 const Profile = () => {
+  //   let { id } = useParams();
+
+  // const { loading, data } = useQuery(QUERY_BIO, {
+  //   variables: { _id: id },
+  // });
+
+  // const profile = data?.profile || [];
+
+  // const [editBio, { error }] = useMutation(EDIT_BIO);
+
+  // const handleBio = async (bio) => {
+  //   try {
+  //     await editBio({
+  //       variables: { _id: id, bio: bio },
+  //     });
+  //   } catch (err) {
+  //     console.error(err);
+  //   }
+  // };
+
   const { profileId } = useParams();
 
   // If there is no `profileId` in the URL as a parameter, execute the `QUERY_ME` query instead for the logged in user's information
@@ -102,7 +126,6 @@ const Profile = () => {
         ) : (
           <p>Nothing yet!</p>
         )} */}
-
 
         {/* <div style={style.collabSquare}>
           {profilecollabs.map((collab) => (
