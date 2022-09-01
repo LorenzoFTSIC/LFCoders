@@ -7,25 +7,39 @@ import { ADD_PROFILE } from '../utils/mutations';
 import Auth from '../utils/auth';
 import Slider from '@mui/material/Slider';
 import Typography from '@mui/material/Typography';
+import { purple } from '@mui/material/colors';
 const styles = {
   form: {
     display:"flex",
     justifyContent: "center",
     flexDirection: "column",
-    width:"75%",
+    width:"65%",
     margin:"auto",
   },
   h4: {
     textAlign:"center",
+    backgroundColor:"purple"
     
   },
   center: {
     margin:"0 auto"
   },
   input:{
-    marginBottom: "20px"
-  }
+    marginBottom: "20px",
+    color:"purple",
+  },
+  jsSlider: {
+    font:"auto",
+    
+},
+  submit: {
+   backgroundColor:"purple",
+   cursor: "pointer"
 }
+  }
+
+  
+
 
 const Signup = () => {
   const [formState, setFormState] = useState({
@@ -66,7 +80,7 @@ const Signup = () => {
     <main className="flex-row justify-center mb-4">
       <div className="col-12 col-lg-8" style={styles.center}>
         <div className="card">
-          <h4 className="card-header bg-dark text-light p-2"  style={styles.h4}>Sign Up</h4>
+          <h4 className="card-header text-light  p-2"  style={styles.h4}>Sign Up</h4>
           <div className="card-body">
             {data ? (
               <p>
@@ -102,15 +116,76 @@ const Signup = () => {
                   value={formState.password}
                   onChange={handleChange}
                 />
-                <Typography id="js-slider" gutterBottom>
+                <Typography style={styles.jsSlider} gutterBottom>
+                HTML/CSS
+              </Typography>
+                <Slider defaultValue={0} aria-label="Default" aria-labelledby="js-slider" valueLabelDisplay="auto" 
+                    sx={{
+                    width: 300,
+                    color: 'purple',
+                       }} />
+                <Typography style={styles.jsSlider} gutterBottom>
                 Javascript
               </Typography>
-                <Slider defaultValue={0} aria-label="Default" aria-labelledby="js-slider" valueLabelDisplay="auto" />
+                <Slider defaultValue={0} aria-label="Default" aria-labelledby="js-slider" valueLabelDisplay="auto"
+                  sx={{
+                    width: 300,
+                    color: 'purple',
+                       }} />
+                <Typography style={styles.jsSlider} gutterBottom>
+                React
+              </Typography>
+                <Slider defaultValue={0} aria-label="Default" aria-labelledby="js-slider" valueLabelDisplay="auto"
+                sx={{
+                  width: 300,
+                  color: 'purple',
+                     }} />
+                <Typography style={styles.jsSlider} gutterBottom>
+                Javascript
+              </Typography>
+                <Slider defaultValue={0} aria-label="Default" aria-labelledby="js-slider" valueLabelDisplay="auto"
+                sx={{
+                  width: 300,
+                  color: 'purple',
+                     }} />
+                <Typography style={styles.jsSlider} gutterBottom>
+                Node.js
+              </Typography>
+                <Slider defaultValue={0} aria-label="Default" aria-labelledby="js-slider" valueLabelDisplay="auto" 
+                sx={{
+                  width: 300,
+                  color: 'purple',
+                     }}/>
+                <Typography style={styles.jsSlider} gutterBottom>
+                SQL
+              </Typography>
+                <Slider defaultValue={0} aria-label="Default" aria-labelledby="js-slider" valueLabelDisplay="auto" 
+                sx={{
+                  width: 300,
+                  color: 'purple',
+                     }}/>
+                <Typography style={styles.jsSlider} gutterBottom>
+                MERN
+              </Typography>
+                <Slider defaultValue={0} aria-label="Default" aria-labelledby="js-slider" valueLabelDisplay="auto" 
+                sx={{
+                  width: 300,
+                  color: 'purple',
+                     }}/>
+                <Typography class="js-slider" gutterBottom>
+                Javascript
+              </Typography>
+                <Slider defaultValue={0} aria-label="Default" aria-labelledby="js-slider" valueLabelDisplay="auto"
+                sx={{
+                  width: 300,
+                  color: 'purple',
+                     }} />
 
                 <button
                   className="btn btn-block btn-info"
-                  style={{ cursor: 'pointer' }}
+                  style={styles.submit}
                   type="submit"
+                  
                 >
                   Submit
                 </button>
