@@ -7,6 +7,7 @@ const typeDefs = gql`
     email: String
     password: String
     skills: [Skill]
+    bio: String 
   }
 
   type Project {
@@ -38,14 +39,14 @@ const typeDefs = gql`
   }
 
   type Mutation {
-    addProfile(name: String!, email: String!, password: String!): Auth
+    addProfile(name: String!, email: String!, password: String!, bio: String): Auth
     login(email: String!, password: String!): Auth
 
     addSkill(profileId: ID!, skill: String!): Profile
     removeProfile: Profile
     removeSkill(skill: String!): Profile
 
-    editBio(profileID: ID!, bio: String!): Profile 
+    editBio(profileId: ID!, bio: String!): Profile 
   }
 `;
 
