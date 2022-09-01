@@ -13,9 +13,7 @@ import { Link } from 'react-router-dom';
 function Nav({currentPage, handlePageChange}) {
 
     return(
-        //nav
         <nav>
-    
         <ul className="nav nav-tabs">
         <li>
         <Link to=''
