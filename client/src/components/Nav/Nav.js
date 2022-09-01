@@ -14,39 +14,46 @@ function Nav({currentPage, handlePageChange}) {
 
     return(
         //nav
-        <nav className="navbar">
-        <h1 className="navheading">Karen Martinez Guerrero</h1>
+        <nav>
     
         <ul className="nav nav-tabs">
-        <li className='nav-item'>
+        <li>
         <Link to=''
-        onClick={() => handlePageChange('About')}
-        className={currentPage === 'About' ? 'nav-active nav-link' : 'nav-link'}>
-        About
+        onClick={() => handlePageChange('Recent Collaborations')}
+        className={currentPage === 'Recent Collaborations' ? 'nav-active nav-link' : 'nav-link'}>
+        Recent Collaborations
         </Link>
         </li>
 
         <li className='nav-item'>
         <Link to='/Portfolio-React/contact'
-        onClick={() => handlePageChange('Contact')}
-        className={currentPage === 'Contact' ? 'nav-active nav-link' : 'nav-link'}>
-        Contact
+        onClick={() => handlePageChange('Search')}
+        className={currentPage === 'Search' ? 'nav-active nav-link' : 'nav-link'}>
+        Search
         </Link>
         </li>
 
         <li className='nav-item'>
         <Link to='/Portfolio-React/resume'
-        onClick={() => handlePageChange('Resume')}
-        className={currentPage === 'Resume' ? 'nav-active nav-link' : 'nav-link'}>
-        Resume
+        onClick={() => handlePageChange('Messages')}
+        className={currentPage === 'Messages' ? 'nav-active nav-link' : 'nav-link'}>
+        Messages
         </Link>
         </li>
 
         <li className='nav-item'>
         <Link to='/Portfolio-React/portfolio'
-        onClick={() => handlePageChange('Portfolio')}
-        className={currentPage === 'Portfolio' ? 'nav-active nav-link' : 'nav-link'}>
-        Portfolio
+        onClick={() => handlePageChange('Profile')}
+        className={currentPage === 'Profile' ? 'nav-active nav-link' : 'nav-link'}>
+        Profile
+        </Link>
+        </li>
+
+        <li className='nav-item'>
+        <Link to='/Portfolio-React/portfolio'
+        onClick={() => handlePageChange('Logout')}
+        className={currentPage === 'Logout' ? 'nav-active nav-link' : 'nav-link'}>
+        Logout
         </Link>
         </li>
     </ul>
