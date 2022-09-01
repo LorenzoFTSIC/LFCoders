@@ -5,36 +5,29 @@ import LTCForm from '../components/LTCForm';
 
 const Search = () => {
   return (
-    <>
-      <div class="wrapper">
+    <div className="searchPage">
+      <div class="container">
+        <h1>Search</h1>
+
         <div class="tabs">
           <div class="tab">
-            <input
-              type="radio"
-              name="css-tabs"
-              id="tab-1"
-              checked
-              class="tab-switch"
-            />
-            <label for="tab-1" class="tab-label">
-              Looking For Coders
-            </label>
+            <input type="radio" id="tab-1" name="tabs" checked />
+            <label for="tab-1">Looking For Coders</label>
             <div class="tab-content">
               <LFCForm />
             </div>
           </div>
+
           <div class="tab">
-            <input type="radio" name="css-tabs" id="tab-2" class="tab-switch" />
-            <label for="tab-2" class="tab-label">
-              Looking To Code
-            </label>
+            <input type="radio" id="tab-2" name="tabs" />
+            <label for="tab-2">Looking To Code</label>
             <div class="tab-content">
               <LTCForm />
             </div>
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 
