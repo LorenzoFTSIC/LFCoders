@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import SignUpForm from "../SignupForm/index";
 const axios = require("axios");
-const FormValidators = require("./validate");
+const FormValidators = require("./validator");
 const validateSignUpForm = FormValidators.validateSignUpForm;
 const zxcvbn = require("zxcvbn");
 

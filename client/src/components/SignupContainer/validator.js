@@ -1,4 +1,4 @@
-const validator = require("validator");
+const validator = require("../SignupContainer/validator");
 
 const validateSignUpForm = payload => {
   const errors = {};

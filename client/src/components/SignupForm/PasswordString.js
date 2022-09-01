@@ -1,8 +1,32 @@
 import React from 'react';
 
+const styles = {
+      
+      pwStrWeak: {
+        display: "inlineBlock",
+        position: "relative",
+        left: "0",
+        padding: "0",
+        margin: "0",
+        color: "gray",
+      },
+      
+      pwStrStrong: {
+        display: "inlineBlock",
+        position: "relative",
+        left: "77%",
+        padding: "0",
+        margin:' 0',
+        color: "gray",
+      }
+      
+}
+
+
 const PasswordStr = props => {
   var strColor;
   var strWidth;
+
 
   switch (props.score) {
     case 1:
@@ -27,13 +51,14 @@ const PasswordStr = props => {
       break;
     default:
   }
+  
 
   var style = { backgroundColor: strColor, height: '5px', width: strWidth, transition: 'all 300ms ease-in-out' }
 
   return (
   <div>
-    <p className="pwStrWeak">weak</p>
-    <p className="pwStrStrong">strong</p>
+    <p style={styles.pwStrWeak}>weak</p>
+    <p style={styles.pwStrStrong}>strong</p>
     <div style={style} />
   </div> 
   );
