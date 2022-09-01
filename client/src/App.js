@@ -13,7 +13,10 @@ import Profile from './pages/Profile';
 import Signup from './pages/Signup';
 import Login from './pages/Login';
 import Header from './components/Header';
+import SmallHeader from './components/SmallHeader';
 import Footer from './components/Footer';
+
+import profilecollabs from './pages/profilecollabs'
 
 const httpLink = createHttpLink({
   uri: '/graphql',
@@ -41,7 +44,9 @@ function App() {
     <ApolloProvider client={client}>
       <Router>
         <div className="flex-column justify-flex-start min-100-vh">
-          <Header />
+          <Header /> 
+          {/* ^Need conditional to switch between the two types of headers when the user is logged in or not logged in */}
+          <SmallHeader />
           <div className="container">
             <Routes>
               <Route 
@@ -58,7 +63,7 @@ function App() {
               />
               <Route 
                 path="/me" 
-                element={<Profile />}
+                element={<Profile profilecollabs={profilecollabs} />}
               />
               <Route 
                 path="/profiles/:profileId"
