@@ -3,7 +3,7 @@ import {
   ApolloClient,
   InMemoryCache,
   ApolloProvider,
-  createHttpLink,
+  createHttpLink
 } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
@@ -12,14 +12,15 @@ import Home from './pages/Home';
 import Profile from './pages/Profile';
 import Signup from './pages/Signup';
 import Login from './pages/Login';
+import Search from './pages/Search';
 import Header from './components/Header';
 import SmallHeader from './components/SmallHeader';
 import Footer from './components/Footer';
 
-import profilecollabs from './pages/profilecollabs'
+// import profilecollabs from './pages/profilecollabs';
 
 const httpLink = createHttpLink({
-  uri: '/graphql',
+  uri: '/graphql'
 });
 
 const authLink = setContext((_, { headers }) => {
@@ -29,14 +30,14 @@ const authLink = setContext((_, { headers }) => {
   return {
     headers: {
       ...headers,
-      authorization: token ? `Bearer ${token}` : '',
-    },
+      authorization: token ? `Bearer ${token}` : ''
+    }
   };
 });
 
 const client = new ApolloClient({
   link: authLink.concat(httpLink),
-  cache: new InMemoryCache(),
+  cache: new InMemoryCache()
 });
 
 function App() {
@@ -44,31 +45,22 @@ function App() {
     <ApolloProvider client={client}>
       <Router>
         <div className="flex-column justify-flex-start min-100-vh">
-          <Header /> 
-          {/* ^Need conditional to switch between the two types of headers when the user is logged in or not logged in */}
+          <Header />
           <SmallHeader />
+          {/* ^Need conditional to switch between the two types of headers when the user is logged in or not logged in */}
+          <Search />
           <div className="container">
             <Routes>
-              <Route 
-                path="/" 
-                element={<Home />}
-              />
-              <Route 
-                path="/login" 
-                element={<Login />}
-              />
-              <Route 
-                path="/signup" 
-                element={<Signup />}
-              />
-              <Route 
-                path="/me" 
-                element={<Profile profilecollabs={profilecollabs} />}
-              />
-              <Route 
-                path="/profiles/:profileId"
+              <Route path="/" element={<Home />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/signup" element={<Signup />} />
+              <Route
+                path="/me"
                 element={<Profile />}
               />
+              {/* profilecollabs={profilecollabs} */}
+              {/* ^ this represents the collab information that will eventually be passed into the "My Collabs" section of the Profile page */}
+              <Route path="/profiles/:profileId" element={<Profile />} />
             </Routes>
           </div>
           <Footer />

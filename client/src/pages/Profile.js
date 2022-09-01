@@ -7,7 +7,8 @@ import { QUERY_SINGLE_PROFILE, QUERY_ME } from '../utils/queries';
 
 import Auth from '../utils/auth';
 
-import CollabCube from './CollabCube';
+// import CollabCube from '../component/CollabCube';
+// ^ The component that will give structure to the individual collaborations a user has done 
 
 const style = {
   roundImg: {
@@ -30,7 +31,9 @@ const style = {
   }
 };
 
-const Profile = ({ profilecollabs }) => {
+// { profilecollabs }
+// ^ Prop that represents the info which will be arrayed over and displayed in the "My Collabs" section 
+const Profile = () => {
   const { profileId } = useParams();
 
   // If there is no `profileId` in the URL as a parameter, execute the `QUERY_ME` query instead for the logged in user's information
@@ -99,11 +102,14 @@ const Profile = ({ profilecollabs }) => {
         ) : (
           <p>Nothing yet!</p>
         )} */}
-        <div style={style.collabSquare}>
+
+
+        {/* <div style={style.collabSquare}>
           {profilecollabs.map((collab) => (
             <CollabCube key={collab.id} collab={collab} />
           ))}
-        </div>
+        </div> */}
+        {/* ^ The div that will go through the collab info for the specific user */}
       </div>
       {/* </section> */}
     </div>
