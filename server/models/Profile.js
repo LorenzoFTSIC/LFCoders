@@ -23,8 +23,12 @@ const profileSchema = new Schema({
   {
       type: Schema.Types.ObjectId,
       ref: 'Skill'
-  },
+    },
   ],
+  bio: {
+    type: String,
+    minLength: 1,
+  }
 });
 
 // set up pre-save middleware to create password
