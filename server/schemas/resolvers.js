@@ -25,6 +25,10 @@ const resolvers = {
       return Skill.find();
     },
 
+    skill: async (parent, { skillId }) => {
+      return Skill.findOne({ _id: skillId });
+    },
+
     // By adding context to our query, we can retrieve the logged in user without specifically searching for them
     me: async (parent, args, context) => {
       if (context.user) {

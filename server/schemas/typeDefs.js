@@ -33,6 +33,10 @@ const typeDefs = gql`
   type Query {
     profiles: [Profile]!
     profile(profileId: ID!): Profile
+    projects: [Project]!
+    project(profileId: ID!): Project
+    skills: [Skill]!
+    skill(profileId: ID!): Skill
     # Because we have the context functionality in place to check a JWT and decode its data, we can use a query that will always find and return the logged in user's data
     me: Profile
   }
