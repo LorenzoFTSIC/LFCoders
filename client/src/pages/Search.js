@@ -1,7 +1,7 @@
 import React from 'react';
 
-import LFCForm from '../components/LFCForm';
-import LTCForm from '../components/LTCForm';
+// import LFCForm from '../components/LFCForm';
+// import LTCForm from '../components/LTCForm';
 
 const style = {
   container: {
@@ -61,7 +61,7 @@ const Search = () => {
               Looking For Coders
             </label>
             <div style={style.tabContent} className='tab-content'>
-              <LFCForm />
+              {/* <LFCForm /> */}
             </div>
           </div>
 
@@ -71,7 +71,7 @@ const Search = () => {
               Looking To Code
             </label>
             <div style={style.tabContent} className='tab-content'>
-              <LTCForm />
+              {/* <LTCForm /> */}
             </div>
           </div>
         </div>
@@ -81,4 +81,4 @@ const Search = () => {
   );
 };
 
-export default Search;
+export default Search; 
