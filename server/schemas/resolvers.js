@@ -13,12 +13,11 @@ const resolvers = {
     },
 
     projects: async () => {
-      return Project.find();
+      return Project.find().populate("profile");
     },
 
-    project: async (parent, args) => {
-      console.log(args)
-      return Project.findOne(args.projectId);
+    project: async (parent, { projectId }) => {
+      return Project.findOne({ _id: projectId}).populate("profile");
     },
 
     skills: async () => {
@@ -45,6 +44,12 @@ const resolvers = {
 
       return { token, profile };
     },
+
+    addProject: async (parent, { name, description, skills, profile, createDate, completed }) => {
+      const project = await Project.create({ name, description, skills, profile, createDate, completed })
+      return project
+    },
+
     login: async (parent, { email, password }) => {
       const profile = await Profile.findOne({ email });
 
