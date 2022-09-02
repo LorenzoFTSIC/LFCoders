@@ -1,23 +1,70 @@
 import React from 'react';
 
-import { Navigate, useParams } from 'react-router-dom';
+import { Link, Navigate, useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
-
-import SkillsList from '../components/SkillsList';
-import SkillForm from '../components/SkillForm';
 
 import { QUERY_SINGLE_PROFILE, QUERY_ME } from '../utils/queries';
 
+// import { useQuery, useMutation } from '@apollo/client';
+// import { QUERY_BIO } from '../utils/queries';
+// import { EDIT_BIO } from '../utils/mutations';
+
 import Auth from '../utils/auth';
 
+// import CollabCube from '../component/CollabCube';
+// ^ The component that will give structure to the individual collaborations a user has done
+
+const style = {
+  roundImg: {
+    height: '200px',
+    width: '200px',
+    border: '1px solid black',
+    borderRadius: '50%'
+  },
+  profileHeading: {
+    display: 'flex',
+    justifyContent: 'space-between',
+    alignItems: 'flex-end'
+  },
+  profileInfo: {
+    display: 'flex',
+    alignItems: 'flex-end'
+  },
+  push: {
+    marginTop: '3rem'
+  }
+};
+
+// { profilecollabs }
+// ^ Prop that represents the info which will be arrayed over and displayed in the "My Collabs" section
 const Profile = () => {
+  //   let { id } = useParams();
+
+  // const { loading, data } = useQuery(QUERY_BIO, {
+  //   variables: { _id: id },
+  // });
+
+  // const profile = data?.profile || [];
+
+  // const [editBio, { error }] = useMutation(EDIT_BIO);
+
+  // const handleBio = async (bio) => {
+  //   try {
+  //     await editBio({
+  //       variables: { _id: id, bio: bio },
+  //     });
+  //   } catch (err) {
+  //     console.error(err);
+  //   }
+  // };
+
   const { profileId } = useParams();
 
   // If there is no `profileId` in the URL as a parameter, execute the `QUERY_ME` query instead for the logged in user's information
   const { loading, data } = useQuery(
     profileId ? QUERY_SINGLE_PROFILE : QUERY_ME,
     {
-      variables: { profileId: profileId },
+      variables: { profileId: profileId }
     }
   );
 
@@ -44,21 +91,50 @@ const Profile = () => {
 
   return (
     <div>
-      <h2 className="card-header">
-        {profileId ? `${profile.name}'s` : 'Your'} friends have endorsed these
-        skills...
-      </h2>
+      <section style={style.profileHeading}>
+        <div style={style.profileInfo}>
+          <div style={style.roundImg}>
+            <img alt="{profile.name}">{profile.img}</img>
+          </div>
 
-      {profile.skills?.length > 0 && (
-        <SkillsList
-          skills={profile.skills}
-          isLoggedInUser={!profileId && true}
-        />
-      )}
+          <h4>{profile.name}</h4>
 
-      <div className="my-4 p-4" style={{ border: '1px dotted #1a1a1a' }}>
-        <SkillForm profileId={profile._id} />
+          <h5>I am {profile.status}</h5>
+        </div>
+
+        <div>
+          <Link to="/settings">
+            <h5>Settings</h5>
+          </Link>
+        </div>
+      </section>
+
+      {/* <section style={style.profileContent}> */}
+      <div style={style.push}>
+        <h5>My Bio</h5>
+        <p>{profile.bio}</p>
       </div>
+
+      <div style={style.push}>
+        <h5>My Collabs</h5>
+        {/* {collab ? (
+          <div style={style.collabSquare}>
+            {profilecollabs.map((collab) => (
+              <CollabCube key={collab.id} collab={collab} />
+            ))}
+          </div>
+        ) : (
+          <p>Nothing yet!</p>
+        )} */}
+
+        {/* <div style={style.collabSquare}>
+          {profilecollabs.map((collab) => (
+            <CollabCube key={collab.id} collab={collab} />
+          ))}
+        </div> */}
+        {/* ^ The div that will go through the collab info for the specific user */}
+      </div>
+      {/* </section> */}
     </div>
   );
 };

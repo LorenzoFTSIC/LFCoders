@@ -1,7 +1,46 @@
 body{
-background-color: black;
+background-color: #161616;
+font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 a.text-dark.logo { 
     text-decoration: none;
+}
+
+
+/* SEARCH */
+
+.tabLabel:hover {
+    background: #7B52AB,
+}
+
+.tab [type=radio] { display: none; }
+[type=radio]:checked ~ label {
+	background: #553285;
+	z-index: 2;
+}
+
+[type=radio]:checked ~ label ~ .tab-content {
+	z-index: 1;
+	/* show/hide */
+		opacity: 1;
+		transform: scale(1);
+}
+
+/* BREAKPOINTS ----- */
+@media screen and (max-width: 767px) {
+	.tabs { min-height: 400px;}
+}
+
+@media screen and (max-width: 480px) {
+	.tabs { min-height: 580px; }
+	.tab label { 
+		height: 60px;
+	}
+	.tab-content { top: 60px; }
+	.tab-content img {
+		float: none;
+		margin-right: 0;
+		margin-bottom: 20px;
+	}
 }
