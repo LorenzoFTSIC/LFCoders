@@ -28,17 +28,19 @@ export const QUERY_ME = gql`
     }
   }
 `;
+// USE THIS IN THE SETTINGS TO UPDATE THE USER INFORMATION 
 
 // Based off the mini project
-export const QUERY_BIO = gql`
-  query profile($_id: String) {
-    profile(_id: $_id) {
-      _id
-      name
-      email
-      password
-      skills
-      bio
-    }
-  }
-`;
+// export const QUERY_BIO = gql`
+//   query profile($_id: String) {
+//     profile(_id: $_id) {
+//       _id
+//       name
+//       email
+//       password
+//       skills
+//       bio
+//     }
+//   }
+// `;
+// ^ What's happening here is what's happening in the QUERY_ME: I am wanting to grab the informaiton from the profile 
