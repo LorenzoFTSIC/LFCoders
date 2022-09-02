@@ -54,6 +54,9 @@ const styles = {
   grid: {
     display: "grid",
     gridTemplateColumns: "1fr 1fr",
+  },
+  noRadius: {
+    borderRadius: 0,
   }
 }
 
@@ -98,7 +101,7 @@ const Signup = () => {
     <>
       <div class="modal fade bd-example-modal-lg-signup" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg signup">
-          <div class="modal-content">
+          <div class="modal-content" style={styles.noRadius}>
             <div className="flex-row justify-center mb-4">
               <div className="col-12 col-lg-12" style={styles.center}>
                 <div className="card" style={styles.card}>

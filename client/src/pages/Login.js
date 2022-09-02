@@ -59,6 +59,9 @@ const Login = (props) => {
     border: "none",
     fontSize: 26,
     color: "white",
+  },
+  noRadius: {
+    borderRadius: 0,
   }
   }
   // submit form
@@ -85,7 +88,7 @@ const Login = (props) => {
   return (
     <div class="modal fade bd-example-modal-lg-login" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg login">
-      <div class="modal-content">
+      <div class="modal-content" style={styles.noRadius}>
     <div className="flex-row justify-center mb-4">
       <div className="col-12 col-lg-12" style={styles.center}>
         <div className="card" style={styles.card}>
