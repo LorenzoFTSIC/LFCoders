@@ -64,12 +64,12 @@ const Search = () => {
         <h3 className="heading3">What I bring to the table</h3>
          <div className= "">
          <button className="favorite styled"
-          type="button">
+          type="radio">
           Front End
         </button>
 
         <button className="favorite styled"
-          type="button">
+          type="radio">
           Back End
         </button>
         </div>
@@ -77,17 +77,17 @@ const Search = () => {
         <h3 className="heading3">Expected Timeline:</h3>
          <div className= "">
          <button className="favorite styled"
-          type="button">
+          type="radio">
           5 Hours
         </button>
 
         <button className="favorite styled"
-          type="button">
+          type="radio">
           20 Hours
         </button>
 
         <button className="favorite styled"
-          type="button">
+          type="radio">
           40+ Hours
         </button>
         </div>
@@ -105,27 +105,27 @@ const Search = () => {
         </button>
 
         <button className="favorite styled"
-          type="button">
+          type="radio">
           Wednesday
         </button>
 
         <button className="favorite styled"
-          type="button">
+          type="radio">
           Thursday
         </button>
 
         <button className="favorite styled"
-          type="button">
+          type="radio">
           Friday
         </button>
 
         <button className="favorite styled"
-          type="button">
+          type="radio">
           Saturday
         </button>
         
         <button className="favorite styled"
-          type="button">
+          type="radio">
           Sunday
         </button>
         </div>
