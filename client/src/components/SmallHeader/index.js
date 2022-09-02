@@ -9,15 +9,22 @@ const style = {
   a: {
     textUnderline: 'none !important'
   },
+  
+  big: {
+    backgroundImage:
+      'linear-gradient(to right, rgb(52, 9, 138) , rgb(236, 185, 236))',
+  },
+
   header: {
     width: '100%',
-    justifyContent: 'space-between'
+    justifyContent: 'space-between',
+    
   }
 };
 
 const SmallHeader = () => {
   return (
-    <header className="bg-info text-dark mb-4 py-3">
+    <header className="big bg-info text-dark mb-4 py-3" style={style.big}>
       <div className="d-inline-flex" style={style.header}>
         <Link className="text-dark logo" to="/" style={style.a}>
           <div className="d-inline-flex justify-space-between align-items-end">
