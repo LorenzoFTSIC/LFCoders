@@ -6,7 +6,7 @@ import { ADD_PROFILE } from '../utils/mutations';
 
 import Auth from '../utils/auth';
 import Slider from '@mui/material/Slider';
-import Typography from '@mui/material/Typography';
+import Typography from '@mui/material/Typography'; 
 
 const styles = {
   form: {
@@ -20,7 +20,7 @@ const styles = {
     textAlign: "center",
     backgroundColor: "#784faf",
     borderRadius: 0,
-    fontFamily: "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;",
+    fontFamily: "Segoe UI, Tahoma, Geneva, Verdana, sans-serif",
 
   },
   center: {
@@ -31,7 +31,7 @@ const styles = {
     color: "#784faf",
   },
   jsSlider: {
-    fontFamily: "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;",
+    fontFamily: "Segoe UI, Tahoma, Geneva, Verdana, sans-serif",
 
   },
   submit: {
@@ -99,15 +99,16 @@ const Signup = () => {
 
   return (
     <>
-      <div class="modal fade bd-example-modal-lg-signup" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg signup">
-          <div class="modal-content" style={styles.noRadius}>
+
+      <div className="modal fade bd-example-modal-lg-signup" tabIndex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+        <div className="modal-dialog modal-lg signup">
+          <div className="modal-content" style={styles.noRadius}>
             <div className="flex-row justify-center mb-4">
               <div className="col-12 col-lg-12" style={styles.center}>
                 <div className="card" style={styles.card}>
-                  <div class="modal-header" style={styles.h4}>
+                  <div className="modal-header" style={styles.h4}>
                     <h4 className="card-header text-light  p-2" style={styles.h4}>Sign Up</h4>
-                    <button type="button" class="close" style={styles.close} data-dismiss="modal" aria-label="Close">
+                    <button type="button" className="close" style={styles.close} data-dismiss="modal" aria-label="Close">
                       <span aria-hidden="true">&times;</span>
                     </button>
                   </div>
@@ -203,7 +204,7 @@ const Signup = () => {
                               color: '#784faf',
                               marginBottom: 2
                             }} />
-                          <Typography class="js-slider" gutterBottom>
+                          <Typography className="js-slider" gutterBottom>
                             Javascript
                           </Typography>
                           <Slider defaultValue={0} aria-label="Default" aria-labelledby="js-slider" valueLabelDisplay="auto"

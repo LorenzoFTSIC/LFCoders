@@ -17,6 +17,6 @@
     "concurrently": "^5.1.0"
   },
   "dependencies": {
-    "@mui/lab": "^5.0.0-alpha.97"
+
   }
 }
