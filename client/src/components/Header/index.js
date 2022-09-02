@@ -167,4 +167,6 @@ const Header = ({ reasons }) => {
   );
 };
 
+// HTML/CSS quote slider by @cassidoo on CodePen: Pure Css Text Carousel 
+
 export default Header;
