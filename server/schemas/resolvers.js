@@ -77,6 +77,18 @@ const resolvers = {
       )
     },
 
+    addUserToProject: async (parent, { projectId, profileId }) => {
+      return Project.findOneAndUpdate(
+        { _id: projectId },
+        { $addToSet: { profile: profileId } },
+        {
+          new: true,
+          runValidators: true
+        }
+      );
+
+    },
+
     login: async (parent, { email, password }) => {
       const profile = await Profile.findOne({ email });
 
@@ -148,6 +160,14 @@ const resolvers = {
         );
       }
       throw new AuthenticationError('You need to be logged in!');
+    },
+
+    removeProfileFromProject: async (parent, { projectId, profileId }) => {
+      return Project.findOneAndUpdate(
+        { _id: projectId },
+        { $pull: { profile: profileId } },
+        { new: true }
+      );
     }
   }
 };
