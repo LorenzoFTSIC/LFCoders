@@ -5,8 +5,8 @@ import { useMutation } from '@apollo/client';
 import { ADD_PROFILE } from '../utils/mutations';
 
 import Auth from '../utils/auth';
-import Slider from '@mui/material/Slider';
-import Typography from '@mui/material/Typography';
+// import Slider from '@mui/material/Slider';
+// import Typography from '@mui/material/Typography';
 const styles = {
   form: {
     display:"flex",
@@ -102,10 +102,10 @@ const Signup = () => {
                   value={formState.password}
                   onChange={handleChange}
                 />
-                <Typography id="js-slider" gutterBottom>
+                {/* <Typography id="js-slider" gutterBottom>
                 Javascript
               </Typography>
-                <Slider defaultValue={0} aria-label="Default" aria-labelledby="js-slider" valueLabelDisplay="auto" />
+                <Slider defaultValue={0} aria-label="Default" aria-labelledby="js-slider" valueLabelDisplay="auto" /> */}
 
                 <button
                   className="btn btn-block btn-info"
