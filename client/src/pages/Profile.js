@@ -31,7 +31,8 @@ const style = {
     alignItems: 'flex-end'
   },
   push: {
-    marginTop: '3rem'
+    marginTop: '3rem',
+    color: 'white'
   }
 };
 
@@ -70,6 +71,7 @@ const Profile = () => {
 
   // Check if data is returning from the `QUERY_ME` query, then the `QUERY_SINGLE_PROFILE` query
   const profile = data?.me || data?.profile || {};
+  console.log(profile);
 
   // Use React Router's `<Redirect />` component to redirect to personal profile page if username is yours
   if (Auth.loggedIn() && Auth.getProfile().data._id === profileId) {
@@ -90,22 +92,27 @@ const Profile = () => {
   }
 
   return (
+    // UPDATE THE ./utils/queries.js WITH STATUS AND SKILLS TO SEE IT ON THE PAGE 
     <div>
       <section style={style.profileHeading}>
         <div style={style.profileInfo}>
           <div style={style.roundImg}>
-            <img alt="{profile.name}">{profile.img}</img>
+            <img alt={profile.name}>{profile.img}</img>
+            {/* WORKS - alt attribute renders the user's name */}
           </div>
 
           <h4>{profile.name}</h4>
+          {/* WORKS - name in DB renders */}
 
           <h5>I am {profile.status}</h5>
+          {/* BROKEN - add to Sign up for AND ./utils/queries.js */}
         </div>
 
         <div>
           <Link to="/settings">
             <h5>Settings</h5>
           </Link>
+          {/* WORKS - links to /settings */}
         </div>
       </section>
 
@@ -113,6 +120,7 @@ const Profile = () => {
       <div style={style.push}>
         <h5>My Bio</h5>
         <p>{profile.bio}</p>
+        {/* WORKS - current bio renders */}
       </div>
 
       <div style={style.push}>

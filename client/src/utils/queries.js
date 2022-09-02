@@ -23,6 +23,8 @@ export const QUERY_ME = gql`
     me {
       _id
       name
+      bio
+      # Add status, skills, GitHub, Img 
     }
   }
 `;
