@@ -50,23 +50,101 @@ const style = {
 
 const Search = () => {
   return (
+    <div> 
+    <h1>SEARCH FOR PROJECTS</h1>
     <div className="searchPage">
       <div style={style.container}>
-        <h1>Search</h1>
+        <h1>Looking to Code</h1>
 
-        <div style={style.tabs} className='tabs'>
-          <div style={style.tab} className='tab'>
-            <input type="radio" id="tab-1" name="tabs" checked />
-            <label for="tab-1" style={style.tabLabel}>
-              Looking For Coders
-            </label>
-            <div style={style.tabContent} className='tab-content'>
-              {/* <LFCForm /> */}
-            </div>
+        <div className="heading">
+              <h2>What sort of project are you looking to join?</h2>
+        </div>
+      <div>
+      <form>
+        <h3 className="heading3">What I bring to the table</h3>
+         <div className= "">
+         <button className="favorite styled"
+          type="button">
+          Front End
+        </button>
+
+        <button className="favorite styled"
+          type="button">
+          Back End
+        </button>
+        </div>
+
+        <h3 className="heading3">Expected Timeline:</h3>
+         <div className= "">
+         <button className="favorite styled"
+          type="button">
+          5 Hours
+        </button>
+
+        <button className="favorite styled"
+          type="button">
+          20 Hours
+        </button>
+
+        <button className="favorite styled"
+          type="button">
+          40+ Hours
+        </button>
+        </div>
+
+        <h3 className="heading3">I am available...</h3>
+         <div className= "">
+         <button className="favorite styled"
+          type="button">
+          Monday
+        </button>
+
+        <button className="favorite styled"
+          type="button">
+          Tuesday
+        </button>
+
+        <button className="favorite styled"
+          type="button">
+          Wednesday
+        </button>
+
+        <button className="favorite styled"
+          type="button">
+          Thursday
+        </button>
+
+        <button className="favorite styled"
+          type="button">
+          Friday
+        </button>
+
+        <button className="favorite styled"
+          type="button">
+          Saturday
+        </button>
+        
+        <button className="favorite styled"
+          type="button">
+          Sunday
+        </button>
+        </div>
+
+
+                        
+        <button
+        className="btn btn-block btn-info"
+        type="submit"
+        aria-label="Close"
+        >
+        Submit
+         </button>
+    </form>
+    </div>
           </div>
 
           <div style={style.tab} className='tab'>
-            <input type="radio" id="tab-2" name="tabs" />
+            <input type="radio" id="tab-2" name="tabs" data-toggle="modal" data-target=".bd-example-modal-lg-signup"/>
             <label for="tab-2" style={style.tabLabel}>
               Looking To Code
             </label>
@@ -75,8 +153,7 @@ const Search = () => {
             </div>
           </div>
         </div>
-      </div>
-    </div>
+        </div>
     //   HTML and CSS by AlvaroTrigo on CodePen: TabbyTabs
   );
 };
