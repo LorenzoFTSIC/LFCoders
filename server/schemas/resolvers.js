@@ -44,6 +44,11 @@ const resolvers = {
       return project
     },
     
+    addSkill: async (parent, { name, stackType }) => {
+      const skill = await Skill.create({ name, stackType })
+      return skill
+    },
+
     editProjectName: async (parent, { projectId, name}) => {
       return Project.findOneAndUpdate(
         { _id: projectId },
@@ -89,6 +94,18 @@ const resolvers = {
 
     },
 
+    addSkillToProject: async (parent, { projectId, skillId }) => {
+      return Project.findOneAndUpdate(
+        { _id: projectId },
+        { $addToSet: { skills: skillId } },
+        {
+          new: true,
+          runValidators: true
+        }
+      );
+
+    },
+
     login: async (parent, { email, password }) => {
       const profile = await Profile.findOne({ email });
 
@@ -113,20 +130,20 @@ const resolvers = {
       return { token, profile };
     },
     // Add a third argument to the resolver to access data in our `context`
-    addSkill: async (parent, { profileId, skill }, context) => {
+    addSkillToProfile: async (parent, { profileId, skillId }, context) => {
       // If context has a `user` property, that means the user executing this mutation has a valid JWT and is logged in
-      if (context.user) {
+      // if (context.user) {
         return Profile.findOneAndUpdate(
           { _id: profileId },
           {
-            $addToSet: { skills: skill }
+            $addToSet: { skills: skillId }
           },
           {
             new: true,
             runValidators: true
           }
         );
-      }
+      // }
       // If user attempts to execute this mutation and isn't logged in, throw an error
       throw new AuthenticationError('You need to be logged in!');
     },
@@ -143,6 +160,11 @@ const resolvers = {
         );
       }
     },
+
+    removeSkill: async (parent, { skillId }) => {
+      return Skill.findOneAndDelete({ _id: skillId });
+    },
+
     // Set up mutation so a logged in user can only remove their profile and no one else's
     removeProfile: async (parent, args, context) => {
       if (context.user) {
@@ -151,21 +173,29 @@ const resolvers = {
       throw new AuthenticationError('You need to be logged in!');
     },
     // Make it so a logged in user can only remove a skill from their own profile
-    removeSkill: async (parent, { skill }, context) => {
-      if (context.user) {
-        return Profile.findOneAndUpdate(
-          { _id: context.user._id },
-          { $pull: { skills: skill } },
-          { new: true }
-        );
-      }
-      throw new AuthenticationError('You need to be logged in!');
+    removeSkillFromProfile: async (parent, { profileId, skillId }, context) => {
+      // if (context.user) {
+      return Profile.findOneAndUpdate(
+        // { _id: context.user._id },
+        { _id: profileId },
+        { $pull: { skills: skillId } },
+        { new: true }
+      );
+      // }
+      // throw new AuthenticationError('You need to be logged in!');
     },
 
     removeProfileFromProject: async (parent, { projectId, profileId }) => {
       return Project.findOneAndUpdate(
         { _id: projectId },
         { $pull: { profile: profileId } },
+        { new: true }
+      );
+    },
+    removeSkillFromProject: async (parent, { projectId, skillId }) => {
+      return Project.findOneAndUpdate(
+        { _id: projectId },
+        { $pull: { skills: skillId } },
         { new: true }
       );
     }
