@@ -9,7 +9,8 @@ const resolvers = {
     },
 
     profile: async (parent, { profileId }) => {
-      return Profile.findOne({ _id: profileId });
+      return Profile.findOne({ _id: profileId }); 
+      // .populate(bio) to get all the bio info 
     },
 
     projects: async () => {
