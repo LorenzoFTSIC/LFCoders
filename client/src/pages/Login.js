@@ -30,7 +30,7 @@ const Login = (props) => {
       borderRadius: 0,
       textAlign: "center",
       backgroundColor: "#784faf",
-      fontFamily: "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;",
+      fontFamily: "Segoe UI, Tahoma, Geneva, Verdana, sans-serif",
 
     },
     input: {
@@ -86,15 +86,15 @@ const Login = (props) => {
   };
 
   return (
-    <div class="modal fade bd-example-modal-lg-login" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-      <div class="modal-dialog modal-lg login">
-        <div class="modal-content" style={styles.noRadius}>
+    <div className="modal fade bd-example-modal-lg-login" tabIndex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+      <div className="modal-dialog modal-lg login">
+        <div className="modal-content" style={styles.noRadius}>
           <div className="flex-row justify-center mb-4">
             <div className="col-12 col-lg-12" style={styles.center}>
               <div className="card" style={styles.card}>
-                <div class="modal-header" style={styles.h4}>
+                <div className="modal-header" style={styles.h4}>
                   <h4 className="card-header  text-light p-2" style={styles.h4}>Login</h4>
-                  <button type="button" style={styles.close} class="close" data-dismiss="modal" aria-label="Close">
+                  <button type="button" style={styles.close} className="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                   </button>
                 </div>
