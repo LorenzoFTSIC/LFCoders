@@ -5,6 +5,7 @@ import { useMutation } from '@apollo/client';
 import { ADD_PROFILE } from '../utils/mutations';
 
 import Auth from '../utils/auth';
+
 import Slider from '@mui/material/Slider';
 import Typography from '@mui/material/Typography';
 
@@ -99,6 +100,7 @@ const Signup = () => {
 
   return (
     <>
+
       <div class="modal fade bd-example-modal-lg-signup" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg signup">
           <div class="modal-content" style={styles.noRadius}>
