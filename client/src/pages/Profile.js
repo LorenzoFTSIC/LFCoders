@@ -5,10 +5,6 @@ import { useQuery } from '@apollo/client';
 
 import { QUERY_SINGLE_PROFILE, QUERY_ME } from '../utils/queries';
 
-// import { useQuery, useMutation } from '@apollo/client';
-// import { QUERY_BIO } from '../utils/queries';
-// import { EDIT_BIO } from '../utils/mutations';
-
 import Auth from '../utils/auth';
 
 // import CollabCube from '../component/CollabCube';
@@ -39,25 +35,6 @@ const style = {
 // { profilecollabs }
 // ^ Prop that represents the info which will be arrayed over and displayed in the "My Collabs" section
 const Profile = () => {
-  //   let { id } = useParams();
-
-  // const { loading, data } = useQuery(QUERY_BIO, {
-  //   variables: { _id: id },
-  // });
-
-  // const profile = data?.profile || [];
-
-  // const [editBio, { error }] = useMutation(EDIT_BIO);
-
-  // const handleBio = async (bio) => {
-  //   try {
-  //     await editBio({
-  //       variables: { _id: id, bio: bio },
-  //     });
-  //   } catch (err) {
-  //     console.error(err);
-  //   }
-  // };
 
   const { profileId } = useParams();
 
@@ -71,7 +48,7 @@ const Profile = () => {
 
   // Check if data is returning from the `QUERY_ME` query, then the `QUERY_SINGLE_PROFILE` query
   const profile = data?.me || data?.profile || {};
-  console.log(profile);
+  // console.log(profile);
 
   // Use React Router's `<Redirect />` component to redirect to personal profile page if username is yours
   if (Auth.loggedIn() && Auth.getProfile().data._id === profileId) {
