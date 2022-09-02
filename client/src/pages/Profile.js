@@ -1,8 +1,13 @@
 import React from 'react';
+import { Navigate, useParams } from 'react-router-dom';
+// ^ Link
+import Box from '@material-ui/core/Box';
+import Button from '@mui/material/Button';
+import Typography from '@mui/material/Typography';
+import Modal from '@mui/material/Modal';
+// ^ Lines 4 - 7 is the Settings Modal
 
-import { Link, Navigate, useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
-
 import { QUERY_SINGLE_PROFILE, QUERY_ME } from '../utils/queries';
 
 import Auth from '../utils/auth';
@@ -29,14 +34,28 @@ const style = {
   push: {
     marginTop: '3rem',
     color: 'white'
+  }, 
+  settingsModal: { 
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    width: 400,
+    bgcolor: 'background.paper',
+    border: '2px solid #000',
+    boxShadow: 24,
+    p: 4,
   }
 };
 
 // { profilecollabs }
 // ^ Prop that represents the info which will be arrayed over and displayed in the "My Collabs" section
 const Profile = () => {
-
   const { profileId } = useParams();
+  const [open, setOpen] = React.useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
+  // ^ Lines 44 - 46 for Settings Modal 
 
   // If there is no `profileId` in the URL as a parameter, execute the `QUERY_ME` query instead for the logged in user's information
   const { loading, data } = useQuery(
@@ -68,8 +87,10 @@ const Profile = () => {
     );
   }
 
+
+
   return (
-    // UPDATE THE ./utils/queries.js WITH STATUS AND SKILLS TO SEE IT ON THE PAGE 
+    // UPDATE THE ./utils/queries.js WITH STATUS AND SKILLS TO SEE IT ON THE PAGE
     <div>
       <section style={style.profileHeading}>
         <div style={style.profileInfo}>
@@ -86,10 +107,27 @@ const Profile = () => {
         </div>
 
         <div>
-          <Link to="/settings">
+          {/* <Link to="/settings">
             <h5>Settings</h5>
-          </Link>
+          </Link> */}
           {/* WORKS - links to /settings */}
+
+          <Button onClick={handleOpen}>Open modal</Button>
+          <Modal
+            open={open}
+            onClose={handleClose}
+            aria-labelledby="modal-modal-title"
+            aria-describedby="modal-modal-description"
+          >
+            <Box sx={style.settingsModal}>
+              <Typography id="modal-modal-title" variant="h6" component="h2">
+                Text in a modal
+              </Typography>
+              <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+                Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
+              </Typography>
+            </Box>
+          </Modal>
         </div>
       </section>
 
