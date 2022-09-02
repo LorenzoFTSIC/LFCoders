@@ -11,13 +11,15 @@ const styles = {
     textAlign: 'center'
   },
   headerContent: {
-    padding: 0, 
+    padding: '100px 0 0 0 ',
     color: 'white',
     display: 'flex',
-    justifyContent: 'space-around'
+    justifyContent: 'space-around',
+    alignItems: 'center'
   },
-  headerSides: { 
-    width: '50%'
+  headerSides: {
+    width: '50%', 
+    height: '100%',
   },
   title: {
     color: 'white',
@@ -35,7 +37,8 @@ const styles = {
   }
 };
 
-const Header = () => {
+const Header = ({ reasons }) => {
+  // ^ Prop for rendering one sentence at a time in a type of carousel, but not doing that right now...
   const logout = (event) => {
     event.preventDefault();
     Auth.logout();
@@ -45,28 +48,87 @@ const Header = () => {
       style={styles.header}
       className="bg-info text-dark display-flex align-center"
     >
-      <div
-        style={styles.headerContent}
-        className="container"
-      >
+      <div style={styles.headerContent} className="container">
         <div style={styles.headerSides}>
           {/* <Link style={styles.link} className="none" to="/"> */}
-          <h1 style={styles.title} className="m-0">
+          <h1 style={styles.title} className="m-0 quote">
             L.F.Coders
           </h1>
-          {/* </Link> */}
-          <p className="m-0" style={{ fontSize: '1.75rem', fontWeight: '700' }}>
-            Ideas that go beyond our current knowledge. <br /> Working in a
-            team. <br />
-            Spreading the work load. <br />
-            Bouncing ideas. <br />
-            Meeting new people. <br />
-            Sharing ideas.
-          </p>
+          <div className="content-slider">
+            <div className="slider">
+              <div>
+                {/* </Link> */}
+                <ul>
+                  <li className="anim1">
+                    <p
+                      className="m-0 quote"
+                      style={{ fontSize: '1.75rem', fontWeight: '700' }}
+                    >
+                      Ideas that go beyond our current knowledge.
+                    </p>
+                  </li>
+
+                  {/* <br /> */}
+                  <li className="anim2">
+                    <p
+                      className="m-0 quote"
+                      style={{ fontSize: '1.75rem', fontWeight: '700' }}
+                    >
+                      Working in a team.
+                    </p>
+                  </li>
+
+                  {/* <br /> */}
+                  <li className="anim3">
+                    <p
+                      className="m-0 quote"
+                      style={{ fontSize: '1.75rem', fontWeight: '700' }}
+                    >
+                      Spreading the work load.
+                    </p>
+                  </li>
+
+                  {/* <br /> */}
+                  <li className="anim4">
+                    <p
+                      className="m-0 quote"
+                      style={{ fontSize: '1.75rem', fontWeight: '700' }}
+                    >
+                      Bouncing ideas.
+                    </p>
+                  </li>
+
+                  {/* <br /> */}
+                  <li className="anim5">
+                    <p
+                      className="m-0 quote"
+                      style={{ fontSize: '1.75rem', fontWeight: '700' }}
+                    >
+                      Meeting new people.
+                    </p>
+                  </li>
+
+                  {/* <br /> */}
+                  {/* <li className="anim1">
+                    <p
+                      className="m-0 quote"
+                      style={{ fontSize: '1.75rem', fontWeight: '700' }}
+                    >
+                      Sharing ideas.
+                    </p>
+                  </li> */}
+                  {/* ^ Removed because not enough anim# spots... */}
+                </ul>
+              </div>
+            </div>
+          </div>
         </div>
 
         <div style={styles.headerSides}>
-          <p className="m-0" style={{ fontSize: '1.75rem', fontWeight: '700' }}>
+          <p
+            className="m-0 quote"
+            style={{ fontSize: '1.75rem', fontWeight: '700' }}
+          >
             Whatever your reason, LFC is here to get you in touch with the right
             people for your next coding project.
           </p>
