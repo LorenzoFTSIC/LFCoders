@@ -39,9 +39,54 @@ const resolvers = {
 
   Mutation: {
 
-    addProject: async (parent, { name, description, skills, profile, createDate, completed }) => {
-      const project = await Project.create({ name, description, skills, profile, createDate, completed })
+    addProject: async (parent, { name, description, skills, profile, createDate, status }) => {
+      const project = await Project.create({ name, description, skills, profile, createDate, status })
       return project
+    },
+    
+    editProjectName: async (parent, { projectId, name}) => {
+      return Project.findOneAndUpdate(
+        { _id: projectId },
+        { name: name },
+        {
+          new: true,
+          runValidators: true
+        }
+      )
+    },    
+
+    editProjectDesc: async (parent, { projectId, description}) => {
+      return Project.findOneAndUpdate(
+        { _id: projectId },
+        { description: description },
+        {
+          new: true,
+          runValidators: true
+        }
+      )
+    },
+
+    editProjectStatus: async (parent, { projectId, status}) => {
+      return Project.findOneAndUpdate(
+        { _id: projectId },
+        { status: status },
+        {
+          new: true,
+          runValidators: true
+        }
+      )
+    },
+
+    addUserToProject: async (parent, { projectId, profileId }) => {
+      return Project.findOneAndUpdate(
+        { _id: projectId },
+        { $addToSet: { profile: profileId } },
+        {
+          new: true,
+          runValidators: true
+        }
+      );
+
     },
 
     login: async (parent, { email, password }) => {
@@ -115,6 +160,14 @@ const resolvers = {
         );
       }
       throw new AuthenticationError('You need to be logged in!');
+    },
+
+    removeProfileFromProject: async (parent, { projectId, profileId }) => {
+      return Project.findOneAndUpdate(
+        { _id: projectId },
+        { $pull: { profile: profileId } },
+        { new: true }
+      );
     }
   }
 };

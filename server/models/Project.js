@@ -28,7 +28,7 @@ const projectSchema = new Schema({
     default: Date.now
   },
   // true/false to see if the project is marked "done" or not
-  completed: {
+  status: {
     type: Boolean
   }
 });
