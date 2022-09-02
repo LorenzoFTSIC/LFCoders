@@ -11,6 +11,7 @@ import Auth from './utils/auth';
 
 import Home from './pages/Home';
 import Profile from './pages/Profile';
+import Settings from './pages/Settings';
 import Signup from './pages/Signup';
 import Login from './pages/Login';
 import Search from './pages/Search';
@@ -56,6 +57,7 @@ function App() {
               <Route path="/signup" element={<Signup />} />
               <Route path="/search" element={<Search />} />
               <Route path="/me" element={<Profile />} />
+              <Route path="/settings" element={<Settings />} />
               {/* profilecollabs={profilecollabs} */}
               {/* ^ this represents the collab information that will eventually be passed into the "My Collabs" section of the Profile page */}
               <Route path="/profiles/:profileId" element={<Profile />} />
