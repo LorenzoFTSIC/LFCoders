@@ -1,7 +1,7 @@
 import React from 'react';
 
 // import LFCForm from '../components/LFCForm';
-// import LTCForm from '../components/LTCForm';
+import LTCForm from '../components/LTCForm/LTCForm';
 
 const style = {
   container: {
@@ -71,7 +71,7 @@ const Search = () => {
               Looking To Code
             </label>
             <div style={style.tabContent} className='tab-content'>
-              {/* <LTCForm /> */}
+            <LTCForm/>
             </div>
           </div>
         </div>
