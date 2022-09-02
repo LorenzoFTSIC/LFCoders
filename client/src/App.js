@@ -7,6 +7,7 @@ import {
 } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Auth from './utils/auth';
 
 import Home from './pages/Home';
 import Profile from './pages/Profile';
@@ -45,8 +46,7 @@ function App() {
     <ApolloProvider client={client}>
       <Router>
         <div className="flex-column justify-flex-start min-100-vh">
-          <Header />
-          <SmallHeader />
+          {Auth.loggedIn() ? <SmallHeader /> : <Header />}
           {/* ^Need conditional to switch between the two types of headers when the user is logged in or not logged in */}
           <div className="container">
             <Routes>
@@ -54,10 +54,7 @@ function App() {
               <Route path="/login" element={<Login />} />
               <Route path="/signup" element={<Signup />} />
               <Route path="/search" element={<Search />} />
-              <Route
-                path="/me"
-                element={<Profile />}
-              />
+              <Route path="/me" element={<Profile />} />
               {/* profilecollabs={profilecollabs} */}
               {/* ^ this represents the collab information that will eventually be passed into the "My Collabs" section of the Profile page */}
               <Route path="/profiles/:profileId" element={<Profile />} />
