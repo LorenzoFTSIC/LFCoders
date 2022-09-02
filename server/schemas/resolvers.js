@@ -17,16 +17,10 @@ const resolvers = {
         return Profile.findOne({ _id: context.user._id });
       }
       throw new AuthenticationError('You need to be logged in!');
-    },
+    }
   },
 
   Mutation: {
-    addProfile: async (parent, { name, email, password }) => {
-      const profile = await Profile.create({ name, email, password });
-      const token = signToken(profile);
-
-      return { token, profile };
-    },
     login: async (parent, { email, password }) => {
       const profile = await Profile.findOne({ email });
 
@@ -44,6 +38,12 @@ const resolvers = {
       return { token, profile };
     },
 
+    addProfile: async (parent, { name, email, password, bio }) => {
+      const profile = await Profile.create({ name, email, password, bio });
+      const token = signToken(profile);
+
+      return { token, profile };
+    },
     // Add a third argument to the resolver to access data in our `context`
     addSkill: async (parent, { profileId, skill }, context) => {
       // If context has a `user` property, that means the user executing this mutation has a valid JWT and is logged in
@@ -51,16 +51,29 @@ const resolvers = {
         return Profile.findOneAndUpdate(
           { _id: profileId },
           {
-            $addToSet: { skills: skill },
+            $addToSet: { skills: skill }
           },
           {
             new: true,
-            runValidators: true,
+            runValidators: true
           }
         );
       }
       // If user attempts to execute this mutation and isn't logged in, throw an error
       throw new AuthenticationError('You need to be logged in!');
+    },
+    // Updating the section. If statement within the component will give it placeholder text if Bio section is empty.
+    editBio: async (parent, { profileId, bio }, context) => {
+      if (context.user) {
+        return Profile.findOneAndUpdate(
+          { _id: profileId },
+          { bio: bio },
+          {
+            new: true,
+            runValidators: true
+          }
+        );
+      }
     },
     // Set up mutation so a logged in user can only remove their profile and no one else's
     removeProfile: async (parent, args, context) => {
@@ -79,8 +92,8 @@ const resolvers = {
         );
       }
       throw new AuthenticationError('You need to be logged in!');
-    },
-  },
+    }
+  }
 };
 
 module.exports = resolvers;

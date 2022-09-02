@@ -48,12 +48,12 @@ function App() {
           <Header />
           <SmallHeader />
           {/* ^Need conditional to switch between the two types of headers when the user is logged in or not logged in */}
-          <Search />
           <div className="container">
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/login" element={<Login />} />
               <Route path="/signup" element={<Signup />} />
+              <Route path="/search" element={<Search />} />
               <Route
                 path="/me"
                 element={<Profile />}
