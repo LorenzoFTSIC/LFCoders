@@ -4,7 +4,6 @@ import { useMutation } from '@apollo/client';
 import { LOGIN_USER } from '../utils/mutations';
 
 import Auth from '../utils/auth';
-import { width } from '@mui/system';
 
 const Login = (props) => {
   const [formState, setFormState] = useState({ email: '', password: '' });
@@ -42,6 +41,9 @@ const Login = (props) => {
       width:"50%",
       justifyContent:"center",
       margin:"auto",
+      color: "white",
+      border: "none",
+      borderRadius: 0,
    },
    center: {
     margin:"0 auto",
@@ -50,6 +52,12 @@ const Login = (props) => {
      borderRadius: 0,
      border: "none"
    },
+   close: {
+    background: "transparent",
+    border: "none",
+    fontSize: 26,
+    color: "white",
+  }
   }
   // submit form
   const handleFormSubmit = async (event) => {
@@ -79,11 +87,12 @@ const Login = (props) => {
     <div className="flex-row justify-center mb-4">
       <div className="col-12 col-lg-12" style={styles.center}>
         <div className="card" style={styles.card}>
-          <div class="modal-header">
+          <div class="modal-header" style={styles.h4}>
           <h4 className="card-header  text-light p-2" style={styles.h4}>Login</h4>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <button type="button" style={styles.close} class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
+        </div>
           <div className="card-body">
             {data ? (
               <p>
