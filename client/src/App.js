@@ -58,6 +58,7 @@ function App() {
               <Route path="/search" element={<Search />} />
               <Route path="/me" element={<Profile />} />
               <Route path="/settings" element={<Settings />} />
+              {/* /settings/:profileId */}
               {/* profilecollabs={profilecollabs} */}
               {/* ^ this represents the collab information that will eventually be passed into the "My Collabs" section of the Profile page */}
               <Route path="/profiles/:profileId" element={<Profile />} />
