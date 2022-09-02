@@ -7,6 +7,7 @@ import { ADD_PROFILE } from '../utils/mutations';
 import Auth from '../utils/auth';
 import Slider from '@mui/material/Slider';
 import Typography from '@mui/material/Typography';
+
 const styles = {
   form: {
     display:"flex",
@@ -17,7 +18,8 @@ const styles = {
   },
   h4: {
     textAlign:"center",
-    backgroundColor:"purple"
+    backgroundColor:"#784faf",
+    borderRadius: 0
     
   },
   center: {
@@ -25,16 +27,21 @@ const styles = {
   },
   input:{
     marginBottom: "20px",
-    color:"purple",
+    color:"#784faf",
   },
   jsSlider: {
     font:"auto",
     
 },
   submit: {
-   backgroundColor:"purple",
+   backgroundColor:"#784faf",
    cursor: "pointer"
-}
+},
+  card: {
+    borderRadius: 0,
+    border: "none"
+  },
+
   }
 
   
@@ -76,10 +83,18 @@ const Signup = () => {
 
   return (
     <>
-    <main className="flex-row justify-center mb-4">
-      <div className="col-12 col-lg-8" style={styles.center}>
-        <div className="card">
+    <div class="modal fade bd-example-modal-lg-signup" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg signup">
+    <div class="modal-content">
+    <div className="flex-row justify-center mb-4">
+      <div className="col-12 col-lg-12" style={styles.center}>
+        <div className="card" style={styles.card}>
+        <div class="modal-header">
           <h4 className="card-header text-light  p-2"  style={styles.h4}>Sign Up</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
           <div className="card-body">
             {data ? (
               <p>
@@ -121,7 +136,7 @@ const Signup = () => {
                 <Slider defaultValue={0} aria-label="Default" aria-labelledby="js-slider" valueLabelDisplay="auto" 
                     sx={{
                     width: 300,
-                    color: 'purple',
+                    color: '#784faf',
                        }} />
                 <Typography style={styles.jsSlider} gutterBottom>
                 Javascript
@@ -129,7 +144,7 @@ const Signup = () => {
                 <Slider defaultValue={0} aria-label="Default" aria-labelledby="js-slider" valueLabelDisplay="auto"
                   sx={{
                     width: 300,
-                    color: 'purple',
+                    color: '#784faf',
                        }} />
                 <Typography style={styles.jsSlider} gutterBottom>
                 React
@@ -137,7 +152,7 @@ const Signup = () => {
                 <Slider defaultValue={0} aria-label="Default" aria-labelledby="js-slider" valueLabelDisplay="auto"
                 sx={{
                   width: 300,
-                  color: 'purple',
+                  color: '#784faf',
                      }} />
                 <Typography style={styles.jsSlider} gutterBottom>
                 Javascript
@@ -145,7 +160,7 @@ const Signup = () => {
                 <Slider defaultValue={0} aria-label="Default" aria-labelledby="js-slider" valueLabelDisplay="auto"
                 sx={{
                   width: 300,
-                  color: 'purple',
+                  color: '#784faf',
                      }} />
                 <Typography style={styles.jsSlider} gutterBottom>
                 Node.js
@@ -153,7 +168,7 @@ const Signup = () => {
                 <Slider defaultValue={0} aria-label="Default" aria-labelledby="js-slider" valueLabelDisplay="auto" 
                 sx={{
                   width: 300,
-                  color: 'purple',
+                  color: '#784faf',
                      }}/>
                 <Typography style={styles.jsSlider} gutterBottom>
                 SQL
@@ -161,7 +176,7 @@ const Signup = () => {
                 <Slider defaultValue={0} aria-label="Default" aria-labelledby="js-slider" valueLabelDisplay="auto" 
                 sx={{
                   width: 300,
-                  color: 'purple',
+                  color: '#784faf',
                      }}/>
                 <Typography style={styles.jsSlider} gutterBottom>
                 MERN
@@ -169,7 +184,7 @@ const Signup = () => {
                 <Slider defaultValue={0} aria-label="Default" aria-labelledby="js-slider" valueLabelDisplay="auto" 
                 sx={{
                   width: 300,
-                  color: 'purple',
+                  color: '#784faf',
                      }}/>
                 <Typography class="js-slider" gutterBottom>
                 Javascript
@@ -177,14 +192,14 @@ const Signup = () => {
                 <Slider defaultValue={0} aria-label="Default" aria-labelledby="js-slider" valueLabelDisplay="auto"
                 sx={{
                   width: 300,
-                  color: 'purple',
+                  color: '#784faf',
                      }} />
 
                 <button
                   className="btn btn-block btn-info"
                   style={styles.submit}
                   type="submit"
-                  
+                  aria-label="Close"
                 >
                   Submit
                 </button>
@@ -199,7 +214,10 @@ const Signup = () => {
           </div>
         </div>
       </div>
-    </main> 
+    </div> 
+    </div>
+  </div>
+</div>
     </>
   );
 };

@@ -28,16 +28,16 @@ const Login = (props) => {
       margin:"auto",
     },
     h4: {
-      
+      borderRadius: 0,
       textAlign:"center",
-     backgroundColor:"purple"
+     backgroundColor:"#784faf"
     },
     input:{
       marginBottom: "20px",
-      color:"purple",
+      color:"#784faf",
     },
     submit: {
-      backgroundColor:"purple",
+      backgroundColor:"#784faf",
       cursor: "pointer",
       width:"50%",
       justifyContent:"center",
@@ -45,7 +45,11 @@ const Login = (props) => {
    },
    center: {
     margin:"0 auto",
-   }
+   },
+   card: {
+     borderRadius: 0,
+     border: "none"
+   },
   }
   // submit form
   const handleFormSubmit = async (event) => {
@@ -69,10 +73,17 @@ const Login = (props) => {
   };
 
   return (
-    <main className="flex-row justify-center mb-4">
-      <div className="col-12 col-lg-8" style={styles.center}>
-        <div className="card" >
+    <div class="modal fade bd-example-modal-lg-login" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg login">
+      <div class="modal-content">
+    <div className="flex-row justify-center mb-4">
+      <div className="col-12 col-lg-12" style={styles.center}>
+        <div className="card" style={styles.card}>
+          <div class="modal-header">
           <h4 className="card-header  text-light p-2" style={styles.h4}>Login</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
           <div className="card-body">
             {data ? (
               <p>
@@ -117,7 +128,10 @@ const Login = (props) => {
           </div>
         </div>
       </div>
-    </main>
+    </div>
+    </div>
+    </div>
+    </div>
   );
 };
 
