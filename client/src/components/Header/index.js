@@ -5,8 +5,9 @@ import Auth from '../../utils/auth';
 
 const styles = {
   header: {
-    height:'400px',
+    height:'calc(100vh - 40px)',
     margin: 20,
+    display: "flex",
     backgroundImage:"linear-gradient(to right, rgb(52, 9, 138) , rgb(236, 185, 236))",
     textAlign: 'center',
   },
