@@ -19,7 +19,8 @@ const styles = {
   h4: {
     textAlign: "center",
     backgroundColor: "#784faf",
-    borderRadius: 0
+    borderRadius: 0,
+    fontFamily: "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;",
 
   },
   center: {
@@ -30,7 +31,7 @@ const styles = {
     color: "#784faf",
   },
   jsSlider: {
-    font: "auto",
+    fontFamily: "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;",
 
   },
   submit: {
@@ -49,8 +50,11 @@ const styles = {
     border: "none",
     fontSize: 26,
     color: "white",
+  },
+  grid: {
+    display: "grid",
+    gridTemplateColumns: "1fr 1fr",
   }
-
 }
 
 
@@ -139,64 +143,72 @@ const Signup = () => {
                           value={formState.password}
                           onChange={handleChange}
                         />
-                        <Typography style={styles.jsSlider} gutterBottom>
-                          HTML/CSS
-                        </Typography>
-                        <Slider defaultValue={0} aria-label="Default" aria-labelledby="js-slider" valueLabelDisplay="auto"
-                          sx={{
-                            color: '#784faf',
-                          }} />
-                        <Typography style={styles.jsSlider} gutterBottom>
-                          Javascript
-                        </Typography>
-                        <Slider defaultValue={0} aria-label="Default" aria-labelledby="js-slider" valueLabelDisplay="auto"
-                          sx={{
-                            color: '#784faf',
-                          }} />
-                        <Typography style={styles.jsSlider} gutterBottom>
-                          React
-                        </Typography>
-                        <Slider defaultValue={0} aria-label="Default" aria-labelledby="js-slider" valueLabelDisplay="auto"
-                          sx={{
-                            color: '#784faf',
-                          }} />
-                        <Typography style={styles.jsSlider} gutterBottom>
-                          Javascript
-                        </Typography>
-                        <Slider defaultValue={0} aria-label="Default" aria-labelledby="js-slider" valueLabelDisplay="auto"
-                          sx={{
-                            color: '#784faf',
-                          }} />
-                        <Typography style={styles.jsSlider} gutterBottom>
-                          Node.js
-                        </Typography>
-                        <Slider defaultValue={0} aria-label="Default" aria-labelledby="js-slider" valueLabelDisplay="auto"
-                          sx={{
-                            color: '#784faf',
-                          }} />
-                        <Typography style={styles.jsSlider} gutterBottom>
-                          SQL
-                        </Typography>
-                        <Slider defaultValue={0} aria-label="Default" aria-labelledby="js-slider" valueLabelDisplay="auto"
-                          sx={{
-                            color: '#784faf',
-                          }} />
-                        <Typography style={styles.jsSlider} gutterBottom>
-                          MERN
-                        </Typography>
-                        <Slider defaultValue={0} aria-label="Default" aria-labelledby="js-slider" valueLabelDisplay="auto"
-                          sx={{
-                            color: '#784faf',
-                          }} />
-                        <Typography class="js-slider" gutterBottom>
-                          Javascript
-                        </Typography>
-                        <Slider defaultValue={0} aria-label="Default" aria-labelledby="js-slider" valueLabelDisplay="auto"
-                          sx={{
-                            color: '#784faf',
-                            marginBottom: 4
-                          }} />
-
+                        <div style={styles.grid}>
+                          <Typography style={styles.jsSlider} gutterBottom>
+                            HTML/CSS
+                          </Typography>
+                          <Slider defaultValue={0} aria-label="Default" aria-labelledby="js-slider" valueLabelDisplay="auto"
+                            sx={{
+                              color: '#784faf',
+                              marginBottom: 2
+                            }} />
+                          <Typography style={styles.jsSlider} gutterBottom>
+                            Javascript
+                          </Typography>
+                          <Slider defaultValue={0} aria-label="Default" aria-labelledby="js-slider" valueLabelDisplay="auto"
+                            sx={{
+                              color: '#784faf',
+                              marginBottom: 2
+                            }} />
+                          <Typography style={styles.jsSlider} gutterBottom>
+                            React
+                          </Typography>
+                          <Slider defaultValue={0} aria-label="Default" aria-labelledby="js-slider" valueLabelDisplay="auto"
+                            sx={{
+                              color: '#784faf',
+                              marginBottom: 2
+                            }} />
+                          <Typography style={styles.jsSlider} gutterBottom>
+                            Javascript
+                          </Typography>
+                          <Slider defaultValue={0} aria-label="Default" aria-labelledby="js-slider" valueLabelDisplay="auto"
+                            sx={{
+                              color: '#784faf',
+                              marginBottom: 2
+                            }} />
+                          <Typography style={styles.jsSlider} gutterBottom>
+                            Node.js
+                          </Typography>
+                          <Slider defaultValue={0} aria-label="Default" aria-labelledby="js-slider" valueLabelDisplay="auto"
+                            sx={{
+                              color: '#784faf',
+                              marginBottom: 2
+                            }} />
+                          <Typography style={styles.jsSlider} gutterBottom>
+                            SQL
+                          </Typography>
+                          <Slider defaultValue={0} aria-label="Default" aria-labelledby="js-slider" valueLabelDisplay="auto"
+                            sx={{
+                              color: '#784faf',
+                              marginBottom: 2
+                            }} />
+                          <Typography style={styles.jsSlider} gutterBottom>
+                            MERN
+                          </Typography>
+                          <Slider defaultValue={0} aria-label="Default" aria-labelledby="js-slider" valueLabelDisplay="auto"
+                            sx={{
+                              color: '#784faf',
+                              marginBottom: 2
+                            }} />
+                          <Typography class="js-slider" gutterBottom>
+                            Javascript
+                          </Typography>
+                          <Slider defaultValue={0} aria-label="Default" aria-labelledby="js-slider" valueLabelDisplay="auto"
+                            sx={{
+                              color: '#784faf',
+                              marginBottom: 4
+                            }} />
+                        </div>
                         <button
                           className="btn btn-block btn-info"
                           style={styles.submit}

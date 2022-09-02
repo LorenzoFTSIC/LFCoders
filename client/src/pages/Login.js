@@ -29,7 +29,9 @@ const Login = (props) => {
     h4: {
       borderRadius: 0,
       textAlign:"center",
-     backgroundColor:"#784faf"
+     backgroundColor:"#784faf",
+     fontFamily: "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;",
+
     },
     input:{
       marginBottom: "20px",
