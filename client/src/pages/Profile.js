@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Navigate, useParams } from 'react-router-dom';
 // ^ Link
 import Box from '@material-ui/core/Box';
@@ -34,8 +34,8 @@ const style = {
   push: {
     marginTop: '3rem',
     color: 'white'
-  }, 
-  settingsModal: { 
+  },
+  settingsModal: {
     position: 'absolute',
     top: '50%',
     left: '50%',
@@ -44,7 +44,7 @@ const style = {
     bgcolor: 'background.paper',
     border: '2px solid #000',
     boxShadow: 24,
-    p: 4,
+    p: 4
   }
 };
 
@@ -55,7 +55,13 @@ const Profile = () => {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
-  // ^ Lines 44 - 46 for Settings Modal 
+  // ^ Lines 44 - 46 for Settings Modal
+
+  const [textarea, setTextarea] = useState('');
+
+  const handleChange = (e) => {
+    setTextarea(e.target.value);
+  };
 
   // If there is no `profileId` in the URL as a parameter, execute the `QUERY_ME` query instead for the logged in user's information
   const { loading, data } = useQuery(
@@ -86,8 +92,6 @@ const Profile = () => {
       </h4>
     );
   }
-
-
 
   return (
     // UPDATE THE ./utils/queries.js WITH STATUS AND SKILLS TO SEE IT ON THE PAGE
@@ -120,11 +124,17 @@ const Profile = () => {
             aria-describedby="modal-modal-description"
           >
             <Box sx={style.settingsModal}>
-              <Typography id="modal-modal-title" variant="h6" component="h2">
-                Text in a modal
+              <Typography id="modal-modal-title" variant="h3" component="h2">
+                Settings
               </Typography>
               <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-                Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
+                <section>
+                  <div>
+                    <h5>My Bio</h5>
+                    <textarea value={textarea} onChange={handleChange} />
+                    <button>Save Changes</button>
+                  </div>
+                </section>
               </Typography>
             </Box>
           </Modal>
