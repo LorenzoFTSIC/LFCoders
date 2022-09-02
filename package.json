@@ -17,6 +17,8 @@
     "concurrently": "^5.1.0"
   },
   "dependencies": {
+    "@material/slider": "^14.0.0",
+    "@material/typography": "^14.0.0",
     "@mui/material": "^5.10.3"
   }
 }
