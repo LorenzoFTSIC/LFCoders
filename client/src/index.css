@@ -94,7 +94,7 @@ a.text-dark.logo {
 	z-index: 2;
 }
 
-[type=radio]:checked ~ label ~ .tab-content {
+[type=radio]:checked ~ label ~ .tab-content, .tab-content {
 	z-index: 1;
 	/* show/hide */
 		opacity: 1;
