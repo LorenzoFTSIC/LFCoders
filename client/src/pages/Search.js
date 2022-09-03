@@ -71,12 +71,12 @@ const style = {
 const Search = () => {
   return (
     <div className="modalPage">
-      <h1 className="mainTitle">LOOKING TO CODE</h1>
+
       <div className="modalContainer">
         {/* <div style={style.container}>
         <h1 className= "title" style={style.title}></h1>
       <div> */}
-
+      <h3 className="mainTitle">LOOKING TO CODE</h3>
         <form>
           <h3 className="sectionHeading">What I bring to the table:</h3>
           <div className="buttonContainer">
