@@ -99,7 +99,7 @@ const Profile = () => {
           </div>
           
           <div>
-            <Avatar>H</Avatar>
+          <Avatar alt="avatar" src="/static/images/avatar/1.jpg" />
           </div>
 
           <h4>{profile.name}</h4>
