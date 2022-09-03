@@ -55,7 +55,6 @@ p + p {
 
 .btn {
 	padding: 1%;
-	background:linear-gradient(to right, rgb(52, 9, 138) , rgb(194, 185, 236));
     color: whitesmoke;
 	font-size: 1.3rem;
 	font-weight: 700;
@@ -65,7 +64,11 @@ p + p {
 	box-shadow: 0px 0px 8px rgb(48, 47, 47);
 	/* rgba(33, 203, 243, .3) */
 	transition: all 0.3s ease-in-out;
-  }
+  } 
+
+.btn:hover { 
+	background:linear-gradient(to right, rgb(52, 9, 138) , rgb(194, 185, 236));
+}
 
   .btn:hover { 
 	box-shadow: 0px 0px 8px rgb(161, 161, 161);
