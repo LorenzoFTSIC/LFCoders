@@ -219,7 +219,9 @@ const Search = () => {
             </Button>
           </div>
 
-          <button
+
+        </form>
+        <button
             className="btn btn-block"
             type="submit"
             aria-label="Close"
@@ -227,7 +229,6 @@ const Search = () => {
           >
             Submit
           </button>
-        </form>
       </div>
     </div>
     // </div>
