@@ -1,8 +1,82 @@
-body{
-background-color: #161616;
-font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+/* :root { 
+
+} */
+
+/* TYPOGRAPHY AND ELEMENTS */
+body {
+	width: 100%;
+	height: 100vh;
+	background-color: #161616;
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+	font-size: 16px;
+	color: #b5b5b5;
 }
 
+h1 { 
+	font-size: 2rem;
+	font-weight: 700;
+}
+
+h2 { 
+	font-size: 1.8rem;
+	font-weight: 700;
+}
+
+h3 { 
+	font-size: 1.7rem;
+	font-weight: 600;
+}
+
+h4 { 
+	font-size: 1.5rem;
+	font-weight: 500;
+}
+
+h5 { 
+	font-size: 1.3rem;
+	font-weight: 500;
+}
+
+p { 
+	text-align: left;
+	line-height: 1.6rem;
+	background-color: #dd39fe;
+}
+
+p + p { 
+	margin-top: 1.5rem;
+}
+
+/* Commented out for now because the smallHeader logo is being effected */
+/* a {
+	padding: 2.5% 3%;
+	text-decoration: none;
+} */
+
+.btn {
+	padding: 4.5% 9%;
+	/* background: var(--linearGradient);
+	color: var(--dark); */
+	font-size: 1.3rem;
+	font-weight: 700;
+	text-align: center;
+	border: none;
+	border-radius: 5px;
+	box-shadow: 0px 0px 8px rgb(161, 161, 161);
+	/* rgba(33, 203, 243, .3) */
+	transition: all 0.3s ease-in-out;
+  }
+
+  /* .btn:hover { 
+	box-shadow: var(--boxShadow);
+  } */
+
+  img { 
+	object-fit: contain;
+  }
+
+
+/* smallHeader - "LFC" font */
 a.text-dark.logo { 
     text-decoration: none;
 }
@@ -21,7 +95,7 @@ a.text-dark.logo {
 	z-index: 2;
 }
 
-[type=radio]:checked ~ label ~ .tab-content {
+[type=radio]:checked ~ label ~ .tab-content, .tab-content {
 	z-index: 1;
 	/* show/hide */
 		opacity: 1;
