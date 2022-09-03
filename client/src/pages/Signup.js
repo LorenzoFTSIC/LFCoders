@@ -57,6 +57,9 @@ const styles = {
   },
   noRadius: {
     borderRadius: 0,
+  },
+  bio: {
+    marginBottom: 20
   }
 }
 
@@ -68,6 +71,7 @@ const Signup = () => {
     name: '',
     email: '',
     password: '',
+    bio: ''
   });
   const [addProfile, { error, data }] = useMutation(ADD_PROFILE);
 
@@ -147,6 +151,10 @@ const Signup = () => {
                           value={formState.password}
                           onChange={handleChange}
                         />
+                        <div class="form-group">
+                          <label for="signUpBio">Add your bio:</label>
+                          <textarea style={styles.bio} class="form-control" id="signUpBio" rows="4" onChange={handleChange}></textarea>
+                        </div>
                         <div style={styles.grid}>
                           <Typography style={styles.jsSlider} gutterBottom>
                             HTML/CSS
