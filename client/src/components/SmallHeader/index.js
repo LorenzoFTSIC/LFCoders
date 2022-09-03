@@ -7,6 +7,7 @@ import Looker from '../../assets/img/Looker-Placeholder.png';
 const style = {
   header: {
     width: '100%',
+    marginBottom: '50px',
     padding: '10px 30px',
     background: '#dd39fe',
       // 'linear-gradient (to right, #dd39fe , #161616',
