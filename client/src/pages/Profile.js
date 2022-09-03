@@ -58,11 +58,7 @@ const Profile = () => {
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
-  const [textarea, setTextarea] = useState('hey');
-
-  const handleChange = (e) => {
-    setTextarea(e.target.value);
-  };
+  const [textarea, setTextarea] = useState('textareastate');
   // ================================
 
   // If there is no `profileId` in the URL as a parameter, execute the `QUERY_ME` query instead for the logged in user's information
@@ -76,7 +72,7 @@ const Profile = () => {
   // Check if data is returning from the `QUERY_ME` query, then the `QUERY_SINGLE_PROFILE` query
   const profile = data?.me || data?.profile || {};
   // console.log(profile);
-
+  const [profileBio, setProfileBio] = useState(profile.bio);
   // Use React Router's `<Redirect />` component to redirect to personal profile page if username is yours
   if (Auth.loggedIn() && Auth.getProfile().data._id === profileId) {
     return <Navigate to="/me" />;
@@ -94,6 +90,15 @@ const Profile = () => {
       </h4>
     );
   }
+  
+  // SETTINGS MODAL ==================
+  const handleChange = (e) => {
+    setTextarea(e.target.value);
+  };
+  const handleButtonClick = (e) => {
+    setProfileBio(textarea);
+  };
+  // ================================
 
   return (
     // UPDATE THE ./utils/queries.js WITH STATUS AND SKILLS TO SEE IT ON THE PAGE
@@ -134,7 +139,7 @@ const Profile = () => {
                   <div>
                     <h5>My Bio</h5>
                     <textarea value={textarea} onChange={handleChange} />
-                    <button>Save Changes</button>
+                    <button onClick={handleButtonClick}>Save Changes</button>
                   </div>
                 </section>
               </div>
@@ -146,7 +151,7 @@ const Profile = () => {
       {/* <section style={style.profileContent}> */}
       <div style={style.push}>
         <h5>My Bio</h5>
-        <p>{profile.bio}</p>
+        <p>{profileBio}</p>
         {/* WORKS - current bio renders */}
       </div>
 
