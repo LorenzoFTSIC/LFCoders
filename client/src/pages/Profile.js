@@ -10,6 +10,7 @@ import { QUERY_SINGLE_PROFILE, QUERY_ME } from '../utils/queries';
 // import { EDIT_BIO } from '../utils/mutations';
 
 import Auth from '../utils/auth';
+import Avatar from '@mui/material/Avatar';
 
 // import CollabCube from '../component/CollabCube';
 // ^ The component that will give structure to the individual collaborations a user has done
@@ -95,6 +96,10 @@ const Profile = () => {
         <div style={style.profileInfo}>
           <div style={style.roundImg}>
             <img alt="{profile.name}">{profile.img}</img>
+          </div>
+          
+          <div>
+            <Avatar>H</Avatar>
           </div>
 
           <h4>{profile.name}</h4>
