@@ -13,12 +13,12 @@ export function validEmail(text) {
   return !regex.test(text);
 }
 
-let registeredUsers = [
+/* let registeredUsers = [
   'ravi@kiran.com',
   'mail@myblog.in',
   'contact@lucky.com'
 ];
-
+ */
 
 export function userExists(email) {
   return new Promise(resolve => {
