@@ -86,6 +86,7 @@ a.text-dark.logo {
 
 .tabLabel:hover {
     background: #7B52AB,
+	
 }
 
 .tab [type=radio] { display: none; }

@@ -5,8 +5,7 @@ import { useMutation } from '@apollo/client';
 import { ADD_PROFILE } from '../utils/mutations';
 
 import Auth from '../utils/auth';
-
- import Slider from '@mui/material/Slider';
+import Slider from '@mui/material/Slider';
 import Typography from '@mui/material/Typography'; 
 
 const styles = {

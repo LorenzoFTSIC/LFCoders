@@ -1,6 +1,8 @@
 import React from 'react';
 
 import { Link } from 'react-router-dom';
+import Auth from '../../utils/auth';
+
 
 const styles = {
   // nav: {
@@ -64,6 +66,11 @@ const styles = {
 };
 
 function Nav({ currentPage, handlePageChange }) {
+
+  const logout = (event) => {
+    event.preventDefault();
+    Auth.logout();
+  };
   return (
     <nav style={styles.tabs} className="tabs">
       {/* nav */}
@@ -136,7 +143,7 @@ function Nav({ currentPage, handlePageChange }) {
             style={styles.tabLabel}
             // navtabtext
             to="/"
-            onClick={() => handlePageChange('Logout')}
+            onClick={logout}
             className={
               currentPage === 'Logout' ? 'nav-active nav-link' : 'nav-link'
             }

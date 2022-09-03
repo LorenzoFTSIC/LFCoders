@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Nav from '../Nav/Nav';
 import '../../assets/img/Looker-Placeholder.png';
-import Looker from '../../assets/img/Looker-Placeholder.png';
+import Looker from '../../assets/img/welcomerobot.png';
 
 const style = {
   header: {
@@ -17,6 +17,10 @@ const style = {
     width: '100%',
     justifyContent: 'space-between',
     alignItems: 'flex-end'
+  },
+  looker: {
+    height: "120px"
+
   }
 };
 
@@ -26,7 +30,7 @@ const SmallHeader = () => {
       <div className="d-inline-flex" style={style.headerContentSections}>
         <Link className="text-dark logo" to="/" >
           <div className="d-inline-flex align-items-end">
-            <img className="looker" src={Looker} alt="Looker"></img>
+            <img className="looker" src={Looker} alt="Looker"  style={style.looker}></img>
             <h1 className="m-3">LFC</h1>
           </div>
         </Link>

@@ -17,6 +17,6 @@
     "concurrently": "^5.1.0"
   },
   "dependencies": {
-    "@mui/material": "^5.10.3"
+
   }
 }
