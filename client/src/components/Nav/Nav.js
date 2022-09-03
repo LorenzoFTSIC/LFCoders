@@ -42,23 +42,25 @@ const styles = {
     color: 'whitesmoke',
     textAlign: 'center',
     cursor: 'pointer',
-    display: 'block',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
     transition: 'background 0.5s ease'
   },
-  tabContent: {
-    padding: 20,
-    background: '#161616',
-    position: 'absolute',
-    left: 0,
-    bottom: 0,
-    right: 0,
-    top: 40,
-    transition: 'opacity 0.8s ease, transform 0.8s ease',
-    // show/hide
-    opacity: 0,
-    transform: 'scale(0.1)',
-    transformOrigin: 'top left'
-  }
+  // tabContent: {
+  //   padding: 20,
+  //   background: '#161616',
+  //   position: 'absolute',
+  //   left: 0,
+  //   bottom: 0,
+  //   right: 0,
+  //   top: 40,
+  //   transition: 'opacity 0.8s ease, transform 0.8s ease',
+  //   // show/hide
+  //   opacity: 0,
+  //   transform: 'scale(0.1)',
+  //   transformOrigin: 'top left'
+  // }
 };
 
 function Nav({ currentPage, handlePageChange }) {
