@@ -58,7 +58,7 @@ const Profile = () => {
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
-  const [textarea, setTextarea] = useState('textareastate');
+  const [textarea, setTextarea] = useState('');
   // ================================
 
   // If there is no `profileId` in the URL as a parameter, execute the `QUERY_ME` query instead for the logged in user's information
@@ -90,11 +90,14 @@ const Profile = () => {
       </h4>
     );
   }
-  
+
   // SETTINGS MODAL ==================
+  // Grabbing changes in textarea 
   const handleChange = (e) => {
     setTextarea(e.target.value);
   };
+
+  // Saving and rendering changes onto the page... NOT IN THE DB 
   const handleButtonClick = (e) => {
     setProfileBio(textarea);
   };
@@ -151,8 +154,7 @@ const Profile = () => {
       {/* <section style={style.profileContent}> */}
       <div style={style.push}>
         <h5>My Bio</h5>
-        <p>{profileBio}</p>
-        {/* WORKS - current bio renders */}
+        <p>{profileBio ? profileBio : profile.bio} </p>
       </div>
 
       <div style={style.push}>
