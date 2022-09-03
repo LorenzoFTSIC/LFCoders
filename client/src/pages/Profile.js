@@ -52,16 +52,18 @@ const style = {
 // ^ Prop that represents the info which will be arrayed over and displayed in the "My Collabs" section
 const Profile = () => {
   const { profileId } = useParams();
+
+  // SETTINGS MODAL ==================
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
-  // ^ Lines 44 - 46 for Settings Modal
 
-  const [textarea, setTextarea] = useState('');
+  const [textarea, setTextarea] = useState('hey');
 
   const handleChange = (e) => {
     setTextarea(e.target.value);
   };
+  // ================================
 
   // If there is no `profileId` in the URL as a parameter, execute the `QUERY_ME` query instead for the logged in user's information
   const { loading, data } = useQuery(
@@ -116,7 +118,7 @@ const Profile = () => {
           </Link> */}
           {/* WORKS - links to /settings */}
 
-          <Button onClick={handleOpen}>Open modal</Button>
+          <Button onClick={handleOpen}>Settings</Button>
           <Modal
             open={open}
             onClose={handleClose}
@@ -127,7 +129,7 @@ const Profile = () => {
               <Typography id="modal-modal-title" variant="h3" component="h2">
                 Settings
               </Typography>
-              <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+              <div id="modal-modal-description" sx={{ mt: 2 }}>
                 <section>
                   <div>
                     <h5>My Bio</h5>
@@ -135,7 +137,7 @@ const Profile = () => {
                     <button>Save Changes</button>
                   </div>
                 </section>
-              </Typography>
+              </div>
             </Box>
           </Modal>
         </div>
