@@ -93,14 +93,14 @@ const Profile = () => {
 
   // SETTINGS MODAL ==================
   // Grabbing changes in textarea 
-  const handleChange = (e) => {
-    setTextarea(e.target.value);
-  };
+  // const handleChange = (e) => {
+  //   setTextarea(e.target.value);
+  // };
 
   // Saving and rendering changes onto the page... NOT IN THE DB 
-  const handleButtonClick = (e) => {
-    setProfileBio(textarea);
-  };
+  // const handleButtonClick = (e) => {
+  //   setProfileBio(textarea);
+  // };
   // ================================
 
   return (
@@ -141,8 +141,11 @@ const Profile = () => {
                 <section>
                   <div>
                     <h5>My Bio</h5>
-                    <textarea value={textarea} onChange={handleChange} />
-                    <button onClick={handleButtonClick}>Save Changes</button>
+                    <textarea value={textarea} />
+                    {/* onChange={handleChange} */}
+                    <button>
+                      {/* onClick={handleButtonClick} */}
+                      Save Changes</button>
                   </div>
                 </section>
               </div>
