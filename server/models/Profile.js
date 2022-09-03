@@ -28,6 +28,9 @@ const profileSchema = new Schema({
   bio: {
     type: String,
     minLength: 1,
+  },
+  status: {
+    type: String,
   }
 });
 
