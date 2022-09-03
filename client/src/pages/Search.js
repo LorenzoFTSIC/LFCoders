@@ -1,50 +1,70 @@
 import React from 'react';
+import Button from '@mui/material/Button';
 
 // import LFCForm from '../components/LFCForm';
 // import LTCForm from '../components/LTCForm/LTCForm';
 
 const style = {
-  container: {
-    maxWidth: '40%',
-    margin: '0 auto',
-    padding: 40,
-    background: '#333',
+  // container: {
+  //   maxWidth: '40%',
+  //   margin: '0 auto',
+  //   padding: 40,
+  //   background: '#333',
+  //   color: 'whitesmoke',
+  //   fontSize: 18,
+  //   borderRadius: '12px'
+  // },
+  // maintitle: {
+  //   fontSize: 40,
+  //   textAlign: 'center',
+  //   color: 'white',
+  //   marginTop: '10px',
+  //   marginBottom: '40px'
+  // },
+  // title: {
+  //   fontSize: 30,
+  //   textAlign: 'center',
+  //   fontWeight: 'bold',
+  //   color: 'white',
+  //   marginTop: '10px',
+  //   marginBottom: '40px'
+  // },
+  // heading3: {
+  //   fontSize: 25,
+  //   marginTop: '20px'
+  // },
+  // button: {
+  //   fontSize: 15,
+  //   padding: '10px',
+  //   color: 'black',
+  //   fontWeight: 'bold',
+  //   backgroundColor: '#d6d1d1',
+  //   marginLeft: '3px',
+  //   marginBottom: '4px'
+  // }
+  Button: {
+    margin: '1%',
+    padding: '1%',
     color: 'whitesmoke',
-    fontSize: 18,
-    borderRadius: '12px'
+    border: '2px solid purple'
   },
-
-  maintitle: {
-    fontSize: 40,
-    textAlign: 'center',
-    color: 'white',
-    marginTop: '10px',
-    marginBottom: '40px'
-  },
-
-  title: {
-    fontSize: 30,
-    textAlign: 'center',
-    fontWeight: 'bold',
-    color: 'white',
-    marginTop: '10px',
-    marginBottom: '40px'
-  },
-
-  heading3: {
-    fontSize: 25,
-    marginTop: '20px'
-  },
-
-  button: {
-    fontSize: 15,
-    padding: '10px',
-    color: 'black',
-    fontWeight: 'bold',
-    backgroundColor: '#d6d1d1',
-    marginLeft: '3px',
-    marginBottom: '4px'
+  submit: { 
+    color: 'whitesmoke',
+    border: '2px solid lightblue',
+    margin: '25 0'
   }
+  // 'Button:hover': {
+  //   background: 'rgba(255, 161, 253, 0.3)',
+  //   boxShadow: '0px 0px 8px rgb(161, 161, 161)'
+  // }
+  // '&:active': {
+  //   boxShadow: 'none',
+  //   backgroundColor: '#0062cc',
+  //   borderColor: '#005cbf'
+  // },
+  // '&:focus': {
+  //   boxShadow: '0 0 0 0.2rem rgba(0,123,255,.5)'
+  // }
 };
 
 const Search = () => {
@@ -57,121 +77,152 @@ const Search = () => {
       <div> */}
 
         <form>
-          <h3 className="sectionHeading" style={style.heading3}>
-            What I bring to the table:
-          </h3>
-          <div className="btnContainer">
-            <button
-              className="button favorite styled"
-              style={style.button}
+          <h3 className="sectionHeading">What I bring to the table:</h3>
+          <div className="buttonContainer">
+            <Button
+              // className="formOptionButton"
+              // ^ button favorite styled
+              style={style.Button}
+              variant="outlined"
+              size="medium"
               type="radio"
             >
               Front End
-            </button>
+            </Button>
 
-            <button
-              className="button favorite styled"
-              style={style.button}
+            <Button
+              // className="formOptionButton"
+              // ^ button favorite styled
+              style={style.Button}
+              variant="outlined"
+              size="medium"
               type="radio"
             >
               Back End
-            </button>
+            </Button>
           </div>
 
-          <h3 className="sectionHeading" style={style.heading3}>
-            Expected Timeline:
-          </h3>
-          <div className="btnContainer">
-            <button
-              className="button favorite styled"
-              style={style.button}
+          <h3 className="sectionHeading">Expected Timeline:</h3>
+          <div className="buttonContainer">
+            <Button
+              // className="formOptionButton"
+              // ^ button favorite styled
+              style={style.Button}
+              variant="outlined"
+              size="medium"
               type="radio"
             >
               5 Hours
-            </button>
+            </Button>
 
-            <button
-              className="button favorite styled"
-              style={style.button}
+            <Button
+              // className="formOptionButton"
+              // ^ button favorite styled
+              style={style.Button}
+              variant="outlined"
+              size="medium"
               type="radio"
             >
               20 Hours
-            </button>
+            </Button>
 
-            <button
-              className="button favorite styled"
-              style={style.button}
+            <Button
+              // className="formOptionButton"
+              // ^ button favorite styled
+              style={style.Button}
+              variant="outlined"
+              size="medium"
               type="radio"
             >
               40+ Hours
-            </button>
+            </Button>
           </div>
 
-          <h3 className="sectionHeading" style={style.heading3}>
-            I am available...
-          </h3>
-          <div className="btnContainer">
-            <button
-              className="button favorite styled"
-              style={style.button}
+          <h3 className="sectionHeading">I am available...</h3>
+          <div className="buttonContainer">
+            <Button
+              // className="formOptionButton"
+              // ^ button favorite styled
+              style={style.Button}
+              variant="outlined"
+              size="medium"
               type="button"
             >
               Monday
-            </button>
+            </Button>
 
-            <button
-              className="button favorite styled"
-              style={style.button}
+            <Button
+              // className="formOptionButton"
+              // ^ button favorite styled
+              style={style.Button}
+              variant="outlined"
+              size="medium"
               type="button"
             >
               Tuesday
-            </button>
+            </Button>
 
-            <button
-              className="button favorite styled"
-              style={style.button}
+            <Button
+              // className="formOptionButton"
+              // ^ button favorite styled
+              style={style.Button}
+              variant="outlined"
+              size="medium"
               type="radio"
             >
               Wednesday
-            </button>
+            </Button>
 
-            <button
-              className="button favorite styled"
-              style={style.button}
+            <Button
+              // className="formOptionButton"
+              // ^ button favorite styled
+              style={style.Button}
+              variant="outlined"
+              size="medium"
               type="radio"
             >
               Thursday
-            </button>
+            </Button>
 
-            <button
-              className="button favorite styled"
-              style={style.button}
+            <Button
+              // className="formOptionButton"
+              // ^ button favorite styled
+              style={style.Button}
+              variant="outlined"
+              size="medium"
               type="radio"
             >
               Friday
-            </button>
+            </Button>
 
-            <button
-              className="button favorite styled"
-              style={style.button}
+            <Button
+              // className="formOptionButton"
+              // ^ button favorite styled
+              style={style.Button}
+              variant="outlined"
+              size="medium"
               type="radio"
             >
               Saturday
-            </button>
+            </Button>
 
-            <button
-              className="button favorite styled"
-              style={style.button}
+            <Button
+              // className="formOptionButton"
+              // ^ button favorite styled
+              style={style.Button}
+              variant="outlined"
+              size="medium"
               type="radio"
             >
               Sunday
-            </button>
+            </Button>
           </div>
 
           <button
-            className="btn btn-block btn-info"
+            className="btn btn-block"
             type="submit"
             aria-label="Close"
+            style={style.submit}
           >
             Submit
           </button>
