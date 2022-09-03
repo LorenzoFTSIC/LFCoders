@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Link, Navigate, useParams } from 'react-router-dom';
+import { Navigate, useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 
 import { QUERY_SINGLE_PROFILE, QUERY_ME } from '../utils/queries';
@@ -8,6 +8,11 @@ import { QUERY_SINGLE_PROFILE, QUERY_ME } from '../utils/queries';
 // import { useQuery, useMutation } from '@apollo/client';
 // import { QUERY_BIO } from '../utils/queries';
 // import { EDIT_BIO } from '../utils/mutations';
+
+import Box from '@material-ui/core/Box';
+import Button from '@mui/material/Button';
+import Typography from '@mui/material/Typography';
+import Modal from '@mui/material/Modal';
 
 import Auth from '../utils/auth';
 
@@ -31,7 +36,19 @@ const style = {
     alignItems: 'flex-end'
   },
   push: {
-    marginTop: '3rem'
+    marginTop: '3rem',
+    color: 'white'
+  },
+  settingsModal: {
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    width: 400,
+    bgcolor: 'background.paper',
+    border: '2px solid #000',
+    boxShadow: 24,
+    p: 4
   }
 };
 
@@ -59,6 +76,10 @@ const Profile = () => {
   // };
 
   const { profileId } = useParams();
+
+  const [open, setOpen] = React.useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
 
   // If there is no `profileId` in the URL as a parameter, execute the `QUERY_ME` query instead for the logged in user's information
   const { loading, data } = useQuery(
@@ -94,7 +115,7 @@ const Profile = () => {
       <section style={style.profileHeading}>
         <div style={style.profileInfo}>
           <div style={style.roundImg}>
-            <img alt="{profile.name}">{profile.img}</img>
+            <img alt={profile.name}>{profile.img}</img>
           </div>
 
           <h4>{profile.name}</h4>
@@ -103,9 +124,32 @@ const Profile = () => {
         </div>
 
         <div>
-          <Link to="/settings">
+          {/* <Link to="/settings">
             <h5>Settings</h5>
-          </Link>
+          </Link> */}
+
+          <Button onClick={handleOpen}>Settings</Button>
+          <Modal
+            open={open}
+            onClose={handleClose}
+            aria-labelledby="modal-modal-title"
+            aria-describedby="modal-modal-description"
+          >
+            <Box sx={style.settingsModal}>
+              <Typography id="modal-modal-title" variant="h3" component="h2">
+                Settings
+              </Typography>
+              <div id="modal-modal-description" sx={{ mt: 2 }}>
+                <section>
+                  <div>
+                    <h5>My Bio</h5>
+                    <textarea></textarea>
+                    <button>Save</button>
+                  </div>
+                </section>
+              </div>
+            </Box>
+          </Modal>
         </div>
       </section>
 
