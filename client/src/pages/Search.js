@@ -45,13 +45,14 @@ const style = {
   Button: {
     margin: '1%',
     padding: '1%',
+    background: 'rgba(255, 255, 255, 0.11)',
     color: 'whitesmoke',
     border: '2px solid purple'
   },
   submit: { 
     color: 'whitesmoke',
     border: '2px solid lightblue',
-    margin: '25 0'
+    margin: '1% 0'
   }
   // 'Button:hover': {
   //   background: 'rgba(255, 161, 253, 0.3)',
