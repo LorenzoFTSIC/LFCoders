@@ -8,7 +8,8 @@ const style = {
   header: {
     width: '100%',
     padding: '10px 30px',
-    background: '#793285',
+    background: '#dd39fe',
+      // 'linear-gradient (to right, #dd39fe , #161616',
     justifyContent: 'space-between', 
   }, 
   headerSections: { 
