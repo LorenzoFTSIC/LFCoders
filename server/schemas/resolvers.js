@@ -123,8 +123,8 @@ const resolvers = {
       return { token, profile };
     },
 
-    addProfile: async (parent, { name, email, password, bio }) => {
-      const profile = await Profile.create({ name, email, password, bio });
+    addProfile: async (parent, { name, email, password, bio, status }) => {
+      const profile = await Profile.create({ name, email, password, bio, status });
       const token = signToken(profile);
 
       return { token, profile };
@@ -159,6 +159,19 @@ const resolvers = {
           }
         );
       }
+    },
+
+    editStatus: async (parent, { profileId, status }, context) => {
+      // if (context.user) {
+      return Profile.findOneAndUpdate(
+        { _id: profileId },
+        { status: status },
+        {
+          new: true,
+          runValidators: true
+        }
+      );
+      // }
     },
 
     removeSkill: async (parent, { skillId }) => {
