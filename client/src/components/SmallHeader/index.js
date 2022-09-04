@@ -8,19 +8,20 @@ const style = {
   header: {
     width: '100%',
     marginBottom: '50px',
-    padding: '10px 30px 0 30px',
-    background: '#dd39fe',
-      // 'linear-gradient (to right, #dd39fe , #161616',
+    padding: '0px 15px 0 30px',
     justifyContent: 'space-between', 
   }, 
   headerContentSections: { 
     width: '100%',
     justifyContent: 'space-between',
-    alignItems: 'flex-end'
+    alignItems: 'flex-start'
   },
   looker: {
-    height: "120px"
-
+    height: "120px",
+    marginTop: 15,
+  }, 
+  logo: { 
+    color: 'whitesmoke'
   }
 };
 
@@ -31,7 +32,7 @@ const SmallHeader = () => {
         <Link className="text-dark logo" to="/" >
           <div className="d-inline-flex align-items-end">
             <img className="looker" src={Looker} alt="Looker"  style={style.looker}></img>
-            <h1 className="m-3">LFC</h1>
+            <h1 style={style.logo}>LFC</h1>
           </div>
         </Link>
         <Nav/>

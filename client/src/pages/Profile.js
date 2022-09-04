@@ -11,6 +11,7 @@ import { QUERY_SINGLE_PROFILE, QUERY_ME } from '../utils/queries';
 
 import Box from '@material-ui/core/Box';
 import Button from '@mui/material/Button';
+import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 
 import Auth from '../utils/auth';
@@ -44,13 +45,13 @@ const style = {
     position: 'absolute',
     top: '50%',
     left: '50%',
-    transform: 'translate(-50%, -50%)'
-    // width: 400,
-    // bgcolor: 'background.paper',
-    // border: '2px solid #000',
-    // boxShadow: 24,
-    // p: 4
-  },
+    transform: 'translate(-50%, -50%)',
+    width: 400,
+    bgcolor: 'background.paper',
+    border: '2px solid #000',
+    boxShadow: 24,
+    p: 4
+    },
   submit: {
     color: 'whitesmoke',
     border: '2px solid lightblue',
@@ -145,6 +146,7 @@ const Profile = () => {
             aria-labelledby="modal-modal-title"
             aria-describedby="modal-modal-description"
           >
+
             <Box sx={style.settingsModal} className="modalContainer">
               <h3 className="mainTitle">Settings</h3>
               <div id="modal-modal-description" sx={{ mt: 2 }}>

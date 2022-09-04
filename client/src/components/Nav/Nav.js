@@ -3,83 +3,44 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Auth from '../../utils/auth';
 
-
 const styles = {
-  // nav: {
-  //   display: 'flex',
-  //   alignItems: 'flex-end'
-  // },
-  // navtab: {
-  //   backgroundColor: '#a4b5f3',
-  //   marginLeft: '10px',
-  //   boxShadow: '0px 0px 5px',
-  //   color: 'whitesmoke',
-  //   borderRadius: '3px'
-  // },
-  // navtabtext: {
-  //   color: 'white',
-  //   // fontFamily: 'Segoe UI',
-  //   // fontWeight: 'bold'
-  // }
   tabs: {
-    // overflow keeps the edges rounded when they're all clumped together
-    overflow: 'hidden',
-    // borderRadiusTop: 10,
-    // borderRadius: '8px 8px 0 0',
-    // position: 'relative',
-    display: 'flex'
-    // justifyContent: 'flex-end'
+    display: 'flex',
+    margin: '-2px'
   },
   tab: {
     width: 140,
-    flex: 1
-  },
-  tabLabel: {
-    height: 'fit-content',
+    flex: 1,
+    height: 75,
     marginLeft: 5,
     padding: 10,
-    borderRadius: '8px 8px 0 0',
-
-    background: '#161616',
-    color: 'whitesmoke',
+    borderRadius: ' 0 0 8px 8px',
+    border: '1.8px solid whitesmoke',
     textAlign: 'center',
     cursor: 'pointer',
     display: 'flex',
     justifyContent: 'center',
-    alignItems: 'center',
-    transition: 'background 0.5s ease'
+    alignItems: 'flex-end',
+    transition: '0.2s ease-in-out'
   },
-  // tabContent: {
-  //   padding: 20,
-  //   background: '#161616',
-  //   position: 'absolute',
-  //   left: 0,
-  //   bottom: 0,
-  //   right: 0,
-  //   top: 40,
-  //   transition: 'opacity 0.8s ease, transform 0.8s ease',
-  //   // show/hide
-  //   opacity: 0,
-  //   transform: 'scale(0.1)',
-  //   transformOrigin: 'top left'
-  // }
+  tabLabel: {
+    color: '#161616',
+    fontSize: '1.2rem',
+    fontWeight: 600
+  }
 };
 
 function Nav({ currentPage, handlePageChange }) {
-
   const logout = (event) => {
     event.preventDefault();
     Auth.logout();
   };
   return (
     <nav style={styles.tabs} className="tabs">
-      {/* nav */}
       <ul className="nav">
-        <li style={styles.tab} className="tab">
-          {/* navtab */}
+        <li style={styles.tab} className="tab navTab">
           <Link
             style={styles.tabLabel}
-            // navtabtext
             to=""
             onClick={() => handlePageChange('Recent Collaborations')}
             className={
@@ -92,11 +53,9 @@ function Nav({ currentPage, handlePageChange }) {
           </Link>
         </li>
 
-        <li style={styles.tab} className="tab">
-          {/* navtab */}
+        <li style={styles.tab} className="tab navTab">
           <Link
             style={styles.tabLabel}
-            // navtabtext
             to="/search"
             onClick={() => handlePageChange('Search')}
             className={
@@ -107,11 +66,9 @@ function Nav({ currentPage, handlePageChange }) {
           </Link>
         </li>
 
-        <li style={styles.tab} className="tab">
-          {/* navtab */}
+        <li style={styles.tab} className="tab navTab">
           <Link
             style={styles.tabLabel}
-            // navtabtext
             to=""
             onClick={() => handlePageChange('Messages')}
             className={
@@ -122,11 +79,9 @@ function Nav({ currentPage, handlePageChange }) {
           </Link>
         </li>
 
-        <li style={styles.tab} className="tab">
-          {/* navtab */}
+        <li style={styles.tab} className="tab navTab">
           <Link
             style={styles.tabLabel}
-            // navtabtext
             to="/me"
             onClick={() => handlePageChange('Profile')}
             className={
@@ -137,11 +92,9 @@ function Nav({ currentPage, handlePageChange }) {
           </Link>
         </li>
 
-        <li style={styles.tab} className="tab">
-          {/* navtab */}
+        <li style={styles.tab} className="tab navTab">
           <Link
             style={styles.tabLabel}
-            // navtabtext
             to="/"
             onClick={logout}
             className={
