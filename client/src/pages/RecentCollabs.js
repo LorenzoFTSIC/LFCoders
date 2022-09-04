@@ -5,7 +5,7 @@ import ProfileList from '../components/ProfileList';
 
 import { QUERY_PROFILES } from '../utils/queries';
 
-const Home = () => {
+const RecentCollabs = () => {
   const { loading, data } = useQuery(QUERY_PROFILES);
   const profiles = data?.profiles || [];
 
@@ -27,4 +27,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default RecentCollabs;
