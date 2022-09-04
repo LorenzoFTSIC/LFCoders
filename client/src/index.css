@@ -76,6 +76,7 @@ p + p {
 
 /* smallHeader - "LFC" font */
 a.text-dark.logo { 
+	color: whitesmoke;
     text-decoration: none;
 }
 
@@ -84,7 +85,6 @@ a.text-dark.logo {
 
 .tabLabel:hover {
     background: #7B52AB,
-	
 }
 
 .tab [type=radio] { display: none; }

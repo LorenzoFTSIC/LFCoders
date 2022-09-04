@@ -3,7 +3,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Auth from '../../utils/auth';
 
-
 const styles = {
   // nav: {
   //   display: 'flex',
@@ -23,11 +22,12 @@ const styles = {
   // }
   tabs: {
     // overflow keeps the edges rounded when they're all clumped together
-    overflow: 'hidden',
+    // overflow: 'hidden',
     // borderRadiusTop: 10,
     // borderRadius: '8px 8px 0 0',
     // position: 'relative',
-    display: 'flex'
+    display: 'flex',
+    margin: '-2px'
     // justifyContent: 'flex-end'
   },
   tab: {
@@ -38,9 +38,9 @@ const styles = {
     height: 75,
     marginLeft: 5,
     padding: 10,
-    borderRadius: '8px 8px 0 0',
-
     background: '#161616',
+    borderRadius: ' 0 0 8px 8px',
+    border: '2px solid purple',
     color: 'whitesmoke',
     textAlign: 'center',
     cursor: 'pointer',
@@ -48,7 +48,7 @@ const styles = {
     justifyContent: 'center',
     alignItems: 'center',
     transition: 'background 0.5s ease'
-  },
+  }
   // tabContent: {
   //   padding: 20,
   //   background: '#161616',
@@ -66,7 +66,6 @@ const styles = {
 };
 
 function Nav({ currentPage, handlePageChange }) {
-
   const logout = (event) => {
     event.preventDefault();
     Auth.logout();
