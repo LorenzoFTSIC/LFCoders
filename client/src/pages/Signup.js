@@ -250,6 +250,16 @@ const Signup = () => {
                         <input
                           style={styles.input}
                           className="form-input"
+                          placeholder="Your GitHub"
+                          name="github"
+                          type="url"
+                          value={formState.github}
+                          onChange={handleChange}
+                          required
+                        />
+                        <input
+                          style={styles.input}
+                          className="form-input"
                           placeholder="******"
                           name="password"
                           type="password"
