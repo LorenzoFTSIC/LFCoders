@@ -24,6 +24,14 @@ const resolvers = {
       return Project.findOne({ _id: projectId}).populate("profile");
     },
 
+    projectBySkill: async (parent, { skillName }) => {
+      return Project.find({ skills:  { $in: [skillName] }})
+    },
+
+    projectByProfile: async (parent, { profileEmail }) => {
+      return Project.find({ profile:  { $in: [profileEmail] }})
+    },
+
     skills: async () => {
       return Skill.find();
     },
