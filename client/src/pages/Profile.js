@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Link, Navigate, useParams } from 'react-router-dom';
+import { Navigate, useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 
 import { QUERY_SINGLE_PROFILE, QUERY_ME } from '../utils/queries';
@@ -8,6 +8,10 @@ import { QUERY_SINGLE_PROFILE, QUERY_ME } from '../utils/queries';
 // import { useQuery, useMutation } from '@apollo/client';
 // import { QUERY_BIO } from '../utils/queries';
 // import { EDIT_BIO } from '../utils/mutations';
+
+import Box from '@material-ui/core/Box';
+import Button from '@mui/material/Button';
+import Modal from '@mui/material/Modal';
 
 import Auth from '../utils/auth';
 import Avatar from '@mui/material/Avatar';
@@ -33,7 +37,24 @@ const style = {
     alignItems: 'flex-end'
   },
   push: {
-    marginTop: '3rem'
+    marginTop: '3rem',
+    color: 'white'
+  },
+  settingsModal: {
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)'
+    // width: 400,
+    // bgcolor: 'background.paper',
+    // border: '2px solid #000',
+    // boxShadow: 24,
+    // p: 4
+  },
+  submit: {
+    color: 'whitesmoke',
+    border: '2px solid lightblue',
+    margin: '1% 0'
   }
 };
 
@@ -61,6 +82,10 @@ const Profile = () => {
   // };
 
   const { profileId } = useParams();
+
+  const [open, setOpen] = React.useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
 
   // If there is no `profileId` in the URL as a parameter, execute the `QUERY_ME` query instead for the logged in user's information
   const { loading, data } = useQuery(
@@ -95,8 +120,8 @@ const Profile = () => {
     <div>
       <section style={style.profileHeading}>
         <div style={style.profileInfo}>
-          <div >
-          <Avatar alt="{profile.name}" src={avatar} sx={{ width: 300, height: 300, boxShadow: 20}}/>
+          <div style={style.roundImg}>
+            <img alt={profile.name}>{profile.img}</img>
           </div>
           
           <h4>{profile.name}</h4>
@@ -105,9 +130,49 @@ const Profile = () => {
         </div>
 
         <div>
-          <Link to="/settings">
+          {/* <Link to="/settings">
             <h5>Settings</h5>
-          </Link>
+          </Link> */}
+
+          <Button onClick={handleOpen}>Settings</Button>
+          <Modal
+            open={open}
+            onClose={handleClose}
+            aria-labelledby="modal-modal-title"
+            aria-describedby="modal-modal-description"
+          >
+            <Box sx={style.settingsModal} className="modalContainer">
+              <h3 className="mainTitle">Settings</h3>
+              <div id="modal-modal-description" sx={{ mt: 2 }}>
+                <section>
+                  <div>
+                    <h5 className="sectionHeading">Name</h5>
+                    <textarea rows="1" cols="30"></textarea>
+                  </div>
+                  <div>
+                    <h5 className="sectionHeading">Status</h5>
+                    <select name="cars" id="cars">
+                      <option value="looking to code">Looking To Code</option>
+                      <option value="looking For coders">Looking For Coders</option>
+                      <option value="just looking">Just Looking</option>
+                    </select>
+                  </div>
+                  <div>
+                    <h5 className="sectionHeading">My Bio</h5>
+                    <textarea rows="8" cols="80"></textarea>
+                  </div>
+
+                  <button
+                    className="btn btn-block"
+                    type="submit"
+                    style={style.submit}
+                  >
+                    Save
+                  </button>
+                </section>
+              </div>
+            </Box>
+          </Modal>
         </div>
       </section>
 

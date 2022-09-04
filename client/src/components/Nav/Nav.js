@@ -35,7 +35,7 @@ const styles = {
     flex: 1
   },
   tabLabel: {
-    height: 75,
+    height: 'fit-content',
     marginLeft: 5,
     padding: 10,
     borderRadius: '8px 8px 0 0',
@@ -88,7 +88,7 @@ function Nav({ currentPage, handlePageChange }) {
                 : 'nav-link'
             }
           >
-            Recent Collaborations
+            Recent Collabs
           </Link>
         </li>
 
