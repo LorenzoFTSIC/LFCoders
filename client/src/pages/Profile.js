@@ -11,10 +11,12 @@ import { QUERY_SINGLE_PROFILE, QUERY_ME } from '../utils/queries';
 
 import Box from '@material-ui/core/Box';
 import Button from '@mui/material/Button';
-import Typography from '@mui/material/Typography';
+// import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 
 import Auth from '../utils/auth';
+import Avatar from '@mui/material/Avatar';
+import avatar from '../assets/img/avatar.png';
 
 // import CollabCube from '../component/CollabCube';
 // ^ The component that will give structure to the individual collaborations a user has done
@@ -43,12 +45,17 @@ const style = {
     position: 'absolute',
     top: '50%',
     left: '50%',
-    transform: 'translate(-50%, -50%)',
-    width: 400,
-    bgcolor: 'background.paper',
-    border: '2px solid #000',
-    boxShadow: 24,
-    p: 4
+    transform: 'translate(-50%, -50%)'
+    // width: 400,
+    // bgcolor: 'background.paper',
+    // border: '2px solid #000',
+    // boxShadow: 24,
+    // p: 4
+  },
+  submit: {
+    color: 'whitesmoke',
+    border: '2px solid lightblue',
+    margin: '1% 0'
   }
 };
 
@@ -114,8 +121,12 @@ const Profile = () => {
     <div>
       <section style={style.profileHeading}>
         <div style={style.profileInfo}>
-          <div style={style.roundImg}>
-            <img alt={profile.name}>{profile.img}</img>
+          <div>
+            <Avatar
+              alt="{profile.name}"
+              src={avatar}
+              sx={{ width: 300, height: 300, boxShadow: 20 }}
+            />
           </div>
 
           <h4>{profile.name}</h4>
@@ -135,17 +146,36 @@ const Profile = () => {
             aria-labelledby="modal-modal-title"
             aria-describedby="modal-modal-description"
           >
-            <Box sx={style.settingsModal}>
-              <Typography id="modal-modal-title" variant="h3" component="h2">
-                Settings
-              </Typography>
+            <Box sx={style.settingsModal} className="modalContainer">
+              <h3 className="mainTitle">Settings</h3>
               <div id="modal-modal-description" sx={{ mt: 2 }}>
                 <section>
                   <div>
-                    <h5>My Bio</h5>
-                    <textarea></textarea>
-                    <button>Save</button>
+                    <h5 className="sectionHeading">Name</h5>
+                    <textarea rows="1" cols="30"></textarea>
                   </div>
+                  <div>
+                    <h5 className="sectionHeading">Status</h5>
+                    <select name="cars" id="cars">
+                      <option value="looking to code">Looking To Code</option>
+                      <option value="looking For coders">
+                        Looking For Coders
+                      </option>
+                      <option value="just looking">Just Looking</option>
+                    </select>
+                  </div>
+                  <div>
+                    <h5 className="sectionHeading">My Bio</h5>
+                    <textarea rows="8" cols="80"></textarea>
+                  </div>
+
+                  <button
+                    className="btn btn-block"
+                    type="submit"
+                    style={style.submit}
+                  >
+                    Save
+                  </button>
                 </section>
               </div>
             </Box>
