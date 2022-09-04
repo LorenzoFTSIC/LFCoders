@@ -12,6 +12,10 @@ const resolvers = {
       return Profile.findOne({ _id: profileId });
     },
 
+    profileBySkill: async (parent, { skillName }) => {
+      return Profile.find({ skills:  { $in: [skillName] }})
+    },
+
     projects: async () => {
       return Project.find().populate("profile");
     },
@@ -130,13 +134,13 @@ const resolvers = {
       return { token, profile };
     },
     // Add a third argument to the resolver to access data in our `context`
-    addSkillToProfile: async (parent, { profileId, skillId }, context) => {
+    addSkillToProfile: async (parent, { profileId, skillName }, context) => {
       // If context has a `user` property, that means the user executing this mutation has a valid JWT and is logged in
       // if (context.user) {
         return Profile.findOneAndUpdate(
           { _id: profileId },
           {
-            $addToSet: { skills: skillId }
+            $addToSet: { skills: skillName }
           },
           {
             new: true,
@@ -145,7 +149,7 @@ const resolvers = {
         );
       // }
       // If user attempts to execute this mutation and isn't logged in, throw an error
-      throw new AuthenticationError('You need to be logged in!');
+      // throw new AuthenticationError('You need to be logged in!');
     },
     // Updating the section. If statement within the component will give it placeholder text if Bio section is empty.
     editBio: async (parent, { profileId, bio }, context) => {
@@ -186,12 +190,12 @@ const resolvers = {
       throw new AuthenticationError('You need to be logged in!');
     },
     // Make it so a logged in user can only remove a skill from their own profile
-    removeSkillFromProfile: async (parent, { profileId, skillId }, context) => {
+    removeSkillFromProfile: async (parent, { profileId, skillName }, context) => {
       // if (context.user) {
       return Profile.findOneAndUpdate(
         // { _id: context.user._id },
         { _id: profileId },
-        { $pull: { skills: skillId } },
+        { $pull: { skills: skillName } },
         { new: true }
       );
       // }
@@ -211,7 +215,7 @@ const resolvers = {
         { $pull: { skills: skillId } },
         { new: true }
       );
-    }
+    },
   }
 };
 
