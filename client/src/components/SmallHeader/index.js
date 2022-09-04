@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Nav from '../Nav/Nav';
-import '../../assets/img/Looker-Placeholder.png';
+// import '../../assets/img/Looker-Placeholder.png';
 import Looker from '../../assets/img/welcomerobot.png';
 
 const style = {
