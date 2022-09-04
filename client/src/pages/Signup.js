@@ -59,6 +59,9 @@ const styles = {
   },
   noRadius: {
     borderRadius: 0,
+  },
+  bio: {
+    marginBottom: 20
   }
 }
 
@@ -81,7 +84,9 @@ const Signup = () => {
     name: '',
     email: '',
     password: '',
+    bio: '',
     score: 0,
+
   });
   const [addProfile, { error, data }] = useMutation(ADD_PROFILE);
 
@@ -267,6 +272,12 @@ const Signup = () => {
                           onChange={handleChange}
                           required
                         />
+
+                        <div class="form-group">
+                          <label for="signUpBio">Add your bio:</label>
+                          <textarea style={styles.bio} class="form-control" id="signUpBio" rows="4" onChange={handleChange}></textarea>
+                        </div>
+
                         <div className="pwStrRow">
                           {formState.score >= 1 && (
                             <div>
@@ -288,6 +299,7 @@ const Signup = () => {
                           </select>
                           </label>
                         </div>
+
 
                         <div style={styles.grid}>
                           <Typography style={styles.jsSlider} gutterBottom>
