@@ -11,7 +11,6 @@ import { QUERY_SINGLE_PROFILE, QUERY_ME } from '../utils/queries';
 
 import Box from '@material-ui/core/Box';
 import Button from '@mui/material/Button';
-// import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 
 import Auth from '../utils/auth';
@@ -128,7 +127,7 @@ const Profile = () => {
               sx={{ width: 300, height: 300, boxShadow: 20 }}
             />
           </div>
-
+          
           <h4>{profile.name}</h4>
 
           <h5>I am {profile.status}</h5>
@@ -158,9 +157,7 @@ const Profile = () => {
                     <h5 className="sectionHeading">Status</h5>
                     <select name="cars" id="cars">
                       <option value="looking to code">Looking To Code</option>
-                      <option value="looking For coders">
-                        Looking For Coders
-                      </option>
+                      <option value="looking for coders">Looking For Coders</option>
                       <option value="just looking">Just Looking</option>
                     </select>
                   </div>
