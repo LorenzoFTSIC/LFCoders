@@ -71,7 +71,7 @@ p + p {
 }
 
   .btn:hover { 
-	box-shadow: 0px 0px 8px rgb(161, 161, 161);
+	box-shadow: 0px 0px 8px rgb(242, 144, 255);
   }
 
   img { 
@@ -160,9 +160,9 @@ form {
 	border: 2px solid purple;
 } */
 
-button.MuiButtonBase-root.MuiButton-root.MuiButton-outlined.MuiButton-outlinedPrimary.MuiButton-sizeMedium.MuiButton-outlinedSizeMedium.formOptionButton.css-1rwt2y5-MuiButtonBase-root-MuiButton-root:hover { 
-	background: rgba(255, 161, 253, 0.3);
-	box-shadow: 0px 0px 8px rgb(161, 161, 161);
+button:hover { 
+	/* background: rgba(255, 255, 255, 0.08); */
+	box-shadow: 0px 0px 8px rgb(242, 144, 255);
 }
 
 /* END - GENERAL MODAL */

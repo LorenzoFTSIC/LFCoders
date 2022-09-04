@@ -45,10 +45,15 @@ const style = {
   Button: {
     margin: '1%',
     padding: '1%',
-    background: 'rgba(255, 255, 255, 0.11)',
-    color: 'whitesmoke',
+    background: 'rgba(255, 255, 255, 0.4)',
+    color: '#161616',
     border: '2px solid purple'
   },
+  // 'Button:hover': {
+  //   background: 'rgba(255, 255, 255, 0.08)',
+  //   color: 'whitesmoke',
+  //   border: '2px solid purple'
+  // },
   submit: { 
     color: 'whitesmoke',
     border: '2px solid lightblue',
@@ -86,7 +91,7 @@ const Search = () => {
               style={style.Button}
               variant="outlined"
               size="medium"
-              type="radio"
+              // type="radio"
             >
               Front End
             </Button>
@@ -97,7 +102,7 @@ const Search = () => {
               style={style.Button}
               variant="outlined"
               size="medium"
-              type="radio"
+              // type="radio"
             >
               Back End
             </Button>
@@ -111,7 +116,7 @@ const Search = () => {
               style={style.Button}
               variant="outlined"
               size="medium"
-              type="radio"
+              // type="radio"
             >
               5 Hours
             </Button>
@@ -122,7 +127,7 @@ const Search = () => {
               style={style.Button}
               variant="outlined"
               size="medium"
-              type="radio"
+              // type="radio"
             >
               20 Hours
             </Button>
@@ -133,7 +138,7 @@ const Search = () => {
               style={style.Button}
               variant="outlined"
               size="medium"
-              type="radio"
+              // type="radio"
             >
               40+ Hours
             </Button>
@@ -169,7 +174,7 @@ const Search = () => {
               style={style.Button}
               variant="outlined"
               size="medium"
-              type="radio"
+              // type="radio"
             >
               Wednesday
             </Button>
@@ -180,7 +185,7 @@ const Search = () => {
               style={style.Button}
               variant="outlined"
               size="medium"
-              type="radio"
+              // type="radio"
             >
               Thursday
             </Button>
@@ -191,7 +196,7 @@ const Search = () => {
               style={style.Button}
               variant="outlined"
               size="medium"
-              type="radio"
+              // type="radio"
             >
               Friday
             </Button>
@@ -202,7 +207,7 @@ const Search = () => {
               style={style.Button}
               variant="outlined"
               size="medium"
-              type="radio"
+              // type="radio"
             >
               Saturday
             </Button>
@@ -213,7 +218,7 @@ const Search = () => {
               style={style.Button}
               variant="outlined"
               size="medium"
-              type="radio"
+              // type="radio"
             >
               Sunday
             </Button>
