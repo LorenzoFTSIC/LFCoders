@@ -1,13 +1,13 @@
 import React from 'react';
 import { useQuery } from '@apollo/client';
 
-import ProfileList from '../components/ProfileList';
+import ProjectList from '../components/ProjectList';
 
 import { QUERY_PROFILES } from '../utils/queries';
 
-const RecentCollabs = () => {
+const RecentProjects = () => {
   const { loading, data } = useQuery(QUERY_PROFILES);
-  const profiles = data?.profiles || [];
+  const projects = data?.projects || [];
 
   return (
     <main>
@@ -16,9 +16,9 @@ const RecentCollabs = () => {
           {loading ? (
             <div>Loading...</div>
           ) : (
-            <ProfileList
-              profiles={profiles}
-              title="Here's the current roster of friends..."
+            <ProjectList
+              projects={projects}
+              title="Check Out The Most Recent Collaborations"
             />
           )}
         </div>
@@ -27,4 +27,4 @@ const RecentCollabs = () => {
   );
 };
 
-export default RecentCollabs;
+export default RecentProjects;
