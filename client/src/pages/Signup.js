@@ -280,11 +280,13 @@ const Signup = () => {
                           )}
                         </div>
                         <div >
-                          <label  for="options">Choose one of the following: </label>
+                          <label style={styles.input}
+                          className="form-input"  for="options">Choose one of the following:
                           <select name="options">
                           <option value="ltc">Looking to Code</option>
                           <option value="lfc">Looking for Coders</option>
                           </select>
+                          </label>
                         </div>
 
                         <div style={styles.grid}>
