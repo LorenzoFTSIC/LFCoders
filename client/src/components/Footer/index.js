@@ -1,5 +1,5 @@
 import React from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate, Link } from 'react-router-dom';
 
 // const styles = {
 //   // button: {
@@ -10,10 +10,10 @@ import { useLocation, useNavigate } from 'react-router-dom';
 //     opacity: 0.2
 //   }
 // }
-
 const Footer = () => {
   const location = useLocation();
   const navigate = useNavigate();
+  
   return (
     <footer>
       <div className="container text-center">

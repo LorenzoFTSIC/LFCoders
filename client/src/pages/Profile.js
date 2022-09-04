@@ -14,6 +14,8 @@ import Button from '@mui/material/Button';
 import Modal from '@mui/material/Modal';
 
 import Auth from '../utils/auth';
+import Avatar from '@mui/material/Avatar';
+import avatar from '../assets/img/avatar.png'
 
 // import CollabCube from '../component/CollabCube';
 // ^ The component that will give structure to the individual collaborations a user has done
@@ -121,7 +123,7 @@ const Profile = () => {
           <div style={style.roundImg}>
             <img alt={profile.name}>{profile.img}</img>
           </div>
-
+          
           <h4>{profile.name}</h4>
 
           <h5>I am {profile.status}</h5>

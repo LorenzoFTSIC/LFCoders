@@ -17,6 +17,7 @@ import Search from './pages/Search';
 import Header from './components/Header';
 import SmallHeader from './components/SmallHeader';
 import Footer from './components/Footer';
+import Contact from './pages/Contact';
 
 import reasons from './utils/LFCreasons'
 // import profilecollabs from './pages/profilecollabs';
@@ -56,6 +57,7 @@ function App() {
               <Route path="/signup" element={<Signup />} />
               <Route path="/search" element={<Search />} />
               <Route path="/me" element={<Profile />} />
+              <Route path="/contact" element={<Contact />} />
               {/* profilecollabs={profilecollabs} */}
               {/* ^ this represents the collab information that will eventually be passed into the "My Collabs" section of the Profile page */}
               <Route path="/profiles/:profileId" element={<Profile />} />

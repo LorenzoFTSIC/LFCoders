@@ -59,6 +59,9 @@ const styles = {
   },
   noRadius: {
     borderRadius: 0,
+  },
+  bio: {
+    marginBottom: 20
   }
 }
 
@@ -81,7 +84,9 @@ const Signup = () => {
     name: '',
     email: '',
     password: '',
+    bio: ''
     score: 0,
+
   });
   const [addProfile, { error, data }] = useMutation(ADD_PROFILE);
 
@@ -250,6 +255,16 @@ const Signup = () => {
                         <input
                           style={styles.input}
                           className="form-input"
+                          placeholder="Your GitHub"
+                          name="github"
+                          type="url"
+                          value={formState.github}
+                          onChange={handleChange}
+                          required
+                        />
+                        <input
+                          style={styles.input}
+                          className="form-input"
                           placeholder="******"
                           name="password"
                           type="password"
@@ -257,6 +272,12 @@ const Signup = () => {
                           onChange={handleChange}
                           required
                         />
+
+                        <div class="form-group">
+                          <label for="signUpBio">Add your bio:</label>
+                          <textarea style={styles.bio} class="form-control" id="signUpBio" rows="4" onChange={handleChange}></textarea>
+                        </div>
+
                         <div className="pwStrRow">
                           {formState.score >= 1 && (
                             <div>
@@ -269,6 +290,17 @@ const Signup = () => {
                             </div>
                           )}
                         </div>
+                        <div >
+                          <label style={styles.input}
+                          className="form-input"  for="options">Choose one of the following:
+                          <select name="options">
+                          <option value="ltc">Looking to Code</option>
+                          <option value="lfc">Looking for Coders</option>
+                          </select>
+                          </label>
+                        </div>
+
+
                         <div style={styles.grid}>
                           <Typography style={styles.jsSlider} gutterBottom>
                             HTML/CSS
