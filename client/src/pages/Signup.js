@@ -250,6 +250,16 @@ const Signup = () => {
                         <input
                           style={styles.input}
                           className="form-input"
+                          placeholder="Your GitHub"
+                          name="github"
+                          type="url"
+                          value={formState.github}
+                          onChange={handleChange}
+                          required
+                        />
+                        <input
+                          style={styles.input}
+                          className="form-input"
                           placeholder="******"
                           name="password"
                           type="password"
@@ -269,6 +279,16 @@ const Signup = () => {
                             </div>
                           )}
                         </div>
+                        <div >
+                          <label style={styles.input}
+                          className="form-input"  for="options">Choose one of the following:
+                          <select name="options">
+                          <option value="ltc">Looking to Code</option>
+                          <option value="lfc">Looking for Coders</option>
+                          </select>
+                          </label>
+                        </div>
+
                         <div style={styles.grid}>
                           <Typography style={styles.jsSlider} gutterBottom>
                             HTML/CSS
