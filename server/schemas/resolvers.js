@@ -12,6 +12,10 @@ const resolvers = {
       return Profile.findOne({ _id: profileId });
     },
 
+    profileBySkill: async (parent, { skillName }) => {
+      return Profile.find({ skills:  { $in: [skillName] }})
+    },
+
     projects: async () => {
       return Project.find().populate("profile");
     },
@@ -212,11 +216,6 @@ const resolvers = {
         { new: true }
       );
     },
-    
-    findProfileBySkill: async (parent, { skillName }) => {
-      return Profile.find(
-        { skills:  { $in: [skillName] }})
-    }
   }
 };
 

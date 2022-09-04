@@ -39,6 +39,7 @@ const typeDefs = gql`
     project(projectId: ID!): Project
     skills: [Skill]!
     skill(skillId: ID!): Skill
+    profileBySkill( skillName: String ): [Profile]
     # Because we have the context functionality in place to check a JWT and decode its data, we can use a query that will always find and return the logged in user's data
     me: Profile
   }
@@ -66,7 +67,6 @@ const typeDefs = gql`
     editProjectDesc( projectId: ID!, description: String!): Project
     editProjectStatus( projectId: ID!, status: Boolean!): Project
 
-    findProfileBySkill( skillName: String ): [Profile]
   }
 `;
 
