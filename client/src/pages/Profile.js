@@ -15,7 +15,7 @@ import Modal from '@mui/material/Modal';
 
 import Auth from '../utils/auth';
 import Avatar from '@mui/material/Avatar';
-import avatar from '../assets/img/avatar.png'
+import avatar from '../assets/img/avatar.png';
 
 // import CollabCube from '../component/CollabCube';
 // ^ The component that will give structure to the individual collaborations a user has done
@@ -120,8 +120,12 @@ const Profile = () => {
     <div>
       <section style={style.profileHeading}>
         <div style={style.profileInfo}>
-          <div style={style.roundImg}>
-            <img alt={profile.name}>{profile.img}</img>
+          <div>
+            <Avatar
+              alt="{profile.name}"
+              src={avatar}
+              sx={{ width: 300, height: 300, boxShadow: 20 }}
+            />
           </div>
           
           <h4>{profile.name}</h4>
@@ -153,7 +157,7 @@ const Profile = () => {
                     <h5 className="sectionHeading">Status</h5>
                     <select name="cars" id="cars">
                       <option value="looking to code">Looking To Code</option>
-                      <option value="looking For coders">Looking For Coders</option>
+                      <option value="looking for coders">Looking For Coders</option>
                       <option value="just looking">Just Looking</option>
                     </select>
                   </div>

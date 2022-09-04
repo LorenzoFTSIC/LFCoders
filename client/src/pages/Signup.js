@@ -84,7 +84,7 @@ const Signup = () => {
     name: '',
     email: '',
     password: '',
-    bio: ''
+    bio: '',
     score: 0,
 
   });
