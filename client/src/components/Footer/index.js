@@ -1,5 +1,5 @@
 import React from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate, Link } from 'react-router-dom';
 
 const styles = {
   button: {
@@ -7,6 +7,7 @@ const styles = {
     color: 'white',
   },
   trademark: {
+    color: 'white',
     opacity: 0.2
   }
 }
@@ -14,6 +15,7 @@ const styles = {
 const Footer = () => {
   const location = useLocation();
   const navigate = useNavigate();
+  
   return (
     <footer className="w-100 mt-auto text-dark p-4">
       <div className="container text-center mb-5">
@@ -26,6 +28,12 @@ const Footer = () => {
             &larr; Go Back
           </button>
         )}
+        <h4 style={styles.trademark} >
+        <Link to='/contact'
+        onClick={() => navigate('Contact')}>
+        Contact Us
+        </Link>
+        </h4>
         <h4 style={styles.trademark} >&copy; {new Date().getFullYear()} - Git Buddies</h4>
       </div>
     </footer>
