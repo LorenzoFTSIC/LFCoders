@@ -20,9 +20,8 @@ const profileSchema = new Schema({
     minlength: 5,
   },
   skills: [
-  {
-      type: Schema.Types.ObjectId,
-      ref: 'Skill'
+    {
+      type: String
     },
   ],
   bio: {
