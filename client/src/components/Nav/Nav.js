@@ -49,7 +49,7 @@ function Nav({ currentPage, handlePageChange }) {
                 : 'nav-link'
             }
           >
-            Recent Collaborations
+            Recent Collabs
           </Link>
         </li>
 
