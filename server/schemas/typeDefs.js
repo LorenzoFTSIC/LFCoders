@@ -15,7 +15,7 @@ const typeDefs = gql`
     _id: ID
     name: String
     description: String
-    skills: [Skill]
+    skills: [String]
     profile: [Profile]
     createDate: String
     status: Boolean
@@ -51,15 +51,15 @@ const typeDefs = gql`
     addSkill(name: String!, stackType: String!): Skill
     login(email: String!, password: String!): Auth
 
-    addUserToProject(projectId: ID!, profileId: ID!): Project
-    addSkillToProject(projectId: ID!, skillId: ID!): Project
+    addUserToProject(projectId: ID!, profileEmail: ID!): Project
+    addSkillToProject(projectId: ID!, skillName: ID!): Project
     addSkillToProfile(profileId: ID!, skillName: ID!): Profile
 
     removeProfile: Profile
     removeSkill(skillId: ID!): Skill
-    removeSkillFromProfile(profileId: ID!, skillName: ID!): Profile
-    removeProfileFromProject(projectId: ID!, profileId: ID!): Project
-    removeSkillFromProject(projectId: ID!, skillId: ID!): Project
+    removeSkillFromProfile(profileId: ID!, skillName: String!): Profile
+    removeProfileFromProject(projectId: ID!, profileEmail: String!): Project
+    removeSkillFromProject(projectId: ID!, skillName: String!): Project
 
     editBio(profileId: ID!, bio: String!): Profile 
     editStatus(profileId: ID!, status: String!): Profile 

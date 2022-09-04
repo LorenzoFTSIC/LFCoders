@@ -53,6 +53,13 @@ const resolvers = {
       return skill
     },
 
+    addProfile: async (parent, { name, email, password, bio, status }) => {
+      const profile = await Profile.create({ name, email, password, bio, status });
+      const token = signToken(profile);
+
+      return { token, profile };
+    },
+
     editProjectName: async (parent, { projectId, name}) => {
       return Project.findOneAndUpdate(
         { _id: projectId },
@@ -86,10 +93,10 @@ const resolvers = {
       )
     },
 
-    addUserToProject: async (parent, { projectId, profileId }) => {
+    addUserToProject: async (parent, { projectId, profileEmail }) => {
       return Project.findOneAndUpdate(
         { _id: projectId },
-        { $addToSet: { profile: profileId } },
+        { $addToSet: { profile: profileEmail } },
         {
           new: true,
           runValidators: true
@@ -98,10 +105,10 @@ const resolvers = {
 
     },
 
-    addSkillToProject: async (parent, { projectId, skillId }) => {
+    addSkillToProject: async (parent, { projectId, skillName }) => {
       return Project.findOneAndUpdate(
         { _id: projectId },
-        { $addToSet: { skills: skillId } },
+        { $addToSet: { skills: skillName } },
         {
           new: true,
           runValidators: true
@@ -127,12 +134,7 @@ const resolvers = {
       return { token, profile };
     },
 
-    addProfile: async (parent, { name, email, password, bio, status }) => {
-      const profile = await Profile.create({ name, email, password, bio, status });
-      const token = signToken(profile);
-
-      return { token, profile };
-    },
+    
     // Add a third argument to the resolver to access data in our `context`
     addSkillToProfile: async (parent, { profileId, skillName }, context) => {
       // If context has a `user` property, that means the user executing this mutation has a valid JWT and is logged in
@@ -202,17 +204,17 @@ const resolvers = {
       // throw new AuthenticationError('You need to be logged in!');
     },
 
-    removeProfileFromProject: async (parent, { projectId, profileId }) => {
+    removeProfileFromProject: async (parent, { projectId, profileName }) => {
       return Project.findOneAndUpdate(
         { _id: projectId },
-        { $pull: { profile: profileId } },
+        { $pull: { profile: profileName } },
         { new: true }
       );
     },
-    removeSkillFromProject: async (parent, { projectId, skillId }) => {
+    removeSkillFromProject: async (parent, { projectId, skillName }) => {
       return Project.findOneAndUpdate(
         { _id: projectId },
-        { $pull: { skills: skillId } },
+        { $pull: { skills: skillName } },
         { new: true }
       );
     },

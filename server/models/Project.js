@@ -12,15 +12,13 @@ const projectSchema = new Schema({
   // references the skill model to have all the skills used on this project
   skills: [
     {
-        type: Schema.Types.ObjectId,
-        ref: 'Skill'
+        type: String
     },
   ],
   // references profile to get all the users collaborating on this project
   profile: [
     {
-        type: Schema.Types.ObjectId,
-        ref: 'Profile'
+        type: String,
     },
   ],
   createDate: {
