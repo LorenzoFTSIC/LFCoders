@@ -9,8 +9,6 @@ const style = {
     width: '100%',
     marginBottom: '50px',
     padding: '0px 15px 0 30px',
-    background: '#161616',
-    borderTop: '3px solid purple',
     justifyContent: 'space-between', 
   }, 
   headerContentSections: { 

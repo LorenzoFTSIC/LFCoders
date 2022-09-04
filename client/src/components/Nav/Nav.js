@@ -15,7 +15,7 @@ const styles = {
     marginLeft: 5,
     padding: 10,
     borderRadius: ' 0 0 8px 8px',
-    border: '2px solid purple',
+    border: '1.8px solid whitesmoke',
     textAlign: 'center',
     cursor: 'pointer',
     display: 'flex',
@@ -24,7 +24,8 @@ const styles = {
     transition: '0.2s ease-in-out'
   },
   tabLabel: {
-    color: 'whitesmoke',
+    color: '#161616',
+    fontWeight: 600
   }
 };
 
