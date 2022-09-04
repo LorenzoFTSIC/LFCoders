@@ -32,37 +32,38 @@ const styles = {
   },
   tab: {
     width: 140,
-    flex: 1
-  },
-  tabLabel: {
+    flex: 1,
     height: 75,
     marginLeft: 5,
     padding: 10,
-    background: '#161616',
     borderRadius: ' 0 0 8px 8px',
     border: '2px solid purple',
-    color: 'whitesmoke',
     textAlign: 'center',
     cursor: 'pointer',
     display: 'flex',
     justifyContent: 'center',
-    alignItems: 'center',
-    transition: 'background 0.5s ease'
+    alignItems: 'flex-end',
+    transition: '0.2s ease-in-out'
+  },
+  tabLabel: {
+    // height: 75,
+    // marginLeft: 5,
+    // padding: 10,
+    // background: '#161616',
+    // borderRadius: ' 0 0 8px 8px',
+    // border: '2px solid purple',
+    color: 'whitesmoke',
+    // textAlign: 'center',
+    // cursor: 'pointer',
+    // display: 'flex',
+    // justifyContent: 'center',
+    // alignItems: 'center',
+    // transition: '0.2s ease-in-out'
+    // "&:hover": {
+    //   background: 'linear-gradient(to right, rgb(52, 9, 138) , rgb(236, 185, 236))',
+    //   transform: 'scale(1.1)'
+    // }
   }
-  // tabContent: {
-  //   padding: 20,
-  //   background: '#161616',
-  //   position: 'absolute',
-  //   left: 0,
-  //   bottom: 0,
-  //   right: 0,
-  //   top: 40,
-  //   transition: 'opacity 0.8s ease, transform 0.8s ease',
-  //   // show/hide
-  //   opacity: 0,
-  //   transform: 'scale(0.1)',
-  //   transformOrigin: 'top left'
-  // }
 };
 
 function Nav({ currentPage, handlePageChange }) {
@@ -74,7 +75,7 @@ function Nav({ currentPage, handlePageChange }) {
     <nav style={styles.tabs} className="tabs">
       {/* nav */}
       <ul className="nav">
-        <li style={styles.tab} className="tab">
+        <li style={styles.tab} className="tab navTab">
           {/* navtab */}
           <Link
             style={styles.tabLabel}
@@ -91,7 +92,7 @@ function Nav({ currentPage, handlePageChange }) {
           </Link>
         </li>
 
-        <li style={styles.tab} className="tab">
+        <li style={styles.tab} className="tab navTab">
           {/* navtab */}
           <Link
             style={styles.tabLabel}
@@ -106,7 +107,7 @@ function Nav({ currentPage, handlePageChange }) {
           </Link>
         </li>
 
-        <li style={styles.tab} className="tab">
+        <li style={styles.tab} className="tab navTab">
           {/* navtab */}
           <Link
             style={styles.tabLabel}
@@ -121,7 +122,7 @@ function Nav({ currentPage, handlePageChange }) {
           </Link>
         </li>
 
-        <li style={styles.tab} className="tab">
+        <li style={styles.tab} className="tab navTab">
           {/* navtab */}
           <Link
             style={styles.tabLabel}
@@ -136,7 +137,7 @@ function Nav({ currentPage, handlePageChange }) {
           </Link>
         </li>
 
-        <li style={styles.tab} className="tab">
+        <li style={styles.tab} className="tab navTab">
           {/* navtab */}
           <Link
             style={styles.tabLabel}
