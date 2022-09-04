@@ -279,6 +279,14 @@ const Signup = () => {
                             </div>
                           )}
                         </div>
+                        <div >
+                          <label  for="options">Choose one of the following: </label>
+                          <select name="options">
+                          <option value="ltc">Looking to Code</option>
+                          <option value="lfc">Looking for Coders</option>
+                          </select>
+                        </div>
+
                         <div style={styles.grid}>
                           <Typography style={styles.jsSlider} gutterBottom>
                             HTML/CSS
