@@ -10,8 +10,7 @@ const style = {
     marginBottom: '50px',
     padding: '0px 15px 0 30px',
     background: '#161616',
-    borderTop: '4px solid purple',
-      // 'linear-gradient (to right, #dd39fe , #161616',
+    borderTop: '3px solid purple',
     justifyContent: 'space-between', 
   }, 
   headerContentSections: { 
