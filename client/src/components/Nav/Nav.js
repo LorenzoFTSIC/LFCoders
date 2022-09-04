@@ -25,6 +25,7 @@ const styles = {
   },
   tabLabel: {
     color: '#161616',
+    fontSize: '1.2rem',
     fontWeight: 600
   }
 };

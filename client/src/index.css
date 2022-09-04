@@ -80,7 +80,7 @@ a.text-dark.logo {
 }
 
 .navTab:hover { 
-	background: rgb(135, 74, 255);
+	background: rgb(158, 74, 255);
 	/* rgb(236, 185, 236); */
 	color: whitesmoke;
 	transform: scale(1.1)
