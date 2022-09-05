@@ -28,15 +28,18 @@ const styles = {
   //   margin: "0 auto"
   // },
   input: {
-    marginBottom: '20px',
-    color: '#784faf'
+    height: 35,
+    margin: '0 3% 3% 3%',
+    padding: '0 2%',
+    color: '#784faf',
+    borderRadius: 5
   },
   jsSlider: {
     color: '#784faf',
     marginBottom: 2
   },
-  jsSliderContainer: {
-    margin: '0px 30px'
+  formContent: {
+    margin: '0 3%'
   }
   // submit: {
   //   backgroundColor: "#784faf",
@@ -272,22 +275,23 @@ const Signup = () => {
                     <h3 for="signUpBio" className="sectionHeading">
                       Add your bio
                     </h3>
-                    <textarea
-                      style={styles.bio}
-                      class="form-control"
-                      id="signUpBio"
-                      rows="4"
-                      onChange={handleChange}
-                    ></textarea>
+                    <div style={styles.formContent}>
+                      <textarea
+                        class="form-control"
+                        id="signUpBio"
+                        rows="4"
+                        onChange={handleChange}
+                      ></textarea>
+                    </div>
                   </div>
 
-                  <div className="pwStrRow">
+                  {/* <div className="pwStrRow">
                     {formState.score >= 1 && (
                       <div>
                         <PasswordStr score={formState.score} />
                         <button
                           className="pwShowHideBtn"
-                          /* onClick={pwMask} */
+                          onClick={pwMask} 
                           style={{
                             position: 'relative',
                             left: '50%',
@@ -296,21 +300,27 @@ const Signup = () => {
                         ></button>
                       </div>
                     )}
-                  </div>
+                  </div> */}
 
                   <div>
                     <h3 className="sectionHeading">
                       Choose one of the following:
                     </h3>
-                    <select name="options" className="form-input" for="options">
-                      <option value="ltc">Looking to Code</option>
-                      <option value="lfc">Looking for Coders</option>
-                    </select>
+                    <div style={styles.formContent}>
+                      <select
+                        name="options"
+                        className="form-input"
+                        for="options"
+                      >
+                        <option value="ltc">Looking to Code</option>
+                        <option value="lfc">Looking for Coders</option>
+                      </select>
+                    </div>
                   </div>
 
                   <div>
                     <h3 className="sectionHeading">Assess Your Skills</h3>
-                    <div style={styles.jsSliderContainer}>
+                    <div style={styles.formContent}>
                       <Typography gutterBottom>HTML/CSS</Typography>
                       <Slider
                         defaultValue={0}
