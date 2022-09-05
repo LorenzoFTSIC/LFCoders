@@ -63,8 +63,7 @@ p + p {
   } 
 
 .btn:hover { 
-	background: whitesmoke;
-	color: #161616;
+	background: rgb(158, 74, 255);
 	box-shadow: 0px 0px 8px rgb(242, 144, 255);
 }
 
@@ -139,31 +138,29 @@ form {
 }
 
 .sectionHeading { 
-	margin: 3% 0;
+	margin-top: 3%;
 	font-size: 1.4rem;
 	color: rgb(255, 42, 255);
 }
 
 .buttonContainer { 
-	width: 100%;
+	width: fit-content;
+	border-radius: 5px;
+	position: relative;
+	overflow: hidden;
 	display: flex;
-	flex-wrap: wrap;
-	justify-content: center;
+	min-height: 50px;
 }
 
-/* .formOptionButton { 
-	margin: 1%;;
-	padding: 1%;
-	background: whitesmoke;
-	font-size: 1.2rem;
-	color:whitesmoke;
-	font-weight: 600;	
-	border: 2px solid purple;
-} */
+.formOptionButton:hover { 
+	font-weight: 600;
+}
 
-button:hover { 
-	/* background: rgba(255, 255, 255, 0.08); */
-	box-shadow: 0px 0px 8px rgb(242, 144, 255);
+.submit { 
+	margin: 3% 30% 1% 30%;
+	border: 2px solid lightblue;
+	color: whitesmoke;
+	cursor: pointer;
 }
 /* END - GENERAL MODAL */
 

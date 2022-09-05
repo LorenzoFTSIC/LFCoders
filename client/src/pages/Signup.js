@@ -5,65 +5,27 @@ import { useMutation } from '@apollo/client';
 import { ADD_PROFILE } from '../utils/mutations';
 
 import Auth from '../utils/auth';
-import PasswordStr from "../utils/passwordStr";
+import PasswordStr from '../utils/passwordStr';
 import Slider from '@mui/material/Slider';
 import Typography from '@mui/material/Typography';
 // const zxcvbn = require("zxcvbn");
 
 const styles = {
-  form: {
-    display: "flex",
-    justifyContent: "center",
-    flexDirection: "column",
-    width: "65%",
-    margin: "auto",
-  },
-  h4: {
-    textAlign: "center",
-    backgroundColor: "#784faf",
-    borderRadius: 0,
-    fontFamily: "Segoe UI, Tahoma, Geneva, Verdana, sans-serif",
-
-  },
-  center: {
-    margin: "0 auto"
-  },
   input: {
-    marginBottom: "20px",
-    color: "#784faf",
+    height: 35,
+    margin: '0 3% 3% 3%',
+    padding: '0 2%',
+    color: '#784faf',
+    borderRadius: 5
   },
   jsSlider: {
-    fontFamily: "Segoe UI, Tahoma, Geneva, Verdana, sans-serif",
-
+    color: '#784faf',
+    marginBottom: 2
   },
-  submit: {
-    backgroundColor: "#784faf",
-    cursor: "pointer",
-    color: "white",
-    border: "none",
-    borderRadius: 0,
-  },
-  card: {
-    borderRadius: 0,
-    border: "none"
-  },
-  close: {
-    background: "transparent",
-    border: "none",
-    fontSize: 26,
-    color: "white",
-  },
-  grid: {
-    display: "grid",
-    gridTemplateColumns: "1fr 1fr",
-  },
-  noRadius: {
-    borderRadius: 0,
-  },
-  bio: {
-    marginBottom: 20
+  formContent: {
+    margin: '0 3%'
   }
-}
+};
 
 /* var pwMask = (event) => {
   event.preventDefault();
@@ -75,9 +37,6 @@ const styles = {
   );
 } */
 
-
-
-
 const Signup = () => {
   const [formState, setFormState] = useState({
     errors: {},
@@ -85,8 +44,7 @@ const Signup = () => {
     email: '',
     password: '',
     bio: '',
-    score: 0,
-
+    score: 0
   });
   const [addProfile, { error, data }] = useMutation(ADD_PROFILE);
 
@@ -96,7 +54,7 @@ const Signup = () => {
 
     setFormState({
       ...formState,
-      [name]: value,
+      [name]: value
     });
   };
 
@@ -107,7 +65,7 @@ const Signup = () => {
 
     try {
       const { data } = await addProfile({
-        variables: { ...formState },
+        variables: { ...formState }
       });
 
       Auth.login(data.addProfile.token);
@@ -116,7 +74,7 @@ const Signup = () => {
     }
   };
 
-/*   var pwHandleChange = (event) => {
+  /*   var pwHandleChange = (event) => {
     const field = event.target.name;
     const user = formState.user;
     formState.name[field] = event.target.value;
@@ -145,14 +103,14 @@ const Signup = () => {
     }
   } */
 
-/*   const [validation, setValidation] = useState({
+  /*   const [validation, setValidation] = useState({
     name: "",
     email: "",
     password: "",
     confirmPassword: "",
   }); */
 
-/*   const checkValidation = () => {
+  /*   const checkValidation = () => {
     let errors = validation;
 
     if (!formState.name.trim()) {
@@ -204,192 +162,243 @@ const Signup = () => {
 
     setValidation(errors);
   }; */
-/* 
+  /* 
   useEffect(() => {
     checkValidation();
   }, [formState]); */
 
   return (
     <>
+      <div
+        className="modal fade bd-example-modal-lg-signup"
+        tabIndex="-1"
+        role="dialog"
+        aria-labelledby="myLargeModalLabel"
+        aria-hidden="true"
+      >
+        <div className="modal-dialog signup">
+          <div className="modal-content modalContainer">
+            <h3 className="mainTitle">Sign Up</h3>
+            <div>
+              {data ? (
+                <p>
+                  <Link to="/">Success!</Link>
+                </p>
+              ) : (
+                <form onSubmit={handleFormSubmit}>
+                  <h4 className="sectionHeading">Let's get started!</h4>
+                  <input
+                    style={styles.input}
+                    className="form-input"
+                    placeholder="Your username"
+                    name="name"
+                    type="text"
+                    value={formState.name}
+                    onChange={handleChange}
+                    required
+                  />
+                  <input
+                    style={styles.input}
+                    className="form-input"
+                    placeholder="Your email"
+                    name="email"
+                    type="email"
+                    value={formState.email}
+                    onChange={handleChange}
+                    required
+                  />
+                  <input
+                    style={styles.input}
+                    className="form-input"
+                    placeholder="Your GitHub"
+                    name="github"
+                    type="url"
+                    value={formState.github}
+                    onChange={handleChange}
+                    required
+                  />
+                  <input
+                    style={styles.input}
+                    className="form-input"
+                    placeholder="******"
+                    name="password"
+                    type="password"
+                    value={formState.password}
+                    onChange={handleChange}
+                    required
+                  />
 
-      <div className="modal fade bd-example-modal-lg-signup" tabIndex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-        <div className="modal-dialog modal-lg signup">
-          <div className="modal-content" style={styles.noRadius}>
-            <div className="flex-row justify-center mb-4">
-              <div className="col-12 col-lg-12" style={styles.center}>
-                <div className="card" style={styles.card}>
-                  <div className="modal-header" style={styles.h4}>
-                    <h4 className="card-header text-light  p-2" style={styles.h4}>Sign Up</h4>
-                    <button type="button" className="close" style={styles.close} data-dismiss="modal" aria-label="Close">
-                      <span aria-hidden="true">&times;</span>
-                    </button>
+                  <div class="form-group">
+                    <h3 for="signUpBio" className="sectionHeading">
+                      Add your bio
+                    </h3>
+                    <div style={styles.formContent}>
+                      <textarea
+                        class="form-control"
+                        id="signUpBio"
+                        rows="4"
+                        onChange={handleChange}
+                      ></textarea>
+                    </div>
                   </div>
-                  <div className="card-body">
-                    {data ? (
-                      <p>
-                        Success! You may now head{' '}
-                        <Link to="/">back to the homepage.</Link>
-                      </p>
-                    ) : (
-                      <form style={styles.form} onSubmit={handleFormSubmit}>
-                        <input
-                          style={styles.input}
-                          className="form-input"
-                          placeholder="Your username"
-                          name="name"
-                          type="text"
-                          value={formState.name}
-                          onChange={handleChange}
-                          required
-                        />
-                        <input
-                          style={styles.input}
-                          className="form-input"
-                          placeholder="Your email"
-                          name="email"
-                          type="email"
-                          value={formState.email}
-                          onChange={handleChange}
-                          required
-                        />
-                        <input
-                          style={styles.input}
-                          className="form-input"
-                          placeholder="Your GitHub"
-                          name="github"
-                          type="url"
-                          value={formState.github}
-                          onChange={handleChange}
-                          required
-                        />
-                        <input
-                          style={styles.input}
-                          className="form-input"
-                          placeholder="******"
-                          name="password"
-                          type="password"
-                          value={formState.password}
-                          onChange={handleChange}
-                          required
-                        />
 
-                        <div class="form-group">
-                          <label for="signUpBio">Add your bio:</label>
-                          <textarea style={styles.bio} class="form-control" id="signUpBio" rows="4" onChange={handleChange}></textarea>
-                        </div>
-
-                        <div className="pwStrRow">
-                          {formState.score >= 1 && (
-                            <div>
-                              <PasswordStr score={formState.score} />
-                              <button
-                                className="pwShowHideBtn"
-                               /* onClick={pwMask} */
-                                style={{ position: 'relative', left: '50%', transform: 'translateX(-50%)' }}
-                              ></button>
-                            </div>
-                          )}
-                        </div>
-                        <div >
-                          <label style={styles.input}
-                          className="form-input"  for="options">Choose one of the following:
-                          <select name="options">
-                          <option value="ltc">Looking to Code</option>
-                          <option value="lfc">Looking for Coders</option>
-                          </select>
-                          </label>
-                        </div>
-
-
-                        <div style={styles.grid}>
-                          <Typography style={styles.jsSlider} gutterBottom>
-                            HTML/CSS
-                          </Typography>
-                          <Slider defaultValue={0} aria-label="Default" aria-labelledby="js-slider" valueLabelDisplay="auto"
-                            sx={{
-                              color: '#784faf',
-                              marginBottom: 2
-                            }} />
-                          <Typography style={styles.jsSlider} gutterBottom>
-                            Javascript
-                          </Typography>
-                          <Slider defaultValue={0} aria-label="Default" aria-labelledby="js-slider" valueLabelDisplay="auto"
-                            sx={{
-                              color: '#784faf',
-                              marginBottom: 2
-                            }} />
-                          <Typography style={styles.jsSlider} gutterBottom>
-                            React
-                          </Typography>
-                          <Slider defaultValue={0} aria-label="Default" aria-labelledby="js-slider" valueLabelDisplay="auto"
-                            sx={{
-                              color: '#784faf',
-                              marginBottom: 2
-                            }} />
-                          <Typography style={styles.jsSlider} gutterBottom>
-                            Javascript
-                          </Typography>
-                          <Slider defaultValue={0} aria-label="Default" aria-labelledby="js-slider" valueLabelDisplay="auto"
-                            sx={{
-                              color: '#784faf',
-                              marginBottom: 2
-                            }} />
-                          <Typography style={styles.jsSlider} gutterBottom>
-                            Node.js
-                          </Typography>
-                          <Slider defaultValue={0} aria-label="Default" aria-labelledby="js-slider" valueLabelDisplay="auto"
-                            sx={{
-                              color: '#784faf',
-                              marginBottom: 2
-                            }} />
-                          <Typography style={styles.jsSlider} gutterBottom>
-                            SQL
-                          </Typography>
-                          <Slider defaultValue={0} aria-label="Default" aria-labelledby="js-slider" valueLabelDisplay="auto"
-                            sx={{
-                              color: '#784faf',
-                              marginBottom: 2
-                            }} />
-                          <Typography style={styles.jsSlider} gutterBottom>
-                            MERN
-                          </Typography>
-                          <Slider defaultValue={0} aria-label="Default" aria-labelledby="js-slider" valueLabelDisplay="auto"
-                            sx={{
-                              color: '#784faf',
-                              marginBottom: 2
-                            }} />
-                          <Typography className="js-slider" gutterBottom>
-                            Javascript
-                          </Typography>
-                          <Slider defaultValue={0} aria-label="Default" aria-labelledby="js-slider" valueLabelDisplay="auto"
-                            sx={{
-                              color: '#784faf',
-                              marginBottom: 4
-                            }} />
-                        </div>
+                  <div className="pwStrRow">
+                    {formState.score >= 1 && (
+                      <div>
+                        <PasswordStr score={formState.score} />
                         <button
-                          className="btn btn-block btn-info"
-                          style={styles.submit}
-                          type="submit"
-                          aria-label="Close"
-                        >
-                          Submit
-                        </button>
-                      </form>
-                    )}
-
-                    {error && (
-                      <div className="my-3 p-3 bg-danger text-white">
-                        {error.message}
+                          className="pwShowHideBtn"
+                          // onClick={pwMask} 
+                          style={{
+                            position: 'relative',
+                            left: '50%',
+                            transform: 'translateX(-50%)'
+                          }}
+                        ></button>
                       </div>
                     )}
                   </div>
+
+                  <div>
+                    <h3 className="sectionHeading">
+                      Choose one of the following
+                    </h3>
+                    <div style={styles.formContent}>
+                      <select
+                        name="options"
+                        className="form-input"
+                        for="options"
+                      >
+                        <option value="ltc">Looking to Code</option>
+                        <option value="lfc">Looking for Coders</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div>
+                    <h3 className="sectionHeading">Assess Your Skills</h3>
+                    <div style={styles.formContent}>
+                      <Typography gutterBottom>HTML/CSS</Typography>
+                      <Slider
+                        defaultValue={0}
+                        aria-label="Default"
+                        aria-labelledby="js-slider"
+                        valueLabelDisplay="auto"
+                        style={styles.jsSlider}
+                        // sx={{
+                        //   color: '#784faf',
+                        //   marginBottom: 2
+                        // }}
+                      />
+                      <Typography gutterBottom>Javascript</Typography>
+                      <Slider
+                        defaultValue={0}
+                        aria-label="Default"
+                        aria-labelledby="js-slider"
+                        valueLabelDisplay="auto"
+                        style={styles.jsSlider}
+                        // sx={{
+                        //   color: '#784faf',
+                        //   marginBottom: 2
+                        // }}
+                      />
+                      <Typography gutterBottom>React</Typography>
+                      <Slider
+                        defaultValue={0}
+                        aria-label="Default"
+                        aria-labelledby="js-slider"
+                        valueLabelDisplay="auto"
+                        style={styles.jsSlider}
+                        // sx={{
+                        //   color: '#784faf',
+                        //   marginBottom: 2
+                        // }}
+                      />
+                      <Typography gutterBottom>Javascript</Typography>
+                      <Slider
+                        defaultValue={0}
+                        aria-label="Default"
+                        aria-labelledby="js-slider"
+                        valueLabelDisplay="auto"
+                        style={styles.jsSlider}
+                        // sx={{
+                        //   color: '#784faf',
+                        //   marginBottom: 2
+                        // }}
+                      />
+                      <Typography gutterBottom>Node.js</Typography>
+                      <Slider
+                        defaultValue={0}
+                        aria-label="Default"
+                        aria-labelledby="js-slider"
+                        valueLabelDisplay="auto"
+                        style={styles.jsSlider}
+                        // sx={{
+                        //   color: '#784faf',
+                        //   marginBottom: 2
+                        // }}
+                      />
+                      <Typography gutterBottom>SQL</Typography>
+                      <Slider
+                        defaultValue={0}
+                        aria-label="Default"
+                        aria-labelledby="js-slider"
+                        valueLabelDisplay="auto"
+                        style={styles.jsSlider}
+                        // sx={{
+                        //   color: '#784faf',
+                        //   marginBottom: 2
+                        // }}
+                      />
+                      <Typography gutterBottom>MERN</Typography>
+                      <Slider
+                        defaultValue={0}
+                        aria-label="Default"
+                        aria-labelledby="js-slider"
+                        valueLabelDisplay="auto"
+                        style={styles.jsSlider}
+                        // sx={{
+                        //   color: '#784faf',
+                        //   marginBottom: 2
+                        // }}
+                      />
+                      <Typography className="js-slider" gutterBottom>
+                        Javascript
+                      </Typography>
+                      <Slider
+                        defaultValue={0}
+                        aria-label="Default"
+                        aria-labelledby="js-slider"
+                        valueLabelDisplay="auto"
+                        sx={{
+                          color: '#784faf',
+                          marginBottom: 4
+                        }}
+                      />
+                    </div>
+                  </div>
+                  <button
+                    className="btn btn-block submit"
+                    type="submit"
+                    aria-label="Close"
+                  >
+                    Submit
+                  </button>
+                </form>
+              )}
+
+              {error && (
+                <div className="my-3 p-3 bg-danger text-white">
+                  {error.message}
                 </div>
-              </div>
+              )}
             </div>
           </div>
         </div>
       </div>
+      {/* </div> */}
+      {/* </div> */}
+      {/* </div> */}
     </>
   );
 };
