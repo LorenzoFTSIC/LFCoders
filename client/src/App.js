@@ -9,7 +9,7 @@ import { setContext } from '@apollo/client/link/context';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Auth from './utils/auth';
 
-import Home from './pages/Home';
+import RecentCollabs from './pages/RecentCollabs';
 import Profile from './pages/Profile';
 import Signup from './pages/Signup';
 import Login from './pages/Login';
@@ -52,7 +52,9 @@ function App() {
           {/* ^Need conditional to switch between the two types of headers when the user is logged in or not logged in */}
           <div className="container">
             <Routes>
-              <Route path="/" element={<Home />} />
+              {/* {Auth.loggedIn() ? */}
+              <Route path="/" element={<RecentCollabs />} />
+              {/* : <Route path="/" element={<RecentCollabs />} />} */}
               <Route path="/login" element={<Login />} />
               <Route path="/signup" element={<Signup />} />
               <Route path="/search" element={<Search />} />

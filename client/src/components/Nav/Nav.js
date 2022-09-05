@@ -41,7 +41,7 @@ function Nav({ currentPage, handlePageChange }) {
         <li style={styles.tab} className="tab navTab">
           <Link
             style={styles.tabLabel}
-            to=""
+            to="/"
             onClick={() => handlePageChange('Recent Collaborations')}
             className={
               currentPage === 'Recent Collaborations'
