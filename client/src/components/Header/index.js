@@ -31,7 +31,7 @@ const styles = {
   },
   button: {
     width: 100,
-    margin: '30px 20px 0 20px'
+    margin: 20
   }
 };
 
@@ -41,12 +41,12 @@ const Header = () => {
   //   Auth.logout();
   // };
   return (
-    <header style={styles.header} className="bg-info display-flex align-center">
+    <header style={styles.header} className="display-flex align-center headerFade">
       <div style={styles.headerContent} className="container">
         <div style={styles.headerSides}>
           {/* LEFT SIDE */}
           <h1 style={styles.title} className="quote">
-            L.F.Coders
+            Looking For Coders
           </h1>
           <div className="content-slider">
             <div className="slider">
