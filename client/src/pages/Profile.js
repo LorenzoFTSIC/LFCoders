@@ -67,11 +67,6 @@ const style = {
   formContent: {
     margin: '3%'
   }
-  // submit: {
-  //   color: 'whitesmoke',
-  //   border: '2px solid lightblue',
-  //   margin: '1% 0'
-  // }
 };
 
 // { profilecollabs }

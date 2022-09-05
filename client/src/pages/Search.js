@@ -5,55 +5,13 @@ import React from 'react';
 // import LTCForm from '../components/LTCForm/LTCForm';
 
 const style = {
-  // container: {
-  //   maxWidth: '40%',
-  //   margin: '0 auto',
-  //   padding: 40,
-  //   background: '#333',
-  //   color: 'whitesmoke',
-  //   fontSize: 18,
-  //   borderRadius: '12px'
-  // },
-  // maintitle: {
-  //   fontSize: 40,
-  //   textAlign: 'center',
-  //   color: 'white',
-  //   marginTop: '10px',
-  //   marginBottom: '40px'
-  // },
-  // title: {
-  //   fontSize: 30,
-  //   textAlign: 'center',
-  //   fontWeight: 'bold',
-  //   color: 'white',
-  //   marginTop: '10px',
-  //   marginBottom: '40px'
-  // },
-  // heading3: {
-  //   fontSize: 25,
-  //   marginTop: '20px'
-  // },
-  // button: {
-  //   fontSize: 15,
-  //   padding: '10px',
-  //   color: 'black',
-  //   fontWeight: 'bold',
-  //   backgroundColor: '#d6d1d1',
-  //   marginLeft: '3px',
-  //   marginBottom: '4px'
-  // }
   Button: {
     minWidth: 100,
-    background: 'rgba(255, 255, 255, 0.4)',
+    background: 'rgba(255, 255, 255, 0.7)',
     border: '1px solid whitesmoke',
     borderRadius: 'none',
     color: '#161616',
   },
-  // submit: {
-  //   color: 'whitesmoke',
-  //   border: '2px solid lightblue',
-  //   margin: '1% 0'
-  // }
 };
 
 const Search = () => {

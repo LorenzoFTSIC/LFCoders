@@ -11,22 +11,6 @@ import Typography from '@mui/material/Typography';
 // const zxcvbn = require("zxcvbn");
 
 const styles = {
-  // form: {
-  //   display: "flex",
-  //   justifyContent: "center",
-  //   flexDirection: "column",
-  //   width: "65%",
-  //   margin: "auto",
-  // },
-  // h4: {
-  //   textAlign: "center",
-  //   backgroundColor: "#784faf",
-  //   borderRadius: 0,
-  //   fontFamily: "Segoe UI, Tahoma, Geneva, Verdana, sans-serif",
-  // },
-  // center: {
-  //   margin: "0 auto"
-  // },
   input: {
     height: 35,
     margin: '0 3% 3% 3%',
@@ -41,33 +25,6 @@ const styles = {
   formContent: {
     margin: '0 3%'
   }
-  // submit: {
-  //   backgroundColor: "#784faf",
-  //   cursor: "pointer",
-  //   color: "white",
-  //   border: "none",
-  //   borderRadius: 0,
-  // },
-  // card: {
-  //   borderRadius: 0,
-  //   border: "none"
-  // },
-  // close: {
-  //   background: "transparent",
-  //   border: "none",
-  //   fontSize: 26,
-  //   color: "white",
-  // },
-  // grid: {
-  //   display: "grid",
-  //   gridTemplateColumns: "1fr 1fr",
-  // },
-  // noRadius: {
-  //   borderRadius: 0,
-  // },
-  // bio: {
-  //   marginBottom: 20
-  // }
 };
 
 /* var pwMask = (event) => {

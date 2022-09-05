@@ -19,22 +19,6 @@ const Login = (props) => {
     });
   };
   const styles = {
-    // login: {
-    //   display: "flex",
-    //   justifyContent: "center",
-    //   flexDirection: "column",
-    //   width: "65%",
-    //   margin: "auto",
-    // },
-    // modalContainer: { 
-    //   minWidth: '5%',
-    // },
-    // h4: {
-    //   borderRadius: 0,
-    //   textAlign: "center",
-    //   backgroundColor: "#784faf",
-    //   fontFamily: "Segoe UI, Tahoma, Geneva, Verdana, sans-serif",
-    // },
     input: {
       height: 35,
       margin: '3% 3% 0 3%',
@@ -47,30 +31,6 @@ const Login = (props) => {
       flexDirection: 'column',
       justifyContent: 'center'
     }
-    // submit: {
-    //   cursor: "pointer",
-    //   width: "50%",
-    //   justifyContent: "center",
-    //   color: 'whitesmoke',
-    //   border: '2px solid lightblue',
-    //   margin: '1% 0'
-    // },
-    // center: {
-    //   margin: "0 auto",
-    // },
-    // card: {
-    //   borderRadius: 0,
-    //   border: "none"
-    // },
-    // close: {
-    //   background: "transparent",
-    //   border: "none",
-    //   fontSize: 26,
-    //   color: "white",
-    // },
-    // noRadius: {
-    //   borderRadius: 0,
-    // }
   };
   // submit form
   const handleFormSubmit = async (event) => {
