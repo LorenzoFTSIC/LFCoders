@@ -5,6 +5,7 @@ export const QUERY_PROFILES = gql`
     profiles {
       _id
       name
+      github
     }
   }
 `;
@@ -27,6 +28,7 @@ export const QUERY_SINGLE_PROFILE = gql`
     profile(profileId: $profileId) {
       _id
       name
+      github
     }
   }
 `;
@@ -36,6 +38,7 @@ export const QUERY_ME = gql`
     me {
       _id
       name
+      github
     }
   }
 `;
@@ -47,6 +50,7 @@ export const QUERY_BIO = gql`
       _id
       name
       email
+      github
       password
       skills
       bio

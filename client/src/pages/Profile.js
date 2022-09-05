@@ -138,9 +138,12 @@ const Profile = () => {
               sx={{ width: 300, height: 300, boxShadow: 20 }}
             />
           </div>
-
+          <div>
           <h4>{profile.name}</h4>
-
+          </div>
+          <div>
+          <h4>{profile.github}</h4>
+          </div>
           <h5>I am {profile.status}</h5>
         </div>
 

@@ -21,8 +21,6 @@ const profileSchema = new Schema({
   },
   github: {
     type: String,
-    required: true,
-    max_length: 50,
   },
   skills: [
     {
