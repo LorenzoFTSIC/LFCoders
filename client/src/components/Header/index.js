@@ -9,13 +9,6 @@ const styles = {
     backgroundImage:
       'linear-gradient(to right, rgb(52, 9, 138) , rgb(236, 185, 236))',
     textAlign: 'center'
-
-    // height:'calc(100vh - 40px)',
-    // margin: 20,
-    // display: "flex",
-    // backgroundImage:"linear-gradient(to right, rgb(52, 9, 138) , rgb(236, 185, 236))",
-    // textAlign: 'center',
-
   },
   headerContent: {
     padding: '100px 0 0 0 ',
@@ -25,27 +18,26 @@ const styles = {
     alignItems: 'center'
   },
   headerSides: {
-    width: '50%', 
-    height: '100%',
+    width: '50%',
+    height: '100%'
   },
   title: {
     color: 'white',
     fontSize: '3rem',
     fontFamily: 'Segoe UI'
   },
-
   link: {
     textDecoration: 'none'
   },
-
   button: {
-    backgroundColor: '#a4b5f3',
-    color: '#58497b'
+    width: 100,
+    margin: '30px 20px 0 20px',
+    // backgroundColor: '#a4b5f3',
+    // color: '#58497b'
   }
 };
 
-const Header = ({ reasons }) => {
-  // ^ Prop for rendering one sentence at a time in a type of carousel, but not doing that right now...
+const Header = () => {
   const logout = (event) => {
     event.preventDefault();
     Auth.logout();
@@ -57,14 +49,13 @@ const Header = ({ reasons }) => {
     >
       <div style={styles.headerContent} className="container">
         <div style={styles.headerSides}>
-          {/* <Link style={styles.link} className="none" to="/"> */}
+          {/* LEFT SIDE */}
           <h1 style={styles.title} className="m-0 quote">
             L.F.Coders
           </h1>
           <div className="content-slider">
             <div className="slider">
               <div>
-                {/* </Link> */}
                 <ul>
                   <li className="anim1">
                     <p
@@ -75,7 +66,6 @@ const Header = ({ reasons }) => {
                     </p>
                   </li>
 
-                  {/* <br /> */}
                   <li className="anim2">
                     <p
                       className="m-0 quote"
@@ -85,7 +75,6 @@ const Header = ({ reasons }) => {
                     </p>
                   </li>
 
-                  {/* <br /> */}
                   <li className="anim3">
                     <p
                       className="m-0 quote"
@@ -95,7 +84,6 @@ const Header = ({ reasons }) => {
                     </p>
                   </li>
 
-                  {/* <br /> */}
                   <li className="anim4">
                     <p
                       className="m-0 quote"
@@ -105,7 +93,6 @@ const Header = ({ reasons }) => {
                     </p>
                   </li>
 
-                  {/* <br /> */}
                   <li className="anim5">
                     <p
                       className="m-0 quote"
@@ -114,23 +101,13 @@ const Header = ({ reasons }) => {
                       Meeting new people.
                     </p>
                   </li>
-
-                  {/* <br /> */}
-                  {/* <li className="anim1">
-                    <p
-                      className="m-0 quote"
-                      style={{ fontSize: '1.75rem', fontWeight: '700' }}
-                    >
-                      Sharing ideas.
-                    </p>
-                  </li> */}
-                  {/* ^ Removed because not enough anim# spots... */}
                 </ul>
               </div>
             </div>
           </div>
         </div>
 
+        {/* RIGHT SIDE */}
         <div style={styles.headerSides}>
           <p
             className="m-0 quote"
@@ -153,28 +130,31 @@ const Header = ({ reasons }) => {
               <>
                 <Link
                   style={styles.button}
-                  className="btn btn-lg btn-light m-2"
-                  to="/login" data-toggle="modal" data-target=".bd-example-modal-lg-login"
+                  className="btn"
+                  to="/login"
+                  data-toggle="modal"
+                  data-target=".bd-example-modal-lg-login"
                 >
                   Login
                 </Link>
                 <Link
                   style={styles.button}
-                  className="btn btn-lg btn-light m-2"
-                  to="/signup" data-toggle="modal" data-target=".bd-example-modal-lg-signup"
+                  className="btn"
+                  to="/signup"
+                  data-toggle="modal"
+                  data-target=".bd-example-modal-lg-signup"
                 >
                   Signup
                 </Link>
               </>
             )}
           </div>
-
         </div>
       </div>
     </header>
   );
 };
 
-// HTML/CSS quote slider by @cassidoo on CodePen: Pure Css Text Carousel 
+// HTML/CSS quote slider by @cassidoo on CodePen: Pure Css Text Carousel
 
 export default Header;

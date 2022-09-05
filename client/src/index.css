@@ -45,36 +45,30 @@ p + p {
 	margin-top: 1.5rem;
 }
 
-/* Commented out for now because the smallHeader logo is being effected */
-/* a {
-	padding: 2.5% 3%;
-	text-decoration: none;
-} */
-
 .btn {
 	padding: 1%;
+	background:#7B52AB;
     color: whitesmoke;
 	font-size: 1.3rem;
 	font-weight: 700;
 	text-align: center;
 	border: none;
 	border-radius: 5px;
-	box-shadow: 0px 0px 8px rgb(48, 47, 47);
+	box-shadow: 0px 0px 8px rgb(242, 144, 255);
 	/* rgba(33, 203, 243, .3) */
 	transition: all 0.3s ease-in-out;
   } 
 
 .btn:hover { 
-	background:linear-gradient(to right, rgb(52, 9, 138) , rgb(194, 185, 236));
+	background: whitesmoke;
+	color: #161616;
+	box-shadow: 0px 0px 8px rgb(242, 144, 255);
 }
 
-  .btn:hover { 
-	box-shadow: 0px 0px 8px rgb(242, 144, 255);
-  }
-
-  img { 
+img { 
 	object-fit: contain;
-  }
+}
+/* END - TYPOGRAPHY AND ELEMENTS */
 
 
 /* smallHeader */
