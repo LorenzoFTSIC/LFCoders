@@ -31,9 +31,7 @@ const styles = {
   },
   button: {
     width: 100,
-    margin: '30px 20px 0 20px',
-    // backgroundColor: '#a4b5f3',
-    // color: '#58497b'
+    margin: '30px 20px 0 20px'
   }
 };
 
@@ -43,14 +41,11 @@ const Header = () => {
     Auth.logout();
   };
   return (
-    <header
-      style={styles.header}
-      className="bg-info text-dark display-flex align-center"
-    >
+    <header style={styles.header} className="bg-info display-flex align-center">
       <div style={styles.headerContent} className="container">
         <div style={styles.headerSides}>
           {/* LEFT SIDE */}
-          <h1 style={styles.title} className="m-0 quote">
+          <h1 style={styles.title} className="quote">
             L.F.Coders
           </h1>
           <div className="content-slider">
@@ -58,48 +53,25 @@ const Header = () => {
               <div>
                 <ul>
                   <li className="anim1">
-                    <p
-                      className="m-0 quote"
-                      style={{ fontSize: '1.75rem', fontWeight: '700' }}
-                    >
+                    <p className="quote">
                       Ideas that go beyond our current knowledge.
                     </p>
                   </li>
 
                   <li className="anim2">
-                    <p
-                      className="m-0 quote"
-                      style={{ fontSize: '1.75rem', fontWeight: '700' }}
-                    >
-                      Working in a team.
-                    </p>
+                    <p className="quote">Working in a team.</p>
                   </li>
 
                   <li className="anim3">
-                    <p
-                      className="m-0 quote"
-                      style={{ fontSize: '1.75rem', fontWeight: '700' }}
-                    >
-                      Spreading the work load.
-                    </p>
+                    <p className="quote">Spreading the work load.</p>
                   </li>
 
                   <li className="anim4">
-                    <p
-                      className="m-0 quote"
-                      style={{ fontSize: '1.75rem', fontWeight: '700' }}
-                    >
-                      Bouncing ideas.
-                    </p>
+                    <p className="quote">Bouncing ideas.</p>
                   </li>
 
                   <li className="anim5">
-                    <p
-                      className="m-0 quote"
-                      style={{ fontSize: '1.75rem', fontWeight: '700' }}
-                    >
-                      Meeting new people.
-                    </p>
+                    <p className="quote">Meeting new people.</p>
                   </li>
                 </ul>
               </div>
@@ -109,10 +81,7 @@ const Header = () => {
 
         {/* RIGHT SIDE */}
         <div style={styles.headerSides}>
-          <p
-            className="m-0 quote"
-            style={{ fontSize: '1.75rem', fontWeight: '700' }}
-          >
+          <p style={{ fontSize: '1.75rem', fontWeight: '700' }}>
             Whatever your reason, LFC is here to get you in touch with the right
             people for your next coding project.
           </p>

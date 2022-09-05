@@ -203,8 +203,9 @@ button:hover {
   }
   
   .slider .quote {
-	font-size: 40px;
 	font-style: italic;
+	font-size: 1.75rem;
+	font-weight: 700;
   }
   
   .slider .source {
