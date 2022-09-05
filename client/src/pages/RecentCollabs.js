@@ -3,11 +3,14 @@ import { useQuery } from '@apollo/client';
 
 import ProjectList from '../components/ProjectList';
 
-import { QUERY_PROFILES } from '../utils/queries';
+import { QUERY_PROJECTS } from '../utils/queries';
 
 const RecentProjects = () => {
-  const { loading, data } = useQuery(QUERY_PROFILES);
+  const { loading, data } = useQuery(QUERY_PROJECTS);
   const projects = data?.projects || [];
+  if (data) {
+    console.log("project exists")
+  }
 
   return (
     <main>
