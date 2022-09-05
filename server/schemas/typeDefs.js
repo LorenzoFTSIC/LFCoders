@@ -19,6 +19,7 @@ const typeDefs = gql`
     profile: [Profile]
     createDate: String
     status: Boolean
+    github: String
   }
 
   type Skill {

@@ -30,6 +30,9 @@ const projectSchema = new Schema({
   // true/false to see if the project is marked "done" or not
   status: {
     type: Boolean
+  },
+  github: {
+    type: String,
   }
 });
 
