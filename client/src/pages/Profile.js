@@ -51,12 +51,22 @@ const style = {
     border: '2px solid #000',
     boxShadow: 24,
     p: 4
-    },
-  submit: {
-    color: 'whitesmoke',
-    border: '2px solid lightblue',
-    margin: '1% 0'
+  },
+  input: {
+    height: 35,
+    margin: '3% 3% 0 3%',
+    padding: '0 2%',
+    color: '#784faf',
+    borderRadius: 5
+  },
+  formContent: {
+    margin: '0 3%'
   }
+  // submit: {
+  //   color: 'whitesmoke',
+  //   border: '2px solid lightblue',
+  //   margin: '1% 0'
+  // }
 };
 
 // { profilecollabs }
@@ -128,7 +138,7 @@ const Profile = () => {
               sx={{ width: 300, height: 300, boxShadow: 20 }}
             />
           </div>
-          
+
           <h4>{profile.name}</h4>
 
           <h5>I am {profile.status}</h5>
@@ -139,39 +149,47 @@ const Profile = () => {
             <h5>Settings</h5>
           </Link> */}
 
-          <Button onClick={handleOpen}>Settings</Button>
+          <Button className="btn btn-block" onClick={handleOpen}>
+            Settings
+          </Button>
           <Modal
+            className="modalPage"
             open={open}
             onClose={handleClose}
             aria-labelledby="modal-modal-title"
             aria-describedby="modal-modal-description"
           >
-
-            <Box sx={style.settingsModal} className="modalContainer">
+            <Box className="modalContainer">
               <h3 className="mainTitle">Settings</h3>
               <div id="modal-modal-description" sx={{ mt: 2 }}>
                 <section>
                   <div>
                     <h5 className="sectionHeading">Name</h5>
-                    <textarea rows="1" cols="30"></textarea>
+                    <textarea rows="1" cols="30" style={style.input}></textarea>
                   </div>
                   <div>
                     <h5 className="sectionHeading">Status</h5>
-                    <select name="cars" id="cars">
+                    <select name="options" id="options" style={style.input}>
                       <option value="looking to code">Looking To Code</option>
-                      <option value="looking for coders">Looking For Coders</option>
+                      <option value="looking for coders">
+                        Looking For Coders
+                      </option>
                       <option value="just looking">Just Looking</option>
                     </select>
                   </div>
                   <div>
                     <h5 className="sectionHeading">My Bio</h5>
-                    <textarea rows="8" cols="80"></textarea>
+                    <div style={style.formContent}>
+                      <textarea
+                        class="form-control"
+                        rows="4"
+                      ></textarea>
+                    </div>
                   </div>
 
                   <button
-                    className="btn btn-block"
+                    className="btn btn-block submit"
                     type="submit"
-                    style={style.submit}
                   >
                     Save
                   </button>
