@@ -219,8 +219,8 @@ const Signup = () => {
         aria-labelledby="myLargeModalLabel"
         aria-hidden="true"
       >
-        <div className="modal-dialog modal-lg signup">
-          <div className="modalContainer">
+        <div className="modal-dialog signup">
+          <div className="modal-content modalContainer">
             <h3 className="mainTitle">Sign Up</h3>
             <div>
               {data ? (
@@ -421,8 +421,7 @@ const Signup = () => {
                     </div>
                   </div>
                   <button
-                    className="btn btn-block btn-info"
-                    style={styles.submit}
+                    className="btn btn-block submit"
                     type="submit"
                     aria-label="Close"
                   >

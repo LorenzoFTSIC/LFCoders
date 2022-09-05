@@ -43,7 +43,8 @@ const style = {
   //   marginBottom: '4px'
   // }
   Button: {
-    margin: '1%',
+    minWidth: 100,
+    margin: '.5%',
     padding: '1%',
     background: 'rgba(255, 255, 255, 0.4)',
     color: '#161616',
@@ -54,11 +55,11 @@ const style = {
   //   color: 'whitesmoke',
   //   border: '2px solid purple'
   // },
-  submit: { 
-    color: 'whitesmoke',
-    border: '2px solid lightblue',
-    margin: '1% 0'
-  }
+  // submit: {
+  //   color: 'whitesmoke',
+  //   border: '2px solid lightblue',
+  //   margin: '1% 0'
+  // }
   // 'Button:hover': {
   //   background: 'rgba(255, 161, 253, 0.3)',
   //   boxShadow: '0px 0px 8px rgb(161, 161, 161)'
@@ -76,12 +77,11 @@ const style = {
 const Search = () => {
   return (
     <div className="modalPage">
-
       <div className="modalContainer">
         {/* <div style={style.container}>
         <h1 className= "title" style={style.title}></h1>
       <div> */}
-      <h3 className="mainTitle">LOOKING TO CODE</h3>
+        <h3 className="mainTitle">LOOKING TO CODE</h3>
         <form>
           <h3 className="sectionHeading">What I bring to the table:</h3>
           <div className="buttonContainer">
@@ -223,17 +223,15 @@ const Search = () => {
               Sunday
             </Button>
           </div>
-
-
-        </form>
-        <button
-            className="btn btn-block"
+          <button
+            className="btn btn-block submit"
             type="submit"
             aria-label="Close"
-            style={style.submit}
+            // style={style.submit}
           >
             Submit
           </button>
+        </form>
       </div>
     </div>
     // </div>

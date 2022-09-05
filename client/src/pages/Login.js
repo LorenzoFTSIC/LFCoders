@@ -26,6 +26,9 @@ const Login = (props) => {
     //   width: "65%",
     //   margin: "auto",
     // },
+    // modalContainer: { 
+    //   minWidth: '5%',
+    // },
     // h4: {
     //   borderRadius: 0,
     //   textAlign: "center",
@@ -39,15 +42,18 @@ const Login = (props) => {
       color: '#784faf',
       borderRadius: 5
     },
+    centerButton: { 
+      display: 'flex',
+      flexDirection: 'column',
+      justifyContent: 'center'
+    }
     // submit: {
-    //   backgroundColor: "#784faf",
     //   cursor: "pointer",
     //   width: "50%",
     //   justifyContent: "center",
-    //   margin: "auto",
-    //   color: "white",
-    //   border: "none",
-    //   borderRadius: 0,
+    //   color: 'whitesmoke',
+    //   border: '2px solid lightblue',
+    //   margin: '1% 0'
     // },
     // center: {
     //   margin: "0 auto",
@@ -95,8 +101,8 @@ const Login = (props) => {
       aria-labelledby="myLargeModalLabel"
       aria-hidden="true"
     >
-      <div className="modal-dialog modal-lg login">
-        <div className="modalContainer">
+      <div className="modal-dialog login">
+        <div className="modal-content modalContainer" style={styles.modalContainer}>
           <h3 className="mainTitle">Login</h3>
 
           <div className="card-body">
@@ -125,8 +131,7 @@ const Login = (props) => {
                   onChange={handleChange}
                 />
                 <button
-                  className="btn btn-block btn-info"
-                  style={styles.submit}
+                  className="btn btn-block submit"
                   type="submit"
                 >
                   Submit
