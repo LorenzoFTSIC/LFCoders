@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import Auth from '../../utils/auth';
+// import Auth from '../../utils/auth';
 
 const styles = {
   header: {
@@ -36,10 +36,10 @@ const styles = {
 };
 
 const Header = () => {
-  const logout = (event) => {
-    event.preventDefault();
-    Auth.logout();
-  };
+  // const logout = (event) => {
+  //   event.preventDefault();
+  //   Auth.logout();
+  // };
   return (
     <header style={styles.header} className="bg-info display-flex align-center">
       <div style={styles.headerContent} className="container">
@@ -86,7 +86,7 @@ const Header = () => {
             people for your next coding project.
           </p>
           <div>
-            {Auth.loggedIn() ? (
+            {/* {Auth.loggedIn() ? (
               <>
                 <Link className="btn btn-lg btn-primary m-2" to="/me">
                   View My Profile
@@ -96,7 +96,7 @@ const Header = () => {
                 </button>
               </>
             ) : (
-              <>
+              <> */}
                 <Link
                   style={styles.button}
                   className="btn"
@@ -115,8 +115,8 @@ const Header = () => {
                 >
                   Signup
                 </Link>
-              </>
-            )}
+              {/* </>
+            )} */}
           </div>
         </div>
       </div>
