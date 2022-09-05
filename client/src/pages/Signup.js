@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import { useMutation } from '@apollo/client';
@@ -8,7 +8,7 @@ import Auth from '../utils/auth';
 import PasswordStr from "../utils/passwordStr";
 import Slider from '@mui/material/Slider';
 import Typography from '@mui/material/Typography';
-const zxcvbn = require("zxcvbn");
+// const zxcvbn = require("zxcvbn");
 
 const styles = {
   form: {
@@ -116,43 +116,43 @@ const Signup = () => {
     }
   };
 
-  var pwHandleChange = (event) => {
+/*   var pwHandleChange = (event) => {
     const field = event.target.name;
     const user = formState.user;
     formState.name[field] = event.target.value;
 
     setFormState(user)
   
-    /* this.setState({
+    this.setState({
       user
-    }); */
+    }); 
   
     if (event.target.value === "") {
-      /* this.setState(state =>
+       this.setState(state =>
         Object.assign({}, state, {
           score: "null"
         })
-      ); */
+      ); 
       setFormState(formState.score === null)
     } else {
       var pw = zxcvbn(event.target.value);
-/*       this.setState(state =>
+     this.setState(state =>
         Object.assign({}, state, {
           score: pw.score + 1
         })
-      ); */
+      ); 
       setFormState(formState.score + 1)
     }
-  }
+  } */
 
-  const [validation, setValidation] = useState({
+/*   const [validation, setValidation] = useState({
     name: "",
     email: "",
     password: "",
     confirmPassword: "",
-  });
+  }); */
 
-  const checkValidation = () => {
+/*   const checkValidation = () => {
     let errors = validation;
 
     if (!formState.name.trim()) {
@@ -203,7 +203,7 @@ const Signup = () => {
     }
 
     setValidation(errors);
-  };
+  }; */
 /* 
   useEffect(() => {
     checkValidation();

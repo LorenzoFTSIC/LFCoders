@@ -11,7 +11,7 @@ import { QUERY_SINGLE_PROFILE, QUERY_ME } from '../utils/queries';
 
 import Box from '@material-ui/core/Box';
 import Button from '@mui/material/Button';
-import Typography from '@mui/material/Typography';
+// import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 
 import Auth from '../utils/auth';
