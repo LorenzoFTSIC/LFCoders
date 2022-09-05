@@ -48,36 +48,29 @@ p + p {
 	margin-top: 1.5rem;
 }
 
-/* Commented out for now because the smallHeader logo is being effected */
-/* a {
-	padding: 2.5% 3%;
-	text-decoration: none;
-} */
-
 .btn {
 	padding: 1%;
+	background:#7B52AB;
     color: whitesmoke;
 	font-size: 1.3rem;
 	font-weight: 700;
 	text-align: center;
 	border: none;
 	border-radius: 5px;
-	box-shadow: 0px 0px 8px rgb(48, 47, 47);
+	box-shadow: 0px 0px 8px rgb(242, 144, 255);
 	/* rgba(33, 203, 243, .3) */
 	transition: all 0.3s ease-in-out;
   } 
 
 .btn:hover { 
 	background: rgb(158, 74, 255);
+	box-shadow: 0px 0px 8px rgb(242, 144, 255);
 }
 
-  .btn:hover { 
-	box-shadow: 0px 0px 8px rgb(242, 144, 255);
-  }
-
-  img { 
+img { 
 	object-fit: contain;
-  }
+}
+/* END - TYPOGRAPHY AND ELEMENTS */
 
 
 /* smallHeader */
@@ -95,7 +88,6 @@ a.text-dark.logo {
 
 
 /* SEARCH */
-
 .tabLabel:hover {
     background: #7B52AB,
 }
@@ -174,6 +166,25 @@ form {
 
 
 
+/* HEADER */
+.headerFade { 
+	position: relative;
+}
+
+.headerFade::after { 
+	content: "";
+	position: absolute;
+	z-index: 1;
+	bottom: 0;
+	left: 0;
+	pointer-events: none;
+	width: 100%;
+    height: 5rem;
+    background-image: linear-gradient(to bottom, 
+        rgba(255, 255, 255, 0), 
+        #161616
+    100%);
+}
 
 /* HEADER QUOTES */
 .content-slider {
@@ -209,8 +220,9 @@ form {
   }
   
   .slider .quote {
-	font-size: 40px;
 	font-style: italic;
+	font-size: 1.75rem;
+	font-weight: 700;
   }
   
   .slider .source {

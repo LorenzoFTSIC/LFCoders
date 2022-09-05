@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import Auth from '../../utils/auth';
+// import Auth from '../../utils/auth';
 
 const styles = {
   header: {
@@ -9,13 +9,6 @@ const styles = {
     backgroundImage:
       'linear-gradient(to right, rgb(52, 9, 138) , rgb(236, 185, 236))',
     textAlign: 'center'
-
-    // height:'calc(100vh - 40px)',
-    // margin: 20,
-    // display: "flex",
-    // backgroundImage:"linear-gradient(to right, rgb(52, 9, 138) , rgb(236, 185, 236))",
-    // textAlign: 'center',
-
   },
   headerContent: {
     padding: '100px 0 0 0 ',
@@ -25,122 +18,75 @@ const styles = {
     alignItems: 'center'
   },
   headerSides: {
-    width: '50%', 
-    height: '100%',
+    width: '50%',
+    height: '100%'
   },
   title: {
     color: 'white',
     fontSize: '3rem',
     fontFamily: 'Segoe UI'
   },
-
   link: {
     textDecoration: 'none'
   },
-
   button: {
-    backgroundColor: '#a4b5f3',
-    color: '#58497b'
+    width: 100,
+    margin: 20
   }
 };
 
-const Header = ({ reasons }) => {
-  // ^ Prop for rendering one sentence at a time in a type of carousel, but not doing that right now...
-  const logout = (event) => {
-    event.preventDefault();
-    Auth.logout();
-  };
+const Header = () => {
+  // const logout = (event) => {
+  //   event.preventDefault();
+  //   Auth.logout();
+  // };
   return (
-    <header
-      style={styles.header}
-      className="bg-info text-dark display-flex align-center"
-    >
+    <header style={styles.header} className="display-flex align-center headerFade">
       <div style={styles.headerContent} className="container">
         <div style={styles.headerSides}>
-          {/* <Link style={styles.link} className="none" to="/"> */}
-          <h1 style={styles.title} className="m-0 quote">
-            L.F.Coders
+          {/* LEFT SIDE */}
+          <h1 style={styles.title} className="quote">
+            Looking For Coders
           </h1>
           <div className="content-slider">
             <div className="slider">
               <div>
-                {/* </Link> */}
                 <ul>
                   <li className="anim1">
-                    <p
-                      className="m-0 quote"
-                      style={{ fontSize: '1.75rem', fontWeight: '700' }}
-                    >
+                    <p className="quote">
                       Ideas that go beyond our current knowledge.
                     </p>
                   </li>
 
-                  {/* <br /> */}
                   <li className="anim2">
-                    <p
-                      className="m-0 quote"
-                      style={{ fontSize: '1.75rem', fontWeight: '700' }}
-                    >
-                      Working in a team.
-                    </p>
+                    <p className="quote">Working in a team.</p>
                   </li>
 
-                  {/* <br /> */}
                   <li className="anim3">
-                    <p
-                      className="m-0 quote"
-                      style={{ fontSize: '1.75rem', fontWeight: '700' }}
-                    >
-                      Spreading the work load.
-                    </p>
+                    <p className="quote">Spreading the work load.</p>
                   </li>
 
-                  {/* <br /> */}
                   <li className="anim4">
-                    <p
-                      className="m-0 quote"
-                      style={{ fontSize: '1.75rem', fontWeight: '700' }}
-                    >
-                      Bouncing ideas.
-                    </p>
+                    <p className="quote">Bouncing ideas.</p>
                   </li>
 
-                  {/* <br /> */}
                   <li className="anim5">
-                    <p
-                      className="m-0 quote"
-                      style={{ fontSize: '1.75rem', fontWeight: '700' }}
-                    >
-                      Meeting new people.
-                    </p>
+                    <p className="quote">Meeting new people.</p>
                   </li>
-
-                  {/* <br /> */}
-                  {/* <li className="anim1">
-                    <p
-                      className="m-0 quote"
-                      style={{ fontSize: '1.75rem', fontWeight: '700' }}
-                    >
-                      Sharing ideas.
-                    </p>
-                  </li> */}
-                  {/* ^ Removed because not enough anim# spots... */}
                 </ul>
               </div>
             </div>
           </div>
         </div>
 
+        {/* RIGHT SIDE */}
         <div style={styles.headerSides}>
-          <p
-            className="m-0 quote"
-            style={{ fontSize: '1.75rem', fontWeight: '700' }}
-          >
+          <p style={{ fontSize: '1.75rem', fontWeight: '700' }}>
             Whatever your reason, LFC is here to get you in touch with the right
             people for your next coding project.
           </p>
           <div>
-            {Auth.loggedIn() ? (
+            {/* {Auth.loggedIn() ? (
               <>
                 <Link className="btn btn-lg btn-primary m-2" to="/me">
                   View My Profile
@@ -150,31 +96,34 @@ const Header = ({ reasons }) => {
                 </button>
               </>
             ) : (
-              <>
+              <> */}
                 <Link
                   style={styles.button}
-                  className="btn btn-lg btn-light m-2"
-                  to="/login" data-toggle="modal" data-target=".bd-example-modal-lg-login"
+                  className="btn"
+                  to="/login"
+                  data-toggle="modal"
+                  data-target=".bd-example-modal-lg-login"
                 >
                   Login
                 </Link>
                 <Link
                   style={styles.button}
-                  className="btn btn-lg btn-light m-2"
-                  to="/signup" data-toggle="modal" data-target=".bd-example-modal-lg-signup"
+                  className="btn"
+                  to="/signup"
+                  data-toggle="modal"
+                  data-target=".bd-example-modal-lg-signup"
                 >
                   Signup
                 </Link>
-              </>
-            )}
+              {/* </>
+            )} */}
           </div>
-
         </div>
       </div>
     </header>
   );
 };
 
-// HTML/CSS quote slider by @cassidoo on CodePen: Pure Css Text Carousel 
+// HTML/CSS quote slider by @cassidoo on CodePen: Pure Css Text Carousel
 
 export default Header;
