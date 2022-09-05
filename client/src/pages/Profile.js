@@ -59,8 +59,13 @@ const style = {
     color: '#784faf',
     borderRadius: 5
   },
+  center: { 
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center'
+  },
   formContent: {
-    margin: '0 3%'
+    margin: '3%'
   }
   // submit: {
   //   color: 'whitesmoke',
@@ -161,7 +166,7 @@ const Profile = () => {
           >
             <Box className="modalContainer">
               <h3 className="mainTitle">Settings</h3>
-              <div id="modal-modal-description" sx={{ mt: 2 }}>
+              <div id="modal-modal-description" style={style.center}>
                 <section>
                   <div>
                     <h5 className="sectionHeading">Name</h5>
@@ -187,15 +192,18 @@ const Profile = () => {
                     </div>
                   </div>
 
-                  <button
+
+                </section>
+                <button
                     className="btn btn-block submit"
                     type="submit"
                   >
                     Save
                   </button>
-                </section>
               </div>
+              
             </Box>
+            
           </Modal>
         </div>
       </section>
