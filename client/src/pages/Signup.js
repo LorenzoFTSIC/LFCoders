@@ -221,7 +221,7 @@ const Signup = () => {
       >
         <div className="modal-dialog modal-lg signup">
           <div className="modalContainer">
-            <h4 className="mainTitle">Sign Up</h4>
+            <h3 className="mainTitle">Sign Up</h3>
             <div>
               {data ? (
                 <p>
@@ -229,7 +229,7 @@ const Signup = () => {
                 </p>
               ) : (
                 <form onSubmit={handleFormSubmit}>
-                  <h3 className="sectionHeading">Let's get started!</h3>
+                  <h4 className="sectionHeading">Let's get started!</h4>
                   <input
                     style={styles.input}
                     className="form-input"
@@ -304,7 +304,7 @@ const Signup = () => {
 
                   <div>
                     <h3 className="sectionHeading">
-                      Choose one of the following:
+                      Choose one of the following
                     </h3>
                     <div style={styles.formContent}>
                       <select
