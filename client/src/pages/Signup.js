@@ -28,12 +28,16 @@ const styles = {
   //   margin: "0 auto"
   // },
   input: {
-    marginBottom: "20px",
-    color: "#784faf",
+    marginBottom: '20px',
+    color: '#784faf'
   },
-  // jsSlider: {
-  //   fontFamily: "Segoe UI, Tahoma, Geneva, Verdana, sans-serif",
-  // },
+  jsSlider: {
+    color: '#784faf',
+    marginBottom: 2
+  },
+  jsSliderContainer: {
+    margin: '0px 30px'
+  }
   // submit: {
   //   backgroundColor: "#784faf",
   //   cursor: "pointer",
@@ -221,10 +225,8 @@ const Signup = () => {
                   <Link to="/">Success!</Link>
                 </p>
               ) : (
-                  <form onSubmit={handleFormSubmit}>
-                    <h3 className="sectionHeading">
-                      Let's get started! 
-                    </h3>
+                <form onSubmit={handleFormSubmit}>
+                  <h3 className="sectionHeading">Let's get started!</h3>
                   <input
                     style={styles.input}
                     className="form-input"
@@ -297,121 +299,116 @@ const Signup = () => {
                   </div>
 
                   <div>
-                    <h3 className="sectionHeading">Choose one of the following:</h3>
+                    <h3 className="sectionHeading">
+                      Choose one of the following:
+                    </h3>
                     <select name="options" className="form-input" for="options">
                       <option value="ltc">Looking to Code</option>
                       <option value="lfc">Looking for Coders</option>
                     </select>
                   </div>
 
-                    <div style={styles.grid}>
-                      <h3 className="sectionHeading">
-                          Assess Your Skills
-                      </h3>
-                    <Typography style={styles.jsSlider} gutterBottom>
-                      HTML/CSS
-                    </Typography>
-                    <Slider
-                      defaultValue={0}
-                      aria-label="Default"
-                      aria-labelledby="js-slider"
-                      valueLabelDisplay="auto"
-                      sx={{
-                        color: '#784faf',
-                        marginBottom: 2
-                      }}
-                    />
-                    <Typography style={styles.jsSlider} gutterBottom>
-                      Javascript
-                    </Typography>
-                    <Slider
-                      defaultValue={0}
-                      aria-label="Default"
-                      aria-labelledby="js-slider"
-                      valueLabelDisplay="auto"
-                      sx={{
-                        color: '#784faf',
-                        marginBottom: 2
-                      }}
-                    />
-                    <Typography style={styles.jsSlider} gutterBottom>
-                      React
-                    </Typography>
-                    <Slider
-                      defaultValue={0}
-                      aria-label="Default"
-                      aria-labelledby="js-slider"
-                      valueLabelDisplay="auto"
-                      sx={{
-                        color: '#784faf',
-                        marginBottom: 2
-                      }}
-                    />
-                    <Typography style={styles.jsSlider} gutterBottom>
-                      Javascript
-                    </Typography>
-                    <Slider
-                      defaultValue={0}
-                      aria-label="Default"
-                      aria-labelledby="js-slider"
-                      valueLabelDisplay="auto"
-                      sx={{
-                        color: '#784faf',
-                        marginBottom: 2
-                      }}
-                    />
-                    <Typography style={styles.jsSlider} gutterBottom>
-                      Node.js
-                    </Typography>
-                    <Slider
-                      defaultValue={0}
-                      aria-label="Default"
-                      aria-labelledby="js-slider"
-                      valueLabelDisplay="auto"
-                      sx={{
-                        color: '#784faf',
-                        marginBottom: 2
-                      }}
-                    />
-                    <Typography style={styles.jsSlider} gutterBottom>
-                      SQL
-                    </Typography>
-                    <Slider
-                      defaultValue={0}
-                      aria-label="Default"
-                      aria-labelledby="js-slider"
-                      valueLabelDisplay="auto"
-                      sx={{
-                        color: '#784faf',
-                        marginBottom: 2
-                      }}
-                    />
-                    <Typography style={styles.jsSlider} gutterBottom>
-                      MERN
-                    </Typography>
-                    <Slider
-                      defaultValue={0}
-                      aria-label="Default"
-                      aria-labelledby="js-slider"
-                      valueLabelDisplay="auto"
-                      sx={{
-                        color: '#784faf',
-                        marginBottom: 2
-                      }}
-                    />
-                    <Typography className="js-slider" gutterBottom>
-                      Javascript
-                    </Typography>
-                    <Slider
-                      defaultValue={0}
-                      aria-label="Default"
-                      aria-labelledby="js-slider"
-                      valueLabelDisplay="auto"
-                      sx={{
-                        color: '#784faf',
-                        marginBottom: 4
-                      }}
-                    />
+                  <div>
+                    <h3 className="sectionHeading">Assess Your Skills</h3>
+                    <div style={styles.jsSliderContainer}>
+                      <Typography gutterBottom>HTML/CSS</Typography>
+                      <Slider
+                        defaultValue={0}
+                        aria-label="Default"
+                        aria-labelledby="js-slider"
+                        valueLabelDisplay="auto"
+                        style={styles.jsSlider}
+                        // sx={{
+                        //   color: '#784faf',
+                        //   marginBottom: 2
+                        // }}
+                      />
+                      <Typography gutterBottom>Javascript</Typography>
+                      <Slider
+                        defaultValue={0}
+                        aria-label="Default"
+                        aria-labelledby="js-slider"
+                        valueLabelDisplay="auto"
+                        style={styles.jsSlider}
+                        // sx={{
+                        //   color: '#784faf',
+                        //   marginBottom: 2
+                        // }}
+                      />
+                      <Typography gutterBottom>React</Typography>
+                      <Slider
+                        defaultValue={0}
+                        aria-label="Default"
+                        aria-labelledby="js-slider"
+                        valueLabelDisplay="auto"
+                        style={styles.jsSlider}
+                        // sx={{
+                        //   color: '#784faf',
+                        //   marginBottom: 2
+                        // }}
+                      />
+                      <Typography gutterBottom>Javascript</Typography>
+                      <Slider
+                        defaultValue={0}
+                        aria-label="Default"
+                        aria-labelledby="js-slider"
+                        valueLabelDisplay="auto"
+                        style={styles.jsSlider}
+                        // sx={{
+                        //   color: '#784faf',
+                        //   marginBottom: 2
+                        // }}
+                      />
+                      <Typography gutterBottom>Node.js</Typography>
+                      <Slider
+                        defaultValue={0}
+                        aria-label="Default"
+                        aria-labelledby="js-slider"
+                        valueLabelDisplay="auto"
+                        style={styles.jsSlider}
+                        // sx={{
+                        //   color: '#784faf',
+                        //   marginBottom: 2
+                        // }}
+                      />
+                      <Typography gutterBottom>SQL</Typography>
+                      <Slider
+                        defaultValue={0}
+                        aria-label="Default"
+                        aria-labelledby="js-slider"
+                        valueLabelDisplay="auto"
+                        style={styles.jsSlider}
+                        // sx={{
+                        //   color: '#784faf',
+                        //   marginBottom: 2
+                        // }}
+                      />
+                      <Typography gutterBottom>MERN</Typography>
+                      <Slider
+                        defaultValue={0}
+                        aria-label="Default"
+                        aria-labelledby="js-slider"
+                        valueLabelDisplay="auto"
+                        style={styles.jsSlider}
+                        // sx={{
+                        //   color: '#784faf',
+                        //   marginBottom: 2
+                        // }}
+                      />
+                      <Typography className="js-slider" gutterBottom>
+                        Javascript
+                      </Typography>
+                      <Slider
+                        defaultValue={0}
+                        aria-label="Default"
+                        aria-labelledby="js-slider"
+                        valueLabelDisplay="auto"
+                        sx={{
+                          color: '#784faf',
+                          marginBottom: 4
+                        }}
+                      />
+                    </div>
                   </div>
                   <button
                     className="btn btn-block btn-info"
