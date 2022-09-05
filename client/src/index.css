@@ -152,25 +152,17 @@ form {
 }
 
 .buttonContainer { 
-	width: 100%;
+	width: fit-content;
+	border-radius: 5px;
+	position: relative;
+	overflow: hidden;
 	display: flex;
-	flex-wrap: wrap;
+	min-height: 50px;
 }
 
-/* .formOptionButton { 
-	margin: 1%;;
-	padding: 1%;
-	background: whitesmoke;
-	font-size: 1.2rem;
-	color:whitesmoke;
-	font-weight: 600;	
-	border: 2px solid purple;
-} */
-
-/* button:hover {  */
-	/* background: rgba(255, 255, 255, 0.08); */
-	/* box-shadow: 0px 0px 8px rgb(242, 144, 255);
-} */
+.formOptionButton:hover { 
+	font-weight: 600;
+}
 
 .submit { 
 	margin: 3% 30% 1% 30%;
