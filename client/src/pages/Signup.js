@@ -285,13 +285,13 @@ const Signup = () => {
                     </div>
                   </div>
 
-                  {/* <div className="pwStrRow">
+                  <div className="pwStrRow">
                     {formState.score >= 1 && (
                       <div>
                         <PasswordStr score={formState.score} />
                         <button
                           className="pwShowHideBtn"
-                          onClick={pwMask} 
+                          // onClick={pwMask} 
                           style={{
                             position: 'relative',
                             left: '50%',
@@ -300,7 +300,7 @@ const Signup = () => {
                         ></button>
                       </div>
                     )}
-                  </div> */}
+                  </div>
 
                   <div>
                     <h3 className="sectionHeading">
