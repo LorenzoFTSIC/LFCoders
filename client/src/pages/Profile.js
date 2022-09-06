@@ -69,6 +69,9 @@ const style = {
   },
   name: {
     display: "block"
+  },
+  marginRight: {
+    marginRight: 20
   }
 };
 
@@ -149,7 +152,10 @@ const Profile = () => {
 
           <h5>I am {profile.status}</h5>
 
-          <Button className="btn btn-block" onClick={handleCreateProjectOpen}>
+        </div>
+
+        <div>
+          <Button className="btn btn-block" style={style.marginRight} onClick={handleCreateProjectOpen}>
             Create Project
           </Button>
           <Modal
@@ -232,9 +238,6 @@ const Profile = () => {
             </Box>
             
           </Modal>
-        </div>
-
-        <div>
           {/* <Link to="/settings">
             <h5>Settings</h5>
           </Link> */}
