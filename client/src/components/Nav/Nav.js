@@ -62,7 +62,7 @@ function Nav({ currentPage, handlePageChange }) {
               currentPage === 'Search' ? 'nav-active nav-link' : 'nav-link'
             }
           >
-            Search
+            Looking to Code
           </Link>
         </li>
 
@@ -75,7 +75,7 @@ function Nav({ currentPage, handlePageChange }) {
               currentPage === 'Messages' ? 'nav-active nav-link' : 'nav-link'
             }
           >
-            Messages
+            Find Coders
           </Link>
         </li>
 
