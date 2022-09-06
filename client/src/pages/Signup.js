@@ -27,6 +27,14 @@ const styles = {
   modal: {
     maxHeight: "calc(100vh - 45px)",
     overflow: "scroll",
+  },
+  checkbox: {
+    backgroundColor: "pink",
+    borderColor: "pink",
+  },
+  formContent: {
+    display: "grid",
+    gridTemplateColumns: "1fr 1fr 1fr",
   }
 
 };
@@ -286,41 +294,41 @@ const Signup = () => {
                   </div>
 
                   <div>
-                    <h3 className="sectionHeading">Assess Your Skills</h3>
+                    <h3 className="sectionHeading">Select Your Skills</h3>
                     <div style={styles.formContent}>
                       
                       <div className="form-check">
-                        <input className="form-check-input" type="checkbox" value="" id="html"/>
+                        <input className="form-check-input" style={styles.checkbox} type="checkbox" value="" id="html"/>
                         <label className="form-check-label" htmlFor="html">
                           HTML
                         </label>
                       </div>
                       <div className="form-check">
-                        <input className="form-check-input" type="checkbox" value="" id="css"/>
+                        <input className="form-check-input" style={styles.checkbox} type="checkbox" value="" id="css"/>
                         <label className="form-check-label" htmlFor="css">
                           CSS
                         </label>
                       </div>
                       <div className="form-check">
-                        <input className="form-check-input" type="checkbox" value="" id="cssframework"/>
+                        <input className="form-check-input" style={styles.checkbox} type="checkbox" value="" id="cssframework"/>
                         <label className="form-check-label" htmlFor="cssframework">
-                          Css Frameworks (SASS, LESS, BEM)
+                          Css Frameworks
                         </label>
                       </div>
                       <div className="form-check">
-                        <input className="form-check-input" type="checkbox" value="" id="js"/>
+                        <input className="form-check-input" style={styles.checkbox} type="checkbox" value="" id="js"/>
                         <label className="form-check-label" htmlFor="js">
                           Javascript
                         </label>
                       </div>
                       <div className="form-check">
-                        <input className="form-check-input" type="checkbox" value="" id="react"/>
+                        <input className="form-check-input" style={styles.checkbox} type="checkbox" value="" id="react"/>
                         <label className="form-check-label" htmlFor="react">
                           React.js
                         </label>
                       </div>
                       <div className="form-check">
-                        <input className="form-check-input" type="checkbox" value="" id="node"/>
+                        <input className="form-check-input" style={styles.checkbox} type="checkbox" value="" id="node"/>
                         <label className="form-check-label" htmlFor="node">
                           Nodejs
                         </label>
