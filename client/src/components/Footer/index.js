@@ -3,12 +3,16 @@ import { useLocation, useNavigate, Link } from 'react-router-dom';
 // import Contact from './pages/Contact';
 
 const styles = {
-  // button: {
-  //   backgroundImage:"linear-gradient(to right, rgb(52, 9, 138) , rgb(236, 185, 236))",
-  //   color: 'white',
-  // },
+  contactuslink:{
+    textDecoration: "none",
+    marginTop:'20px',
+    color:'white',
+    opacity: 0.7
+  },
   trademark: {
-    opacity: 0.2
+    marginTop:'5px',
+    opacity: 0.2,
+    fontSize:'large'
   }
 }
 const Footer = () => {
@@ -26,8 +30,8 @@ const Footer = () => {
             &larr; Go Back
           </button>
         )}
-         <h4 style={styles.trademark} >
-        <Link to='/contact'
+         <h4 className= "contactuslink" style={styles.contactuslink}>
+        <Link className= "contactuslink" style={styles.contactuslink} to='/contact'
         onClick={() => navigate('Contact')}>
         Contact Us
         </Link>
