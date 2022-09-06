@@ -36,10 +36,10 @@ const style = {
     alignItems: 'flex-end'
   },
   profileInfo: {
-   
-   flex: 1, 
-   paddingLeft: "80px",
-   paddingTop: "0px",
+
+    flex: 1,
+    paddingLeft: "80px",
+    paddingTop: "0px",
   },
 
   profileName: {
@@ -70,7 +70,7 @@ const style = {
     borderRadius: 5,
     width: "100%"
   },
-  center: { 
+  center: {
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'center',
@@ -88,7 +88,6 @@ const style = {
   button: {
     marginRight: 20,
     color: "white",
-    width: "calc(100% / 5)"
   },
   modalButton: {
     minWidth: 100,
@@ -105,11 +104,11 @@ const style = {
     borderTopRightRadius: 6,
     background: "#333",
   }
-/*   days: {
-    display: "grid",
-    gridTemplateColumns: "1fr 1fr 1fr 1fr 1fr",
-    justifyItems: "center"
-  } */
+  /*   days: {
+      display: "grid",
+      gridTemplateColumns: "1fr 1fr 1fr 1fr 1fr",
+      justifyItems: "center"
+    } */
 };
 
 
@@ -142,32 +141,32 @@ const Profile = () => {
     // profileId: '',
     bio: ''
   });
-  
+
   const [editBio, { error, Modeldata }] = useMutation(EDIT_BIO);
-  
+
   const handleChange = (e) => {
     const { name, value } = e.target;
-  
+
     setFormState({
       ...formState,
       [name]: value
     });
   };
-  
+
   const handleFormSubmit = async (e) => {
     e.preventDefault();
     console.log(formState);
-  
+
     try {
       const { Modeldata } = await editBio({
         variables: { ...formState, profileId: profile._id }
       });
-  
+
     } catch (e) {
       console.error(e);
     }
   };
-  
+
 
 
 
@@ -180,14 +179,14 @@ const Profile = () => {
     return <div>Loading...</div>;
   }
 
- if (!profile?.name) {
+  if (!profile?.name) {
     return (
       <h4>
         You need to be logged in to see your profile page. Use the navigation
         links above to sign up or log in!
       </h4>
     );
-  } 
+  }
 
   return (
     <div>
@@ -200,27 +199,27 @@ const Profile = () => {
               sx={{ width: 300, height: 300, padding: 1, boxShadow: 20 }}
             />
           </div>
-          
-       <div style={style.name}>
-           {/* <h4>{profile.name}</h4> */}
+
+          <div style={style.name}>
+            {/* <h4>{profile.name}</h4> */}
 
           </div>
 
-          <div className= "profileInfo" style={style.profileInfo}>
-          <div >
-          <h4  className= "profileName" style={style.profileName}> {profile.name}</h4>
-          </div>
-          <div>
-          <h4>{profile.github}</h4>
-          </div>
-          <h5>I am {profile.status}</h5>
-          {profile.email}
+          <div className="profileInfo" style={style.profileInfo}>
+            <div >
+              <h4 className="profileName" style={style.profileName}> {profile.name}</h4>
+            </div>
+            <div>
+              <h4>{profile.github}</h4>
+            </div>
+            <h5>I am {profile.status}</h5>
+            {profile.email}
           </div>
         </div>
-        
+
 
         <div>
-          
+
           {/* <Link to="/settings">
             <h5>Settings</h5>
           </Link> */}
@@ -268,16 +267,16 @@ const Profile = () => {
 
                 </section>
                 <button
-                    className="btn btn-block submit"
-                    type="submit"
-                    onClick={handleFormSubmit}
-                  >
-                    Save
-                  </button>
+                  className="btn btn-block submit"
+                  type="submit"
+                  onClick={handleFormSubmit}
+                >
+                  Save
+                </button>
               </div>
-              
+
             </Box>
-            
+
           </Modal>
         </div>
       </section>
@@ -291,177 +290,177 @@ const Profile = () => {
       <div style={style.push}>
         <h5>My Collabs</h5>
         <Button className="btn btn-block" style={style.button} onClick={handleCreateProjectOpen}>
-            Create Project
-          </Button>
-          <Modal
-            className="modalPage"
-            open={createProject}
-            onClose={handleCreateProjectClose}
-            aria-labelledby="modal-modal-title"
-            aria-describedby="modal-modal-description"
-          >
-            <Box className="modalContainer">
-              <h3 className="mainTitle" style={style.title}>Looking For Coders</h3>
-              <div id="modal-modal-description" style={style.center}>
-                <h4 className="text-center">What sort of project are you making?</h4>
-                <section>
+          Create Project
+        </Button>
+        <Modal
+          className="modalPage"
+          open={createProject}
+          onClose={handleCreateProjectClose}
+          aria-labelledby="modal-modal-title"
+          aria-describedby="modal-modal-description"
+        >
+          <Box className="modalContainer">
+            <h3 className="mainTitle" style={style.title}>Looking For Coders</h3>
+            <div id="modal-modal-description" style={style.center}>
+              <h4 className="text-center">What sort of project are you making?</h4>
+              <section>
+                <div>
+                  <h5 className="sectionHeading">Project Name</h5>
+                  <textarea rows="1" style={style.input}></textarea>
+                </div>
+                <div>
                   <div>
-                    <h5 className="sectionHeading">Project Name</h5>
-                    <textarea rows="1" style={style.input}></textarea>
-                  </div>
-                  <div>
-                    <div>
                     <h5 className="sectionHeading">Project Description</h5>
-                      <textarea
-                        style={style.input}
-                        class="form-control"
-                        rows="1"
-                      ></textarea>
-                    </div>
+                    <textarea
+                      style={style.input}
+                      class="form-control"
+                      rows="1"
+                    ></textarea>
                   </div>
+                </div>
 
-                  <h3 className="sectionHeading">What I bring to the table:</h3>
-          <div className="buttonContainer">
-            <button
-              className="formOptionButton"
-              // ^ button favorite styled
-              style={style.modalButton}
-              variant="outlined"
-              size="medium"
-              // type="radio"
-            >
-              Front End
-            </button>
+                <h3 className="sectionHeading">What I bring to the table:</h3>
+                <div className="buttonContainer">
+                  <button
+                    className="formOptionButton"
+                    // ^ button favorite styled
+                    style={style.modalButton}
+                    variant="outlined"
+                    size="medium"
+                  // type="radio"
+                  >
+                    Front End
+                  </button>
 
-            <button
-              className="formOptionButton"
-              // ^ button favorite styled
-              style={style.modalButton}
-              variant="outlined"
-              size="medium"
-              // type="radio"
-            >
-              Back End
-            </button>
-          </div>
+                  <button
+                    className="formOptionButton"
+                    // ^ button favorite styled
+                    style={style.modalButton}
+                    variant="outlined"
+                    size="medium"
+                  // type="radio"
+                  >
+                    Back End
+                  </button>
+                </div>
 
-          <h3 className="sectionHeading">Expected Timeline:</h3>
-          <div className="buttonContainer">
-            <button
-              className="formOptionButton"
-              // ^ button favorite styled
-              style={style.modalButton}
-              variant="outlined"
-              size="medium"
-              // type="radio"
-            >
-              Small
-            </button>
+                <h3 className="sectionHeading">Expected Timeline:</h3>
+                <div className="buttonContainer">
+                  <button
+                    className="formOptionButton"
+                    // ^ button favorite styled
+                    style={style.modalButton}
+                    variant="outlined"
+                    size="medium"
+                  // type="radio"
+                  >
+                    Small
+                  </button>
 
-            <button
-              className="formOptionButton"
-              // ^ button favorite styled
-              style={style.modalButton}
-              variant="outlined"
-              size="medium"
-              // type="radio"
-            >
-              Medium
-            </button>
+                  <button
+                    className="formOptionButton"
+                    // ^ button favorite styled
+                    style={style.modalButton}
+                    variant="outlined"
+                    size="medium"
+                  // type="radio"
+                  >
+                    Medium
+                  </button>
 
-            <button
-              className="formOptionButton"
-              // ^ button favorite styled
-              style={style.modalButton}
-              variant="outlined"
-              size="medium"
-              // type="radio"
-            >
-              Large
-            </button>
-          </div>
+                  <button
+                    className="formOptionButton"
+                    // ^ button favorite styled
+                    style={style.modalButton}
+                    variant="outlined"
+                    size="medium"
+                  // type="radio"
+                  >
+                    Large
+                  </button>
+                </div>
 
-          <h3 className="sectionHeading">I am available...</h3>
-          <div className="buttonContainer" style={style.days}>
-            <button
-              className="formOptionButton"
-              // ^ button favorite styled
-              style={style.modalButton}
-              variant="outlined"
-              size="medium"
-              type="button"
-            >
-              Monday
-            </button>
+                <h3 className="sectionHeading">I am available...</h3>
+                <div className="buttonContainer" style={style.days}>
+                  <button
+                    className="formOptionButton"
+                    // ^ button favorite styled
+                    style={style.modalButton}
+                    variant="outlined"
+                    size="medium"
+                    type="button"
+                  >
+                    Monday
+                  </button>
 
-            <button
-              className="formOptionButton"
-              // ^ button favorite styled
-              style={style.modalButton}
-              variant="outlined"
-              size="medium"
-              type="button"
-            >
-              Tuesday
-            </button>
+                  <button
+                    className="formOptionButton"
+                    // ^ button favorite styled
+                    style={style.modalButton}
+                    variant="outlined"
+                    size="medium"
+                    type="button"
+                  >
+                    Tuesday
+                  </button>
 
-            <button
-              className="formOptionButton"
-              // ^ button favorite styled
-              style={style.modalButton}
-              variant="outlined"
-              size="medium"
-              // type="radio"
-            >
-              Wednesday
-            </button>
+                  <button
+                    className="formOptionButton"
+                    // ^ button favorite styled
+                    style={style.modalButton}
+                    variant="outlined"
+                    size="medium"
+                  // type="radio"
+                  >
+                    Wednesday
+                  </button>
 
-            <button
-              className="formOptionButton"
-              // ^ button favorite styled
-              style={style.modalButton}
-              variant="outlined"
-              size="medium"
-              // type="radio"
-            >
-              Thursday
-            </button>
+                  <button
+                    className="formOptionButton"
+                    // ^ button favorite styled
+                    style={style.modalButton}
+                    variant="outlined"
+                    size="medium"
+                  // type="radio"
+                  >
+                    Thursday
+                  </button>
 
-            <button
-              className="formOptionButton"
-              // ^ button favorite styled
-              style={style.modalButton}
-              variant="outlined"
-              size="medium"
-              // type="radio"
-            >
-              Friday
-            </button>
+                  <button
+                    className="formOptionButton"
+                    // ^ button favorite styled
+                    style={style.modalButton}
+                    variant="outlined"
+                    size="medium"
+                  // type="radio"
+                  >
+                    Friday
+                  </button>
 
-            <button
-              className="formOptionButton"
-              // ^ button favorite styled
-              style={style.modalButton}
-              variant="outlined"
-              size="medium"
-              // type="radio"
-            >
-              Saturday
-            </button>
+                  <button
+                    className="formOptionButton"
+                    // ^ button favorite styled
+                    style={style.modalButton}
+                    variant="outlined"
+                    size="medium"
+                  // type="radio"
+                  >
+                    Saturday
+                  </button>
 
-            <button
-              className="formOptionButton"
-              // ^ button favorite styled
-              style={style.modalButton}
-              variant="outlined"
-              size="medium"
-              // type="radio"
-            >
-              Sunday
-            </button>
-          </div>
+                  <button
+                    className="formOptionButton"
+                    // ^ button favorite styled
+                    style={style.modalButton}
+                    variant="outlined"
+                    size="medium"
+                  // type="radio"
+                  >
+                    Sunday
+                  </button>
+                </div>
 
-                  {/* <div>
+                {/* <div>
                     <h5 className="sectionHeading">Project Languages</h5>
                     <div style={style.formContent}>
                     <div className="form-check">
@@ -504,18 +503,18 @@ const Profile = () => {
                   </div> */}
 
 
-                </section>
-                <button
-                    className="btn btn-block submit"
-                    type="submit"
-                  >
-                    Save
-                  </button>
-              </div>
-              
-            </Box>
-            
-          </Modal>
+              </section>
+              <button
+                className="btn btn-block submit"
+                type="submit"
+              >
+                Save
+              </button>
+            </div>
+
+          </Box>
+
+        </Modal>
         {/* {collab ? (
           <div style={style.collabSquare}>
             {profilecollabs.map((collab) => (
