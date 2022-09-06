@@ -1,13 +1,32 @@
 import React from 'react';
 
+const styles = {
+  box: {
+    display: 'flex',
+    margin: '20px',
+    paddingTop: '25px',
+    marginBottom: '200px'
+    
+  },
+  collabBox:{
+    marginLeft:'80px'
+  },
+
+  title:{
+    marginTop: '100px',
+    textDecoration: "underline",
+  }
+};
+
 const Contact = () => {
   return (
     <div className="content">
       <section className="about-me">
-        <h2>Contact</h2>
+        <h1 className= "title" style={styles.title}>Contact Us</h1>
         <p className="body-text">
-          <ul>
-            <div>
+          <ul style={styles.box} className="box">
+            <div style={styles.collabBox} className="collabBox">
+              <h4>Karen Martinez</h4>
               <li id="linkedin">
                 <a href="https://www.linkedin.com/in/kmartinezguerrero/">
                   {' '}
@@ -15,13 +34,14 @@ const Contact = () => {
                 </a>{' '}
               </li>
               <li id="github">
-                <a href="https://github.com/kmart134"> Visit my GitHub!!</a>{' '}
+                <a href="https://github.com/kmart134"> Visit my GitHub!</a>{' '}
               </li>
-              <li>Email: ksmgps@hotmail.com</li>
-              <li>Phone Number: 321-287-8935</li>
+              <li>ksmgps@hotmail.com</li>
+              <li>321-287-8935</li>
             </div>
 
-            <div>
+            <div style={styles.collabBox} className="collabBox">
+            <h4>Mackenzie Joyce</h4>
               <li id="linkedin">
                 <a href="https://www.linkedin.com/in/mackenziejoyce/">
                   {' '}
@@ -29,13 +49,14 @@ const Contact = () => {
                 </a>{' '}
               </li>
               <li id="github">
-                <a href="https://github.com/mackenziejoyce"> Checkout my projects on Github</a>{' '}
+                <a href="https://github.com/mackenziejoyce"> Visit my GitHub!</a>{' '}
               </li>
-              <li>Email: MackenzieJoyce414@gmail.com</li>
-              <li>Phone Number: 321-234-5397</li>
+              <li>MackenzieJoyce414@gmail.com</li>
+              <li>321-234-5397</li>
             </div>
 
-            <div>
+            <div style={styles.collabBox} className="collabBox">
+            <h4>Lorenzo</h4>
               <li id="linkedin">
                 <a href="lorenzo">
                   {' '}
@@ -49,7 +70,8 @@ const Contact = () => {
               <li>Phone Number:lorenzo </li>
             </div>
 
-            <div>
+            <div style={styles.collabBox} className="collabBox">
+            <h4>Khaled</h4>
               <li id="linkedin">
                 <a href="Khaled">
                   {' '}
