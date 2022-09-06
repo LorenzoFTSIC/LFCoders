@@ -35,6 +35,19 @@ export const QUERY_PROJECTS_BY_SKILL = gql`
   }
 `;
 
+
+export const QUERY_PROFILES_BY_SKILL = gql`
+  query queryProfileBySkill($skillName: [String]) {
+    projectBySkill(skillName: $skillName) {
+      name
+      description
+      skills
+      profile
+      status
+    }
+  }
+`;
+
 export const QUERY_SINGLE_PROFILE = gql`
   query singleProfile($profileId: ID!) {
     profile(profileId: $profileId) {

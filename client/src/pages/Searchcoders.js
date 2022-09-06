@@ -1,5 +1,7 @@
-import * as React from 'react';
+import React, { useState } from 'react';
 import robotimg from '../assets/img/robot5.png';
+import { gql, useLazyQuery } from "@apollo/client";
+import { QUERY_PROFILES_BY_SKILL } from '../utils/queries'
 
 
 const styles = {
@@ -35,6 +37,48 @@ const styles = {
 
 
 const Searchcoders = () => {
+
+  const [formState, setFormState] = useState({
+    errors: {},
+    name: '',
+    skills: [],
+    status: '',
+  });
+
+  const handleChange = (e) => {
+    
+    const { name, value } = e.target;
+    setFormState({
+      ...formState,
+      [name]: value
+    });
+  };
+
+  const handleSkills = (e) => {
+    const { name, value } = e.target;
+    setFormState({
+      ...formState,
+      skills: [...formState.skills, value]
+    });
+  };
+
+  const [queryProjectBySkill, { loading, error, data }] = useLazyQuery(QUERY_PROFILES_BY_SKILL);
+
+  if (loading) return <p>Loading ...</p>;
+  if (error) return `Error! ${error}`;
+
+  const projectData = data?.name || [];
+  console.log(data)
+
+  const handleFormSubmit = async (e) => {
+    e.preventDefault();
+  
+
+    queryProjectBySkill({ variables: { skillName: formState.skills } });
+
+  }
+
+
   return (
     <div className="modalPage" style={styles.modalPage}>
       <div className="modalContainer">
@@ -94,6 +138,7 @@ const Searchcoders = () => {
                     className="btn btn-block submit"
                     type="submit"
                     aria-label="Close"
+                    onClick={handleFormSubmit}
                   >
                     Submit
                   </button>
