@@ -176,8 +176,8 @@ const Profile = () => {
             />
           </div>
           
-      // <div style={style.name}>
-          // <h4>{profile.name}</h4>
+       <div style={style.name}>
+           {/* <h4>{profile.name}</h4> */}
 
           </div>
 
