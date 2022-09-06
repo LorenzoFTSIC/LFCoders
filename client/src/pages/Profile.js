@@ -74,6 +74,14 @@ const style = {
   },
   formContent: {
     margin: '3%'
+  },
+  name: {
+    marginLeft: 20,
+    color: "white"
+  },
+  button: {
+    marginRight: 20,
+    color: "white"
   }
 };
 
@@ -103,8 +111,11 @@ const Profile = () => {
   const { profileId } = useParams();
 
   const [open, setOpen] = React.useState(false);
+  const [createProject, setCreateProject] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+  const handleCreateProjectOpen = () => setCreateProject(true);
+  const handleCreateProjectClose = () => setCreateProject(false);
 
   // If there is no `profileId` in the URL as a parameter, execute the `QUERY_ME` query instead for the logged in user's information
   const { loading, data } = useQuery(
@@ -146,6 +157,10 @@ const Profile = () => {
               sx={{ width: 300, height: 300, padding: 1, boxShadow: 20 }}
             />
           </div>
+          
+      // <div style={style.name}>
+          // <h4>{profile.name}</h4>
+
           </div>
 
           <div className= "profileInfo" style={style.profileInfo}>
@@ -156,15 +171,100 @@ const Profile = () => {
           <h4>{profile.github}</h4>
           </div>
           <h5>I am {profile.status}</h5>
+          {profile.email}
+          </div>
         </div>
         
 
         <div>
+          <Button className="btn btn-block" style={style.button} onClick={handleCreateProjectOpen}>
+            Create Project
+          </Button>
+          <Modal
+            className="modalPage"
+            open={createProject}
+            onClose={handleCreateProjectClose}
+            aria-labelledby="modal-modal-title"
+            aria-describedby="modal-modal-description"
+          >
+            <Box className="modalContainer">
+              <h3 className="mainTitle">Create Project</h3>
+              <div id="modal-modal-description" style={style.center}>
+                <section>
+                  <div>
+                    <h5 className="sectionHeading">Project Name</h5>
+                    <textarea rows="1" cols="30" style={style.input}></textarea>
+                  </div>
+                  <div>
+                    <h5 className="sectionHeading">Project Information</h5>
+                    <div style={style.formContent}>
+                      <textarea
+                        class="form-control"
+                        rows="4"
+                      ></textarea>
+                    </div>
+                  </div>
+
+                  <div>
+                    <h5 className="sectionHeading">Project Languages</h5>
+                    <div style={style.formContent}>
+                    <div className="form-check">
+                        <input className="form-check-input" type="checkbox" value="" id="html"/>
+                        <label className="form-check-label" htmlFor="html">
+                          HTML
+                        </label>
+                      </div>
+                      <div className="form-check">
+                        <input className="form-check-input" type="checkbox" value="" id="css"/>
+                        <label className="form-check-label" htmlFor="css">
+                          CSS
+                        </label>
+                      </div>
+                      <div className="form-check">
+                        <input className="form-check-input" type="checkbox" value="" id="cssframework"/>
+                        <label className="form-check-label" htmlFor="cssframework">
+                          Css Frameworks
+                        </label>
+                      </div>
+                      <div className="form-check">
+                        <input className="form-check-input" type="checkbox" value="" id="js"/>
+                        <label className="form-check-label" htmlFor="js">
+                          Javascript
+                        </label>
+                      </div>
+                      <div className="form-check">
+                        <input className="form-check-input" type="checkbox" value="" id="react"/>
+                        <label className="form-check-label" htmlFor="react">
+                          React.js
+                        </label>
+                      </div>
+                      <div className="form-check">
+                        <input className="form-check-input" type="checkbox" value="" id="node"/>
+                        <label className="form-check-label" htmlFor="node">
+                          Nodejs
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+
+
+                </section>
+                <button
+                    className="btn btn-block submit"
+                    type="submit"
+                  >
+                    Save
+                  </button>
+              </div>
+              
+            </Box>
+            
+          </Modal>
           {/* <Link to="/settings">
             <h5>Settings</h5>
           </Link> */}
 
-          <Button className="btn btn-block" onClick={handleOpen}>
+          <Button className="btn btn-block" style={style.button} onClick={handleOpen}>
             Settings
           </Button>
           <Modal
