@@ -15,6 +15,7 @@ import Box from '@material-ui/core/Box';
 import Button from '@mui/material/Button';
 // import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
+import Repos from '../components/Repos/index'
 
 import Auth from '../utils/auth';
 import Avatar from '@mui/material/Avatar';
@@ -534,6 +535,9 @@ const Profile = () => {
           ))}
         </div> */}
         {/* ^ The div that will go through the collab info for the specific user */}
+      </div>
+      <div>
+        <Repos/>
       </div>
       {/* </section> */}
     </div>

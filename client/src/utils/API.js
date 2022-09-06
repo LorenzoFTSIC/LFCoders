@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const search = async (query) =>
-  axios.get(`https://api.github.com/users/{user}/repos{?type,page,per_page,sort}`);
+const search = async (user) =>
+  axios.get(`https://api.github.com/users/${user}/repos`);
 
-export default { search };
+export default search;
