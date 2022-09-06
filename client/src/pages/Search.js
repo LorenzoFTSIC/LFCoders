@@ -6,7 +6,8 @@ import RadioGroup from '@mui/material/RadioGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Radio from '@mui/material/Radio';
 import TextField from '@mui/material/TextField';
-import Autocomplete from '@mui/material/Autocomplete';
+import Checkbox from '@mui/material/Checkbox';
+import FormGroup from '@mui/material/FormGroup';
 
 
 // import LFCForm from '../components/LFCForm';
@@ -22,6 +23,7 @@ const style = {
   }
 };
 
+
 const Search = () => {
 
 
@@ -30,17 +32,35 @@ const Search = () => {
   const [formState, setFormState] = useState({
     errors: {},
     // profileId: '',
-    bio: ''
+    name: '',
+    skills: [],
+    status: '',
   });
 
   const handleChange = (e) => {
     
     const { name, value } = e.target;
+    console.log(name)
+    console.log(value)
     setFormState({
       ...formState,
       [name]: value
     });
+    console.log(formState)
   };
+
+
+  const handleSkills = (e) => {
+    const { name, value } = e.target;
+    console.log(name)
+    console.log(value)
+    console.log(formState)
+    setFormState({
+      ...formState,
+      skills: [...formState.skills, value]
+    });
+  };
+
 
   const handleFormSubmit = async (e) => {
     e.preventDefault();
@@ -58,25 +78,6 @@ const Search = () => {
     // }
   };
   
-  const skills = [
-    { label: "GraphQL" },
-    { label: "React" },
-    { label: "Angular" },
-    { label: "Apollo" },
-    { label: "HTML" },
-    { label: "CSS" },
-    { label: "SQL" },
-    { label: "MySQL" },
-    { label: "JQuery" },
-    { label: "Javascript" },
-    { label: "Bootstrap" },
-    { label: "Tailwind" },
-    { label: "Bulma" },
-    { label: "MaterialUI" },
-    { label: "Heroku" },
-    { label: "AWS" }
-
-  ]
 
 
   return (
@@ -115,18 +116,40 @@ const Search = () => {
 
           <h3 className="sectionHeading">Project Name:</h3>
           <TextField id="outlined-basic" 
-          label="Outlined" 
+          name="name"
+          label="Project Name" 
           variant="outlined"
+          onChange={handleChange}
           style={style.Button} />
 
           <h3 className="sectionHeading">Skills Used:</h3>
-          <Autocomplete
+
+          <FormGroup>
+            <div>
+              <FormControlLabel control={<Checkbox  value="React" onClick={handleSkills}/>} label="React" name="skills"/>
+              <FormControlLabel control={<Checkbox  value="Angular" onClick={handleSkills}/>} label="Angular" name="skills"/>
+              <FormControlLabel control={<Checkbox  value="Express" onClick={handleSkills}/>} label="Express"  name="skills"/>
+              <br/>
+              <FormControlLabel control={<Checkbox  value="MongoDB" onClick={handleSkills} />} label="MongoDB" name="skills"/>
+              <FormControlLabel control={<Checkbox  value="MySQL" onClick={handleSkills}/>} label="MySQL" name="skills"/>
+              <FormControlLabel control={<Checkbox  value="Node" onClick={handleSkills}/>} label="Node" name="skills"/>
+            </div>
+          </FormGroup>
+
+
+          {/* <Autocomplete
+          // isOptionEqualToValue={(option, value) => option.id === value.id}
           disablePortal
           id="combo-box-demo"
           options={skills}
           style={style.Button}
-          sx={{ width: 300 }}
-          renderInput={(params) => <TextField {...params} label="Skills" />} />
+          sx={{ width: 300 }} 
+          onChange={handleChange} 
+          name="skill" 
+          renderInput={(params) => <TextField {...params} 
+          onChange={handleChange}  name="skill" label="Skills" />} /> */}
+
+
           {/* <h3 className="sectionHeading">Expected Timeline:</h3>
           <div className="buttonContainer">
             <button
@@ -164,9 +187,10 @@ const Search = () => {
           {/* </div> */}
           <h3 className="sectionHeading">Completion Status:</h3>
           <RadioGroup
+            onChange={handleChange}
             aria-labelledby="demo-radio-buttons-group-label"
             defaultValue="female"
-            name="radio-buttons-group">
+            name="status">
             <FormControlLabel value="true" control={<Radio />} label="Completed" />
             <FormControlLabel value="false" control={<Radio />} label="In Progress" />
           </RadioGroup>
