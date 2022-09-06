@@ -13,12 +13,7 @@ const ProjectList = ({ projects, title }) => {
 
     return fore.join(', ') + ' and ' + aft;
   };
-  // const lizard = contributorString(projects[0]);
-  // 1. switched "projects" to "project"
-  // 2. tried to put project as a variable and target profile ({ projects.profile })
-  // 3. put in "projects.profile"
-  // 4. putting a variable to call the fxn
-
+  
   if (!projects.length) {
     return <h3>No Projects Yet</h3>;
   }
@@ -32,7 +27,6 @@ const ProjectList = ({ projects, title }) => {
             <div key={project._id} className="col-12 col-xl-6">
               {/* Card Content */}
               <div className="card mb-3">
-                {/*  */}
                 {/* List of Contributors set in an array */}
                 <h4 className="card-header bg-dark">
                   {contributorString(project)} <br />
