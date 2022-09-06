@@ -102,7 +102,7 @@ const style = {
     marginBottom: 0,
     padding: 20,
     borderTopLeftRadius: 6,
-    bordertoprightradius: 6,
+    borderTopRightRadius: 6,
     background: "#333",
   }
 /*   days: {
@@ -180,7 +180,7 @@ const Profile = () => {
     return <div>Loading...</div>;
   }
 
-if (!profile?.name) {
+ if (!profile?.name) {
     return (
       <h4>
         You need to be logged in to see your profile page. Use the navigation
