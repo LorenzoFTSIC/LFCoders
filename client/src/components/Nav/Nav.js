@@ -62,20 +62,20 @@ function Nav({ currentPage, handlePageChange }) {
               currentPage === 'Search' ? 'nav-active nav-link' : 'nav-link'
             }
           >
-            Search
+            Looking to Code
           </Link>
         </li>
 
         <li style={styles.tab} className="tab navTab">
           <Link
             style={styles.tabLabel}
-            to=""
+            to="/searchcoders"
             onClick={() => handlePageChange('Messages')}
             className={
               currentPage === 'Messages' ? 'nav-active nav-link' : 'nav-link'
             }
           >
-            Messages
+            Find Coders
           </Link>
         </li>
 

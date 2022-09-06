@@ -14,6 +14,7 @@ import Profile from './pages/Profile';
 import Signup from './pages/Signup';
 import Login from './pages/Login';
 import Search from './pages/Search';
+import Searchcoders from './pages/Searchcoders';
 import Header from './components/Header';
 import SmallHeader from './components/SmallHeader';
 import Footer from './components/Footer';
@@ -56,6 +57,7 @@ function App() {
               <Route path="/login" element={<Login />} />
               <Route path="/signup" element={<Signup />} />
               <Route path="/search" element={<Search />} />
+              <Route path="/searchcoders" element={<Searchcoders />} />
               <Route path="/me" element={<Profile />} />
               {/* profilecollabs={profilecollabs} */}
               {/* ^ this represents the collab information that will eventually be passed into the "My Collabs" section of the Profile page */}
