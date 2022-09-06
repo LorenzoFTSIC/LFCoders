@@ -103,6 +103,9 @@ const style = {
     borderTopLeftRadius: 6,
     borderTopRightRadius: 6,
     background: "#333",
+  },
+  modalBg: {
+    backgroundColor: "transparent"
   }
   /*   days: {
       display: "grid",
@@ -179,14 +182,14 @@ const Profile = () => {
     return <div>Loading...</div>;
   }
 
-  if (!profile?.name) {
+ if (!profile?.name) {
     return (
       <h4>
         You need to be logged in to see your profile page. Use the navigation
         links above to sign up or log in!
       </h4>
     );
-  }
+  } 
 
   return (
     <div>
@@ -299,7 +302,7 @@ const Profile = () => {
           aria-labelledby="modal-modal-title"
           aria-describedby="modal-modal-description"
         >
-          <Box className="modalContainer">
+          <Box className="modalContainer" style={style.modalBg}>
             <h3 className="mainTitle" style={style.title}>Looking For Coders</h3>
             <div id="modal-modal-description" style={style.center}>
               <h4 className="text-center">What sort of project are you making?</h4>
