@@ -68,7 +68,8 @@ const style = {
     margin: '3%'
   },
   name: {
-    display: "block"
+    marginLeft: 20,
+    color: "white"
   },
   button: {
     marginRight: 20,
@@ -148,7 +149,7 @@ const Profile = () => {
               sx={{ width: 300, height: 300, boxShadow: 20 }}
             />
           </div>
-      <div>
+      <div style={style.name}>
           <h4>{profile.name}</h4>
 
           <h5>I am {profile.status}</h5>
@@ -176,7 +177,7 @@ const Profile = () => {
                     <textarea rows="1" cols="30" style={style.input}></textarea>
                   </div>
                   <div>
-                    <h5 className="sectionHeading">Proect Information</h5>
+                    <h5 className="sectionHeading">Project Information</h5>
                     <div style={style.formContent}>
                       <textarea
                         class="form-control"
