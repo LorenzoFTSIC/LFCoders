@@ -73,7 +73,10 @@ const style = {
   center: { 
     display: 'flex',
     flexDirection: 'column',
-    justifyContent: 'center'
+    justifyContent: 'center',
+    background: "#333",
+    padding: 20,
+    borderRadius: 6,
   },
   formContent: {
     margin: '3% 3% 0 0',
@@ -84,7 +87,8 @@ const style = {
   },
   button: {
     marginRight: 20,
-    color: "white"
+    color: "white",
+    width: "calc(100% / 5)"
   },
   modalButton: {
     minWidth: 100,
@@ -93,6 +97,19 @@ const style = {
     borderRadius: 'none',
     color: '#161616',
   },
+  title: {
+    width: "fit-content",
+    marginBottom: 0,
+    padding: 20,
+    borderTopLeftRadius: 6,
+    bordertoprightradius: 6,
+    background: "#333",
+  }
+/*   days: {
+    display: "grid",
+    gridTemplateColumns: "1fr 1fr 1fr 1fr 1fr",
+    justifyItems: "center"
+  } */
 };
 
 
@@ -284,7 +301,7 @@ const Profile = () => {
             aria-describedby="modal-modal-description"
           >
             <Box className="modalContainer">
-              <h3 className="mainTitle">Looking For Coders</h3>
+              <h3 className="mainTitle" style={style.title}>Looking For Coders</h3>
               <div id="modal-modal-description" style={style.center}>
                 <h4 className="text-center">What sort of project are you making?</h4>
                 <section>
@@ -338,7 +355,7 @@ const Profile = () => {
               size="medium"
               // type="radio"
             >
-              5 Hours
+              Small
             </button>
 
             <button
@@ -349,7 +366,7 @@ const Profile = () => {
               size="medium"
               // type="radio"
             >
-              20 Hours
+              Medium
             </button>
 
             <button
@@ -360,12 +377,12 @@ const Profile = () => {
               size="medium"
               // type="radio"
             >
-              40+ Hours
+              Large
             </button>
           </div>
 
           <h3 className="sectionHeading">I am available...</h3>
-          <div className="buttonContainer">
+          <div className="buttonContainer" style={style.days}>
             <button
               className="formOptionButton"
               // ^ button favorite styled
