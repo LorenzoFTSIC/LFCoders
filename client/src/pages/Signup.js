@@ -238,13 +238,13 @@ const Signup = () => {
                     required
                   />
 
-                  <div class="form-group">
+                  <div className="form-group">
                     <h3 for="signUpBio" className="sectionHeading">
                       Add your bio
                     </h3>
                     <div style={styles.formContent}>
                       <textarea
-                        class="form-control"
+                        className="form-control"
                         id="signUpBio"
                         rows="4"
                         onChange={handleChange}
@@ -289,39 +289,39 @@ const Signup = () => {
                     <h3 className="sectionHeading">Assess Your Skills</h3>
                     <div style={styles.formContent}>
                       
-                      <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="html"/>
-                        <label class="form-check-label" for="html">
+                      <div className="form-check">
+                        <input className="form-check-input" type="checkbox" value="" id="html"/>
+                        <label className="form-check-label" for="html">
                           HTML
                         </label>
                       </div>
-                      <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="css"/>
-                        <label class="form-check-label" for="css">
+                      <div className="form-check">
+                        <input className="form-check-input" type="checkbox" value="" id="css"/>
+                        <label className="form-check-label" for="css">
                           CSS
                         </label>
                       </div>
-                      <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="cssframework"/>
-                        <label class="form-check-label" for="cssframework">
+                      <div className="form-check">
+                        <input className="form-check-input" type="checkbox" value="" id="cssframework"/>
+                        <label className="form-check-label" for="cssframework">
                           Css Frameworks (SASS, LESS, BEM)
                         </label>
                       </div>
-                      <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="js"/>
-                        <label class="form-check-label" for="js">
+                      <div className="form-check">
+                        <input className="form-check-input" type="checkbox" value="" id="js"/>
+                        <label className="form-check-label" for="js">
                           Javascript
                         </label>
                       </div>
-                      <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="react"/>
-                        <label class="form-check-label" for="react">
+                      <div className="form-check">
+                        <input className="form-check-input" type="checkbox" value="" id="react"/>
+                        <label className="form-check-label" for="react">
                           React.js
                         </label>
                       </div>
-                      <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="node "/>
-                        <label class="form-check-label" for="node ">
+                      <div className="form-check">
+                        <input className="form-check-input" type="checkbox" value="" id="node "/>
+                        <label className="form-check-label" for="node ">
                           Nodejs
                         </label>
                       </div>
