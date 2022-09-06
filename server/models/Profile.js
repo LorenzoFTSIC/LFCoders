@@ -19,6 +19,9 @@ const profileSchema = new Schema({
     required: true,
     minlength: 5,
   },
+  github: {
+    type: String,
+  },
   skills: [
     {
       type: String

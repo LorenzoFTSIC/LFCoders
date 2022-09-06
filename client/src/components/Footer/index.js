@@ -2,6 +2,7 @@ import React from 'react';
 import { useLocation, useNavigate, Link } from 'react-router-dom';
 // import Contact from './pages/Contact';
 
+
 const styles = {
   contactuslink:{
     textDecoration: "none",
