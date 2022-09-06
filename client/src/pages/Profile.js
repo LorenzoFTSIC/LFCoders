@@ -34,9 +34,17 @@ const style = {
     alignItems: 'flex-end'
   },
   profileInfo: {
-    display: 'flex',
-    alignItems: 'flex-end'
+   
+   flex: 1, 
+   paddingLeft: "80px",
+   paddingTop: "0px",
   },
+
+  profileName: {
+    fontSize: "35px",
+    textDecoration: "underline"
+  },
+
   push: {
     marginTop: '3rem',
     color: 'white'
@@ -141,21 +149,32 @@ const Profile = () => {
   return (
     <div>
       <section style={style.profileHeading}>
-        <div style={style.profileInfo}>
+        <div >
           <div>
             <Avatar
               alt="{profile.name}"
               src={avatar}
-              sx={{ width: 300, height: 300, boxShadow: 20 }}
+              sx={{ width: 300, height: 300, padding: 1, boxShadow: 20 }}
             />
           </div>
-      <div style={style.name}>
-          <h4>{profile.name}</h4>
+          
+      // <div style={style.name}>
+          // <h4>{profile.name}</h4>
 
+          </div>
+
+          <div className= "profileInfo" style={style.profileInfo}>
+          <div >
+          <h4  className= "profileName" style={style.profileName}> {profile.name}</h4>
+          </div>
+          <div>
+          <h4>{profile.github}</h4>
+          </div>
           <h5>I am {profile.status}</h5>
           {profile.email}
           </div>
         </div>
+        
 
         <div>
           <Button className="btn btn-block" style={style.button} onClick={handleCreateProjectOpen}>

@@ -461,3 +461,23 @@ form {
 		margin-bottom: 20px;
 	}
 }
+
+/* BREAKPOINTS FOR FRONT PAGE --- */
+
+@media screen and (max-width: 767px) {
+	.headerFade .container {
+		flex-direction: column;
+	}
+}
+
+/* BREAKPOINTS FOR HOME PAGE --- */
+
+@media screen and (max-width: 767px) {
+	.nav {
+		display: block;
+	}
+
+	.nav .tab.navTab {
+		border-radius: 0 !important;
+	}
+}

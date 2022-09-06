@@ -6,8 +6,7 @@ import { ADD_PROFILE } from '../utils/mutations';
 
 import Auth from '../utils/auth';
 import PasswordStr from '../utils/passwordStr';
-import Slider from '@mui/material/Slider';
-import Typography from '@mui/material/Typography';
+
 // const zxcvbn = require("zxcvbn");
 
 const styles = {
@@ -24,7 +23,21 @@ const styles = {
   },
   formContent: {
     margin: '0 3%'
+  },
+  modal: {
+    maxHeight: "calc(100vh - 45px)",
+    overflow: "scroll",
+  },
+  checkbox: {
+    backgroundColor: "pink",
+    borderColor: "pink",
+  },
+  formContainer: {
+    display: "grid",
+    gridTemplateColumns: "1fr 1fr 1fr",
+    margin: '0 3%'
   }
+
 };
 
 /* var pwMask = (event) => {
@@ -44,9 +57,14 @@ const Signup = () => {
     email: '',
     password: '',
     bio: '',
-    score: 0
+    score: 0,
   });
   const [addProfile, { error, data }] = useMutation(ADD_PROFILE);
+
+
+/* const toggleCheckboxValue = (index) => {
+    setIsChecked(isChecked.map((v, i) => (i === index ? !v : v)));
+} */
 
   // update state based on form input changes
   const handleChange = (event) => {
@@ -56,6 +74,7 @@ const Signup = () => {
       ...formState,
       [name]: value
     });
+
   };
 
   // submit form
@@ -177,7 +196,7 @@ const Signup = () => {
         aria-hidden="true"
       >
         <div className="modal-dialog signup">
-          <div className="modal-content modalContainer">
+          <div style={styles.modal} className="modal-content modalContainer">
             <h3 className="mainTitle">Sign Up</h3>
             <div>
               {data ? (
@@ -212,10 +231,9 @@ const Signup = () => {
                     className="form-input"
                     placeholder="Your GitHub"
                     name="github"
-                    type="url"
+                    type="text"
                     value={formState.github}
                     onChange={handleChange}
-                    required
                   />
                   <input
                     style={styles.input}
@@ -228,17 +246,21 @@ const Signup = () => {
                     required
                   />
 
-                  <div class="form-group">
-                    <h3 for="signUpBio" className="sectionHeading">
+                  <div className="form-group">
+                    <h3 htmlFor="signUpBio" className="sectionHeading">
                       Add your bio
                     </h3>
                     <div style={styles.formContent}>
-                      <textarea
-                        class="form-control"
-                        id="signUpBio"
-                        rows="4"
-                        onChange={handleChange}
-                      ></textarea>
+                    <input
+                    style={styles.input}
+                    className="form-input"
+                    placeholder="bio"
+                    name="bio"
+                    type="bio"
+                    value={formState.bio}
+                    onChange={handleChange}
+                    required
+                  />
                     </div>
                   </div>
 
@@ -267,7 +289,7 @@ const Signup = () => {
                       <select
                         name="options"
                         className="form-input"
-                        for="options"
+                        htmlFor="options"
                       >
                         <option value="ltc">Looking to Code</option>
                         <option value="lfc">Looking for Coders</option>
@@ -276,106 +298,46 @@ const Signup = () => {
                   </div>
 
                   <div>
-                    <h3 className="sectionHeading">Assess Your Skills</h3>
-                    <div style={styles.formContent}>
-                      <Typography gutterBottom>HTML/CSS</Typography>
-                      <Slider
-                        defaultValue={0}
-                        aria-label="Default"
-                        aria-labelledby="js-slider"
-                        valueLabelDisplay="auto"
-                        style={styles.jsSlider}
-                        // sx={{
-                        //   color: '#784faf',
-                        //   marginBottom: 2
-                        // }}
-                      />
-                      <Typography gutterBottom>Javascript</Typography>
-                      <Slider
-                        defaultValue={0}
-                        aria-label="Default"
-                        aria-labelledby="js-slider"
-                        valueLabelDisplay="auto"
-                        style={styles.jsSlider}
-                        // sx={{
-                        //   color: '#784faf',
-                        //   marginBottom: 2
-                        // }}
-                      />
-                      <Typography gutterBottom>React</Typography>
-                      <Slider
-                        defaultValue={0}
-                        aria-label="Default"
-                        aria-labelledby="js-slider"
-                        valueLabelDisplay="auto"
-                        style={styles.jsSlider}
-                        // sx={{
-                        //   color: '#784faf',
-                        //   marginBottom: 2
-                        // }}
-                      />
-                      <Typography gutterBottom>Javascript</Typography>
-                      <Slider
-                        defaultValue={0}
-                        aria-label="Default"
-                        aria-labelledby="js-slider"
-                        valueLabelDisplay="auto"
-                        style={styles.jsSlider}
-                        // sx={{
-                        //   color: '#784faf',
-                        //   marginBottom: 2
-                        // }}
-                      />
-                      <Typography gutterBottom>Node.js</Typography>
-                      <Slider
-                        defaultValue={0}
-                        aria-label="Default"
-                        aria-labelledby="js-slider"
-                        valueLabelDisplay="auto"
-                        style={styles.jsSlider}
-                        // sx={{
-                        //   color: '#784faf',
-                        //   marginBottom: 2
-                        // }}
-                      />
-                      <Typography gutterBottom>SQL</Typography>
-                      <Slider
-                        defaultValue={0}
-                        aria-label="Default"
-                        aria-labelledby="js-slider"
-                        valueLabelDisplay="auto"
-                        style={styles.jsSlider}
-                        // sx={{
-                        //   color: '#784faf',
-                        //   marginBottom: 2
-                        // }}
-                      />
-                      <Typography gutterBottom>MERN</Typography>
-                      <Slider
-                        defaultValue={0}
-                        aria-label="Default"
-                        aria-labelledby="js-slider"
-                        valueLabelDisplay="auto"
-                        style={styles.jsSlider}
-                        // sx={{
-                        //   color: '#784faf',
-                        //   marginBottom: 2
-                        // }}
-                      />
-                      <Typography className="js-slider" gutterBottom>
-                        Javascript
-                      </Typography>
-                      <Slider
-                        defaultValue={0}
-                        aria-label="Default"
-                        aria-labelledby="js-slider"
-                        valueLabelDisplay="auto"
-                        sx={{
-                          color: '#784faf',
-                          marginBottom: 4
-                        }}
-                      />
-                    </div>
+                    <h3 className="sectionHeading">Select Your Skills</h3>
+                    <div style={styles.formContainer}>
+                      
+                      <div className="form-check">
+                        <input className="form-check-input" style={styles.checkbox} type="checkbox" value="" id="html"/>
+                        <label className="form-check-label" htmlFor="html">
+                          HTML
+                        </label>
+                      </div>
+                      <div className="form-check">
+                        <input className="form-check-input" style={styles.checkbox} type="checkbox" value="" id="css"/>
+                        <label className="form-check-label" htmlFor="css">
+                          CSS
+                        </label>
+                      </div>
+                      <div className="form-check">
+                        <input className="form-check-input" style={styles.checkbox} type="checkbox" value="" id="cssframework"/>
+                        <label className="form-check-label" htmlFor="cssframework">
+                          Css Frameworks
+                        </label>
+                      </div>
+                      <div className="form-check">
+                        <input className="form-check-input" style={styles.checkbox} type="checkbox" value="" id="js"/>
+                        <label className="form-check-label" htmlFor="js">
+                          Javascript
+                        </label>
+                      </div>
+                      <div className="form-check">
+                        <input className="form-check-input" style={styles.checkbox} type="checkbox" value="" id="react"/>
+                        <label className="form-check-label" htmlFor="react">
+                          React.js
+                        </label>
+                      </div>
+                      <div className="form-check">
+                        <input className="form-check-input" style={styles.checkbox} type="checkbox" value="" id="node"/>
+                        <label className="form-check-label" htmlFor="node">
+                          Nodejs
+                        </label>
+                      </div>
+                    </div> 
                   </div>
                   <button
                     className="btn btn-block submit"
