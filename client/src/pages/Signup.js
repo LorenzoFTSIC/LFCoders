@@ -6,12 +6,14 @@ import { ADD_PROFILE } from '../utils/mutations';
 
 import Auth from '../utils/auth';
 import PasswordStr from '../utils/passwordStr';
+import Carousel from 'react-bootstrap/Carousel';
 
 // const zxcvbn = require("zxcvbn");
 
 const styles = {
   input: {
     height: 35,
+    width: "calc(100% - 50px)",
     margin: '0 3% 3% 3%',
     padding: '0 2%',
     color: '#784faf',
@@ -24,10 +26,10 @@ const styles = {
   formContent: {
     margin: '0 3%'
   },
-  modal: {
+/*   modal: {
     maxHeight: "calc(100vh - 45px)",
     overflow: "scroll",
-  },
+  }, */
   checkbox: {
     backgroundColor: "pink",
     borderColor: "pink",
@@ -60,11 +62,16 @@ const Signup = () => {
     score: 0,
   });
   const [addProfile, { error, data }] = useMutation(ADD_PROFILE);
+  const [index, setIndex] = useState(0);
+
+  const handleSelect = (selectedIndex, e) => {
+    setIndex(selectedIndex);
+  };
 
 
-/* const toggleCheckboxValue = (index) => {
-    setIsChecked(isChecked.map((v, i) => (i === index ? !v : v)));
-} */
+  /* const toggleCheckboxValue = (index) => {
+      setIsChecked(isChecked.map((v, i) => (i === index ? !v : v)));
+  } */
 
   // update state based on form input changes
   const handleChange = (event) => {
@@ -205,7 +212,8 @@ const Signup = () => {
                 </p>
               ) : (
                 <form onSubmit={handleFormSubmit}>
-                  <h4 className="sectionHeading">Let's get started!</h4>
+                <Carousel activeIndex={index} onSelect={handleSelect}>
+                  <Carousel.Item interval={1000000000}>
                   <input
                     style={styles.input}
                     className="form-input"
@@ -216,123 +224,119 @@ const Signup = () => {
                     onChange={handleChange}
                     required
                   />
-                  <input
-                    style={styles.input}
-                    className="form-input"
-                    placeholder="Your email"
-                    name="email"
-                    type="email"
-                    value={formState.email}
-                    onChange={handleChange}
-                    required
-                  />
-                  <input
-                    style={styles.input}
-                    className="form-input"
-                    placeholder="Your GitHub"
-                    name="github"
-                    type="text"
-                    value={formState.github}
-                    onChange={handleChange}
-                  />
-                  <input
-                    style={styles.input}
-                    className="form-input"
-                    placeholder="******"
-                    name="password"
-                    type="password"
-                    value={formState.password}
-                    onChange={handleChange}
-                    required
-                  />
-
-                  <div className="form-group">
-                    <h3 htmlFor="signUpBio" className="sectionHeading">
-                      Add your bio
-                    </h3>
-                    <div style={styles.formContent}>
                     <input
-                    style={styles.input}
-                    className="form-input"
-                    placeholder="bio"
-                    name="bio"
-                    type="bio"
-                    value={formState.bio}
-                    onChange={handleChange}
-                    required
-                  />
-                    </div>
-                  </div>
+                     style={styles.input}
+                     className="form-input"
+                     placeholder="Your email"
+                     name="email"
+                     type="email"
+                     value={formState.email}
+                     onChange={handleChange}
+                     required
+                   />
+                   <input
+                     style={styles.input}
+                     className="form-input"
+                     placeholder="Your GitHub"
+                     name="github"
+                     type="text"
+                     value={formState.github}
+                     onChange={handleChange}
+                   />
+                   <input
+                     style={styles.input}
+                     className="form-input"
+                     placeholder="******"
+                     name="password"
+                     type="password"
+                     value={formState.password}
+                     onChange={handleChange}
+                     required
+                   />
+                  </Carousel.Item>
+                  <Carousel.Item interval={1000000000}>
+                  <div className="form-group">
+                     <h3 htmlFor="signUpBio" className="sectionHeading">
+                       Add your bio
+                     </h3>
+                     <div style={styles.formContent}>
+                       {/* <input
+                         style={styles.input}
+                         className="form-input"
+                         placeholder="bio"
+                         name="bio"
+                         type="bio"
+                         value={formState.bio || ""}
+                         onChange={handleChange}
+                         required
+                       /> */}
+                       <textarea style={styles.input}
+                         className="form-input"
+                         placeholder="bio"
+                         name="bio"
+                         type="bio"
+                         value={formState.bio || ""}
+                         onChange={handleChange}
+                         required
+                         cols="40"
+                         rows="5"></textarea>
 
-                  <div className="pwStrRow">
-                    {formState.score >= 1 && (
-                      <div>
-                        <PasswordStr score={formState.score} />
-                        <button
-                          className="pwShowHideBtn"
-                          // onClick={pwMask} 
-                          style={{
-                            position: 'relative',
-                            left: '50%',
-                            transform: 'translateX(-50%)'
-                          }}
-                        ></button>
-                      </div>
-                    )}
-                  </div>
-
+                     </div>
+                   </div>
+                  </Carousel.Item>
+                  <Carousel.Item interval={1000000000}>
                   <div>
-                    <h3 className="sectionHeading">
-                      Choose one of the following
-                    </h3>
-                    <div style={styles.formContent}>
-                      <select
-                        name="options"
-                        className="form-input"
-                        htmlFor="options"
-                      >
-                        <option value="ltc">Looking to Code</option>
-                        <option value="lfc">Looking for Coders</option>
-                      </select>
-                    </div>
-                  </div>
-
-                  <div>
-                    <h3 className="sectionHeading">Select Your Skills</h3>
+                     <h3 className="sectionHeading">
+                       Choose one of the following
+                     </h3>
+                     <div style={styles.formContent}>
+                       <select
+                         name="options"
+                         className="form-input"
+                         htmlFor="options"
+                       >
+                         <option value="ltc">Looking to Code</option>
+                         <option value="lfc">Looking for Coders</option>
+                       </select>
+                     </div>
+                   </div>
+ 
+                   <div>
+                   <h3 className="sectionHeading">Select Your Skills</h3>
                     <div style={styles.formContainer}>
                       
                       <div className="form-check">
-                        <input className="form-check-input" style={styles.checkbox} type="checkbox" value="" id="html"/>
-                        <label className="form-check-label" htmlFor="html">
-                          HTML
-                        </label>
-                      </div>
-                      <div className="form-check">
-                        <input className="form-check-input" style={styles.checkbox} type="checkbox" value="" id="css"/>
-                        <label className="form-check-label" htmlFor="css">
-                          CSS
-                        </label>
-                      </div>
-                      <div className="form-check">
-                        <input className="form-check-input" style={styles.checkbox} type="checkbox" value="" id="cssframework"/>
-                        <label className="form-check-label" htmlFor="cssframework">
-                          Css Frameworks
-                        </label>
-                      </div>
-                      <div className="form-check">
-                        <input className="form-check-input" style={styles.checkbox} type="checkbox" value="" id="js"/>
-                        <label className="form-check-label" htmlFor="js">
-                          Javascript
-                        </label>
-                      </div>
-                      <div className="form-check">
-                        <input className="form-check-input" style={styles.checkbox} type="checkbox" value="" id="react"/>
+                        <input className="form-check-input" style={styles.checkbox} type="checkbox" value="React" id="react"/>
                         <label className="form-check-label" htmlFor="react">
-                          React.js
+                          React
                         </label>
                       </div>
                       <div className="form-check">
-                        <input className="form-check-input" style={styles.checkbox} type="checkbox" value="" id="node"/>
+                        <input className="form-check-input" style={styles.checkbox} type="checkbox" value="Angular" id="angular"/>
+                        <label className="form-check-label" htmlFor="angular">
+                          Angular
+                        </label>
+                      </div>
+                      <div className="form-check">
+                        <input className="form-check-input" style={styles.checkbox} type="checkbox" value="MongoDB" id="mongodb"/>
+                        <label className="form-check-label" htmlFor="mongodb">
+                          MongoDB
+                        </label>
+                      </div>
+                      <div className="form-check">
+                        <input className="form-check-input" style={styles.checkbox} type="checkbox" value="MySQL" id="mysql"/>
+                        <label className="form-check-label" htmlFor="mysql">
+                          MySQL
+                        </label>
+                      </div>
+                      <div className="form-check">
+                        <input className="form-check-input" style={styles.checkbox} type="checkbox" value="Express" id="express"/>
+                        <label className="form-check-label" htmlFor="express">
+                          Express
+                        </label>
+                      </div>
+                      <div className="form-check">
+                        <input className="form-check-input" style={styles.checkbox} type="checkbox" value="Node" id="node"/>
                         <label className="form-check-label" htmlFor="node">
                           Nodejs
                         </label>
@@ -346,7 +350,142 @@ const Signup = () => {
                   >
                     Submit
                   </button>
+                  </Carousel.Item>
+                </Carousel>
                 </form>
+                /*  <form onSubmit={handleFormSubmit}>
+ 
+                   <input
+                     style={styles.input}
+                     className="form-input"
+                     placeholder="Your email"
+                     name="email"
+                     type="email"
+                     value={formState.email}
+                     onChange={handleChange}
+                     required
+                   />
+                   <input
+                     style={styles.input}
+                     className="form-input"
+                     placeholder="Your GitHub"
+                     name="github"
+                     type="text"
+                     value={formState.github}
+                     onChange={handleChange}
+                   />
+                   <input
+                     style={styles.input}
+                     className="form-input"
+                     placeholder="******"
+                     name="password"
+                     type="password"
+                     value={formState.password}
+                     onChange={handleChange}
+                     required
+                   />
+ 
+                   <div className="form-group">
+                     <h3 htmlFor="signUpBio" className="sectionHeading">
+                       Add your bio
+                     </h3>
+                     <div style={styles.formContent}>
+                       <input
+                         style={styles.input}
+                         className="form-input"
+                         placeholder="bio"
+                         name="bio"
+                         type="bio"
+                         value={formState.bio}
+                         onChange={handleChange}
+                         required
+                       />
+                     </div>
+                   </div>
+ 
+                   <div className="pwStrRow">
+                     {formState.score >= 1 && (
+                       <div>
+                         <PasswordStr score={formState.score} />
+                         <button
+                           className="pwShowHideBtn"
+                           // onClick={pwMask} 
+                           style={{
+                             position: 'relative',
+                             left: '50%',
+                             transform: 'translateX(-50%)'
+                           }}
+                         ></button>
+                       </div>
+                     )}
+                   </div>
+ 
+                   <div>
+                     <h3 className="sectionHeading">
+                       Choose one of the following
+                     </h3>
+                     <div style={styles.formContent}>
+                       <select
+                         name="options"
+                         className="form-input"
+                         htmlFor="options"
+                       >
+                         <option value="ltc">Looking to Code</option>
+                         <option value="lfc">Looking for Coders</option>
+                       </select>
+                     </div>
+                   </div>
+ 
+                   <div>
+                     <h3 className="sectionHeading">Select Your Skills</h3>
+                     <div style={styles.formContainer}>
+ 
+                       <div className="form-check">
+                         <input className="form-check-input" style={styles.checkbox} type="checkbox" value="" id="html" />
+                         <label className="form-check-label" htmlFor="html">
+                           HTML
+                         </label>
+                       </div>
+                       <div className="form-check">
+                         <input className="form-check-input" style={styles.checkbox} type="checkbox" value="" id="css" />
+                         <label className="form-check-label" htmlFor="css">
+                           CSS
+                         </label>
+                       </div>
+                       <div className="form-check">
+                         <input className="form-check-input" style={styles.checkbox} type="checkbox" value="" id="cssframework" />
+                         <label className="form-check-label" htmlFor="cssframework">
+                           Css Frameworks
+                         </label>
+                       </div>
+                       <div className="form-check">
+                         <input className="form-check-input" style={styles.checkbox} type="checkbox" value="" id="js" />
+                         <label className="form-check-label" htmlFor="js">
+                           Javascript
+                         </label>
+                       </div>
+                       <div className="form-check">
+                         <input className="form-check-input" style={styles.checkbox} type="checkbox" value="" id="react" />
+                         <label className="form-check-label" htmlFor="react">
+                           React.js
+                         </label>
+                       </div>
+                       <div className="form-check">
+                         <input className="form-check-input" style={styles.checkbox} type="checkbox" value="" id="node" />
+                         <label className="form-check-label" htmlFor="node">
+                           Nodejs
+                         </label>
+                       </div>
+                     </div>
+                   </div>
+                   <button
+                     className="btn btn-block submit"
+                     type="submit"
+                     aria-label="Close"
+                   >
+                     Submit
+                   </button>
+                 </form> */
               )}
 
               {error && (
