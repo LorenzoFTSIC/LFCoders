@@ -68,7 +68,7 @@ const Search = () => {
   if (loading) return <p>Loading ...</p>;
   if (error) return `Error! ${error}`;
 
-  const projectData = data?.name || [];
+  // const projectData = data?.name || [];
   console.log(data)
 
   const handleFormSubmit = async (e) => {
