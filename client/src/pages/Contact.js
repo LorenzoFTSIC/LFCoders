@@ -34,6 +34,34 @@ const Contact = () => {
               <li>Email: MackenzieJoyce414@gmail.com</li>
               <li>Phone Number: 321-234-5397</li>
             </div>
+
+            <div>
+              <li id="linkedin">
+                <a href="lorenzo">
+                  {' '}
+                  Add me on LinkedIn
+                </a>{' '}
+              </li>
+              <li id="github">
+                <a href="lorenzo"> Checkout my projects on Github</a>{' '}
+              </li>
+              <li>Email: lorenzo</li>
+              <li>Phone Number:lorenzo </li>
+            </div>
+
+            <div>
+              <li id="linkedin">
+                <a href="Khaled">
+                  {' '}
+                  Add me on LinkedIn
+                </a>{' '}
+              </li>
+              <li id="github">
+                <a href="Khaled"> Checkout my projects on Github</a>{' '}
+              </li>
+              <li>Email: Khaled</li>
+              <li>Phone Number: Khaled</li>
+            </div>
           </ul>
         </p>
       </section>
