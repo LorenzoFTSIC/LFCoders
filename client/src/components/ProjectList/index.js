@@ -15,29 +15,29 @@ const ProjectList = ({ projects, title }) => {
 
   return (
     <div>
-      <h3 className="text-primary">{title}</h3>
+      <h3 className="mainTitle">{title}</h3>
       {/* For every Project make a card */}
-      <div className="flex-row justify-space-between my-4">
+      <div className="flex-row justify-space-between">
         {projects &&
           projects.map((project) => (
             <div key={project._id} className="col-12 col-xl-6">
               {/* Card Content */}
               <div className="card mb-3">
                 {/* List of Contributors set in an array */}
-                <h4 className="card-header bg-dark text-light p-2 m-0">
+                <h4 className="card-header bg-dark">
                   {contributorString} <br />
                   {/* Project name */}
                   <span className="text-white" style={{ fontSize: '1rem' }}>
                     worked on {project.name}{' '}
-                  </span>
+                  </span> <br />
                   {/* Project description */}
-                  {project.description ? <span>{project.description}</span> : 'No description available'}
+                  {project.description ? <span>{project.description}</span> : <span>No description available</span>} <br />
                   {/* Combined Skills */}
-                  <span>Combined, they used {project.skills}</span>
+                  <span>Combined, they used {project.skills}</span> <br />
                   {/* Creation date */}
-                  <span>Created on: {project.createDate}</span>
+                  <span>Created on: {project.createDate}</span> <br />
                   {/* Status */}
-                  <span>Project status: {project.status}</span>
+                  <span>Project status: {project.status}</span> <br />
                 </h4>
                 {/* GitHub Link */}
                 {project.github ? (
@@ -48,7 +48,7 @@ const ProjectList = ({ projects, title }) => {
                     View project on GitHub.
                   </a>
                 ) : (
-                  'No link available'
+                  <span>No link available</span>
                 )}
               </div>
             </div>

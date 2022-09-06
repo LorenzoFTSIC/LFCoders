@@ -21,7 +21,7 @@ const RecentProjects = () => {
           ) : (
             <ProjectList
               projects={projects}
-              title="Check Out The Most Recent Collaborations"
+              title="Recent Collaborations"
             />
           )}
         </div>
