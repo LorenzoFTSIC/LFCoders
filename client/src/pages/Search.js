@@ -8,6 +8,13 @@ import Radio from '@mui/material/Radio';
 import TextField from '@mui/material/TextField';
 import Checkbox from '@mui/material/Checkbox';
 import FormGroup from '@mui/material/FormGroup';
+import { gql, useLazyQuery } from "@apollo/client";
+
+
+
+
+import { useQuery } from '@apollo/client';
+import { QUERY_PROJECTS_BY_SKILL } from '../utils/queries'
 
 
 // import LFCForm from '../components/LFCForm';
@@ -40,21 +47,15 @@ const Search = () => {
   const handleChange = (e) => {
     
     const { name, value } = e.target;
-    console.log(name)
-    console.log(value)
     setFormState({
       ...formState,
       [name]: value
     });
-    console.log(formState)
   };
 
 
   const handleSkills = (e) => {
     const { name, value } = e.target;
-    console.log(name)
-    console.log(value)
-    console.log(formState)
     setFormState({
       ...formState,
       skills: [...formState.skills, value]
@@ -62,11 +63,47 @@ const Search = () => {
   };
 
 
+  // function Hello() {
+
+  //   const [queryProjectBySkill, { called, loading, data }] = useLazyQuery(
+  //     QUERY_PROJECTS_BY_SKILL,
+  //     { variables: { skillName: formState.skills } }
+  //   );
+    // if (called && loading) return <p>Loading ...</p>
+    // if (!called) {
+      // return <button onClick={() => queryProjectBySkill()}>Load greeting</button>
+    // }
+    // return <h1>Hello {data.greeting.message}!</h1>;
+  
+  // }
+
+
+  
+  const [queryProjectBySkill, { loading, error, data }] = useLazyQuery(QUERY_PROJECTS_BY_SKILL);
+
+  if (loading) return <p>Loading ...</p>;
+  if (error) return `Error! ${error}`;
+
+  const projectData = data?.name || [];
+  console.log(data)
+
   const handleFormSubmit = async (e) => {
     e.preventDefault();
-    console.log(formState);
   
     setSearchVisi(current => !current)
+
+    queryProjectBySkill({ variables: { skillName: formState.skills } });
+
+  }
+
+    // try {
+    //   const { test } = await useQuery(QUERY_PROJECTS_BY_SKILL,
+    //     { variables: {skillName: formState.skills}}
+    //   );
+    
+  
+    // } catch(e) {
+
 
     // try {
     //   const { Modeldata } = await editBio({
@@ -76,8 +113,12 @@ const Search = () => {
     // } catch (e) {
     //   console.error(e);
     // }
-  };
-  
+  // const { loading, data } = useQuery(QUERY_PROJECTS_BY_SKILL,
+  //   { variables: {skillName: formState.skills}}
+  // );
+
+
+  // console.log(data)
 
 
   return (
@@ -278,8 +319,7 @@ const Search = () => {
             type="submit"
             aria-label="Close"
             // style={style.submit}
-            onClick={handleFormSubmit}
-          >
+            onClick={handleFormSubmit}>
             Submit
           </button>
         </form>
