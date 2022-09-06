@@ -6,8 +6,7 @@ import { ADD_PROFILE } from '../utils/mutations';
 
 import Auth from '../utils/auth';
 import PasswordStr from '../utils/passwordStr';
-import Slider from '@mui/material/Slider';
-import Typography from '@mui/material/Typography';
+
 // const zxcvbn = require("zxcvbn");
 
 const styles = {
@@ -24,7 +23,12 @@ const styles = {
   },
   formContent: {
     margin: '0 3%'
+  },
+  modal: {
+    maxHeight: "calc(100vh - 45px)",
+    overflow: "scroll",
   }
+
 };
 
 /* var pwMask = (event) => {
@@ -44,9 +48,14 @@ const Signup = () => {
     email: '',
     password: '',
     bio: '',
-    score: 0
+    score: 0,
   });
   const [addProfile, { error, data }] = useMutation(ADD_PROFILE);
+
+
+/* const toggleCheckboxValue = (index) => {
+    setIsChecked(isChecked.map((v, i) => (i === index ? !v : v)));
+} */
 
   // update state based on form input changes
   const handleChange = (event) => {
@@ -56,6 +65,7 @@ const Signup = () => {
       ...formState,
       [name]: value
     });
+
   };
 
   // submit form
@@ -177,7 +187,7 @@ const Signup = () => {
         aria-hidden="true"
       >
         <div className="modal-dialog signup">
-          <div className="modal-content modalContainer">
+          <div style={styles.modal} className="modal-content modalContainer">
             <h3 className="mainTitle">Sign Up</h3>
             <div>
               {data ? (
@@ -278,104 +288,44 @@ const Signup = () => {
                   <div>
                     <h3 className="sectionHeading">Assess Your Skills</h3>
                     <div style={styles.formContent}>
-                      <Typography gutterBottom>HTML/CSS</Typography>
-                      <Slider
-                        defaultValue={0}
-                        aria-label="Default"
-                        aria-labelledby="js-slider"
-                        valueLabelDisplay="auto"
-                        style={styles.jsSlider}
-                        // sx={{
-                        //   color: '#784faf',
-                        //   marginBottom: 2
-                        // }}
-                      />
-                      <Typography gutterBottom>Javascript</Typography>
-                      <Slider
-                        defaultValue={0}
-                        aria-label="Default"
-                        aria-labelledby="js-slider"
-                        valueLabelDisplay="auto"
-                        style={styles.jsSlider}
-                        // sx={{
-                        //   color: '#784faf',
-                        //   marginBottom: 2
-                        // }}
-                      />
-                      <Typography gutterBottom>React</Typography>
-                      <Slider
-                        defaultValue={0}
-                        aria-label="Default"
-                        aria-labelledby="js-slider"
-                        valueLabelDisplay="auto"
-                        style={styles.jsSlider}
-                        // sx={{
-                        //   color: '#784faf',
-                        //   marginBottom: 2
-                        // }}
-                      />
-                      <Typography gutterBottom>Javascript</Typography>
-                      <Slider
-                        defaultValue={0}
-                        aria-label="Default"
-                        aria-labelledby="js-slider"
-                        valueLabelDisplay="auto"
-                        style={styles.jsSlider}
-                        // sx={{
-                        //   color: '#784faf',
-                        //   marginBottom: 2
-                        // }}
-                      />
-                      <Typography gutterBottom>Node.js</Typography>
-                      <Slider
-                        defaultValue={0}
-                        aria-label="Default"
-                        aria-labelledby="js-slider"
-                        valueLabelDisplay="auto"
-                        style={styles.jsSlider}
-                        // sx={{
-                        //   color: '#784faf',
-                        //   marginBottom: 2
-                        // }}
-                      />
-                      <Typography gutterBottom>SQL</Typography>
-                      <Slider
-                        defaultValue={0}
-                        aria-label="Default"
-                        aria-labelledby="js-slider"
-                        valueLabelDisplay="auto"
-                        style={styles.jsSlider}
-                        // sx={{
-                        //   color: '#784faf',
-                        //   marginBottom: 2
-                        // }}
-                      />
-                      <Typography gutterBottom>MERN</Typography>
-                      <Slider
-                        defaultValue={0}
-                        aria-label="Default"
-                        aria-labelledby="js-slider"
-                        valueLabelDisplay="auto"
-                        style={styles.jsSlider}
-                        // sx={{
-                        //   color: '#784faf',
-                        //   marginBottom: 2
-                        // }}
-                      />
-                      <Typography className="js-slider" gutterBottom>
-                        Javascript
-                      </Typography>
-                      <Slider
-                        defaultValue={0}
-                        aria-label="Default"
-                        aria-labelledby="js-slider"
-                        valueLabelDisplay="auto"
-                        sx={{
-                          color: '#784faf',
-                          marginBottom: 4
-                        }}
-                      />
-                    </div>
+                      
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="html"/>
+                        <label class="form-check-label" for="html">
+                          HTML
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="css"/>
+                        <label class="form-check-label" for="css">
+                          CSS
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="cssframework"/>
+                        <label class="form-check-label" for="cssframework">
+                          Css Frameworks (SASS, LESS, BEM)
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="js"/>
+                        <label class="form-check-label" for="js">
+                          Javascript
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="react"/>
+                        <label class="form-check-label" for="react">
+                          React.js
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="node "/>
+                        <label class="form-check-label" for="node ">
+                          Nodejs
+                        </label>
+                      </div>
+                    </div> 
                   </div>
                   <button
                     className="btn btn-block submit"
