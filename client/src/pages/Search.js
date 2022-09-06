@@ -63,28 +63,12 @@ const Search = () => {
   };
 
 
-  // function Hello() {
-
-  //   const [queryProjectBySkill, { called, loading, data }] = useLazyQuery(
-  //     QUERY_PROJECTS_BY_SKILL,
-  //     { variables: { skillName: formState.skills } }
-  //   );
-    // if (called && loading) return <p>Loading ...</p>
-    // if (!called) {
-      // return <button onClick={() => queryProjectBySkill()}>Load greeting</button>
-    // }
-    // return <h1>Hello {data.greeting.message}!</h1>;
-  
-  // }
-
-
-  
   const [queryProjectBySkill, { loading, error, data }] = useLazyQuery(QUERY_PROJECTS_BY_SKILL);
 
   if (loading) return <p>Loading ...</p>;
   if (error) return `Error! ${error}`;
 
-  const projectData = data?.name || [];
+  // const projectData = data?.name || [];
   console.log(data)
 
   const handleFormSubmit = async (e) => {
