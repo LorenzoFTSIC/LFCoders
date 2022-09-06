@@ -302,37 +302,37 @@ const Signup = () => {
                     <div style={styles.formContainer}>
                       
                       <div className="form-check">
-                        <input className="form-check-input" style={styles.checkbox} type="checkbox" value="" id="html"/>
-                        <label className="form-check-label" htmlFor="html">
-                          HTML
-                        </label>
-                      </div>
-                      <div className="form-check">
-                        <input className="form-check-input" style={styles.checkbox} type="checkbox" value="" id="css"/>
-                        <label className="form-check-label" htmlFor="css">
-                          CSS
-                        </label>
-                      </div>
-                      <div className="form-check">
-                        <input className="form-check-input" style={styles.checkbox} type="checkbox" value="" id="cssframework"/>
-                        <label className="form-check-label" htmlFor="cssframework">
-                          Css Frameworks
-                        </label>
-                      </div>
-                      <div className="form-check">
-                        <input className="form-check-input" style={styles.checkbox} type="checkbox" value="" id="js"/>
-                        <label className="form-check-label" htmlFor="js">
-                          Javascript
-                        </label>
-                      </div>
-                      <div className="form-check">
-                        <input className="form-check-input" style={styles.checkbox} type="checkbox" value="" id="react"/>
+                        <input className="form-check-input" style={styles.checkbox} type="checkbox" value="React" id="react"/>
                         <label className="form-check-label" htmlFor="react">
-                          React.js
+                          React
                         </label>
                       </div>
                       <div className="form-check">
-                        <input className="form-check-input" style={styles.checkbox} type="checkbox" value="" id="node"/>
+                        <input className="form-check-input" style={styles.checkbox} type="checkbox" value="Angular" id="angular"/>
+                        <label className="form-check-label" htmlFor="angular">
+                          Angular
+                        </label>
+                      </div>
+                      <div className="form-check">
+                        <input className="form-check-input" style={styles.checkbox} type="checkbox" value="MongoDB" id="mongodb"/>
+                        <label className="form-check-label" htmlFor="mongodb">
+                          MongoDB
+                        </label>
+                      </div>
+                      <div className="form-check">
+                        <input className="form-check-input" style={styles.checkbox} type="checkbox" value="MySQL" id="mysql"/>
+                        <label className="form-check-label" htmlFor="mysql">
+                          MySQL
+                        </label>
+                      </div>
+                      <div className="form-check">
+                        <input className="form-check-input" style={styles.checkbox} type="checkbox" value="Express" id="express"/>
+                        <label className="form-check-label" htmlFor="express">
+                          Express
+                        </label>
+                      </div>
+                      <div className="form-check">
+                        <input className="form-check-input" style={styles.checkbox} type="checkbox" value="Node" id="node"/>
                         <label className="form-check-label" htmlFor="node">
                           Nodejs
                         </label>
