@@ -1,7 +1,6 @@
-import React from 'react';
-
+import React, { useState } from 'react';
 import { Navigate, useParams } from 'react-router-dom';
-import { useQuery } from '@apollo/client';
+import { useMutation, useQuery } from '@apollo/client';
 
 import { QUERY_SINGLE_PROFILE, QUERY_ME } from '../utils/queries';
 
@@ -17,6 +16,7 @@ import Modal from '@mui/material/Modal';
 import Auth from '../utils/auth';
 import Avatar from '@mui/material/Avatar';
 import avatar from '../assets/img/avatar.png';
+import { EDIT_BIO } from '../utils/mutations';
 
 // import CollabCube from '../component/CollabCube';
 // ^ The component that will give structure to the individual collaborations a user has done
@@ -59,7 +59,7 @@ const style = {
     color: '#784faf',
     borderRadius: 5
   },
-  center: { 
+  center: {
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'center'
@@ -74,7 +74,7 @@ const style = {
 const Profile = () => {
   //   let { id } = useParams();
 
-  // const { loading, data } = useQuery(QUERY_BIO, {
+  // const { loading, data } = useQuery(QUERY_PROFILE, {
   //   variables: { _id: id },
   // });
 
@@ -98,6 +98,10 @@ const Profile = () => {
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
+  // LEWIS
+  // const [textarea, setTextarea] = useState('');
+  //
+
   // If there is no `profileId` in the URL as a parameter, execute the `QUERY_ME` query instead for the logged in user's information
   const { loading, data } = useQuery(
     profileId ? QUERY_SINGLE_PROFILE : QUERY_ME,
@@ -108,6 +112,51 @@ const Profile = () => {
 
   // Check if data is returning from the `QUERY_ME` query, then the `QUERY_SINGLE_PROFILE` query
   const profile = data?.me || data?.profile || {};
+
+  // 
+  // NEW
+  // 
+  // const [profileSettings, setProfileSettings] = useState({
+  //   bio: ''
+  // });
+  // const [editBio] = useMutation(EDIT_BIO);
+
+  // const handleChange = (event) => { 
+  //   const { name, value } = event.target.value;
+
+  //   setProfileSettings({ 
+  //     ...profileSettings,
+  //     [name]: value
+  //   })
+  // }
+
+  // const handleSaveSettings = async (event) => { 
+  //   event.preventDefault();
+  //   console.log(setProfileSettings);
+
+  //   try { 
+  //     const { data } = await editBio({
+  //       variables: { ...profileSettings }
+  //     });
+  //   } catch (e) { 
+  //     console.error(e);
+  //   }
+  // }
+  // 
+  // 
+  //
+  
+  
+  // 
+  // NEW NEW 
+  // 
+  // const handleChange = event => { 
+  //   event.prevenetDefault();
+
+  // }
+  // 
+  // 
+  // 
 
   // Use React Router's `<Redirect />` component to redirect to personal profile page if username is yours
   if (Auth.loggedIn() && Auth.getProfile().data._id === profileId) {
@@ -133,7 +182,7 @@ const Profile = () => {
         <div style={style.profileInfo}>
           <div>
             <Avatar
-              alt="{profile.name}"
+              alt={profile.name}
               src={avatar}
               sx={{ width: 300, height: 300, boxShadow: 20 }}
             />
@@ -163,7 +212,7 @@ const Profile = () => {
               <h3 className="mainTitle">Settings</h3>
               <div id="modal-modal-description" style={style.center}>
                 <section>
-                  <div>
+                  {/* <div>
                     <h5 className="sectionHeading">Name</h5>
                     <textarea rows="1" cols="30" style={style.input}></textarea>
                   </div>
@@ -176,29 +225,31 @@ const Profile = () => {
                       </option>
                       <option value="just looking">Just Looking</option>
                     </select>
-                  </div>
+                  </div> */}
+
                   <div>
+                    {/* BIO  */}
                     <h5 className="sectionHeading">My Bio</h5>
                     <div style={style.formContent}>
                       <textarea
+                        // value={profileBio}
                         class="form-control"
                         rows="4"
+                        // onChange={(event) => setProfileBio(event.target.value)}
                       ></textarea>
                     </div>
+                    {/* END - BIO */}
                   </div>
-
-
                 </section>
                 <button
-                    className="btn btn-block submit"
-                    type="submit"
-                  >
-                    Save
-                  </button>
+                  className="btn btn-block submit"
+                  type="submit"
+                  // onClick={onSubmit}
+                >
+                  Save
+                </button>
               </div>
-              
             </Box>
-            
           </Modal>
         </div>
       </section>

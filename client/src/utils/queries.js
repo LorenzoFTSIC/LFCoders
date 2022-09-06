@@ -27,16 +27,4 @@ export const QUERY_ME = gql`
   }
 `;
 
-// Based off the mini project
-export const QUERY_BIO = gql`
-  query profile($_id: String) {
-    profile(_id: $_id) {
-      _id
-      name
-      email
-      password
-      skills
-      bio
-    }
-  }
-`;
+
