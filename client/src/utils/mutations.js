@@ -93,7 +93,7 @@ export const REMOVE_SKILL = gql`
 
 // Based off the mini project 
 export const EDIT_BIO = gql`
-  mutation editBio($profileId: ID!, $bio: String!) {
+  mutation editBio($profileId: String!, $bio: String) {
     editBio(profileId: $profileId, bio: $bio) {
       _id
       name

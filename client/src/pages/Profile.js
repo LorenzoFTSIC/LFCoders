@@ -92,17 +92,14 @@ const Profile = () => {
 
   // Check if data is returning from the `QUERY_ME` query, then the `QUERY_SINGLE_PROFILE` query
   const profile = data?.me || data?.profile || {};
-
-
+  console.log(profile._id)
   const [formState, setFormState] = useState({
     errors: {},
-    name: '',
-    email: '',
-    password: '',
+    // profileId: '',
     bio: ''
   });
   
-  const [editBio, { error, mutData }] = useMutation(EDIT_BIO);
+  const [editBio, { error, Modeldata }] = useMutation(EDIT_BIO);
   
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -118,8 +115,8 @@ const Profile = () => {
     console.log(formState);
   
     try {
-      const { data } = await editBio({
-        variables: { ...formState }
+      const { Modeldata } = await editBio({
+        variables: { ...formState, profileId: profile._id }
       });
   
     } catch (e) {
@@ -202,6 +199,8 @@ const Profile = () => {
                     <h5 className="sectionHeading">My Bio</h5>
                     <div style={style.formContent}>
                       <textarea
+                        onChange={handleChange}
+                        name="bio"
                         class="form-control"
                         rows="4"
                       ></textarea>
@@ -213,7 +212,7 @@ const Profile = () => {
                 <button
                     className="btn btn-block submit"
                     type="submit"
-                    // onClick={}
+                    onClick={handleFormSubmit}
                   >
                     Save
                   </button>
