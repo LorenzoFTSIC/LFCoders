@@ -17,6 +17,7 @@ export const QUERY_PROJECTS = gql`
       name
       description
       skills
+      profile
       createDate
       status
     }

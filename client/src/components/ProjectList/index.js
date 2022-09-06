@@ -1,18 +1,22 @@
 import React from 'react';
 
 const ProjectList = ({ projects, title }) => {
+  console.log(projects);
+  // Contributors separated by "," and "and"
+  const contributorString = (projects) => {
+    const fore = projects.profile.slice(0, projects.profile.length - 1);
+    const aft = projects.profile[projects.profile.length - 1];
+    if (projects.profile.length === 1) {
+      return projects.profile[0];
+    }
+    console.log(fore.join(', ') + ' and ' + aft);
+
+    return fore.join(', ') + ' and ' + aft;
+  };
+  
   if (!projects.length) {
     return <h3>No Projects Yet</h3>;
   }
-
-  // Contributors separated by "," and "and"
-  function contributorString(projects) {
-    if (projects.length === 1) return projects[0];
-    const fore = projects.slice(0, projects.length - 1);
-    const aft = projects[projects.length - 1];
-    return fore.join(', ') + ' and ' + aft;
-  }
-
   return (
     <div>
       <h3 className="mainTitle">{title}</h3>
@@ -25,15 +29,24 @@ const ProjectList = ({ projects, title }) => {
               <div className="card mb-3">
                 {/* List of Contributors set in an array */}
                 <h4 className="card-header bg-dark">
-                  {contributorString} <br />
+                  {contributorString(project)} <br />
                   {/* Project name */}
                   <span className="text-white" style={{ fontSize: '1rem' }}>
-                    worked on {project.name}{' '}
-                  </span> <br />
+                    worked on "{project.name}"{' '}
+                  </span>{' '}
+                  <br />
                   {/* Project description */}
-                  {project.description ? <span>{project.description}</span> : <span>No description available</span>} <br />
+                  {project.description ? (
+                    <span>Description: "{project.description}"</span>
+                  ) : (
+                    <span>No description available</span>
+                  )}{' '}
+                  <br />
                   {/* Combined Skills */}
-                  <span>Combined, they used {project.skills}</span> <br />
+                  <span>
+                    Combined, the collaborators used {project.skills}
+                  </span>{' '}
+                  <br />
                   {/* Creation date */}
                   <span>Created on: {project.createDate}</span> <br />
                   {/* Status */}
