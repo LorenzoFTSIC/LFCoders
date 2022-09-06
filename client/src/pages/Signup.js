@@ -239,7 +239,7 @@ const Signup = () => {
                   />
 
                   <div className="form-group">
-                    <h3 for="signUpBio" className="sectionHeading">
+                    <h3 htmlFor="signUpBio" className="sectionHeading">
                       Add your bio
                     </h3>
                     <div style={styles.formContent}>
@@ -277,7 +277,7 @@ const Signup = () => {
                       <select
                         name="options"
                         className="form-input"
-                        for="options"
+                        htmlFor="options"
                       >
                         <option value="ltc">Looking to Code</option>
                         <option value="lfc">Looking for Coders</option>
@@ -291,37 +291,37 @@ const Signup = () => {
                       
                       <div className="form-check">
                         <input className="form-check-input" type="checkbox" value="" id="html"/>
-                        <label className="form-check-label" for="html">
+                        <label className="form-check-label" htmlFor="html">
                           HTML
                         </label>
                       </div>
                       <div className="form-check">
                         <input className="form-check-input" type="checkbox" value="" id="css"/>
-                        <label className="form-check-label" for="css">
+                        <label className="form-check-label" htmlFor="css">
                           CSS
                         </label>
                       </div>
                       <div className="form-check">
                         <input className="form-check-input" type="checkbox" value="" id="cssframework"/>
-                        <label className="form-check-label" for="cssframework">
+                        <label className="form-check-label" htmlFor="cssframework">
                           Css Frameworks (SASS, LESS, BEM)
                         </label>
                       </div>
                       <div className="form-check">
                         <input className="form-check-input" type="checkbox" value="" id="js"/>
-                        <label className="form-check-label" for="js">
+                        <label className="form-check-label" htmlFor="js">
                           Javascript
                         </label>
                       </div>
                       <div className="form-check">
                         <input className="form-check-input" type="checkbox" value="" id="react"/>
-                        <label className="form-check-label" for="react">
+                        <label className="form-check-label" htmlFor="react">
                           React.js
                         </label>
                       </div>
                       <div className="form-check">
-                        <input className="form-check-input" type="checkbox" value="" id="node "/>
-                        <label className="form-check-label" for="node ">
+                        <input className="form-check-input" type="checkbox" value="" id="node"/>
+                        <label className="form-check-label" htmlFor="node">
                           Nodejs
                         </label>
                       </div>
