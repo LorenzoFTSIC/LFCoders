@@ -36,10 +36,10 @@ const style = {
     alignItems: 'flex-end'
   },
   profileInfo: {
-   
-   flex: 1, 
-   paddingLeft: "80px",
-   paddingTop: "0px",
+
+    flex: 1,
+    paddingLeft: "80px",
+    paddingTop: "0px",
   },
 
   profileName: {
@@ -64,18 +64,22 @@ const style = {
   },
   input: {
     height: 35,
-    margin: '3% 3% 0 3%',
+    margin: '3% 3% 0 0',
     padding: '0 2%',
     color: '#784faf',
-    borderRadius: 5
+    borderRadius: 5,
+    width: "100%"
   },
-  center: { 
+  center: {
     display: 'flex',
     flexDirection: 'column',
-    justifyContent: 'center'
+    justifyContent: 'center',
+    background: "#333",
+    padding: 20,
+    borderRadius: 6,
   },
   formContent: {
-    margin: '3%'
+    margin: '3% 3% 0 0',
   },
   name: {
     marginLeft: 20,
@@ -83,8 +87,31 @@ const style = {
   },
   button: {
     marginRight: 20,
-    color: "white"
+    color: "white",
+  },
+  modalButton: {
+    minWidth: 100,
+    background: 'rgba(255, 255, 255, 0.7)',
+    border: '1px solid whitesmoke',
+    borderRadius: 'none',
+    color: '#161616',
+  },
+  title: {
+    width: "fit-content",
+    marginBottom: 0,
+    padding: 20,
+    borderTopLeftRadius: 6,
+    borderTopRightRadius: 6,
+    background: "#333",
+  },
+  modalBg: {
+    backgroundColor: "transparent"
   }
+  /*   days: {
+      display: "grid",
+      gridTemplateColumns: "1fr 1fr 1fr 1fr 1fr",
+      justifyItems: "center"
+    } */
 };
 
 
@@ -117,32 +144,32 @@ const Profile = () => {
     // profileId: '',
     bio: ''
   });
-  
+
   const [editBio, { error, Modeldata }] = useMutation(EDIT_BIO);
-  
+
   const handleChange = (e) => {
     const { name, value } = e.target;
-  
+
     setFormState({
       ...formState,
       [name]: value
     });
   };
-  
+
   const handleFormSubmit = async (e) => {
     e.preventDefault();
     console.log(formState);
-  
+
     try {
       const { Modeldata } = await editBio({
         variables: { ...formState, profileId: profile._id }
       });
-  
+
     } catch (e) {
       console.error(e);
     }
   };
-  
+
 
 
 
@@ -155,14 +182,14 @@ const Profile = () => {
     return <div>Loading...</div>;
   }
 
-  if (!profile?.name) {
+ if (!profile?.name) {
     return (
       <h4>
         You need to be logged in to see your profile page. Use the navigation
         links above to sign up or log in!
       </h4>
     );
-  }
+  } 
 
   return (
     <div>
@@ -175,109 +202,27 @@ const Profile = () => {
               sx={{ width: 300, height: 300, padding: 1, boxShadow: 20 }}
             />
           </div>
-          
-       <div style={style.name}>
-           {/* <h4>{profile.name}</h4> */}
+
+          <div style={style.name}>
+            {/* <h4>{profile.name}</h4> */}
 
           </div>
 
-          <div className= "profileInfo" style={style.profileInfo}>
-          <div >
-          <h4  className= "profileName" style={style.profileName}> {profile.name}</h4>
-          </div>
-          <div>
-          <h4>{profile.github}</h4>
-          </div>
-          <h5>I am {profile.status}</h5>
-          {profile.email}
+          <div className="profileInfo" style={style.profileInfo}>
+            <div >
+              <h4 className="profileName" style={style.profileName}> {profile.name}</h4>
+            </div>
+            <div>
+              <h4>{profile.github}</h4>
+            </div>
+            <h5>I am {profile.status}</h5>
+            {profile.email}
           </div>
         </div>
-        
+
 
         <div>
-          <Button className="btn btn-block" style={style.button} onClick={handleCreateProjectOpen}>
-            Create Project
-          </Button>
-          <Modal
-            className="modalPage"
-            open={createProject}
-            onClose={handleCreateProjectClose}
-            aria-labelledby="modal-modal-title"
-            aria-describedby="modal-modal-description"
-          >
-            <Box className="modalContainer">
-              <h3 className="mainTitle">Create Project</h3>
-              <div id="modal-modal-description" style={style.center}>
-                <section>
-                  <div>
-                    <h5 className="sectionHeading">Project Name</h5>
-                    <textarea rows="1" cols="30" style={style.input}></textarea>
-                  </div>
-                  <div>
-                    <h5 className="sectionHeading">Project Information</h5>
-                    <div style={style.formContent}>
-                      <textarea
-                        class="form-control"
-                        rows="4"
-                      ></textarea>
-                    </div>
-                  </div>
 
-                  <div>
-                    <h5 className="sectionHeading">Project Languages</h5>
-                    <div style={style.formContent}>
-                    <div className="form-check">
-                        <input className="form-check-input" type="checkbox" value="" id="html"/>
-                        <label className="form-check-label" htmlFor="html">
-                          HTML
-                        </label>
-                      </div>
-                      <div className="form-check">
-                        <input className="form-check-input" type="checkbox" value="" id="css"/>
-                        <label className="form-check-label" htmlFor="css">
-                          CSS
-                        </label>
-                      </div>
-                      <div className="form-check">
-                        <input className="form-check-input" type="checkbox" value="" id="cssframework"/>
-                        <label className="form-check-label" htmlFor="cssframework">
-                          Css Frameworks
-                        </label>
-                      </div>
-                      <div className="form-check">
-                        <input className="form-check-input" type="checkbox" value="" id="js"/>
-                        <label className="form-check-label" htmlFor="js">
-                          Javascript
-                        </label>
-                      </div>
-                      <div className="form-check">
-                        <input className="form-check-input" type="checkbox" value="" id="react"/>
-                        <label className="form-check-label" htmlFor="react">
-                          React.js
-                        </label>
-                      </div>
-                      <div className="form-check">
-                        <input className="form-check-input" type="checkbox" value="" id="node"/>
-                        <label className="form-check-label" htmlFor="node">
-                          Nodejs
-                        </label>
-                      </div>
-                    </div>
-                  </div>
-
-
-                </section>
-                <button
-                    className="btn btn-block submit"
-                    type="submit"
-                  >
-                    Save
-                  </button>
-              </div>
-              
-            </Box>
-            
-          </Modal>
           {/* <Link to="/settings">
             <h5>Settings</h5>
           </Link> */}
@@ -325,16 +270,16 @@ const Profile = () => {
 
                 </section>
                 <button
-                    className="btn btn-block submit"
-                    type="submit"
-                    onClick={handleFormSubmit}
-                  >
-                    Save
-                  </button>
+                  className="btn btn-block submit"
+                  type="submit"
+                  onClick={handleFormSubmit}
+                >
+                  Save
+                </button>
               </div>
-              
+
             </Box>
-            
+
           </Modal>
         </div>
       </section>
@@ -347,6 +292,232 @@ const Profile = () => {
 
       <div style={style.push}>
         <h5>My Collabs</h5>
+        <Button className="btn btn-block" style={style.button} onClick={handleCreateProjectOpen}>
+          Create Project
+        </Button>
+        <Modal
+          className="modalPage"
+          open={createProject}
+          onClose={handleCreateProjectClose}
+          aria-labelledby="modal-modal-title"
+          aria-describedby="modal-modal-description"
+        >
+          <Box className="modalContainer" style={style.modalBg}>
+            <h3 className="mainTitle" style={style.title}>Looking For Coders</h3>
+            <div id="modal-modal-description" style={style.center}>
+              <h4 className="text-center">What sort of project are you making?</h4>
+              <section>
+                <div>
+                  <h5 className="sectionHeading">Project Name</h5>
+                  <textarea rows="1" style={style.input}></textarea>
+                </div>
+                <div>
+                  <div>
+                    <h5 className="sectionHeading">Project Description</h5>
+                    <textarea
+                      style={style.input}
+                      class="form-control"
+                      rows="1"
+                    ></textarea>
+                  </div>
+                </div>
+
+                <h3 className="sectionHeading">What I bring to the table:</h3>
+                <div className="buttonContainer">
+                  <button
+                    className="formOptionButton"
+                    // ^ button favorite styled
+                    style={style.modalButton}
+                    variant="outlined"
+                    size="medium"
+                  // type="radio"
+                  >
+                    Front End
+                  </button>
+
+                  <button
+                    className="formOptionButton"
+                    // ^ button favorite styled
+                    style={style.modalButton}
+                    variant="outlined"
+                    size="medium"
+                  // type="radio"
+                  >
+                    Back End
+                  </button>
+                </div>
+
+                <h3 className="sectionHeading">Expected Timeline:</h3>
+                <div className="buttonContainer">
+                  <button
+                    className="formOptionButton"
+                    // ^ button favorite styled
+                    style={style.modalButton}
+                    variant="outlined"
+                    size="medium"
+                  // type="radio"
+                  >
+                    Small
+                  </button>
+
+                  <button
+                    className="formOptionButton"
+                    // ^ button favorite styled
+                    style={style.modalButton}
+                    variant="outlined"
+                    size="medium"
+                  // type="radio"
+                  >
+                    Medium
+                  </button>
+
+                  <button
+                    className="formOptionButton"
+                    // ^ button favorite styled
+                    style={style.modalButton}
+                    variant="outlined"
+                    size="medium"
+                  // type="radio"
+                  >
+                    Large
+                  </button>
+                </div>
+
+                <h3 className="sectionHeading">I am available...</h3>
+                <div className="buttonContainer" style={style.days}>
+                  <button
+                    className="formOptionButton"
+                    // ^ button favorite styled
+                    style={style.modalButton}
+                    variant="outlined"
+                    size="medium"
+                    type="button"
+                  >
+                    Monday
+                  </button>
+
+                  <button
+                    className="formOptionButton"
+                    // ^ button favorite styled
+                    style={style.modalButton}
+                    variant="outlined"
+                    size="medium"
+                    type="button"
+                  >
+                    Tuesday
+                  </button>
+
+                  <button
+                    className="formOptionButton"
+                    // ^ button favorite styled
+                    style={style.modalButton}
+                    variant="outlined"
+                    size="medium"
+                  // type="radio"
+                  >
+                    Wednesday
+                  </button>
+
+                  <button
+                    className="formOptionButton"
+                    // ^ button favorite styled
+                    style={style.modalButton}
+                    variant="outlined"
+                    size="medium"
+                  // type="radio"
+                  >
+                    Thursday
+                  </button>
+
+                  <button
+                    className="formOptionButton"
+                    // ^ button favorite styled
+                    style={style.modalButton}
+                    variant="outlined"
+                    size="medium"
+                  // type="radio"
+                  >
+                    Friday
+                  </button>
+
+                  <button
+                    className="formOptionButton"
+                    // ^ button favorite styled
+                    style={style.modalButton}
+                    variant="outlined"
+                    size="medium"
+                  // type="radio"
+                  >
+                    Saturday
+                  </button>
+
+                  <button
+                    className="formOptionButton"
+                    // ^ button favorite styled
+                    style={style.modalButton}
+                    variant="outlined"
+                    size="medium"
+                  // type="radio"
+                  >
+                    Sunday
+                  </button>
+                </div>
+
+                {/* <div>
+                    <h5 className="sectionHeading">Project Languages</h5>
+                    <div style={style.formContent}>
+                    <div className="form-check">
+                        <input className="form-check-input" type="checkbox" value="" id="html"/>
+                        <label className="form-check-label" htmlFor="html">
+                          HTML
+                        </label>
+                      </div>
+                      <div className="form-check">
+                        <input className="form-check-input" type="checkbox" value="" id="css"/>
+                        <label className="form-check-label" htmlFor="css">
+                          CSS
+                        </label>
+                      </div>
+                      <div className="form-check">
+                        <input className="form-check-input" type="checkbox" value="" id="cssframework"/>
+                        <label className="form-check-label" htmlFor="cssframework">
+                          Css Frameworks
+                        </label>
+                      </div>
+                      <div className="form-check">
+                        <input className="form-check-input" type="checkbox" value="" id="js"/>
+                        <label className="form-check-label" htmlFor="js">
+                          Javascript
+                        </label>
+                      </div>
+                      <div className="form-check">
+                        <input className="form-check-input" type="checkbox" value="" id="react"/>
+                        <label className="form-check-label" htmlFor="react">
+                          React.js
+                        </label>
+                      </div>
+                      <div className="form-check">
+                        <input className="form-check-input" type="checkbox" value="" id="node"/>
+                        <label className="form-check-label" htmlFor="node">
+                          Nodejs
+                        </label>
+                      </div>
+                    </div>
+                  </div> */}
+
+
+              </section>
+              <button
+                className="btn btn-block submit"
+                type="submit"
+              >
+                Save
+              </button>
+            </div>
+
+          </Box>
+
+        </Modal>
         {/* {collab ? (
           <div style={style.collabSquare}>
             {profilecollabs.map((collab) => (
