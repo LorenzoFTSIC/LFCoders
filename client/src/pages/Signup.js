@@ -32,9 +32,10 @@ const styles = {
     backgroundColor: "pink",
     borderColor: "pink",
   },
-  formContent: {
+  formContainer: {
     display: "grid",
     gridTemplateColumns: "1fr 1fr 1fr",
+    margin: '0 3%'
   }
 
 };
@@ -295,7 +296,7 @@ const Signup = () => {
 
                   <div>
                     <h3 className="sectionHeading">Select Your Skills</h3>
-                    <div style={styles.formContent}>
+                    <div style={styles.formContainer}>
                       
                       <div className="form-check">
                         <input className="form-check-input" style={styles.checkbox} type="checkbox" value="" id="html"/>
