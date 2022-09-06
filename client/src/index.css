@@ -182,7 +182,7 @@ form {
     height: 5rem;
     background-image: linear-gradient(to bottom, 
         rgba(255, 255, 255, 0), 
-        #161616
+        rgba(48,35,59,1) 
     100%);
 }
 
