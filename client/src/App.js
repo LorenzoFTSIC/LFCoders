@@ -19,7 +19,7 @@ import SmallHeader from './components/SmallHeader';
 import Footer from './components/Footer';
 import Contact from './pages/Contact';
 
-import reasons from './utils/LFCreasons'
+import reasons from './utils/LFCreasons';
 // import profilecollabs from './pages/profilecollabs';
 
 const httpLink = createHttpLink({
@@ -49,19 +49,17 @@ function App() {
       <Router>
         <div className="flex-column justify-flex-start min-100-vh">
           {Auth.loggedIn() ? <SmallHeader /> : <Header reasons={reasons} />}
-          {/* ^Need conditional to switch between the two types of headers when the user is logged in or not logged in */}
+          {/* ^Conditional to switch between the two types of headers when the user is logged in or not logged in */}
           <div className="container">
             <Routes>
-              {/* {Auth.loggedIn() ? */}
               <Route path="/" element={<RecentCollabs />} />
-              {/* : <Route path="/" element={<RecentCollabs />} />} */}
               <Route path="/login" element={<Login />} />
               <Route path="/signup" element={<Signup />} />
               <Route path="/search" element={<Search />} />
               <Route path="/me" element={<Profile />} />
-              <Route path="/contact" element={<Contact />} />
               {/* profilecollabs={profilecollabs} */}
               {/* ^ this represents the collab information that will eventually be passed into the "My Collabs" section of the Profile page */}
+              <Route path="/contact" element={<Contact />} />
               <Route path="/profiles/:profileId" element={<Profile />} />
             </Routes>
           </div>

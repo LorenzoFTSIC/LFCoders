@@ -13,7 +13,7 @@ const RecentProjects = () => {
   }
 
   return (
-    <main>
+    <div>
       <div className="flex-row justify-center">
         <div className="col-12 col-md-10 my-3">
           {loading ? (
@@ -21,12 +21,12 @@ const RecentProjects = () => {
           ) : (
             <ProjectList
               projects={projects}
-              title="Check Out The Most Recent Collaborations"
+              title="Recent Collaborations"
             />
           )}
         </div>
       </div>
-    </main>
+    </div>
   );
 };
 
