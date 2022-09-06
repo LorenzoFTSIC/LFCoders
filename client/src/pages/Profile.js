@@ -70,8 +70,9 @@ const style = {
   name: {
     display: "block"
   },
-  marginRight: {
-    marginRight: 20
+  button: {
+    marginRight: 20,
+    color: "white"
   }
 };
 
@@ -151,11 +152,12 @@ const Profile = () => {
           <h4>{profile.name}</h4>
 
           <h5>I am {profile.status}</h5>
+          {profile.email}
           </div>
         </div>
 
         <div>
-          <Button className="btn btn-block" style={style.marginRight} onClick={handleCreateProjectOpen}>
+          <Button className="btn btn-block" style={style.button} onClick={handleCreateProjectOpen}>
             Create Project
           </Button>
           <Modal
@@ -242,7 +244,7 @@ const Profile = () => {
             <h5>Settings</h5>
           </Link> */}
 
-          <Button className="btn btn-block" onClick={handleOpen}>
+          <Button className="btn btn-block" style={style.button} onClick={handleOpen}>
             Settings
           </Button>
           <Modal
