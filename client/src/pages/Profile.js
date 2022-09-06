@@ -180,14 +180,14 @@ const Profile = () => {
     return <div>Loading...</div>;
   }
 
- /*  if (!profile?.name) {
+if (!profile?.name) {
     return (
       <h4>
         You need to be logged in to see your profile page. Use the navigation
         links above to sign up or log in!
       </h4>
     );
-  } */
+  } 
 
   return (
     <div>
