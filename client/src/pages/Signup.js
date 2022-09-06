@@ -38,6 +38,29 @@ const styles = {
     display: "grid",
     gridTemplateColumns: "1fr 1fr 1fr",
     margin: '0 3%'
+  },
+  title: {
+    width: "fit-content",
+    marginBottom: 0,
+    padding: 20,
+    borderTopLeftRadius: 6,
+    borderTopRightRadius: 6,
+    background: "#333",
+  },
+  modal: {
+    backgroundColor: "transparent",
+    border: "none"
+  },
+  center: {
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    background: "#333",
+    padding: 20,
+    borderRadius: 6,
+  },
+  textarea: {
+    width: "100%"
   }
 
 };
@@ -204,16 +227,16 @@ const Signup = () => {
       >
         <div className="modal-dialog signup">
           <div style={styles.modal} className="modal-content modalContainer">
-            <h3 className="mainTitle">Sign Up</h3>
-            <div>
+            <h3 className="mainTitle" style={styles.title}>Sign Up</h3>
+            <div style={styles.center}>
               {data ? (
                 <p>
                   <Link to="/">Success!</Link>
                 </p>
               ) : (
                 <form onSubmit={handleFormSubmit}>
-                <Carousel activeIndex={index} onSelect={handleSelect}>
-                  <Carousel.Item interval={1000000000}>
+                <Carousel activeIndex={index} onSelect={handleSelect} indicators={false} interval={null}>
+                  <Carousel.Item>
                   <input
                     style={styles.input}
                     className="form-input"
@@ -254,7 +277,7 @@ const Signup = () => {
                      required
                    />
                   </Carousel.Item>
-                  <Carousel.Item interval={1000000000}>
+                  <Carousel.Item>
                   <div className="form-group">
                      <h3 htmlFor="signUpBio" className="sectionHeading">
                        Add your bio
@@ -270,7 +293,7 @@ const Signup = () => {
                          onChange={handleChange}
                          required
                        /> */}
-                       <textarea style={styles.input}
+                       <textarea
                          className="form-input"
                          placeholder="bio"
                          name="bio"
@@ -278,13 +301,13 @@ const Signup = () => {
                          value={formState.bio || ""}
                          onChange={handleChange}
                          required
-                         cols="40"
+                         style={styles.textarea}
                          rows="5"></textarea>
 
                      </div>
                    </div>
                   </Carousel.Item>
-                  <Carousel.Item interval={1000000000}>
+                  <Carousel.Item>
                   <div>
                      <h3 className="sectionHeading">
                        Choose one of the following
