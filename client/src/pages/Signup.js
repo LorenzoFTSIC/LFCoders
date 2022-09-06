@@ -252,12 +252,16 @@ const Signup = () => {
                       Add your bio
                     </h3>
                     <div style={styles.formContent}>
-                      <textarea
-                        className="form-control"
-                        id="signUpBio"
-                        rows="4"
-                        onChange={handleChange}
-                      ></textarea>
+                    <input
+                    style={styles.input}
+                    className="form-input"
+                    placeholder="bio"
+                    name="bio"
+                    type="bio"
+                    value={formState.bio}
+                    onChange={handleChange}
+                    required
+                  />
                     </div>
                   </div>
 
