@@ -65,7 +65,7 @@ const typeDefs = gql`
     removeProfileFromProject(projectId: ID!, profileEmail: String!): Project
     removeSkillFromProject(projectId: ID!, skillName: String!): Project
 
-    editBio(profileId: ID!, bio: String!): Profile 
+    editBio(profileId: String!, bio: String!): Profile 
     editStatus(profileId: ID!, status: String!): Profile 
     editProjectName( projectId: ID!, name: String!): Project
     editProjectDesc( projectId: ID!, description: String!): Project

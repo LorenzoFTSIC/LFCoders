@@ -1,11 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import { Navigate, useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 
 import { QUERY_SINGLE_PROFILE, QUERY_ME } from '../utils/queries';
 
-// import { useQuery, useMutation } from '@apollo/client';
+import { EDIT_BIO } from '../utils/mutations'
+
+import { useMutation } from '@apollo/client';
 // import { QUERY_BIO } from '../utils/queries';
 // import { EDIT_BIO } from '../utils/mutations';
 
@@ -85,29 +87,11 @@ const style = {
   }
 };
 
+
+
 // { profilecollabs }
 // ^ Prop that represents the info which will be arrayed over and displayed in the "My Collabs" section
 const Profile = () => {
-  //   let { id } = useParams();
-
-  // const { loading, data } = useQuery(QUERY_BIO, {
-  //   variables: { _id: id },
-  // });
-
-  // const profile = data?.profile || [];
-
-  // const [editBio, { error }] = useMutation(EDIT_BIO);
-
-  // const handleBio = async (bio) => {
-  //   try {
-  //     await editBio({
-  //       variables: { _id: id, bio: bio },
-  //     });
-  //   } catch (err) {
-  //     console.error(err);
-  //   }
-  // };
-
   const { profileId } = useParams();
 
   const [open, setOpen] = React.useState(false);
@@ -127,6 +111,40 @@ const Profile = () => {
 
   // Check if data is returning from the `QUERY_ME` query, then the `QUERY_SINGLE_PROFILE` query
   const profile = data?.me || data?.profile || {};
+  console.log(profile._id)
+  const [formState, setFormState] = useState({
+    errors: {},
+    // profileId: '',
+    bio: ''
+  });
+  
+  const [editBio, { error, Modeldata }] = useMutation(EDIT_BIO);
+  
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+  
+    setFormState({
+      ...formState,
+      [name]: value
+    });
+  };
+  
+  const handleFormSubmit = async (e) => {
+    e.preventDefault();
+    console.log(formState);
+  
+    try {
+      const { Modeldata } = await editBio({
+        variables: { ...formState, profileId: profile._id }
+      });
+  
+    } catch (e) {
+      console.error(e);
+    }
+  };
+  
+
+
 
   // Use React Router's `<Redirect />` component to redirect to personal profile page if username is yours
   if (Auth.loggedIn() && Auth.getProfile().data._id === profileId) {
@@ -296,6 +314,8 @@ const Profile = () => {
                     <h5 className="sectionHeading">My Bio</h5>
                     <div style={style.formContent}>
                       <textarea
+                        onChange={handleChange}
+                        name="bio"
                         class="form-control"
                         rows="4"
                       ></textarea>
@@ -307,6 +327,7 @@ const Profile = () => {
                 <button
                     className="btn btn-block submit"
                     type="submit"
+                    onClick={handleFormSubmit}
                   >
                     Save
                   </button>
