@@ -69,7 +69,7 @@ const Search = () => {
   if (error) return `Error! ${error}`;
 
   // const projectData = data?.name || [];
-  console.log(data)
+  // console.log(data)
 
   const handleFormSubmit = async (e) => {
     e.preventDefault();

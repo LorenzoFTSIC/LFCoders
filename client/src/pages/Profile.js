@@ -179,7 +179,7 @@ const Profile = () => {
   const date = `${current.getDate()}/${current.getMonth()+1}/${current.getFullYear()}`;
   console.log(date)
 
-  const [AddProject, { projectError, Projectdata }] = useMutation(ADD_PROJECT);
+  const [AddProject, { projectError, projectdata }] = useMutation(ADD_PROJECT);
 
   const projectFormSubmit = async (e) => {
     e.preventDefault();
