@@ -69,7 +69,10 @@ const Search = () => {
   if (error) return `Error! ${error}`;
 
   // const projectData = data?.name || [];
-  console.log(data)
+  const projectBySkill = data?.projectBySkill || [];
+  if (data) {
+    console.log(data);
+  }
 
   const handleFormSubmit = async (e) => {
     e.preventDefault();
@@ -106,6 +109,7 @@ const Search = () => {
 
 
   return (
+    <div>
     <div className="modalPage" 
     style={{display: searchVisi ? "flex" : "none" }}>
       <div className="modalContainer">
@@ -298,6 +302,38 @@ const Search = () => {
             Submit
           </button>
         </form>
+      </div>
+      </div>
+      <div style={{ display: searchVisi ? 'none' : 'flex' }}>
+        <div
+          // className="modalPage"
+          style={style.userCards}
+        >
+          <h3 className="mainTitle">Projects Looking for Coders</h3>
+          {/* For every Project make a card */}
+          <div className="flex-row justify-space-between">
+            {projectBySkill &&
+              projectBySkill.map((projectBySkill) => (
+                <div key={projectBySkill._id} className="col-12 col-xl-6">
+                  {/* Card Content */}
+                  <div className="card mb-3">
+                    {/* User's Name */}
+                    <h4 className="card-header bg-dark">
+                      {projectBySkill.name} <br />
+                      {/* User's Email */}
+                      <span className="text-white" style={{ fontSize: '1rem' }}>
+                        {projectBySkill.profile}
+                      </span>
+                      <br />
+                      {/* User's Bio */}
+                      {projectBySkill.description}
+                      <br />
+                    </h4>
+                  </div>
+                </div>
+              ))}
+          </div>
+        </div>
       </div>
     </div>
     // </div>
