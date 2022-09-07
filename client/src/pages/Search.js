@@ -12,11 +12,14 @@ const style = {
     borderRadius: 'none',
     color: '#161616',
   },
+  modalPage:{
+    paddingBottom:'50px'
+  }
 };
 
 const Search = () => {
   return (
-    <div className="modalPage">
+    <div className="modalPage" style={style.modalPage}>
       <div className="modalContainer">
         {/* <div style={style.container}>
         <h1 className= "title" style={style.title}></h1>
