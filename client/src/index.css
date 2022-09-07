@@ -72,6 +72,11 @@ img {
 }
 /* END - TYPOGRAPHY AND ELEMENTS */
 
+.flex {
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-start;
+}
 
 /* smallHeader */
 a.text-dark.logo { 
@@ -167,6 +172,26 @@ form {
 /* SIGN UP CAROUSEL */
 .carousel-inner {
 	padding: 60px;
+}
+
+/* .profileFlex > *{
+	width: 48%;
+} */
+
+.profileFlex .list-group-item {
+	background: transparent;
+	border: none;
+	box-shadow: 0px 0px 8px rgb(242 144 255);
+	padding: 5px;
+	padding: 0 20px;
+    text-align: center;
+    margin-bottom: 10px;
+	border-radius: 0;
+}
+
+.profileFlex .list-group-item a{
+	background: transparent;
+    color: white;
 }
 
 
