@@ -124,7 +124,7 @@ const Search = () => {
 
       {/* <div className= "objects" style={style.objects} > */}
         <h3 className="mainTitle">LOOKING TO CODE</h3>
-        <img className="robotimg" src={robotimg} alt="robot with magnofying glass" style={style.robotimg}></img>
+        {/*<img className="robotimg" src={robotimg} alt="robot with magnofying glass" style={style.robotimg}></img>*/}
        {/* </div> */}
         <form>
           <h3 className="sectionHeading">What I bring to the table:</h3>
