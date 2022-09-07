@@ -346,8 +346,10 @@ const Search = () => {
           </form>
         </div>
       </div>
+
       <div style={{ display: searchVisi ? 'none' : 'block' }}>
         <div>
+
           <h3 className="mainTitle">Projects Looking for Coders</h3>
           {/* For every Project make a card */}
           <div>
