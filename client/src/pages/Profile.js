@@ -48,10 +48,10 @@ const style = {
     textDecoration: "underline"
   },
 
-  push: {
+  /* push: {
     marginTop: '3rem',
     color: 'white'
-  },
+  }, */
   settingsModal: {
     position: 'absolute',
     top: '50%',
