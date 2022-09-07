@@ -70,6 +70,7 @@ export const QUERY_ME = gql`
       bio
       status
       github
+      email
     }
   }
 `;
