@@ -1,4 +1,8 @@
+
+import robotimg from '../assets/img/robot3.png';
+
 import React, { useState } from 'react';
+
 // import Button from '@mui/material/button';
 import Modal from '@mui/material/Modal';
 import { isNonEmptyArray } from '@apollo/client/utilities';
@@ -19,8 +23,22 @@ const style = {
     background: 'rgba(255, 255, 255, 0.7)',
     border: '1px solid whitesmoke',
     borderRadius: 'none',
-    color: '#161616'
-  }
+    color: '#161616',
+  },
+  robotimg: {
+    height: "170px",
+    opacity: '0.8',
+    marginTop:'50px',
+    marginLeft: '50px',
+    marginRight:'70px',
+    top: '10px',
+    position: 'absolute',
+    right: '0'
+  }, 
+  modalPage:{
+    paddingBottom:'50px'
+  },
+  
 };
 
 const Search = () => {
@@ -57,11 +75,11 @@ const Search = () => {
   if (loading) return <p>Loading ...</p>;
   if (error) return `Error! ${error}`;
 
-  // const projectData = data?.name || [];
   const projectBySkill = data?.projectBySkill || [];
   if (data) {
     console.log(data);
   }
+  // const projectData = data?.name || [];
 
   const handleFormSubmit = async (e) => {
     e.preventDefault();
@@ -93,16 +111,22 @@ const Search = () => {
   // console.log(data)
 
   return (
+
     <div>
     <div className="modalPage" 
     style={{display: searchVisi ? "flex" : "none" }}>
+
       <div className="modalContainer">
         {/* <div style={style.container}>
         <h1 className= "title" style={style.title}></h1>
       <div> */}
-          <h3 className="mainTitle">LOOKING TO CODE</h3>
-          <form>
-            {/* <h3 className="sectionHeading">What I bring to the table:</h3>
+
+      {/* <div className= "objects" style={style.objects} > */}
+        <h3 className="mainTitle">LOOKING TO CODE</h3>
+        {/*<img className="robotimg" src={robotimg} alt="robot with magnofying glass" style={style.robotimg}></img>*/}
+       {/* </div> */}
+        <form>
+          {/* <h3 className="sectionHeading">What I bring to the table:</h3>
           <div className="buttonContainer">
             <button
               className="formOptionButton"
@@ -322,41 +346,50 @@ const Search = () => {
           </form>
         </div>
       </div>
-      
-      <div style={{ display: searchVisi ? 'none' : 'flex' }}>
-        <div
-          // className="modalPage"
-          style={style.userCards}
-        >
+
+      <div style={{ display: searchVisi ? 'none' : 'block' }}>
+        <div>
+
           <h3 className="mainTitle">Projects Looking for Coders</h3>
           {/* For every Project make a card */}
-          <div className="flex-row justify-space-between">
+          <div>
             {projectBySkill &&
               projectBySkill.map((projectBySkill) => (
                 <div key={projectBySkill._id}>
                   {/* Card Content */}
-                  <div className="card mb-3">
+                  <div className="modalContainer projectContainer">
                     {/* User's Name */}
-                    <h4 className="card-header bg-dark">
+                    <h4 className="sectionHeading projectHeading">
                       {projectBySkill.name} <br />
-                      {/* User's Email */}
-                      <span className="text-white" style={{ fontSize: '1rem' }}>
-                        {projectBySkill.profile}
-                      </span>
-                      <br />
-                      {/* User's Bio */}
-                      {projectBySkill.description}
-                      <br />
                     </h4>
+
+                    {/* User's Email */}
+                    <h5 className="sectionHeading projectHeading projectHeadingBottom">
+                      {projectBySkill.profile}
+                    </h5>
+                    {/* User's Bio */}
+                    <h5 className="mainTitle">Describe:</h5>
+                    <span className="projectContent">
+                      "{projectBySkill.description}"
+                    </span>
+                    <br />
                   </div>
                 </div>
               ))}
           </div>
+
+         
+          <button
+            className="btn btn-block submit"
+            type="submit"
+            aria-label="Close"
+            // style={style.submit}
+          >
+            Submit
+          </button>
         </div>
       </div>
-
     </div>
-    // </div>
     // </div>
     //   HTML and CSS by AlvaroTrigo on CodePen: TabbyTabs
   );

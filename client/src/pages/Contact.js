@@ -70,7 +70,8 @@ const Contact = () => {
             </div>
 
             <div style={styles.collabBox} className="collabBox">
-            <h4>Khaled Ghanim</h4>
+
+            <h4>Khaled Ghanem</h4>
               <li id="linkedin">
                 <a href="https://www.linkedin.com/in/ghanemk/">
                   {' '}

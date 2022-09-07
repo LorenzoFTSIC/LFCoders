@@ -32,7 +32,11 @@ const styles = {
     display: 'flex',
     flexDirection: 'column',
     width: '100%'
-  }
+  }, 
+
+  // heightChange: { 
+  //   padding: '8% 3%'
+  // }
 };
 
 const Searchcoders = () => {
@@ -93,7 +97,9 @@ const Searchcoders = () => {
         // style={styles.modalPage}
         style={{ display: searchVisi ? 'flex' : 'none' }}
       >
-        <div className="modalContainer">
+        <div className="modalContainer"
+          style={styles.heightChange}
+>
           {/* <div style={style.container}>
         <h1 className= "title" style={style.title}></h1>
       <div> */}
@@ -220,24 +226,34 @@ const Searchcoders = () => {
         >
           <h3 className="mainTitle">Users With Those Skills</h3>
           {/* For every Project make a card */}
-          <div className="flex-row justify-space-between">
+          <div>
             {profileBySkill &&
               profileBySkill.map((profileBySkill) => (
-                <div key={profileBySkill._id} className="col-12 col-xl-6">
+                <div
+                  key={profileBySkill._id}
+                  className="modalContainer projectContainer" 
+                >
                   {/* Card Content */}
-                  <div className="card mb-3">
+                  <div>
                     {/* User's Name */}
-                    <h4 className="card-header bg-dark">
-                      {profileBySkill.name} <br />
-                      {/* User's Email */}
-                      <span className="text-white" style={{ fontSize: '1rem' }}>
-                        {profileBySkill.email}
-                      </span>
-                      <br />
-                      {/* User's Bio */}
-                      {profileBySkill.bio}
-                      <br />
+                    <h4 className="sectionHeading projectHeading projectHeadingBottom">
+                      {profileBySkill.name}{' '}
                     </h4>
+                    {/* User's Email */}
+                    <h5 className="mainTitle">Email: </h5>
+                    <span className="projectContent">
+                      {profileBySkill.email}
+                    </span>
+                    <br />
+                    {/* User's Bio */}
+                    <h5 className="mainTitle projectMainTitle">Bio: </h5>
+                    <span className="projectContent">{profileBySkill.bio}</span>
+                    <h5 className="mainTitle projectMainTitle">
+                      {' '}
+                      User status:
+                    </h5>
+                    <span> {profileBySkill.status}</span> <br />
+                    <br />
                   </div>
                 </div>
               ))}

@@ -80,11 +80,10 @@ const Signup = () => {
     errors: {},
     name: '',
     email: '',
+    skills: [],
     password: '',
     bio: '',
-    score: 0,
   });
-  const [addProfile, { error, data }] = useMutation(ADD_PROFILE);
   const [index, setIndex] = useState(0);
 
   const handleSelect = (selectedIndex, e) => {
@@ -104,24 +103,38 @@ const Signup = () => {
       ...formState,
       [name]: value
     });
-
   };
 
+  const [addProfile, { Proferror, Profdata }] = useMutation(ADD_PROFILE);
+
+  
   // submit form
-  const handleFormSubmit = async (event) => {
-    event.preventDefault();
+  const handleFormSubmit = async (e) => {
+    e.preventDefault();
     console.log(formState);
 
     try {
       const { data } = await addProfile({
         variables: { ...formState }
       });
+      console.log(data)
 
       Auth.login(data.addProfile.token);
     } catch (e) {
       console.error(e);
     }
   };
+
+
+  const handleSkills = (e) => {
+    const { name, value } = e.target;
+    setFormState({
+      ...formState,
+      skills: [...formState.skills, value]
+    });
+    console.log(formState)
+  };
+
 
   /*   var pwHandleChange = (event) => {
     const field = event.target.name;
@@ -229,12 +242,12 @@ const Signup = () => {
           <div style={styles.modal} className="modal-content modalContainer">
             <h3 className="mainTitle" style={styles.title}>Sign Up</h3>
             <div style={styles.center}>
-              {data ? (
+              {Profdata ? (
                 <p>
                   <Link to="/">Success!</Link>
                 </p>
               ) : (
-                <form onSubmit={handleFormSubmit}>
+                <form>
                 <Carousel activeIndex={index} onSelect={handleSelect} indicators={false} interval={null}>
                   <Carousel.Item>
                   <input
@@ -329,37 +342,37 @@ const Signup = () => {
                     <div style={styles.formContainer}>
                       
                       <div className="form-check">
-                        <input className="form-check-input" style={styles.checkbox} type="checkbox" value="React" id="react"/>
+                        <input className="form-check-input" style={styles.checkbox} type="checkbox" value="React" id="react" onChange={handleSkills}/>
                         <label className="form-check-label" htmlFor="react">
                           React
                         </label>
                       </div>
                       <div className="form-check">
-                        <input className="form-check-input" style={styles.checkbox} type="checkbox" value="Angular" id="angular"/>
+                        <input className="form-check-input" style={styles.checkbox} type="checkbox" value="Angular" id="angular" onChange={handleSkills}/>
                         <label className="form-check-label" htmlFor="angular">
                           Angular
                         </label>
                       </div>
                       <div className="form-check">
-                        <input className="form-check-input" style={styles.checkbox} type="checkbox" value="MongoDB" id="mongodb"/>
+                        <input className="form-check-input" style={styles.checkbox} type="checkbox" value="MongoDB" id="mongodb" onChange={handleSkills}/>
                         <label className="form-check-label" htmlFor="mongodb">
                           MongoDB
                         </label>
                       </div>
                       <div className="form-check">
-                        <input className="form-check-input" style={styles.checkbox} type="checkbox" value="MySQL" id="mysql"/>
+                        <input className="form-check-input" style={styles.checkbox} type="checkbox" value="MySQL" id="mysql" onChange={handleSkills}/>
                         <label className="form-check-label" htmlFor="mysql">
                           MySQL
                         </label>
                       </div>
                       <div className="form-check">
-                        <input className="form-check-input" style={styles.checkbox} type="checkbox" value="Express" id="express"/>
+                        <input className="form-check-input" style={styles.checkbox} type="checkbox" value="Express" id="express" onChange={handleSkills}/>
                         <label className="form-check-label" htmlFor="express">
                           Express
                         </label>
                       </div>
                       <div className="form-check">
-                        <input className="form-check-input" style={styles.checkbox} type="checkbox" value="Node" id="node"/>
+                        <input className="form-check-input" style={styles.checkbox} type="checkbox" value="Node" id="node" onChange={handleSkills}/>
                         <label className="form-check-label" htmlFor="node">
                           Nodejs
                         </label>
@@ -370,6 +383,7 @@ const Signup = () => {
                     className="btn btn-block submit"
                     type="submit"
                     aria-label="Close"
+                    onClick={handleFormSubmit}
                   >
                     Submit
                   </button>
@@ -511,9 +525,9 @@ const Signup = () => {
                  </form> */
               )}
 
-              {error && (
+              {Proferror && (
                 <div className="my-3 p-3 bg-danger text-white">
-                  {error.message}
+                  {Proferror.message}
                 </div>
               )}
             </div>
