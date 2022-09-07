@@ -58,7 +58,7 @@ const Contact = () => {
             <div style={styles.collabBox} className="collabBox">
             <h4>Lorenzo Ferri</h4>
               <li id="linkedin">
-                <a href="lorenzo">
+                <a href=" ">
                   {' '}
                   Add me on LinkedIn
                 </a>{' '}
@@ -66,11 +66,11 @@ const Contact = () => {
               <li id="github">
                 <a href="https://github.com/LorenzoFTSIC"> Checkout my projects on Github</a>{' '}
               </li>
-              <li>Email: lorenzo</li>
-              <li>Phone Number:lorenzo </li>
+              <li>lorenzoferritsic@gmail.com</li>
             </div>
 
             <div style={styles.collabBox} className="collabBox">
+
             <h4>Khaled Ghanem</h4>
               <li id="linkedin">
                 <a href="https://www.linkedin.com/in/ghanemk/">
