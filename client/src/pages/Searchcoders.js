@@ -233,7 +233,6 @@ const Searchcoders = () => {
                     <h4 className="sectionHeading projectHeading projectHeadingBottom">
                       {profileBySkill.name}{' '}
                     </h4>
-                    <br />
                     {/* User's Email */}
                     <h5 className="mainTitle">Email: </h5>
                     <span className="projectContent">
