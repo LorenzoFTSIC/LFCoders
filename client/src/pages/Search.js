@@ -58,7 +58,10 @@ const Search = () => {
   if (error) return `Error! ${error}`;
 
   // const projectData = data?.name || [];
+  const projectBySkill = data?.projectBySkill || [];
+  if (data) {
     console.log(data);
+  }
 
   const handleFormSubmit = async (e) => {
     e.preventDefault();
@@ -93,9 +96,9 @@ const Search = () => {
     <div>
       <div
         className="modalPage"
-        style={{ display: searchVisi ? 'flex' : 'none' }}>
-        
-        <div className="modalContainer">
+        style={{ display: searchVisi ? 'flex' : 'none' }}
+      >
+        <div className="modalContainer ">
           {/* <div style={style.container}>
         <h1 className= "title" style={style.title}></h1>
       <div> */}
@@ -321,8 +324,37 @@ const Search = () => {
           </form>
         </div>
       </div>
+      <div style={{ display: searchVisi ? 'none' : 'block' }}>
+        <div>
+          <h3 className="mainTitle">Projects Looking for Coders</h3>
+          {/* For every Project make a card */}
+          <div>
+            {projectBySkill &&
+              projectBySkill.map((projectBySkill) => (
+                <div key={projectBySkill._id}>
+                  {/* Card Content */}
+                  <div className="modalContainer projectContainer">
+                    {/* User's Name */}
+                    <h4 className="sectionHeading projectHeading">
+                      {projectBySkill.name} <br />
+                    </h4>
 
-      
+                    {/* User's Email */}
+                    <h5 className="sectionHeading projectHeading projectHeadingBottom">
+                      {projectBySkill.profile}
+                    </h5>
+                    {/* User's Bio */}
+                    <h5 className="mainTitle">Describe:</h5>
+                    <span className="projectContent">
+                      "{projectBySkill.description}"
+                    </span>
+                    <br />
+                  </div>
+                </div>
+              ))}
+          </div>
+        </div>
+      </div>
     </div>
     // </div>
     // </div>

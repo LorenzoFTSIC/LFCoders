@@ -21,23 +21,20 @@ const ProjectList = ({ projects, title }) => {
     <div>
       <h3 className="mainTitle">{title}</h3>
       {/* For every Project make a card */}
-      <div >
+      <div>
         {projects &&
           projects.map((project) => (
             <div key={project._id}>
               {/* Card Content */}
               <div className="modalContainer projectContainer">
-                {/* <div className="card-header bg-dark"> */}
                 {/* List of Contributors set in an array */}
                 <h4 className="sectionHeading projectHeading">
                   {/* Project name */}
                   <span>"{project.name}" </span> <br />
                 </h4>
                 <h5 className="sectionHeading projectHeading projectHeadingBottom">
-                  {' '}
                   {contributorString(project)}
                 </h5>
-                {/* </div> */}
                 {/* Project description */}
                 {project.description ? (
                   <>

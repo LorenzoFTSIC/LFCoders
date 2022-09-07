@@ -7,7 +7,7 @@ import Looker from '../../assets/img/welcomerobot.png';
 const style = {
   header: {
     width: '100%',
-    marginBottom: '50px',
+    marginBottom: '2%',
     padding: '0px 15px 0 30px',
     justifyContent: 'space-between', 
   }, 
@@ -18,7 +18,7 @@ const style = {
   },
   looker: {
     height: "120px",
-    marginTop: 15,
+    marginTop: '10%',
   }, 
   logo: { 
     color: 'whitesmoke'

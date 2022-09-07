@@ -14,7 +14,7 @@ const RecentProjects = () => {
 
   return (
     <div>
-      <div >
+      <div>
         <div>
           {loading ? (
             <div>Loading...</div>
