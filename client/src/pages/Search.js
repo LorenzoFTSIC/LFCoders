@@ -32,8 +32,6 @@ const style = {
 
 
 const Search = () => {
-
-
   const [searchVisi, setSearchVisi] = useState(true);
 
   const [formState, setFormState] = useState({
@@ -61,7 +59,6 @@ const Search = () => {
       skills: [...formState.skills, value]
     });
   };
-
 
   const [queryProjectBySkill, { loading, error, data }] = useLazyQuery(QUERY_PROJECTS_BY_SKILL);
 
@@ -314,7 +311,7 @@ const Search = () => {
           <div className="flex-row justify-space-between">
             {projectBySkill &&
               projectBySkill.map((projectBySkill) => (
-                <div key={projectBySkill._id} className="col-12 col-xl-6">
+                <div key={projectBySkill._id}>
                   {/* Card Content */}
                   <div className="card mb-3">
                     {/* User's Name */}
