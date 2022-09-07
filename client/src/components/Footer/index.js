@@ -23,14 +23,14 @@ const Footer = () => {
   return (
     <footer>
       <div className="container text-center">
-        {location.pathname !== '/' && (
+        {/* {location.pathname !== '/' && (
           <button
             className="btn"
             onClick={() => navigate(-1)}
           >
             &larr; Go Back
           </button>
-        )}
+        )} */}
          <h4 className= "contactuslink" style={styles.contactuslink}>
         <Link className= "contactuslink" style={styles.contactuslink} to='/contact'
         onClick={() => navigate('Contact')}>
