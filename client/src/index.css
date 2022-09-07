@@ -170,6 +170,29 @@ form {
 }
 /* END - GENERAL MODAL */
 
+
+/* PROJECT BOXES */
+.projectContainer { 
+	width: 80%;
+	margin: 0 0 5% 3%;
+
+}
+
+.projectHeading { 
+	margin: 1% 0;
+}
+
+.projectHeadingBottom { 
+	margin-bottom: 3%;
+	padding-bottom: 1%;
+	border-bottom: 1px solid var(--pop);
+}
+
+.projectContent { 
+	margin-bottom: 4%;
+}
+
+
 /* SIGN UP CAROUSEL */
 .carousel-inner {
 	padding: 60px;
