@@ -41,8 +41,10 @@ const typeDefs = gql`
     project(projectId: ID!): Project
     skills: [Skill]!
     skill(skillId: ID!): Skill
-    profileBySkill( skillName: String ): [Profile]
-    projectBySkill( skillName: String ): [Project]
+
+    profileBySkill( skillName: [String] ): [Profile]
+
+    projectBySkill( skillName: [String] ): [Project]
     projectByProfile( profileEmail: String ): [Project]
     # Because we have the context functionality in place to check a JWT and decode its data, we can use a query that will always find and return the logged in user's data
     me: Profile
