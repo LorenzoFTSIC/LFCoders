@@ -135,6 +135,7 @@ a.text-dark.logo {
  	background: var(--modal-bg);
 	color: var(--text); 
 	border-radius: 3%;
+	position: relative;
 }
 
 /* Modal Form Styling */ 
