@@ -31,7 +31,7 @@ const Repos = (username) => {
 
     return (
     <div className="content">
-        <h5>Take a look at my Github repos</h2>
+        <h5>Take a look at my Github repos</h5>
         <ul className="list-group">
         {result.map((result) => (
 /*          repoUrl = `https\://github.com/${result.owner.url}/${result.name}`
