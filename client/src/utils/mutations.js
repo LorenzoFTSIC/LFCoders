@@ -14,16 +14,12 @@ export const ADD_PROFILE = gql`
 
 
 export const ADD_PROJECT = gql`
-  mutation AddProject($profile: String!, $createDate: String!, $status: Boolean!, $name: String, $description: String, $github: String) {
-    addProject(profile: $profile, createDate: $createDate, status: $status, name: $name, description: $description, github: $github) {
+  mutation Mutation($name: String, $description: String, $skills: [String], $profile: String!, $createDate: String!, $status: Boolean!) {
+    addProject(name: $name, description: $description, skills: $skills, profile: $profile, createDate: $createDate, status: $status) {
       _id
       name
-      description
       skills
-      profile
       createDate
-      status
-      github
     }
   }
 `;
