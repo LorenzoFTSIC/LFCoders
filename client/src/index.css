@@ -5,7 +5,7 @@
 /* TYPOGRAPHY AND ELEMENTS */
 body {
 	width: 100%;
-	height: 100vh;
+	height: 100%;
 	background: linear-gradient(0deg, rgba(22,22,22,1) 0%, rgba(48,35,59,1) 55%, rgba(60,41,77,1) 68%, rgba(110,66,151,1) 89%, rgba(181,101,255,1) 100%);
 	/* linear-gradient(0deg, rgba(22,22,22,1) 0%, rgba(48,35,59,1) 46%, rgba(60,41,77,1) 58%, rgba(110,66,151,1) 86%, rgba(181,101,255,1) 100%); */
 	/* linear-gradient(0deg, rgba(22,22,22,1) 0%, rgba(48,35,59,1) 42%, rgba(60,41,77,1) 58%, rgba(110,66,151,1) 86%, rgba(181,101,255,1) 100%); */
@@ -71,6 +71,12 @@ img {
 	object-fit: contain;
 }
 /* END - TYPOGRAPHY AND ELEMENTS */
+
+.flex {
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-start;
+}
 
 
 /* smallHeader */
@@ -168,6 +174,32 @@ form {
 .carousel-inner {
 	padding: 60px;
 }
+
+/* .profileFlex > *{
+	width: 48%;
+} */
+
+.profileFlex .list-group-item {
+	background: transparent;
+	border: none;
+	box-shadow: 0px 0px 8px rgb(242 144 255);
+	padding: 5px;
+	padding: 0 20px;
+    text-align: center;
+    margin-bottom: 12px;
+	border-radius: 0;
+}
+
+.profileFlex .list-group-item a{
+	background: transparent;
+    color: white;
+}
+
+.profileFlex h5 {
+	color: white;
+	margin-bottom: 20px;
+}
+
 
 
 /* HEADER */
