@@ -1,18 +1,22 @@
-/* :root { 
-
-} */
+:root { 
+	--text: whitesmoke;
+	--off-white: #b5b5b5;
+	--modal-bg: #333;
+	--pop: #ff2aff;
+	--shadow: 0px 0px 8px #2ad8ff;
+}
 
 /* TYPOGRAPHY AND ELEMENTS */
 body {
 	width: 100%;
-	height: 100vh;
+	height: 100%;
 	background: linear-gradient(0deg, rgba(22,22,22,1) 0%, rgba(48,35,59,1) 55%, rgba(60,41,77,1) 68%, rgba(110,66,151,1) 89%, rgba(181,101,255,1) 100%);
 	/* linear-gradient(0deg, rgba(22,22,22,1) 0%, rgba(48,35,59,1) 46%, rgba(60,41,77,1) 58%, rgba(110,66,151,1) 86%, rgba(181,101,255,1) 100%); */
 	/* linear-gradient(0deg, rgba(22,22,22,1) 0%, rgba(48,35,59,1) 42%, rgba(60,41,77,1) 58%, rgba(110,66,151,1) 86%, rgba(181,101,255,1) 100%); */
 	/* linear-gradient(to bottom, #b565ff 1%, #161616); */
 	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 	font-size: 16px;
-	color: #b5b5b5;
+	color: var(--text);
 }
 
 h1 { 
@@ -51,26 +55,30 @@ p + p {
 .btn {
 	padding: 1%;
 	background:#7B52AB;
-    color: whitesmoke;
 	font-size: 1.3rem;
 	font-weight: 700;
 	text-align: center;
 	border: none;
 	border-radius: 5px;
-	box-shadow: 0px 0px 8px rgb(242, 144, 255);
+	box-shadow: var(--shadow);
 	/* rgba(33, 203, 243, .3) */
 	transition: all 0.3s ease-in-out;
   } 
 
 .btn:hover { 
-	background: rgb(158, 74, 255);
-	box-shadow: 0px 0px 8px rgb(242, 144, 255);
+	background: var(--pop);
 }
 
 img { 
 	object-fit: contain;
 }
 /* END - TYPOGRAPHY AND ELEMENTS */
+
+.flex {
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-start;
+}
 
 
 /* smallHeader */
@@ -79,9 +87,9 @@ a.text-dark.logo {
 }
 
 .navTab:hover { 
-	background: rgb(158, 74, 255);
+	background: var(--pop);
 	/* rgb(236, 185, 236); */
-	color: whitesmoke;
+	color: var(--text);
 	transform: scale(1.1)
 }
 /* END - smallHeader */
@@ -118,15 +126,14 @@ a.text-dark.logo {
 
 .mainTitle { 
 	margin: .5% 0 1.5% 0;
-	color: whitesmoke;
 }
 
 .modalContainer { 
 	min-width: 45%;
 	margin: 0 auto; 
 	padding: 1% 3%; 
- 	background: #333;
-	color: whitesmoke; 
+ 	background: var(--modal-bg);
+	color: var(--text); 
 	border-radius: 3%;
 }
 
@@ -140,17 +147,17 @@ form {
 .sectionHeading { 
 	margin-top: 3%;
 	font-size: 1.4rem;
-	color: rgb(255, 42, 255);
+	color: var(--pop);
 }
 
-.buttonContainer { 
+/* .buttonContainer { 
 	width: fit-content;
 	border-radius: 5px;
 	position: relative;
 	overflow: hidden;
 	display: flex;
 	min-height: 50px;
-}
+} */
 
 .formOptionButton:hover { 
 	font-weight: 600;
@@ -159,10 +166,41 @@ form {
 .submit { 
 	margin: 3% 30% 1% 30%;
 	border: 2px solid lightblue;
-	color: whitesmoke;
+	color: var(--text);
 	cursor: pointer;
 }
 /* END - GENERAL MODAL */
+
+
+/* SIGN UP CAROUSEL */
+.carousel-inner {
+	padding: 60px;
+}
+
+/* .profileFlex > *{
+	width: 48%;
+} */
+
+.profileFlex .list-group-item {
+	background: transparent;
+	border: none;
+	box-shadow: 0px 0px 8px rgb(242 144 255);
+	padding: 5px;
+	padding: 0 20px;
+    text-align: center;
+    margin-bottom: 12px;
+	border-radius: 0;
+}
+
+.profileFlex .list-group-item a{
+	background: transparent;
+    color: white;
+}
+
+.profileFlex h5 {
+	color: white;
+	margin-bottom: 20px;
+}
 
 
 
@@ -182,7 +220,7 @@ form {
     height: 5rem;
     background-image: linear-gradient(to bottom, 
         rgba(255, 255, 255, 0), 
-        rgba(48,35,59,1) 
+        rgb(57, 40, 71) 
     100%);
 }
 
