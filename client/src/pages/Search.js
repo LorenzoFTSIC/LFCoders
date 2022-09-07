@@ -322,7 +322,7 @@ const Search = () => {
           </form>
         </div>
       </div>
-      </div>
+      
       <div style={{ display: searchVisi ? 'none' : 'flex' }}>
         <div
           // className="modalPage"

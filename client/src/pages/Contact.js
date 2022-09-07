@@ -56,33 +56,32 @@ const Contact = () => {
             </div>
 
             <div style={styles.collabBox} className="collabBox">
-            <h4>Lorenzo</h4>
+            <h4>Lorenzo Ferri</h4>
               <li id="linkedin">
-                <a href="lorenzo">
+                <a href=" ">
                   {' '}
                   Add me on LinkedIn
                 </a>{' '}
               </li>
               <li id="github">
-                <a href="lorenzo"> Checkout my projects on Github</a>{' '}
+                <a href="https://github.com/LorenzoFTSIC"> Checkout my projects on Github</a>{' '}
               </li>
-              <li>Email: lorenzo</li>
-              <li>Phone Number:lorenzo </li>
+              <li>lorenzoferritsic@gmail.com</li>
             </div>
 
             <div style={styles.collabBox} className="collabBox">
-            <h4>Khaled</h4>
+            <h4>Khaled Ghanim</h4>
               <li id="linkedin">
-                <a href="Khaled">
+                <a href="https://www.linkedin.com/in/ghanemk/">
                   {' '}
                   Add me on LinkedIn
                 </a>{' '}
               </li>
               <li id="github">
-                <a href="Khaled"> Checkout my projects on Github</a>{' '}
+                <a href="https://github.com/khaledghanem1"> Checkout my projects on Github</a>{' '}
               </li>
-              <li>Email: Khaled</li>
-              <li>Phone Number: Khaled</li>
+              <li>khaledghanim96@gmail.com</li>
+              <li>313-266-4807</li>
             </div>
           </ul>
         </p>
