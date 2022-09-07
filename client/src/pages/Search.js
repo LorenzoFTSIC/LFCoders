@@ -58,7 +58,7 @@ const Search = () => {
   if (error) return `Error! ${error}`;
 
   // const projectData = data?.name || [];
-  console.log(data);
+    console.log(data);
 
   const handleFormSubmit = async (e) => {
     e.preventDefault();
@@ -93,8 +93,8 @@ const Search = () => {
     <div>
       <div
         className="modalPage"
-        style={{ display: searchVisi ? 'flex' : 'none' }}
-      >
+        style={{ display: searchVisi ? 'flex' : 'none' }}>
+        
         <div className="modalContainer">
           {/* <div style={style.container}>
         <h1 className= "title" style={style.title}></h1>
@@ -322,35 +322,7 @@ const Search = () => {
         </div>
       </div>
 
-      <div
-        className="modalPage"
-        style={{ display: !searchVisi ? 'flex' : 'none' }}
-      >
-        <h3 className="mainTitle">Users With Those Skills</h3>
-        {/* For every Project make a card */}
-        <div className="flex-row justify-space-between">
-          {users &&
-            users.map((user) => (
-              <div key={user._id} className="col-12 col-xl-6">
-                {/* Card Content */}
-                <div className="card mb-3">
-                  {/* User's Name */}
-                  <h4 className="card-header bg-dark">
-                    {user.name} <br />
-                    {/* User's Email */}
-                    <span className="text-white" style={{ fontSize: '1rem' }}>
-                      {user.email}
-                    </span>
-                    <br />
-                    {/* User's Bio */}
-                    {user.bio}
-                    <br />
-                  </h4>
-                </div>
-              </div>
-            ))}
-        </div>
-      </div>
+      
     </div>
     // </div>
     // </div>
