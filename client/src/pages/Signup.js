@@ -114,12 +114,12 @@ const Signup = () => {
     console.log(formState);
 
     try {
-      const { profdata } = await addProfile({
+      const { data } = await addProfile({
         variables: { ...formState }
       });
-      console.log(profdata)
+      console.log(data)
 
-      // Auth.login(data.addProfile.token);
+      Auth.login(data.addProfile.token);
     } catch (e) {
       console.error(e);
     }
