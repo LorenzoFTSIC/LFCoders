@@ -346,31 +346,31 @@ const Search = () => {
           </form>
         </div>
       </div>
-      <div style={{ display: searchVisi ? 'none' : 'flex' }}>
-        <div
-          // className="modalPage"
-          style={style.userCards}
-        >
+      <div style={{ display: searchVisi ? 'none' : 'block' }}>
+        <div>
           <h3 className="mainTitle">Projects Looking for Coders</h3>
           {/* For every Project make a card */}
-          <div className="flex-row justify-space-between">
+          <div>
             {projectBySkill &&
               projectBySkill.map((projectBySkill) => (
                 <div key={projectBySkill._id}>
                   {/* Card Content */}
-                  <div className="card mb-3">
+                  <div className="modalContainer projectContainer">
                     {/* User's Name */}
-                    <h4 className="card-header bg-dark">
+                    <h4 className="sectionHeading projectHeading">
                       {projectBySkill.name} <br />
-                      {/* User's Email */}
-                      <span className="text-white" style={{ fontSize: '1rem' }}>
-                        {projectBySkill.profile}
-                      </span>
-                      <br />
-                      {/* User's Bio */}
-                      {projectBySkill.description}
-                      <br />
                     </h4>
+
+                    {/* User's Email */}
+                    <h5 className="sectionHeading projectHeading projectHeadingBottom">
+                      {projectBySkill.profile}
+                    </h5>
+                    {/* User's Bio */}
+                    <h5 className="mainTitle">Describe:</h5>
+                    <span className="projectContent">
+                      "{projectBySkill.description}"
+                    </span>
+                    <br />
                   </div>
                 </div>
               ))}

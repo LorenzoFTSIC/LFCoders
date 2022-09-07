@@ -13,7 +13,7 @@ const ProjectList = ({ projects, title }) => {
 
     return fore.join(', ') + ' and ' + aft;
   };
-  
+
   if (!projects.length) {
     return <h3>No Projects Yet</h3>;
   }
@@ -21,43 +21,44 @@ const ProjectList = ({ projects, title }) => {
     <div>
       <h3 className="mainTitle">{title}</h3>
       {/* For every Project make a card */}
-      <div className="flex-row justify-space-between">
+      <div>
         {projects &&
           projects.map((project) => (
-            <div key={project._id} className="col-12 col-xl-6">
+            <div key={project._id}>
               {/* Card Content */}
-              <div className="card mb-3">
+              <div className="modalContainer projectContainer">
                 {/* List of Contributors set in an array */}
-                <h4 className="card-header bg-dark">
-                  {contributorString(project)} <br />
+                <h4 className="sectionHeading projectHeading">
                   {/* Project name */}
-                  <span className="text-white" style={{ fontSize: '1rem' }}>
-                    worked on "{project.name}"{' '}
-                  </span>{' '}
-                  <br />
-                  {/* Project description */}
-                  {project.description ? (
-                    <span>Description: "{project.description}"</span>
-                  ) : (
-                    <span>No description available</span>
-                  )}{' '}
-                  <br />
-                  {/* Combined Skills */}
-                  <span>
-                    Combined, the collaborators used {project.skills}
-                  </span>{' '}
-                  <br />
-                  {/* Creation date */}
-                  <span>Created on: {project.createDate}</span> <br />
-                  {/* Status */}
-                  <span>Project status: {project.status}</span> <br />
+                  <span>"{project.name}" </span> <br />
                 </h4>
+                <h5 className="sectionHeading projectHeading projectHeadingBottom">
+                  {contributorString(project)}
+                </h5>
+                {/* Project description */}
+                {project.description ? (
+                  <>
+                    <h5 className="mainTitle">Description:</h5>
+                    <span className="projectContent">
+                      {project.description}
+                    </span>
+                  </>
+                ) : (
+                  <span>No description available</span>
+                )}{' '}
+                <br />
+                {/* Combined Skills */}
+                <h5 className="mainTitle projectMainTitle">Skills used:</h5>
+                <span>{project.skills}</span> <br />
+                {/* Creation date */}
+                <h5 className="mainTitle projectMainTitle"> Created on:</h5>
+                <span>{project.createDate}</span> <br />
+                {/* Status */}
+                <h5 className="mainTitle projectMainTitle"> Project status:</h5>
+                <span>{project.status}</span> <br />
                 {/* GitHub Link */}
                 {project.github ? (
-                  <a
-                    href={project.github}
-                    className="btn btn-block btn-squared btn-light text-dark"
-                  >
+                  <a href={project.github} className="btn btn-block">
                     View project on GitHub.
                   </a>
                 ) : (
