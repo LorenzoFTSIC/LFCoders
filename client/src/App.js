@@ -48,7 +48,7 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <Router>
-        <div className="flex-column justify-flex-start min-100-vh">
+        <div className="rootDiv">
           {Auth.loggedIn() ? <SmallHeader /> : <Header reasons={reasons} />}
           {/* ^Conditional to switch between the two types of headers when the user is logged in or not logged in */}
           <div className="container">

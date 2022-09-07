@@ -32,7 +32,11 @@ const styles = {
     display: 'flex',
     flexDirection: 'column',
     width: '100%'
-  }
+  }, 
+
+  // heightChange: { 
+  //   padding: '8% 3%'
+  // }
 };
 
 const Searchcoders = () => {
@@ -93,7 +97,9 @@ const Searchcoders = () => {
         // style={styles.modalPage}
         style={{ display: searchVisi ? 'flex' : 'none' }}
       >
-        <div className="modalContainer">
+        <div className="modalContainer"
+          style={styles.heightChange}
+>
           {/* <div style={style.container}>
         <h1 className= "title" style={style.title}></h1>
       <div> */}
@@ -225,7 +231,7 @@ const Searchcoders = () => {
               profileBySkill.map((profileBySkill) => (
                 <div
                   key={profileBySkill._id}
-                  className="modalContainer projectContainer"
+                  className="modalContainer projectContainer" 
                 >
                   {/* Card Content */}
                   <div>
