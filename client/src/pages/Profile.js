@@ -537,7 +537,7 @@ const Profile = () => {
         {/* ^ The div that will go through the collab info for the specific user */}
       </div>
       <div>
-        <Repos/>
+        <Repos username={profile.github}/>
       </div>
       {/* </section> */}
     </div>
