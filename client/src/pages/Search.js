@@ -1,4 +1,5 @@
 import React from 'react';
+import robotimg from '../assets/img/robot3.png';
 // import Button from '@mui/material/button';
 
 // import LFCForm from '../components/LFCForm';
@@ -12,9 +13,20 @@ const style = {
     borderRadius: 'none',
     color: '#161616',
   },
+  robotimg: {
+    height: "170px",
+    opacity: '0.8',
+    marginTop:'50px',
+    marginLeft: '50px',
+    marginRight:'70px',
+    top: '10px',
+    position: 'absolute',
+    right: '0'
+  }, 
   modalPage:{
     paddingBottom:'50px'
-  }
+  },
+  
 };
 
 const Search = () => {
@@ -24,7 +36,10 @@ const Search = () => {
         {/* <div style={style.container}>
         <h1 className= "title" style={style.title}></h1>
       <div> */}
+      {/* <div className= "objects" style={style.objects} > */}
         <h3 className="mainTitle">LOOKING TO CODE</h3>
+        <img className="robotimg" src={robotimg} alt="robot with magnofying glass" style={style.robotimg}></img>
+       {/* </div> */}
         <form>
           <h3 className="sectionHeading">What I bring to the table:</h3>
           <div className="buttonContainer">
@@ -157,6 +172,7 @@ const Search = () => {
               Sunday
             </button>
           </div>
+         
           <button
             className="btn btn-block submit"
             type="submit"

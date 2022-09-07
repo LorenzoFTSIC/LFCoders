@@ -199,7 +199,7 @@ const Profile = () => {
             <Avatar
               alt="{profile.name}"
               src={avatar}
-              sx={{ width: 300, height: 300, padding: 1, boxShadow: 20 }}
+              sx={{ width: 280, height: 275, padding: 1, boxShadow: 15 }}
             />
           </div>
 
