@@ -61,8 +61,8 @@ const resolvers = {
       return skill
     },
 
-    addProfile: async (parent, { name, email, password, github,  bio, status }) => {
-      const profile = await Profile.create({ name, email, password, github, bio, status });
+    addProfile: async (parent, { name, email, skills, password, github,  bio, status }) => {
+      const profile = await Profile.create({ name, email, skills, password, github, bio, status });
       const token = signToken(profile);
 
       return { token, profile };

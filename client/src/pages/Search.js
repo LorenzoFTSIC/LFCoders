@@ -57,11 +57,11 @@ const Search = () => {
   if (loading) return <p>Loading ...</p>;
   if (error) return `Error! ${error}`;
 
-  // const projectData = data?.name || [];
   const projectBySkill = data?.projectBySkill || [];
   if (data) {
     console.log(data);
   }
+  // const projectData = data?.name || [];
 
   const handleFormSubmit = async (e) => {
     e.preventDefault();
@@ -321,7 +321,6 @@ const Search = () => {
             </button>
           </form>
         </div>
-      </div>
       </div>
       <div style={{ display: searchVisi ? 'none' : 'flex' }}>
         <div

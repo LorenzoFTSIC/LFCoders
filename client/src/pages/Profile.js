@@ -5,7 +5,7 @@ import { useQuery } from '@apollo/client';
 
 import { QUERY_SINGLE_PROFILE, QUERY_ME } from '../utils/queries';
 
-import { EDIT_BIO } from '../utils/mutations'
+import { EDIT_BIO, ADD_PROJECT } from '../utils/mutations'
 
 import { useMutation } from '@apollo/client';
 // import { QUERY_BIO } from '../utils/queries';
@@ -15,6 +15,9 @@ import Box from '@material-ui/core/Box';
 import Button from '@mui/material/Button';
 // import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
+import Checkbox from '@mui/material/Checkbox';
+import FormGroup from '@mui/material/FormGroup';
+import FormControlLabel from '@mui/material/FormControlLabel';
 import Repos from '../components/Repos/index'
 
 import Auth from '../utils/auth';
@@ -146,11 +149,13 @@ const Profile = () => {
 
   // Check if data is returning from the `QUERY_ME` query, then the `QUERY_SINGLE_PROFILE` query
   const profile = data?.me || data?.profile || {};
-  console.log(profile._id)
   const [formState, setFormState] = useState({
     errors: {},
     // profileId: '',
-    bio: ''
+    bio: '',
+    skills: [],
+    name: '',
+    description: '',
   });
 
   const [editBio, { error, Modeldata }] = useMutation(EDIT_BIO);
@@ -178,8 +183,34 @@ const Profile = () => {
     }
   };
 
+  const current = new Date();
+  const date = `${current.getDate()}/${current.getMonth()+1}/${current.getFullYear()}`;
+  console.log(date)
+
+  const [AddProject, { projectError, projectdata }] = useMutation(ADD_PROJECT);
+
+  const projectFormSubmit = async (e) => {
+    e.preventDefault();
+    console.log(formState);
+
+    try {
+      const { Projectdata } = await AddProject({
+        variables: { ...formState, profileId: profile._id, profile: profile.email, status: false, createDate: date }
+      });
+      console.log(Projectdata)
+    } catch (e) {
+      console.error(e);
+    }
+  };
 
 
+  const handleSkills = (e) => {
+    const { name, value } = e.target;
+    setFormState({
+      ...formState,
+      skills: [...formState.skills, value]
+    });
+  };
 
   // Use React Router's `<Redirect />` component to redirect to personal profile page if username is yours
   if (Auth.loggedIn() && Auth.getProfile().data._id === profileId) {
@@ -297,6 +328,7 @@ const Profile = () => {
         <h5>My Bio</h5>
         <p>{profile.bio}</p>
       </div>
+
       <div style={style.flex} className="profileFlex">
         
         <div>
@@ -323,7 +355,9 @@ const Profile = () => {
                 <section>
                   <div>
                     <h5 className="sectionHeading">Project Name</h5>
-                    <textarea rows="1" style={style.input}></textarea>
+                    <textarea rows="1" style={style.input}
+                    onChange={handleChange}
+                    name="name"></textarea>
                   </div>
                   <div>
                     <div>
@@ -332,47 +366,40 @@ const Profile = () => {
                         style={style.input}
                         class="form-control"
                         rows="1"
+                        onChange={handleChange}
+                        name="description"
                       ></textarea>
                     </div>
                   </div>
 
-                  <h3 className="sectionHeading">What I bring to the table:</h3>
-                  <div className="buttonContainer">
-                    <button
-                      className="formOptionButton"
-                      // ^ button favorite styled
-                      style={style.modalButton}
-                      variant="outlined"
-                      size="medium"
-                    // type="radio"
-                    >
-                      Front End
-                    </button>
+                <h3 className="sectionHeading">What the project's gonna use:</h3>
+                <div className="buttonContainer">
+                  <FormGroup>
+                    <div>
+                      <FormControlLabel control={<Checkbox  value="React" onClick={handleSkills}/>} label="React" name="skills"/>
+                      <FormControlLabel control={<Checkbox  value="Angular" onClick={handleSkills}/>} label="Angular" name="skills"/>
+                      <FormControlLabel control={<Checkbox  value="Express" onClick={handleSkills}/>} label="Express"  name="skills"/>
+                      <br/>
+                      <FormControlLabel control={<Checkbox  value="MongoDB" onClick={handleSkills} />} label="MongoDB" name="skills"/>
+                      <FormControlLabel control={<Checkbox  value="MySQL" onClick={handleSkills}/>} label="MySQL" name="skills"/>
+                      <FormControlLabel control={<Checkbox  value="Node" onClick={handleSkills}/>} label="Node" name="skills"/>
+                    </div>
+                  </FormGroup>
+                </div>
 
-                    <button
-                      className="formOptionButton"
-                      // ^ button favorite styled
-                      style={style.modalButton}
-                      variant="outlined"
-                      size="medium"
-                    // type="radio"
-                    >
-                      Back End
-                    </button>
-                  </div>
-
-                  <h3 className="sectionHeading">Expected Timeline:</h3>
-                  <div className="buttonContainer">
-                    <button
-                      className="formOptionButton"
-                      // ^ button favorite styled
-                      style={style.modalButton}
-                      variant="outlined"
-                      size="medium"
-                    // type="radio"
-                    >
-                      Small
-                    </button>
+                {/* <h3 className="sectionHeading">Expected Timeline:</h3>
+                <div className="buttonContainer">
+                  <button
+                    className="formOptionButton"
+                    // ^ button favorite styled
+                    style={style.modalButton}
+                    variant="outlined"
+                    size="medium"
+                  // type="radio"
+                  >
+                    Small
+                  </button>
+               
 
                     <button
                       className="formOptionButton"
@@ -465,17 +492,18 @@ const Profile = () => {
                       Saturday
                     </button>
 
-                    <button
-                      className="formOptionButton"
-                      // ^ button favorite styled
-                      style={style.modalButton}
-                      variant="outlined"
-                      size="medium"
-                    // type="radio"
-                    >
-                      Sunday
-                    </button>
-                  </div>
+                  <button
+                    className="formOptionButton"
+                    // ^ button favorite styled
+                    style={style.modalButton}
+                    variant="outlined"
+                    size="medium"
+                  // type="radio"
+                  >
+                    Sunday
+                  </button>
+                </div> */}
+
 
                   {/* <div>
                     <h5 className="sectionHeading">Project Languages</h5>
@@ -518,20 +546,21 @@ const Profile = () => {
                       </div>
                     </div>
                   </div> */}
-
-
-                </section>
-                <button
-                  className="btn btn-block submit"
-                  type="submit"
-                >
-                  Save
-                </button>
-              </div>
+              </section>
+              <button
+                className="btn btn-block submit"
+                type="submit"
+                onClick={projectFormSubmit}
+              >
+                Save
+              </button>
+            </div>
 
             </Box>
 
           </Modal>
+
+
           {/* {collab ? (
           <div style={style.collabSquare}>
             {profilecollabs.map((collab) => (
