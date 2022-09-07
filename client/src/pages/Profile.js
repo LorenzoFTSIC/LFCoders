@@ -262,7 +262,7 @@ const Profile = () => {
                       <textarea
                         onChange={handleChange}
                         name="bio"
-                        class="form-control"
+                        className="form-control"
                         rows="4"
                       ></textarea>
                     </div>

@@ -164,6 +164,10 @@ form {
 }
 /* END - GENERAL MODAL */
 
+/* SIGN UP CAROUSEL */
+.carousel-inner {
+	padding: 60px;
+}
 
 
 /* HEADER */

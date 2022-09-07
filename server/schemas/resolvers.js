@@ -13,7 +13,7 @@ const resolvers = {
     },
 
     profileBySkill: async (parent, { skillName }) => {
-      return Profile.find({ skills:  { $in: [skillName] }})
+      return Profile.find({ skills:  { $all: skillName }})
     },
 
     projects: async () => {
@@ -25,7 +25,7 @@ const resolvers = {
     },
 
     projectBySkill: async (parent, { skillName }) => {
-      return Project.find({ skills:  { $in: [skillName] }})
+      return Project.find({ skills:  { $all: skillName }})
     },
 
     projectByProfile: async (parent, { profileEmail }) => {

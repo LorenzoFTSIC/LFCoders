@@ -1,14 +1,13 @@
 import { gql } from '@apollo/client';
 
 export const ADD_PROFILE = gql`
-  mutation addProfile($name: String!, $email: String!, $password: String!, $bio: String!) {
-    addProfile(name: $name, email: $email, password: $password, bio: $bio) {
-      token
+  mutation addProfile($name: String!, $email: String!, $password: String!, $github: String!, $bio: String, $status: String) {
+    addProfile(name: $name, email: $email, password: $password, github: $github, bio: $bio, status: $status) {
       profile {
         _id
-        name,
-        bio
+        name
       }
+      token
     }
   }
 `;
@@ -94,7 +93,7 @@ export const REMOVE_SKILL = gql`
 
 // Based off the mini project 
 export const EDIT_BIO = gql`
-  mutation editBio($profileId: String!, $bio: String) {
+  mutation editBio($profileId: String!, $bio: String!) {
     editBio(profileId: $profileId, bio: $bio) {
       _id
       name
