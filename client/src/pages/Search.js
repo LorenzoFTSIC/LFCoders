@@ -1,5 +1,4 @@
 
-import React from 'react';
 import robotimg from '../assets/img/robot3.png';
 
 import React, { useState } from 'react';
@@ -127,7 +126,7 @@ const Search = () => {
         {/*<img className="robotimg" src={robotimg} alt="robot with magnofying glass" style={style.robotimg}></img>*/}
        {/* </div> */}
         <form>
-          <h3 className="sectionHeading">What I bring to the table:</h3>
+          {/* <h3 className="sectionHeading">What I bring to the table:</h3>
           <div className="buttonContainer">
             <button
               className="formOptionButton"
@@ -386,12 +385,9 @@ const Search = () => {
           >
             Submit
           </button>
-        </form>
-
+        </div>
       </div>
-
     </div>
-    // </div>
     // </div>
     //   HTML and CSS by AlvaroTrigo on CodePen: TabbyTabs
   );

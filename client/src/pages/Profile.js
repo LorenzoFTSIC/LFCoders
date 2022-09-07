@@ -364,7 +364,7 @@ const Profile = () => {
                       <h5 className="sectionHeading">Project Description</h5>
                       <textarea
                         style={style.input}
-                        class="form-control"
+                        className="form-control"
                         rows="1"
                         onChange={handleChange}
                         name="description"
