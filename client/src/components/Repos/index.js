@@ -24,7 +24,8 @@ const Repos = (username) => {
       };
 
     useEffect(() => {
-    searchRepo(username.username.toString().split("/")[1]);
+    searchRepo(username.username);
+    // searchRepo(username.username.toString().split("/")[1]);
     //profile.github 
     }, []);
 
