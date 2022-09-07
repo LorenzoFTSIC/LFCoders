@@ -18,6 +18,7 @@ import Modal from '@mui/material/Modal';
 import Checkbox from '@mui/material/Checkbox';
 import FormGroup from '@mui/material/FormGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
+import Repos from '../components/Repos/index'
 
 import Auth from '../utils/auth';
 import Avatar from '@mui/material/Avatar';
@@ -50,10 +51,10 @@ const style = {
     textDecoration: "underline"
   },
 
-  push: {
+  /* push: {
     marginTop: '3rem',
     color: 'white'
-  },
+  }, */
   settingsModal: {
     position: 'absolute',
     top: '50%',
@@ -109,7 +110,14 @@ const style = {
   },
   modalBg: {
     backgroundColor: "transparent"
-  }
+  },
+  flex: {
+    display: "grid",
+    gridTemplateColumns: "1fr 2fr",
+    width: "100%",
+    columnGap: 40
+  },
+
   /*   days: {
       display: "grid",
       gridTemplateColumns: "1fr 1fr 1fr 1fr 1fr",
@@ -213,14 +221,14 @@ const Profile = () => {
     return <div>Loading...</div>;
   }
 
- if (!profile?.name) {
+  if (!profile?.name) {
     return (
       <h4>
         You need to be logged in to see your profile page. Use the navigation
         links above to sign up or log in!
       </h4>
     );
-  } 
+  }
 
   return (
     <div>
@@ -321,44 +329,48 @@ const Profile = () => {
         <p>{profile.bio}</p>
       </div>
 
-      <div style={style.push}>
-        <h5>My Collabs</h5>
-        <Button className="btn btn-block" style={style.button} onClick={handleCreateProjectOpen}>
-          Create Project
-        </Button>
-        <Modal
-          className="modalPage"
-          open={createProject}
-          onClose={handleCreateProjectClose}
-          aria-labelledby="modal-modal-title"
-          aria-describedby="modal-modal-description"
-        >
-          <Box className="modalContainer" style={style.modalBg}>
-            <h3 className="mainTitle" style={style.title}>Looking For Coders</h3>
-            <div id="modal-modal-description" style={style.center}>
-              <h4 className="text-center">What sort of project are you making?</h4>
-              <section>
-                <div>
-                  <h5 className="sectionHeading">Project Name</h5>
-                  <textarea 
-                  rows="1" 
-                  style={style.input}
-                  onChange={handleChange}
-                  name="name"
-                  ></textarea>
-                </div>
-                <div>
+      <div style={style.flex} className="profileFlex">
+        
+        <div>
+          <Repos username={profile.github} />
+        </div>
+        <div style={style.push}>
+          <div className="flex">
+          <h5>My Collabs</h5>
+          <Button className="btn btn-block" style={style.button} onClick={handleCreateProjectOpen}>
+            Create Project
+          </Button>
+          </div>
+          <Modal
+            className="modalPage"
+            open={createProject}
+            onClose={handleCreateProjectClose}
+            aria-labelledby="modal-modal-title"
+            aria-describedby="modal-modal-description"
+          >
+            <Box className="modalContainer" style={style.modalBg}>
+              <h3 className="mainTitle" style={style.title}>Looking For Coders</h3>
+              <div id="modal-modal-description" style={style.center}>
+                <h4 className="text-center">What sort of project are you making?</h4>
+                <section>
                   <div>
-                    <h5 className="sectionHeading">Project Description</h5>
-                    <textarea
-                      style={style.input}
-                      className="form-control"
-                      rows="1"
-                      onChange={handleChange}
-                      name="description"
-                    ></textarea>
+                    <h5 className="sectionHeading">Project Name</h5>
+                    <textarea rows="1" style={style.input}
+                    onChange={handleChange}
+                    name="name"></textarea>
                   </div>
-                </div>
+                  <div>
+                    <div>
+                      <h5 className="sectionHeading">Project Description</h5>
+                      <textarea
+                        style={style.input}
+                        class="form-control"
+                        rows="1"
+                        onChange={handleChange}
+                        name="description"
+                      ></textarea>
+                    </div>
+                  </div>
 
                 <h3 className="sectionHeading">What the project's gonna use:</h3>
                 <div className="buttonContainer">
@@ -387,97 +399,98 @@ const Profile = () => {
                   >
                     Small
                   </button>
+               
 
-                  <button
-                    className="formOptionButton"
-                    // ^ button favorite styled
-                    style={style.modalButton}
-                    variant="outlined"
-                    size="medium"
-                  // type="radio"
-                  >
-                    Medium
-                  </button>
+                    <button
+                      className="formOptionButton"
+                      // ^ button favorite styled
+                      style={style.modalButton}
+                      variant="outlined"
+                      size="medium"
+                    // type="radio"
+                    >
+                      Medium
+                    </button>
 
-                  <button
-                    className="formOptionButton"
-                    // ^ button favorite styled
-                    style={style.modalButton}
-                    variant="outlined"
-                    size="medium"
-                  // type="radio"
-                  >
-                    Large
-                  </button>
-                </div>
+                    <button
+                      className="formOptionButton"
+                      // ^ button favorite styled
+                      style={style.modalButton}
+                      variant="outlined"
+                      size="medium"
+                    // type="radio"
+                    >
+                      Large
+                    </button>
+                  </div>
 
-                <h3 className="sectionHeading">I am available...</h3>
-                <div className="buttonContainer" style={style.days}>
-                  <button
-                    className="formOptionButton"
-                    // ^ button favorite styled
-                    style={style.modalButton}
-                    variant="outlined"
-                    size="medium"
-                    type="button"
-                  >
-                    Monday
-                  </button>
+                  <h3 className="sectionHeading">I am available...</h3>
+                  <div className="buttonContainer" style={style.days}>
+                    <button
+                      className="formOptionButton"
+                      // ^ button favorite styled
+                      style={style.modalButton}
+                      variant="outlined"
+                      size="medium"
+                      type="button"
+                    >
+                      Monday
+                    </button>
 
-                  <button
-                    className="formOptionButton"
-                    // ^ button favorite styled
-                    style={style.modalButton}
-                    variant="outlined"
-                    size="medium"
-                    type="button"
-                  >
-                    Tuesday
-                  </button>
+                    <button
+                      className="formOptionButton"
+                      // ^ button favorite styled
+                      style={style.modalButton}
+                      variant="outlined"
+                      size="medium"
+                      type="button"
+                    >
+                      Tuesday
+                    </button>
 
-                  <button
-                    className="formOptionButton"
-                    // ^ button favorite styled
-                    style={style.modalButton}
-                    variant="outlined"
-                    size="medium"
-                  // type="radio"
-                  >
-                    Wednesday
-                  </button>
+                    <button
+                      className="formOptionButton"
+                      // ^ button favorite styled
+                      style={style.modalButton}
+                      variant="outlined"
+                      size="medium"
+                    // type="radio"
+                    >
+                      Wednesday
+                    </button>
 
-                  <button
-                    className="formOptionButton"
-                    // ^ button favorite styled
-                    style={style.modalButton}
-                    variant="outlined"
-                    size="medium"
-                  // type="radio"
-                  >
-                    Thursday
-                  </button>
+                    <button
+                      className="formOptionButton"
+                      // ^ button favorite styled
+                      style={style.modalButton}
+                      variant="outlined"
+                      size="medium"
+                    // type="radio"
+                    >
+                      Thursday
+                    </button>
 
-                  <button
-                    className="formOptionButton"
-                    // ^ button favorite styled
-                    style={style.modalButton}
-                    variant="outlined"
-                    size="medium"
-                  // type="radio"
-                  >
-                    Friday
-                  </button>
+                    <button
+                      className="formOptionButton"
+                      // ^ button favorite styled
+                      style={style.modalButton}
+                      variant="outlined"
+                      size="medium"
+                    // type="radio"
+                    >
+                      Friday
+                    </button>
 
-                  <button
-                    className="formOptionButton"
-                    // ^ button favorite styled
-                    style={style.modalButton}
-                    variant="outlined"
-                    size="medium"
-                  // type="radio"
-                  >
-                    Saturday
-                  </button>
+                    <button
+                      className="formOptionButton"
+                      // ^ button favorite styled
+                      style={style.modalButton}
+                      variant="outlined"
+                      size="medium"
+                    // type="radio"
+                    >
+                      Saturday
+                    </button>
 
                   <button
                     className="formOptionButton"
@@ -491,7 +504,8 @@ const Profile = () => {
                   </button>
                 </div> */}
 
-                {/* <div>
+
+                  {/* <div>
                     <h5 className="sectionHeading">Project Languages</h5>
                     <div style={style.formContent}>
                     <div className="form-check">
@@ -532,8 +546,6 @@ const Profile = () => {
                       </div>
                     </div>
                   </div> */}
-
-
               </section>
               <button
                 className="btn btn-block submit"
@@ -544,10 +556,12 @@ const Profile = () => {
               </button>
             </div>
 
-          </Box>
+            </Box>
 
-        </Modal>
-        {/* {collab ? (
+          </Modal>
+
+
+          {/* {collab ? (
           <div style={style.collabSquare}>
             {profilecollabs.map((collab) => (
               <CollabCube key={collab.id} collab={collab} />
@@ -557,12 +571,13 @@ const Profile = () => {
           <p>Nothing yet!</p>
         )} */}
 
-        {/* <div style={style.collabSquare}>
+          {/* <div style={style.collabSquare}>
           {profilecollabs.map((collab) => (
             <CollabCube key={collab.id} collab={collab} />
           ))}
         </div> */}
-        {/* ^ The div that will go through the collab info for the specific user */}
+          {/* ^ The div that will go through the collab info for the specific user */}
+        </div>
       </div>
       {/* </section> */}
     </div>

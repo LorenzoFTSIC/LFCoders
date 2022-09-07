@@ -12,7 +12,7 @@ const styles = {
     width: 140,
     flex: 1,
     height: 75,
-    marginLeft: '1%',
+    marginLeft: '.5%',
     paddingBottom: '.5%',
     borderRadius: ' 0 0 8px 8px',
     border: '1.8px solid whitesmoke',
@@ -24,7 +24,7 @@ const styles = {
     transition: '0.2s ease-in-out'
   },
   tabLabel: {
-    color: '#161616',
+    color: '#252525',
     fontSize: '1.2rem',
     fontWeight: 600
   }
