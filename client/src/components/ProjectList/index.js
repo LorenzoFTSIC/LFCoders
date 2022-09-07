@@ -41,10 +41,9 @@ const ProjectList = ({ projects, title }) => {
                 {/* Project description */}
                 {project.description ? (
                   <>
-                    <h5 className="mainTitle">Description: </h5>
+                    <h5 className="mainTitle">Description:</h5>
                     <span className="projectContent">
-                      {' '}
-                      "{project.description}"
+                      {project.description}
                     </span>
                   </>
                 ) : (
@@ -52,14 +51,14 @@ const ProjectList = ({ projects, title }) => {
                 )}{' '}
                 <br />
                 {/* Combined Skills */}
-                <h5 className="mainTitle">The collaborators used</h5>
-                <span> {project.skills}</span> <br />
+                <h5 className="mainTitle projectMainTitle">Skills used:</h5>
+                <span>{project.skills}</span> <br />
                 {/* Creation date */}
-                <h5 className="mainTitle"> Created on:</h5>
-                <span> {project.createDate}</span> <br />
+                <h5 className="mainTitle projectMainTitle"> Created on:</h5>
+                <span>{project.createDate}</span> <br />
                 {/* Status */}
-                <h5 className="mainTitle"> Project status:</h5>
-                <span> {project.status}</span> <br />
+                <h5 className="mainTitle projectMainTitle"> Project status:</h5>
+                <span>{project.status}</span> <br />
                 {/* GitHub Link */}
                 {project.github ? (
                   <a href={project.github} className="btn btn-block">
