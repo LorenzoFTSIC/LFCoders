@@ -3,7 +3,9 @@
 
 
 ## About the Project
-Welcome to the GitHub page for LFC (Looking for coders). The site for all coders to connect on web development projects.
+
+https://quiet-coast-79925.herokuapp.com/
+Welcome to the GitHub page for LFC (Looking for coders). The site for all coders to connect on web development projects 
 
 ![image](../LFCoders/client/src/assets/img/landingpage.png)
 ![image](../LFCoders/client/src/assets/img/search.png)
