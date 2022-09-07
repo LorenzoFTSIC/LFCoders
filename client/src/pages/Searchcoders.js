@@ -4,10 +4,10 @@ import { gql, useLazyQuery } from '@apollo/client';
 import { QUERY_PROFILES_BY_SKILL } from '../utils/queries';
 
 const styles = {
-  checkbox: {
-    backgroundColor: 'pink',
-    borderColor: 'pink'
-  },
+  // checkbox: {
+  //   backgroundColor: 'pink',
+  //   borderColor: 'pink'
+  // },
   robotimg: {
     height: '150px',
     opacity: '0.8',
