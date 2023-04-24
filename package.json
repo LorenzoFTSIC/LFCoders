@@ -18,5 +18,8 @@
   },
   "dependencies": {
 
+  },
+  "engines": {
+    "node": "16.x"
   }
 }
